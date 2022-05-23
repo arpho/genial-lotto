@@ -1,4 +1,4 @@
-import { QuestionBase } from '../models/question-base';
+import { QuestionBase } from './question-base';
 import { SelectorProperties } from '../../item/models/selectorItemsProperties';
 import { ItemModule } from '../../item/item.module';
 import { ItemModelInterface } from '../../item/models/itemModelInterface';
