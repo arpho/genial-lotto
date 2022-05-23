@@ -38,3 +38,5 @@ dataUploader/.idea/
 node_modules
 scraper
 .angular
+
+package-lock.json

@@ -4,7 +4,6 @@ import { ItemServiceInterface } from './ItemServiceInterface';
 import { AlertOptions, Page } from '@ionic/core';
 import { ItemFilterOPtions } from './ItemFIlterOptions';
 import { QuickAction } from './QuickAction';
-import { Component } from '@angular/compiler/src/core';
 
 export type Genere = 'o' | 'a';
 
