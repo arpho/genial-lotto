@@ -1,0 +1,7 @@
+{
+  "name": "genialotto",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
