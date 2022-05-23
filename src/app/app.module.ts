@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ItemModule } from 'src/app/modules/item/item.module';
 import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,8 @@ import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
       AppRoutingModule,
       DynamicFormModule,
     ItemModule,
-    HelpersModule
+    HelpersModule,
+    UserModule
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

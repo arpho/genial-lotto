@@ -40,3 +40,5 @@ scraper
 .angular
 
 package-lock.json
+
+src/app/configs/credentials.ts
