@@ -7,7 +7,7 @@ admin.initializeApp({
     projectId: functions.config().project.id,
     clientEmail: functions.config().client.email,
   }),
-  databaseURL: `https://[${functions.config().project.id}].firebaseio.com`,
+  databaseURL: `https://${functions.config().project.id}.firebaseio.com`,
 });
 
 const db = admin.firestore();
