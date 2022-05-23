@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { EstrazioneComponent } from './estrazione.component';
+import { NumberComponent } from './number.component';
 
-describe('EstrazioneComponent', () => {
-  let component: EstrazioneComponent;
-  let fixture: ComponentFixture<EstrazioneComponent>;
+describe('NumberComponent', () => {
+  let component: NumberComponent;
+  let fixture: ComponentFixture<NumberComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EstrazioneComponent ],
+      declarations: [ NumberComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EstrazioneComponent);
+    fixture = TestBed.createComponent(NumberComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
