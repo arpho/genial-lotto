@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {db} from "./../../functions/src/configs/firebase"
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
