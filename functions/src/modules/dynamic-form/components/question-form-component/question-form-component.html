@@ -1,0 +1,111 @@
+<div [formGroup]="form" >
+  <label [attr.for]="question?.key">{{ question?.label }}</label>
+
+  <div [ngSwitch]="question?.controlType">
+    <input
+    class='question'
+    ngDefaultControl
+      *ngSwitchCase="'textbox'"
+      [formControlName]="question?.key"
+      [type]="question?.type"
+      
+    />
+    
+    
+    <section [ngSwitch]="question?.controlType" class='question'>
+      <ion-textarea
+      ngDefaultControl
+        *ngSwitchCase="'textArea'"
+        [formControlName]="question?.key"
+
+        [id]="question?.key"
+        autoGrow="question?.autoGrow"
+        [value]= "question?.value"
+      ></ion-textarea>
+      </section>
+
+<section *ngSwitchCase="'email'"
+         >
+
+          <app-email-field
+          class='question'
+          [formControlName]="question?.key"
+          [email]= "question?.value"
+          [id]="question.key"
+          >
+          </app-email-field>
+
+     
+          
+
+    </section>
+
+    <section *ngSwitchCase="'password'">
+  
+    <app-password-field  class='question'
+    [formControlName]="question?.key"
+    [retypePassword] ="question?.retypePassword"
+
+    ></app-password-field>
+    </section>
+  
+    <section *ngSwitchCase="'address'">
+    <app-address class="question"
+                  [address]="question?.value"
+                  [formControlName]="question?.key"
+                  [id]="question?.key"
+                  ></app-address>
+    </section>
+
+    <section *ngSwitchCase="'datebox'" class='question'>
+      <ion-datetime [formControlName]="question?.key" [id]="question?.key"
+      [presentation]="question?.presentation">
+      </ion-datetime>
+    </section>
+
+    <section *ngSwitchCase="'switchBox'" class="question">
+      <p class="switchText">
+        {{ getValue ? question.labelTrue : question.labelFalse }}
+      </p>
+      <ion-icon
+        [name]="getValue ? question.iconTrue:question.iconFalse"
+      ></ion-icon>
+      <ion-toggle
+        [formControlName]="question?.key"
+        [id]="question?.key"
+      ></ion-toggle>
+    </section>
+    
+ 
+    <section *ngSwitchCase="'itemSelector'"
+    class="question"
+    [formControlName]="question?.key"
+    [id]="question?.key"
+    ngDefaultControl
+    >
+        <app-selector-items
+        [formControlName]="question?.key"
+        [id]="question?.key"
+         [text]="question?.text" [service]="question?.service" (selectedItem)="question.selectedItem($event)"
+          [sorterFunction]="question?.sorterFunction"
+          [filterFunction]="question?.ItemsFilterFunction"
+          [createPopup]= "question?.createPopup"
+          [item]="question?.value"
+          (selectedItem)="question.selectedItem($event)" ></app-selector-items>
+      
+    </section>
+    <select
+      [id]="question?.key"
+      *ngSwitchCase="'dropdown'"
+      [value]="question?.value"
+      [formControlName]="question?.key"
+    >
+      <option *ngFor="let opt of question?.options" [value]="opt?.value">{{
+        opt.key
+      }}</option>
+    </select>
+
+  <section style="color:red" *ngIf="!isValid">
+    {{ question ? question.label : "" }} è richiesto
+  </section>
+</div>

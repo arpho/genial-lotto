@@ -1,0 +1,80 @@
+.note {
+    font-style: italic;
+    background-color: lightgray;
+    font-size: 0.7em;
+    top: 17px;
+    position: relative;
+}
+
+p.itemTitle {
+    font-weight: bold;
+    font-style: oblique;
+}
+
+ion-fab.fab-horizontal-end.fab-vertical-bottom.hydrated {
+    top: 0px;
+}
+
+p.note {
+    font-style: italic;
+    font-size: large;
+}
+
+p.value3 {
+    position: relative;
+}
+
+span.value2 {
+    position: absolute;
+    top: 3em;
+}
+
+span.value4 {
+    position: relative;
+}
+
+p.note {
+    width: fit-content;
+}
+
+div.input-wrapper {
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: 16px;
+    padding-inline-start: 16px;
+    -webkit-padding-end: 16px;
+    padding-inline-end: 16px;
+}
+
+article{
+    display: flex;
+    border-radius: 1em;
+    box-shadow: 2px 2px #f5f5dc;
+    border: solid #f4f5f8 1px;
+    flex: 1 1 0%;
+    flex-direction: inherit;
+    align-items: inherit;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+p.value3 {
+    font-size: 10px;
+    top: -0.35em;
+    right: -1em;
+}
+.value2{
+    position: relative;
+    left:1em;
+    top:0.5em;
+    ;
+}
+
+app-show-value.value2 {
+  position: relative;
+  left: 11em;
+  top: 3.5em;
+  font-size: 10px;
+}

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        class="button-clear ion-chevron-left"
+        defaultHref="/home"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+        </ion-button>
+        </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <app-dynamic-form
+    [questions]="questions"
+    [submitText]="submitText"
+    (interactiveSubmit)="filter($event)"
+    (singleSubmit)="submit($event)"
+  ></app-dynamic-form>
+</ion-content>

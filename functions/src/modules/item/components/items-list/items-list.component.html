@@ -1,0 +1,32 @@
+<p class="counter">{{ countItems() }} {{ dummyItem?.getCountingText()}}</p>
+<ion-icon name="search" class="applyFi1lter"></ion-icon>
+<ion-list>
+  <ion-fab>
+    <button ion-fab>
+      <ion-icon name="create" (click)="create()"></ion-icon>
+    </button>
+  </ion-fab>
+  <div></div>
+  <div class="spinner" [style.display]="showSpinner ? 'block' : 'none'">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  <ion-item-sliding
+    *ngFor="let item of items_list | filterItems: filterFunction"
+    #sliding_item
+  >
+    <my-item class="myItem" [Item]="item" (click)="do(item)"></my-item>
+
+    <ion-item-options side="start">
+      <button
+        ion-button
+        danger
+        class="danger"
+        (click)="deleteItem(item, sliding_item)"
+      >
+        <ion-icon name="trash"></ion-icon>
+        Elimina
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>

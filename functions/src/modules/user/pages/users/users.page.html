@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        class="button-clear ion-chevron-left"
+        defaultHref="/home"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>utenti</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> </ion-card-content>
+  </ion-card>
+  <app-page-items-list
+    [service]="service"
+    [editModalPage]="editModalPage"
+  ></app-page-items-list>
+</ion-content>

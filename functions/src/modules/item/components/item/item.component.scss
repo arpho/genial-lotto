@@ -1,0 +1,22 @@
+p.note {
+    font-style: italic;
+    color: aliceblue;
+    background-color: lightgray;
+    font-size: 0.7em;
+    top: 17px;
+    position: relative;
+}
+
+article {
+    display: flex;
+    border-radius: 1em;
+    background-color: hsl(225deg 22% 96%);
+    border: solid #f4f5f8 1px;
+    flex: 1 1 0%;
+    flex-direction: inherit;
+    align-items: inherit;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+  }

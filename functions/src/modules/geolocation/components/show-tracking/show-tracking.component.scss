@@ -1,0 +1,22 @@
+agm-map {
+    height: 500px;
+}
+
+.trackingIsOn {
+  font-size: 2em;
+  font-weight: bolder;
+  color: red;
+  position: relative;
+  /* left: 13em; */
+  top: -1em;
+  text-align: center;
+}
+
+.trackingIsOff {
+  font-size: 2em;
+  font-weight: bolder;
+  position: relative;
+  color: green;
+  text-align: center;
+  top: -1em;
+}

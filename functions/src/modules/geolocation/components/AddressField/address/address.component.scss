@@ -1,0 +1,33 @@
+abel, input, select, textarea {
+    font-family: cursive;
+    font-weight: bold;
+    line-height: normal;
+    background-color: cadetblue;
+    color: antiquewhite;
+}
+
+ input, select, textarea {
+    font-family: cursive;
+    font-weight: bold;
+    line-height: normal;
+    color: midnightblue;
+}
+
+ion-textarea {
+    //border: solid black 1px;
+    min-height: 2em;
+}
+
+.question{
+    display: flex;
+    border-radius: 1em;
+    box-shadow: 2px 2px #f5f5dc;
+    border: solid #e1e2e6 1px;
+    flex: 1 1 0%;
+    flex-direction: inherit;
+    align-items: inherit;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+}

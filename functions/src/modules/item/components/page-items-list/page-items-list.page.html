@@ -1,0 +1,40 @@
+<p class="counter">{{ countItems() }} {{ getMultiplicityText() }}</p>
+
+<ion-list>
+  <div class="spinner" [style.display]="showSpinner ? 'block' : 'none'">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  <ion-item-sliding
+    *ngFor="let item of service?.items |async | filterItems: filterFunction| sorterItems: sorterFunction"
+    #sliding_item
+  >
+    <app-page-item [Item]="item" ></app-page-item>
+
+    <ion-item-options side="start">
+      <ion-button
+      ion-button
+      danger
+      color="danger"
+        (click)="deleteItem(item, sliding_item)"
+      >
+        <ion-icon name="trash"></ion-icon>
+        Elimina
+      </ion-button>
+    </ion-item-options>
+    <ion-item-options side='end'>
+      <ion-button
+      ion-button
+      (click)="updateItem(item,sliding_item)"
+      >
+      <ion-icon name='eye'></ion-icon>
+      Modifica
+      </ion-button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+<ion-fab class="addItem" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="createItem()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
