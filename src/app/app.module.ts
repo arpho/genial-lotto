@@ -11,11 +11,13 @@ import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.mod
 import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
 import { UserModule } from './modules/user/user.module';
 import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-items.page';
+import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SelectorItemsPage
+    SelectorItemsPage,
+    EditUserPage
   ],
   entryComponents: [],
   imports: [
