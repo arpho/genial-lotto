@@ -10,9 +10,13 @@ import { ItemModule } from 'src/app/modules/item/item.module';
 import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
 import { UserModule } from './modules/user/user.module';
+import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-items.page';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    SelectorItemsPage
+  ],
   entryComponents: [],
   imports: [BrowserModule,
      IonicModule.forRoot(),
