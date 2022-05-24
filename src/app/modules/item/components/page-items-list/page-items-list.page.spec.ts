@@ -7,6 +7,7 @@ import { AlertController, ModalController, AngularDelegate } from '@ionic/angula
 import { Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SorterItemsPipe } from '../../pipes/sorter-items.pipe';
+import { serviceMocker } from '../../mockers/serviceMocker';
 
 describe('PageItemsListPage', () => {
   let component: PageItemsListComponent;
@@ -25,6 +26,7 @@ describe('PageItemsListPage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PageItemsListComponent);
     component = fixture.componentInstance;
+    component.service = new serviceMocker()
     fixture.detectChanges();
   });
 
