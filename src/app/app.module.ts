@@ -18,10 +18,11 @@ import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-
     SelectorItemsPage
   ],
   entryComponents: [],
-  imports: [BrowserModule,
-     IonicModule.forRoot(),
-      AppRoutingModule,
-      DynamicFormModule,
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    DynamicFormModule,
     ItemModule,
     HelpersModule,
     UserModule
