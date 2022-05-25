@@ -15,9 +15,12 @@ TestBed.configureTestingModule({
     AlertController,
     AuthService,
     ProfileService,
-    RouterTestingModule
+    Router
     ],
-  imports: [RouterModule, firebase],
+  imports: [
+    firebase,
+    RouterTestingModule,
+    ],
 })
 .compileComponents();
 describe('ProfilePage', () => {
