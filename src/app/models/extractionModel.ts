@@ -6,6 +6,7 @@ export class Extraction {
   _date: string
   dateInmsec: number
   weel: string;
+  id:string;
   extraction: number[]
   set date(date: string) {
     this._date = date
@@ -17,7 +18,12 @@ export class Extraction {
   }
   load(v: {}) {
     Object.assign(this, v)
+    this.weel= this.weel||v["well"]
 
+  }
+
+  constructor(v?){
+    this.load(v)
   }
 
   serializer() {
