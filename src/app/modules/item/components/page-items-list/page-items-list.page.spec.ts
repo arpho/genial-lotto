@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageItemsListComponent } from './page-items-list.page';
@@ -15,9 +15,21 @@ describe('PageItemsListPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PageItemsListComponent, FilterItemsPipe,SorterItemsPipe],
-      providers: [AlertController,ModalController,AngularDelegate],
-      imports: [RouterModule, RouterTestingModule],
+      declarations: [
+        PageItemsListComponent,
+        FilterItemsPipe,
+        SorterItemsPipe
+      ],
+      providers: [
+        AlertController,
+        ModalController,
+        AngularDelegate,
+        ChangeDetectorRef
+      ],
+      imports: [
+        RouterModule,
+        RouterTestingModule
+        ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
       .compileComponents();
