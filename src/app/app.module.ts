@@ -12,12 +12,14 @@ import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
 import { UserModule } from './modules/user/user.module';
 import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-items.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
+import { ProfilePage } from './modules/user/pages/profile/profile.page';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectorItemsPage,
-    EditUserPage
+    EditUserPage,
+    ProfilePage
   ],
   entryComponents: [],
   imports: [
