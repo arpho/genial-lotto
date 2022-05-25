@@ -1,6 +1,6 @@
 // tslint:disable: quotemark
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { IonicModule, NavController, ModalController } from "@ionic/angular";
+import { IonicModule, NavController, ModalController, AlertController } from "@ionic/angular";
 import { FilterItemsPipe } from "../../pipes/filter-items.pipe";
 import { MyItemComponent } from "./item.component";
 import { ItemModule } from "../../item.module";
@@ -18,11 +18,14 @@ describe("MyItemComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [],
-      imports: [IonicModule.forRoot(), ItemModule],
+      imports: [
+        IonicModule.forRoot(),
+        ItemModule],
       providers: [
         NavController,
         ModalController,
         Location,
+        AlertController,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         { provide: APP_BASE_HREF, useValue: "/my/app" }
       ]
