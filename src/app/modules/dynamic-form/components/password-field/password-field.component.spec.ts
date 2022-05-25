@@ -11,6 +11,9 @@ describe('PasswordFieldComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PasswordFieldComponent ],
+      providers:[
+        FormBuilder
+      ],
       imports: [IonicModule.forRoot(),ReactiveFormsModule]
     }).compileComponents();
 
