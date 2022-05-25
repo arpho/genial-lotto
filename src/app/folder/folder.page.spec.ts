@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FolderPage } from './folder.page';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FolderPage', () => {
   let component: FolderPage;
@@ -10,7 +11,10 @@ describe('FolderPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FolderPage ],
-      imports: [IonicModule.forRoot(), RouterModule.forRoot([])]
+      imports: [IonicModule.forRoot(),
+        RouterModule.forRoot([]),
+        RouterTestingModule
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FolderPage);
