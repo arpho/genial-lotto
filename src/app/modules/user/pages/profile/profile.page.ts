@@ -3,8 +3,6 @@ import { AlertController } from "@ionic/angular";
 import { AuthService } from "../../services/auth.service";
 import { ProfileService } from "../../services/profile.service";
 import { Router } from "@angular/router";
-import { connectableObservableDescriptor } from "rxjs/internal/observable/ConnectableObservable";
-import { textChangeRangeIsUnchanged } from "typescript";
 
 @Component({
   selector: "app-profile",
