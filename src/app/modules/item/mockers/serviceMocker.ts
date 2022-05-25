@@ -9,7 +9,7 @@ export class  serviceMocker implements ItemServiceInterface{
   suppliersService?: ItemServiceInterface;
   paymentsService?: ItemServiceInterface;
   reference: string;
-  _items: BehaviorSubject<ItemModelInterface[]>;
+  _items: BehaviorSubject<ItemModelInterface[]>= new BehaviorSubject([])
   items_list: ItemModelInterface[];
   db: Database;
   itemsListRef: DatabaseReference;
