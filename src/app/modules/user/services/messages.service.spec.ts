@@ -6,11 +6,11 @@ describe("MessagesService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it("should be created", () => {
-    const service: MessagesService = TestBed.get(MessagesService);
+    const service: MessagesService = TestBed.inject(MessagesService);
     expect(service).toBeTruthy();
   });
   it("should be working", () => {
-    const service: MessagesService = TestBed.get(MessagesService);
+    const service: MessagesService = TestBed.inject(MessagesService);
     const message = "this is a test";
     service.setMessage({ key: "test", message: message });
     expect(service.getMessage("test")).toBe(message);
