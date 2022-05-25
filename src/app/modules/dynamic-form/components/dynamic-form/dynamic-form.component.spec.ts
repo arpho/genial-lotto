@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuestionFormComponent } from '../question-form-component/question-form-component.component';
 import { IonicModule } from '@ionic/angular';
 import { ItemModule } from 'src/app/modules/item/item.module';
+import { QuestionControlService } from '../../services/question-control.service';
 
 describe('DynamicFormComponent', () => {
   let component: DynamicFormComponent;
@@ -18,7 +19,8 @@ describe('DynamicFormComponent', () => {
         IonicModule,
         
         ItemModule,
-        ]
+        ],
+        providers:[QuestionControlService]
     })
       .compileComponents();
   }));
