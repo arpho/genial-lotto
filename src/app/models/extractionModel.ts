@@ -12,7 +12,6 @@ export class Extraction {
   set date(date: string) {
     this._date = date
     this.dateInmsec = new Date(date).getTime()
-    console.log("#* mms",this.dateInmsec)
   }
 
   get date() {
@@ -21,9 +20,7 @@ export class Extraction {
   load(v: {}) {
     Object.assign(this, v)
     if(v['date']){
-      console.log("#* date",v['date'])
       this.dateInmsec = new Date(v['date']).getTime()
-      console.log("#* this",this)
     }
     this.weel= this.weel||v["well"]
 
