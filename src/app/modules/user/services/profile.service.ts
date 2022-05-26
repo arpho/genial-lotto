@@ -1,4 +1,4 @@
-import { Injectable, ComponentFactoryResolver } from "@angular/core";
+import { Injectable } from "@angular/core";
 import firebase from 'firebase/compat/app';
 import "firebase/auth";
 import "firebase/database";
@@ -10,6 +10,7 @@ import { EmailAuthProvider, getAuth, onAuthStateChanged, reauthenticateWithCrede
 export class ProfileService {
   public userProfileReference: firebase.database.Reference;
   public currentUser: User;
+  reference="userProfile"
 
   constructor() {
     const auth = getAuth()
@@ -17,7 +18,7 @@ export class ProfileService {
       if (user) {
         console.log('user',user.uid)
         this.currentUser = auth.currentUser;
-        this.userProfileReference = firebase.database().ref(`/userProfile/${user.uid}/`);
+        this.userProfileReference = firebase.database().ref(`/${this.reference}/${user.uid}/`);
 
         console.log('profile',this.userProfileReference)
       }
@@ -42,7 +43,6 @@ console.log('getting usr profile reference')
       }
     });
   }
-
   updateEmail(newEmail: string, password: string): Promise<any> {
     const auth = getAuth()
     const user = auth.currentUser
