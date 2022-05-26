@@ -15,7 +15,6 @@ TestBed.configureTestingModule({
     AlertController,
     AuthService,
     ProfileService,
-    Router
     ],
   imports: [
     firebase,
