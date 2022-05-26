@@ -26,9 +26,6 @@ export class Extraction {
       console.log("#* this",this)
     }
     this.weel= this.weel||v["well"]
-    this.extraction = this.extraction.map(e=>{ // from firestore  we get a string []
-      return Number(e)
-    })
 
   }
 
