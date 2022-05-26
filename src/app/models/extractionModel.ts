@@ -1,3 +1,4 @@
+import { stringify } from "querystring";
 import { Serializers } from "../modules/helpers/serializers"
 
 
@@ -40,7 +41,9 @@ export class Extraction {
     return {
       "dateInmsec": serializers.serialize2PositiveNumber(this.dateInmsec, -1),
       "weel": serializers.serialize2String(this.weel),
-      "extraction": serializers.serialize2Array(this.extraction)
+      "extraction": serializers.serialize2Array(this.extraction.map((e)=>{
+        return String(e)
+      }))
 
     }
   }
