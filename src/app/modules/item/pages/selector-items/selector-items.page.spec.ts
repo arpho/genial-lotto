@@ -6,6 +6,7 @@ import { ModalController, AngularDelegate, NavParams } from '@ionic/angular';
 import { MockNavParams } from './mockNavParams';
 import { FilterItemsPipe } from '../../pipes/filter-items.pipe';
 import { SorterItemsPipe } from '../../pipes/sorter-items.pipe';
+import { ModalsService } from '../../services/modals/modals-service';
 
 describe('SelectorItemsPage', () => {
   let component: SelectorItemsPage;
@@ -15,6 +16,7 @@ describe('SelectorItemsPage', () => {
     TestBed.configureTestingModule({
       declarations: [SelectorItemsPage, FilterItemsPipe, SorterItemsPipe],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports:[ModalController,NavParams,ModalsService],
       providers: [ModalController, AngularDelegate,
         { provide: NavParams, useClass: MockNavParams }]
     })
