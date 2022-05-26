@@ -6,7 +6,7 @@ import {addEntry,
   updateEntry,
 } from "./entryController";
 import {addExtraction} from "./extractionController";
-import { insertUser } from "./insertUserProfile";
+import {insertUser} from "./insertUserProfile";
 
 const app = express();
 app.get("/", (req, res) => res.status(200).send("Hey there!"));
@@ -16,6 +16,6 @@ app.get("/entries", getAllEntries);
 app.patch("/entries/:entryId", updateEntry);
 app.delete("/entries/:entryId", deleteEntry);
 app.post("/extraction", addExtraction);
-exports.setNewUser = functions.auth.user().onCreate((user) => {
-  insertUser(user)
+exports.setNewUserProfile = functions.auth.user().onCreate((user) => {
+  insertUser(user);
 });
