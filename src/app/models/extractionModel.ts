@@ -8,7 +8,7 @@ export class Extraction {
   dateInmsec: number
   weel: string;
   id:string;
-  extraction: number[]
+  extraction: string[]
   set date(date: string) {
     this._date = date
     this.dateInmsec = new Date(date).getTime()
