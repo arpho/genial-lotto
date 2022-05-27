@@ -76,7 +76,7 @@ db
 	const functions = getFunctions()
 	
 
-  const insertUser = httpsCallable(functions,'insertUser')
+  const insertUser = httpsCallable(functions,'adminAddUserProfile')
   return insertUser(user).then((msg)=>{
 	  console.log('insert use',msg)
   }).catch((error)=>{
