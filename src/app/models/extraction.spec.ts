@@ -16,3 +16,30 @@ it("load full data",()=>{
   expect(test.serialize().dateInmsec).toBe(new Date(data.date).getTime())
   expect(test.serialize().extraction[0]).toBe("24")})
 })
+it("should work with partial data",()=>{
+
+  const data ={
+    dateInmmsec:new Date("03/16/1977").getTime(),
+   weel:"Bari",
+   id:"qwert"
+
+  }
+  const test = new Extraction(data)
+  expect(test.date).toEqual("03/16/1977")
+  expect(test.serialize().extraction.length).toBe(0)
+  expect(test.serialize().dateInmsec).toBe(data.dateInmmsec)
+})
+it("should work with date after september",()=>{
+
+  const data ={
+    dateInmmsec:new Date("10/16/1977").getTime(),
+   weel:"Bari",
+   id:"qwert"
+
+  }
+  const test = new Extraction(data)
+  expect(test.date).toEqual("10/16/1977")
+  expect(test.id).toBe(data.id)
+  expect(test.serialize().extraction.length).toBe(0)
+  expect(test.serialize().dateInmsec).toBe(data.dateInmmsec)
+})
