@@ -6,7 +6,7 @@ import {addEntry,
   updateEntry,
 } from "./entryController";
 import {addExtraction} from "./extractionController";
-import {insertUser, addUserProfile} from "./insertUserProfile";
+import {addUserProfile} from "./insertUserProfile";
 
 const app = express();
 app.get("/", (req, res) => res.status(200).send("Hey there!"));
@@ -18,6 +18,6 @@ app.patch("/entries/:entryId", updateEntry);
 app.delete("/entries/:entryId", deleteEntry);
 app.post("/extraction", addExtraction);
 exports.adminAddUserProfile = functions.https.onCall((data)=>{
-  addUserProfile(data)
+  addUserProfile(data);
 });
 
