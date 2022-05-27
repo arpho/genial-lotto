@@ -11,7 +11,7 @@ it("load full data",()=>{
   expect(test.weel).toEqual(data.well)
   expect(test.extraction.length).toBe(5)
   expect(test.extraction[0]).toBe("24")
-  expect(test.dateInmsec).toBe(new Date(data.date).getTime())
+  expect(test._dateInmsec).toBe(new Date(data.date).getTime())
   expect(test.serialize().weel).toBe(data.well)
   expect(test.serialize().dateInmsec).toBe(new Date(data.date).getTime())
   expect(test.serialize().extraction[0]).toBe("24")})
