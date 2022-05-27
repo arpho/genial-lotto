@@ -16,8 +16,15 @@ describe('SelectorItemsPage', () => {
     TestBed.configureTestingModule({
       declarations: [SelectorItemsPage, FilterItemsPipe, SorterItemsPipe],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports:[ModalController,NavParams,ModalsService],
-      providers: [ModalController, AngularDelegate,
+      
+      providers: [ModalController,
+         AngularDelegate,
+         ModalController,
+         NavParams,
+         ModalsService,
+         ModalController,
+         NavParams,
+         ModalsService,
         { provide: NavParams, useClass: MockNavParams }]
     })
       .compileComponents();
