@@ -42,3 +42,5 @@ scraper
 package-lock.json
 
 src/app/configs/credentials.ts
+
+www/
