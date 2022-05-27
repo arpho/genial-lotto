@@ -8,18 +8,18 @@ const insertUser = async (user: UserRecord)=>{
     email: user.email,
   });
 };
-const addUserProfile = async (req: Request, res: Response) => {
+const addUserProfile = async (data: {}) => {
   const ref = realtime.ref("userProfile");
   try {
-    ref.push(req);
-    res.status(200).send({
-      status: "success",
-      message: "profile added successfully",
-    });
+    ref.push(data);
+    return {status:200,
+    message: " userProfile added correctly"}
+   
   } catch (error: unknown) {
-    if (error instanceof Error) {
-      res.status(500).json(error);
-    }
+    
+      return {status:500,
+      message:error}
+    
   }
 };
 

@@ -17,6 +17,9 @@ app.get("/entries", getAllEntries);
 app.patch("/entries/:entryId", updateEntry);
 app.delete("/entries/:entryId", deleteEntry);
 app.post("/extraction", addExtraction);
+exports.adminAddUserProfile = functions.https.onCall((data)=>{
+  addUserProfile(data)
+})
 exports.setNewUserProfile = functions.auth.user().onCreate((user) => {
   insertUser(user);
 });
