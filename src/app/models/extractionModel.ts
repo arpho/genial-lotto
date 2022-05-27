@@ -16,18 +16,24 @@ export class Extraction {
   set dateInmmsec(date){
     this._dateInmsec= date
     const data = new Date(date)
-    this._date= `${data.getMonth()+1}/${data.getDate()}/%${data.getFullYear}`
+    this._date= `${this.formatMonth(data.getMonth()+1)}/${data.getDate()}/${data.getFullYear()}`
     this.weel= this.weel||date["well"]
 
+  }
+
+  formatMonth(m:number){
+    return m>9?String(m): `0${m}`
+  }
+
+  get date(){
+    return this._date
   }
 
 
   load(v: {}) {
     Object.assign(this, v)
     if(v['date']){
-      console.log("#* date",v['date'])
       this._dateInmsec = new Date(v['date']).getTime()
-      console.log("#* this",this)
     }
     this.weel= this.weel||v["well"]
 
