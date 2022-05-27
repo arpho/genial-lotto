@@ -21,5 +21,11 @@ export class AppComponent  implements OnInit{
   constructor() {}
   ngOnInit(): void {
     const app = initializeApp(configs.firebase)
+    const auth = getAuth()
+    onAuthStateChanged(auth,async (user)=>{
+      const token = await user.getIdTokenResult(true)
+		console.log("user ok è",user)
+		console.log("token.claims",token.claims)
+    })
   }
 }
