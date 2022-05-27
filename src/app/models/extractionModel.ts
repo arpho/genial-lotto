@@ -16,12 +16,12 @@ export class Extraction {
   set dateInmmsec(date){
     this._dateInmsec= date
     const data = new Date(date)
-    this._date= `${this.formatMonth(data.getMonth()+1)}/${data.getDate()}/${data.getFullYear()}`
+    this._date= `${this.format2Digit(data.getMonth()+1)}/${this.format2Digit(data.getDate())}/${data.getFullYear()}`
     this.weel= this.weel||date["well"]
 
   }
 
-  formatMonth(m:number){
+  format2Digit(m:number){
     return m>9?String(m): `0${m}`
   }
 
