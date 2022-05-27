@@ -21,7 +21,19 @@ export class Extraction {
 
   }
 
-  constructor(v?){
+
+  load(v: {}) {
+    Object.assign(this, v)
+    if(v['date']){
+      console.log("#* date",v['date'])
+      this._dateInmsec = new Date(v['date']).getTime()
+      console.log("#* this",this)
+    }
+    this.weel= this.weel||v["well"]
+
+  }
+
+  constructor(v?: {}){
     this.load(v)
   }
 
