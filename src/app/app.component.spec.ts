@@ -4,6 +4,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { LoginPage } from './modules/user/pages/login/login.page';
 
 describe('AppComponent', () => {
 
@@ -13,7 +14,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [ RouterTestingModule.withRoutes([])],
+      imports:[RouterTestingModule.withRoutes([{path:"users/login",component:LoginPage}])],
+    
     }).compileComponents();
   }));
 
