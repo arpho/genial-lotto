@@ -7,7 +7,7 @@ export class Extraction {
   _date: string
   _dateInmsec: number
   weel: string;
-  id:string;
+  _id:string;
   extraction: string[]
   set date(date: string) {
     this._date = date
@@ -27,6 +27,15 @@ export class Extraction {
 
   get date(){
     return this._date
+  }
+  setId(id:string){
+    this._id= id
+    return this
+
+  }
+
+  get id(){
+    return this._id
   }
 
 
