@@ -18,7 +18,14 @@
     <strong class="capitalize">{{ folder }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
+  <app-dynamic-form
+ [questions]="formFields"
+ (interactiveSubmit)="filter($event)"
+ (singleSubmit)="submit($event)"
+  ></app-dynamic-form>
   <div  *ngIf="showSpinner">
   <ion-spinner></ion-spinner>
 </div>
+
+
 </ion-content>

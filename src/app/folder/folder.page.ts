@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Extraction } from '../models/extractionModel';
+import { OptionMaker } from '../modules/dynamic-form/helpers/optionMaker';
+import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdown';
+import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
 import { EstrazioniService } from '../services/extractions/estrazioni.service';
 
 @Component({
@@ -13,8 +16,13 @@ export class FolderPage implements OnInit {
   showSpinner= true
   weels:string[] = []
   dateEstrazioni:string[]=[]
+  formFields:any[]
 
   constructor(private activatedRoute: ActivatedRoute,public estrazioni:EstrazioniService) { }
+
+  filter(ev){
+    console.log("typing",ev)
+  }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
@@ -31,6 +39,9 @@ export class FolderPage implements OnInit {
       })
       console.log("ruote",this.weels)
       console.log("date",this.dateEstrazioni.length)
+      this.formFields = [new DropdownQuestion({label:"prima ruota ",key:"weel0",options:new OptionMaker().makeOptionFromArray(this.weels)}),
+      new DropdownQuestion({label:"seconda ruota ",key:"weel1",options:new OptionMaker().makeOptionFromArray(this.weels)})
+    ]
     
     })
 
