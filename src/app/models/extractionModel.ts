@@ -46,7 +46,7 @@ export class Extraction {
 
   }
 
-  get dateInmsec(){
+  get dateInmmsec(){
     return this._dateInmsec
   }
 
