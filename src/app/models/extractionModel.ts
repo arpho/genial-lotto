@@ -1,4 +1,5 @@
 import { stringify } from "querystring";
+import { DateHelpers } from "../modules/helpers/dateHelper";
 import { Serializers } from "../modules/helpers/serializers"
 
 
@@ -10,13 +11,16 @@ export class Extraction {
   _id:string;
   extraction: string[]
   set date(date: string) {
-    this._date = date
-    this._dateInmsec = new Date(date).getTime()
+    const converter = new DateHelpers()
+    this._date = converter.fromItalian2AmericanFormat( date)
+
+    this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( date)).getTime()
+
   }
   set dateInmmsec(date){
     this._dateInmsec= date
     const data = new Date(date)
-    this._date= `${this.format2Digit(data.getMonth()+1)}/${this.format2Digit(data.getDate())}/${data.getFullYear()}`
+    this._date= `${this.format2Digit(data.getDate())}/${this.format2Digit(data.getMonth()+1)}/${data.getFullYear()}`
     this.weel= this.weel||date["well"]
 
   }
@@ -46,7 +50,8 @@ export class Extraction {
   load(v: {}) {
     Object.assign(this, v)
     if(v['date']){
-      this._dateInmsec = new Date(v['date']).getTime()
+      const converter = new DateHelpers()
+      this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( v['date'])).getTime()
     }
     this.weel= this.weel||v["well"]
 

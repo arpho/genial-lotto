@@ -11,9 +11,9 @@ it("load full data",()=>{
   expect(test.weel).toEqual(data.well)
   expect(test.extraction.length).toBe(5)
   expect(test.extraction[0]).toBe("24")
-  expect(test._dateInmsec).toBe(new Date(data.date).getTime())
+  expect(test._dateInmsec).toBe(new Date("12/06/1941").getTime())
   expect(test.serialize().weel).toBe(data.well)
-  expect(test.serialize().dateInmsec).toBe(new Date(data.date).getTime())
+  expect(test.serialize().dateInmsec).toBe(new Date("12/06/1941").getTime())
   expect(test.serialize().extraction[0]).toBe("24")})
 })
 it("should work with partial data",()=>{
@@ -25,7 +25,7 @@ it("should work with partial data",()=>{
 
   }
   const test = new Extraction(data)
-  expect(test.date).toEqual("03/16/1977")
+  expect(test.date).toEqual("16/03/1977")
   expect(test.serialize().extraction.length).toBe(0)
   expect(test.serialize().dateInmsec).toBe(data.dateInmmsec)
 })
@@ -38,8 +38,19 @@ it("should work with date after september",()=>{
 
   }
   const test = new Extraction(data)
-  expect(test.date).toEqual("10/16/1977")
+  expect(test.date).toEqual("16/10/1977")
   expect(test.id).toBe(data.id)
   expect(test.serialize().extraction.length).toBe(0)
   expect(test.serialize().dateInmsec).toBe(data.dateInmmsec)
+})
+
+it("date should be converted",()=>{
+  const data= {
+    date:"26/02/2022",
+    "weel":"Roma"
+
+  }
+  const test = new Extraction(data)
+  expect(test.dateInmmsec).toBe(new Date("02/26/2022").getTime())
+  expect(test.date).toBe("02/26/2022")
 })
