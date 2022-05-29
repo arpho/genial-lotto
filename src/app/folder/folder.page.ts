@@ -37,8 +37,6 @@ export class FolderPage implements OnInit {
         this.dateEstrazioni.push(e.date)
         this.dateEstrazioni= Array.from(new Set(this.dateEstrazioni))
       })
-      console.log("ruote",this.weels)
-      console.log("date",this.dateEstrazioni.length)
       this.formFields = [new DropdownQuestion({label:"prima ruota ",key:"weel0",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
       new DropdownQuestion({label:"seconda ruota ",key:"weel1",options:new OptionsMaker().makeOptionFromArray(this.weels)})
     ]
