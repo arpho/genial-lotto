@@ -19,6 +19,7 @@ export class FolderPage implements OnInit {
   weels:string[] = []
   dateEstrazioni:string[]=[]
   formFields:any[]
+  estrazioniItems:Extraction[]
 
   constructor(private activatedRoute: ActivatedRoute,public estrazioni:EstrazioniService) { }
 
@@ -27,18 +28,26 @@ export class FolderPage implements OnInit {
     const helper = new DateHelpers()
     const data =helper.fromDatePickerFormat2ItalianFormat( ev.extractionDate.split('T')[0])
     console.log(data)
+
+    const estrazione1 = this.estrazioniItems.filter((e:Extraction)=>{
+      return e.weel == this.weels[ ev.weel0] && e.date== data
+    })
+
+    console.log(estrazione1)
    
   }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.estrazioni.extractions.subscribe((items)=>{
+      this.estrazioniItems = []
       this.showSpinner= items.length ==0
       console.log("got items",items.length)
       items.sort((a:Extraction,b:Extraction)=>{
         return a._dateInmsec-b._dateInmsec// ordinamento crescente dal più vecchio al più recente
       }).forEach((e:Extraction)=>{
         this.weels.push(e.weel)
+        this.estrazioniItems = items
         this.weels =  Array.from( new Set(this.weels))
         this.dateEstrazioni.push(e.date)
         this.dateEstrazioni= Array.from(new Set(this.dateEstrazioni))
