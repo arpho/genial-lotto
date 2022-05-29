@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Extraction } from '../models/extractionModel';
 import { OptionsMaker } from '../modules/dynamic-form/helpers/optionMaker';
+import { DateQuestion } from '../modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdown';
 import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
+import { DateHelpers } from '../modules/helpers/dateHelper';
 import { EstrazioniService } from '../services/extractions/estrazioni.service';
 
 @Component({
@@ -22,6 +24,10 @@ export class FolderPage implements OnInit {
 
   filter(ev){
     console.log("typing",ev)
+    const helper = new DateHelpers()
+    const data =helper.fromDatePickerFormat2ItalianFormat( ev.extractionDate.split('T')[0])
+    console.log(data)
+   
   }
 
   ngOnInit() {
@@ -37,8 +43,15 @@ export class FolderPage implements OnInit {
         this.dateEstrazioni.push(e.date)
         this.dateEstrazioni= Array.from(new Set(this.dateEstrazioni))
       })
+
+      const isDateEnabled = (date:string)=>{
+        const helper = new DateHelpers()
+        const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date))>-1
+        return out
+      }
       this.formFields = [new DropdownQuestion({label:"prima ruota ",key:"weel0",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
-      new DropdownQuestion({label:"seconda ruota ",key:"weel1",options:new OptionsMaker().makeOptionFromArray(this.weels)})
+      new DropdownQuestion({label:"seconda ruota ",key:"weel1",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
+      new DateQuestion({key:'extractionDate',label:"data di estrazione",isDateEnabled:isDateEnabled,presentation:"date"})
     ]
     
     })
