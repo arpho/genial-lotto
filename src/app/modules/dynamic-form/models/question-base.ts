@@ -21,6 +21,7 @@ export class QuestionBase<T> {
   labelTrue: string;
   retypePassword?:boolean
   presentation?:'date'|'date-time'|'time'
+  isDateEnabled?:(date:string)=> boolean
   service: ItemServiceInterface
   labelFalse: string;
   text: string;

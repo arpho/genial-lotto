@@ -54,6 +54,7 @@
 
     <section *ngSwitchCase="'datebox'" class='question'>
       <ion-datetime [formControlName]="question?.key" [id]="question?.key"
+      [isDateEnabled]="question?.isDateEnabled"
       [presentation]="question?.presentation">
       </ion-datetime>
     </section>
