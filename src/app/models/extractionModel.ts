@@ -46,6 +46,10 @@ export class Extraction {
 
   }
 
+  get dateInmsec(){
+    return this._dateInmsec
+  }
+
 
   load(v: {}) {
     Object.assign(this, v)
