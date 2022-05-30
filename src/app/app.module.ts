@@ -13,14 +13,16 @@ import { UserModule } from './modules/user/user.module';
 import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-items.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
 import { ProfilePage } from './modules/user/pages/profile/profile.page';
+import { ExtractionComponent } from './components/extraction/extraction.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectorItemsPage,
     EditUserPage,
-    ProfilePage
-  ],
+    ProfilePage,
+    ExtractionComponent,
+   ],
   entryComponents: [],
   imports: [
     BrowserModule,
