@@ -19,6 +19,10 @@ export class FolderPage implements OnInit {
   weels:string[] = []
   dateEstrazioni:string[]=[]
   formFields:any[]
+  ruota1
+  estrazione1
+  estrazione2
+  ruota2
   estrazioniItems:Extraction[]
 
   constructor(private activatedRoute: ActivatedRoute,public estrazioni:EstrazioniService) { }
@@ -26,15 +30,27 @@ export class FolderPage implements OnInit {
   filter(ev){
     console.log("typing",ev)
     const helper = new DateHelpers()
-    const data =helper.fromDatePickerFormat2ItalianFormat( ev.extractionDate.split('T')[0])
+    const data =helper.fromDatePickerFormat2ItalianFormat( ev.extractionDate.split('T')[0]) // separo la data dall'ora
     console.log(data)
-
-    const estrazione1 = this.estrazioniItems.filter((e:Extraction)=>{
-      return e.weel == this.weels[ ev.weel0] && e.date== data
+    if(ev.weel1 && ev.extractionDate)
+    var estrazione1 = this.estrazioniItems.filter((e:Extraction)=>{
+      return e.weel == this.weels[ ev.weel1] && e.date== data
+    })
+    if(ev.weel1 && ev.extractionDate)
+    var estrazione2 = this.estrazioniItems.filter((e:Extraction)=>{
+      return e.weel == this.weels[ ev.weel2] && e.date== data
     })
 
     console.log(estrazione1)
-   
+    if(estrazione1){
+this.ruota1= estrazione1[0]?.weel
+this.estrazione1 = estrazione1[0].extraction
+}
+if(estrazione2){
+this.ruota2= estrazione2[0].weel
+this.estrazione2 = estrazione2[0].extraction
+}
+  
   }
 
   ngOnInit() {
@@ -58,8 +74,9 @@ export class FolderPage implements OnInit {
         const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date))>-1
         return out
       }
-      this.formFields = [new DropdownQuestion({label:"prima ruota ",key:"weel0",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
-      new DropdownQuestion({label:"seconda ruota ",key:"weel1",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
+      this.formFields = [
+      new DropdownQuestion({label:"prima ruota ",key:"weel1",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
+      new DropdownQuestion({label:"seconda ruota ",key:"weel2",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
       new DateQuestion({key:'extractionDate',label:"data di estrazione",isDateEnabled:isDateEnabled,presentation:"date"})
     ]
     
