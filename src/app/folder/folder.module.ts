@@ -15,7 +15,7 @@ import { DynamicFormModule } from '../modules/dynamic-form/dynamic-form.module';
     FormsModule,
     IonicModule,
     FolderPageRoutingModule,
-    DynamicFormModule
+    DynamicFormModule,
   ],
   declarations: [FolderPage]
 })
