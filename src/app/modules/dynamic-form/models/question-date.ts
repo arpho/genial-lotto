@@ -20,7 +20,6 @@ export class DateQuestion extends QuestionBase<any> {
  isDateEnabled: (date:string)=>{return true}
 }) {
     super(options);
-    console.log("is date",this.isDateEnabled)
     /*
     // tslint:disable-next-line: no-string-literal
     this.type = options["type"] || ""; */
