@@ -21,7 +21,9 @@
  (singleSubmit)="submit($event)"
   ></app-dynamic-form>
   <div  *ngIf="showSpinner">
-  <ion-spinner></ion-spinner>
+    <div class="ring">Loading
+      <span></span>
+    </div>
 </div>
 <app-extraction></app-extraction>
 
