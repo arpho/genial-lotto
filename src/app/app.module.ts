@@ -21,7 +21,7 @@ import { ExtractionComponent } from './components/extraction/extraction.componen
     SelectorItemsPage,
     EditUserPage,
     ProfilePage,
-    ExtractionComponent
+    ExtractionComponent,
    ],
   entryComponents: [],
   imports: [
@@ -31,12 +31,12 @@ import { ExtractionComponent } from './components/extraction/extraction.componen
     DynamicFormModule,
     ItemModule,
     HelpersModule,
-    UserModule
+    UserModule,
+   // ExtractionComponent
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   exports:[
-    ExtractionComponent
   ]
 })
 export class AppModule {}
