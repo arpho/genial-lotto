@@ -31,7 +31,7 @@ export class FolderPage implements OnInit {
     console.log("typing",ev)
     const helper = new DateHelpers()
     const data =helper.fromDatePickerFormat2ItalianFormat( ev.extractionDate.split('T')[0]) // separo la data dall'ora
-    console.log(data)
+
     if(ev.weel1 && ev.extractionDate)
     var estrazione1 = this.estrazioniItems.filter((e:Extraction)=>{
       return e.weel == this.weels[ ev.weel1] && e.date== data
@@ -40,8 +40,6 @@ export class FolderPage implements OnInit {
     var estrazione2 = this.estrazioniItems.filter((e:Extraction)=>{
       return e.weel == this.weels[ ev.weel2] && e.date== data
     })
-
-    console.log(estrazione1)
     if(estrazione1){
 this.ruota1= estrazione1[0]?.weel
 this.estrazione1 = estrazione1[0].extraction
@@ -56,9 +54,15 @@ this.estrazione2 = estrazione2[0].extraction
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.estrazioni.extractions.subscribe((items)=>{
+      if(items.length==0){
+        console.time("subscription")
+      }
+      else{
+        console.timeEnd("subscription")
+        console.time("loading")
+      }
       this.estrazioniItems = []
       this.showSpinner= items.length ==0
-      console.log("got items",items.length)
       items.sort((a:Extraction,b:Extraction)=>{
         return a._dateInmsec-b._dateInmsec// ordinamento crescente dal più vecchio al più recente
       }).forEach((e:Extraction)=>{
@@ -68,7 +72,7 @@ this.estrazione2 = estrazione2[0].extraction
         this.dateEstrazioni.push(e.date)
         this.dateEstrazioni= Array.from(new Set(this.dateEstrazioni))
       })
-
+      console.timeEnd("loading")
       const isDateEnabled = (date:string)=>{
         const helper = new DateHelpers()
         const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date))>-1
