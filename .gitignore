@@ -46,3 +46,5 @@ src/app/configs/credentials.ts
 www/
 
 dataUploader/data.json
+
+src/assets/gif/pacman.gif

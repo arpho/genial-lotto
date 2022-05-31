@@ -32,7 +32,7 @@ import { ExtractionComponent } from './components/extraction/extraction.componen
     ItemModule,
     HelpersModule,
     UserModule,
-   // ExtractionComponent
+    
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
