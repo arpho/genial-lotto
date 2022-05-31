@@ -12,6 +12,8 @@ class Extraction:
              "VE": "Venezia",
              "BA": "Bari",
              "PA": "Palermo",
+             "RN": "Rimini",
+             "RM": "Roma",
              "CA": "Cagliari",
              "NAZ": "Nazionale",
              "NZ": "Nazionale"}
