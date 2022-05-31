@@ -50,12 +50,16 @@ this.estrazione2 = estrazione2[0].extraction
 }
   
   }
+  submit(ev){
+    console.log("submitted",ev);
+  }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.estrazioni.extractions.subscribe((items)=>{
       if(items.length==0){
         console.time("subscription")
+        console.time("loading")
       }
       else{
         console.timeEnd("subscription")
