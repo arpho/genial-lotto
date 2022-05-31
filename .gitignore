@@ -46,3 +46,7 @@ src/app/configs/credentials.ts
 www/
 
 dataUploader/data.json
+
+dataUploader/archivio/storico.txt
+
+*.txt
