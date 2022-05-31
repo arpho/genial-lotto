@@ -12,11 +12,9 @@ class Extraction:
              "VE": "Venezia",
              "BA": "Bari",
              "PA": "Palermo",
-             "RN": "Rimini",
+             "RN": "Nazionale",
              "RM": "Roma",
-             "CA": "Cagliari",
-             "NAZ": "Nazionale",
-             "NZ": "Nazionale"}
+             "CA": "Cagliari",}
     def __init__(self,data):
         print("parasm", data)
         self.date = data[0]
