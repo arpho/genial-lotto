@@ -30,7 +30,7 @@ export class FolderPage implements OnInit {
   filter(ev){
     console.log("typing",ev)
     const helper = new DateHelpers()
-    const data =helper.fromDatePickerFormat2ItalianFormat( ev.extractionDate.split('T')[0]) // separo la data dall'ora
+    const data =this.dateEstrazioni[ev.extractionDate] // separo la data dall'ora
 
     if(ev.weel1 && ev.extractionDate)
     var estrazione1 = this.estrazioniItems.filter((e:Extraction)=>{
@@ -81,7 +81,7 @@ this.estrazione2 = estrazione2[0].extraction
       this.formFields = [
       new DropdownQuestion({label:"prima ruota ",key:"weel1",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
       new DropdownQuestion({label:"seconda ruota ",key:"weel2",options:new OptionsMaker().makeOptionFromArray(this.weels)}),
-      new DateQuestion({key:'extractionDate',label:"data di estrazione",isDateEnabled:isDateEnabled,presentation:"date"})
+      new DropdownQuestion({key:"extractionDate",label:"data di estrazione",options:new OptionsMaker().makeOptionFromArray(this.dateEstrazioni)})
     ]
     
     })
