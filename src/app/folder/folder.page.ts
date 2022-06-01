@@ -16,7 +16,19 @@ import { EstrazioniService } from '../services/extractions/estrazioni.service';
 export class FolderPage implements OnInit {
   public folder: string;
   showSpinner= true
-  weels:string[] = []
+  weels:string[] = [
+    "Bari",
+    "Cagliari",
+    "Firenze",
+    "Genova",
+    "Milano",
+    "Napoli",
+    "Palermo",
+    "Roma",
+    "Torino",
+    "Venezia",
+    "Nazionale"
+  ]
   dateEstrazioni:string[]=[]
   formFields:any[]
   ruota1
@@ -66,9 +78,9 @@ this.estrazione2 = estrazione2[0].extraction
       items.sort((a:Extraction,b:Extraction)=>{
         return a._dateInmsec-b._dateInmsec// ordinamento crescente dal più vecchio al più recente
       }).forEach((e:Extraction)=>{
-        this.weels.push(e.weel)
+        // this.weels.push(e.weel)
         this.estrazioniItems = items
-        this.weels =  Array.from( new Set(this.weels))
+        // this.weels =  Array.from( new Set(this.weels))
         this.dateEstrazioni.push(e.date)
         this.dateEstrazioni= Array.from(new Set(this.dateEstrazioni))
       })
