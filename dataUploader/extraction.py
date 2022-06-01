@@ -3,7 +3,8 @@ class Extraction:
     weel = ""
     date = ""
     extraction = []
-    weels = {"MI": "Milano",
+    weels = {
+             "MI": "Milano",
              "FI": "Firenze",
              "GE": "Genova",
              "NA": "Napoli",
@@ -14,7 +15,8 @@ class Extraction:
              "PA": "Palermo",
              "RN": "Nazionale",
              "RM": "Roma",
-             "CA": "Cagliari",}
+             "CA": "Cagliari",
+    }
     def __init__(self,data):
         print("parasm", data)
         self.date = data[0]
