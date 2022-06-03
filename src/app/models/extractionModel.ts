@@ -9,10 +9,12 @@ export class Extraction {
   _dateInmsec: number
   weel: string;
   _id:string;
+  italianDate
   extraction: string[]
   set date(date: string) {
     const converter = new DateHelpers()
     this._date = converter.fromItalian2AmericanFormat( date)
+    this.italianDate = date
 
     this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( date)).getTime()
 

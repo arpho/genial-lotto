@@ -47,11 +47,11 @@ estrazione1:Extraction
 
     if(ev.weel1 && ev.extractionDate)
     var estrazione1 = this.estrazioniItems.filter((e:Extraction)=>{
-      return e.weel == this.weels[ ev.weel1] && e.date== data
+      return e.weel == this.weels[ ev.weel1] && e.italianDate== data
     })
     if(ev.weel2 && ev.extractionDate)
     var estrazione2 = this.estrazioniItems.filter((e:Extraction)=>{
-      return e.weel == this.weels[ ev.weel2] && e.date== data
+      return e.weel == this.weels[ ev.weel2] && e.italianDate== data
     })
     if(estrazione1){
 this.ruota1= estrazione1[0]?.weel
@@ -83,7 +83,7 @@ this.estrazione2 =new Extraction({weel:this.ruota2,date:data,extraction:estrazio
         // this.weels.push(e.weel)
         this.estrazioniItems = items
         // this.weels =  Array.from( new Set(this.weels))
-        this.dateEstrazioni.push(e.date)
+        this.dateEstrazioni.push(e.italianDate)
         this.dateEstrazioni= Array.from(new Set(this.dateEstrazioni))
       })
       console.timeEnd("loading")
