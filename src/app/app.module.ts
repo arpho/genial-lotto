@@ -15,6 +15,7 @@ import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
 import { ProfilePage } from './modules/user/pages/profile/profile.page';
 import { ExtractionComponent } from './components/extraction/extraction.component';
 import { FolderPage } from './folder/folder.page';
+import { NumeroEstrattoComponent } from './components/numero-estratto/numero-estratto.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FolderPage } from './folder/folder.page';
     EditUserPage,
     ProfilePage,
     ExtractionComponent,
-    FolderPage
+    FolderPage,
+    NumeroEstrattoComponent
    ],
   entryComponents: [],
   imports: [
