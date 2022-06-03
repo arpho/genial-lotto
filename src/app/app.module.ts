@@ -14,6 +14,7 @@ import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
 import { ProfilePage } from './modules/user/pages/profile/profile.page';
 import { ExtractionComponent } from './components/extraction/extraction.component';
+import { FolderPage } from './folder/folder.page';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ExtractionComponent } from './components/extraction/extraction.componen
     EditUserPage,
     ProfilePage,
     ExtractionComponent,
+    FolderPage
    ],
   entryComponents: [],
   imports: [
