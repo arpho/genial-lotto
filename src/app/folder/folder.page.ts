@@ -59,8 +59,8 @@ this.estrazione1 =new Extraction({weel:this.ruota1,date:data,extraction:estrazio
 console.log("estrazione 1",this.estrazione1)
 }
 if(estrazione2){
-this.ruota2= estrazione2[0].weel
-this.estrazione2 = estrazione2[0].extraction
+this.ruota2= estrazione2[0]?.weel
+this.estrazione2 =new Extraction({weel:this.ruota2,date:data,extraction:estrazione2[0].extraction})
 }
   
   }
