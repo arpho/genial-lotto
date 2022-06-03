@@ -33,8 +33,7 @@ export class FolderPage implements OnInit {
   dateEstrazioni:string[]=[]
   formFields:any[]
   ruota1
-  _estrazione1:BehaviorSubject<Extraction>= new BehaviorSubject(new Extraction())
-  readonly estrazione1:Observable<Extraction> = this._estrazione1.asObservable()
+estrazione1:Extraction
   estrazione2
   ruota2
   estrazioniItems:Extraction[]
@@ -56,7 +55,8 @@ export class FolderPage implements OnInit {
     })
     if(estrazione1){
 this.ruota1= estrazione1[0]?.weel
-this._estrazione1.next(new Extraction({weel:this.ruota1,date:data,extraction:estrazione1[0].extraction}))
+this.estrazione1 =new Extraction({weel:this.ruota1,date:data,extraction:estrazione1[0].extraction})
+console.log("estrazione 1",this.estrazione1)
 }
 if(estrazione2){
 this.ruota2= estrazione2[0].weel
