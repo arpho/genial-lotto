@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Extraction } from 'src/app/models/extractionModel';
 
@@ -6,10 +6,11 @@ import { Extraction } from 'src/app/models/extractionModel';
   selector: 'app-extraction',
   templateUrl: './extraction.component.html',
   styleUrls: ['./extraction.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class ExtractionComponent implements OnInit, OnChanges {
-  @Input() extraction:Observable<Extraction> = new Observable()
-  selectedExtraction: Extraction
+  @Input() extraction: Extraction
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -18,11 +19,8 @@ export class ExtractionComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
-    console.log("extraction",this.extraction)
-    this.extraction.subscribe((e)=>{
-      console.log("subscription",e)
-      this.selectedExtraction = e
-    })
+    console.log("extraction component",this.extraction)
+    
   }
 
 }
