@@ -19,7 +19,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
 
 
   getNumber(index:number){
-    return this.extraction ?this.extraction.extraction[index]:''
+    return this.extraction ?this.extraction.extraction[index]:undefined
   }
 
   ngOnInit() {

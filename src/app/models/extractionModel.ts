@@ -10,7 +10,7 @@ export class Extraction {
   weel: string;
   _id:string;
   italianDate
-  extraction: string[]
+  extraction: number[]
   set date(date: string) {
     const converter = new DateHelpers()
     this._date = converter.fromItalian2AmericanFormat( date)
