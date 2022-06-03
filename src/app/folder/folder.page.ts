@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Extraction } from '../models/extractionModel';
 import { OptionsMaker } from '../modules/dynamic-form/helpers/optionMaker';
 import { DateQuestion } from '../modules/dynamic-form/models/question-date';
@@ -32,7 +33,8 @@ export class FolderPage implements OnInit {
   dateEstrazioni:string[]=[]
   formFields:any[]
   ruota1
-  estrazione1
+  _estrazione1:BehaviorSubject<Extraction>= new BehaviorSubject(new Extraction())
+  readonly estrazione1:Observable<Extraction> = this._estrazione1.asObservable()
   estrazione2
   ruota2
   estrazioniItems:Extraction[]
@@ -48,13 +50,13 @@ export class FolderPage implements OnInit {
     var estrazione1 = this.estrazioniItems.filter((e:Extraction)=>{
       return e.weel == this.weels[ ev.weel1] && e.date== data
     })
-    if(ev.weel1 && ev.extractionDate)
+    if(ev.weel2 && ev.extractionDate)
     var estrazione2 = this.estrazioniItems.filter((e:Extraction)=>{
       return e.weel == this.weels[ ev.weel2] && e.date== data
     })
     if(estrazione1){
 this.ruota1= estrazione1[0]?.weel
-this.estrazione1 = estrazione1[0].extraction
+this._estrazione1.next(new Extraction({weel:this.ruota1,date:data,extraction:estrazione1[0].extraction}))
 }
 if(estrazione2){
 this.ruota2= estrazione2[0].weel
