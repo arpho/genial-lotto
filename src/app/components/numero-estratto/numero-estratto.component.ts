@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-numero-estratto',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./numero-estratto.component.scss'],
 })
 export class NumeroEstrattoComponent implements OnInit {
+  @Input() numero:number
 
   constructor() { }
 

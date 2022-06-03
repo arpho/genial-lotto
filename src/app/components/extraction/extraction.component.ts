@@ -17,6 +17,11 @@ export class ExtractionComponent implements OnInit, OnChanges {
     console.log("change",changes)
   }
 
+
+  getNumber(index:number){
+    return this.extraction ?this.extraction.extraction[index]:''
+  }
+
   ngOnInit() {
 
     console.log("extraction component",this.extraction)
