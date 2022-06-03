@@ -65,6 +65,10 @@ this.estrazione2 =new Extraction({weel:this.ruota2,date:data,extraction:estrazio
   
   }
 
+  submit(ev){
+    console.log("submitted", ev)
+  }
+
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.estrazioni.extractions.subscribe((items)=>{
