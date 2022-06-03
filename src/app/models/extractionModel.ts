@@ -52,12 +52,13 @@ export class Extraction {
 
 
   load(v: {}) {
+    if(v){
     Object.assign(this, v)
-    if(v['date']){
+    if(v&&v['date']){
       const converter = new DateHelpers()
       this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( v['date'])).getTime()
     }
-    this.weel= this.weel||v["well"]
+  }
 
   }
 
