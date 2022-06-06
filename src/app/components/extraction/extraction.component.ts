@@ -10,6 +10,7 @@ import { Extraction } from 'src/app/models/extractionModel';
 
 })
 export class ExtractionComponent implements OnInit, OnChanges {
+  color="green"
   @Input() extraction: Extraction
 
   constructor() { }
