@@ -25,13 +25,12 @@
       <span></span>
     </div>
 </div>
-<article>
-  {{ruota1}}--:--{{estrazione1}}
-  </article>
-  <article>
-  {{ruota2}}--:--{{estrazione2}}
-  </article>
-  <app-extraction></app-extraction>
+<app-extraction 
+[extraction]="estrazione1"
+></app-extraction>
+<app-extraction 
+[extraction]="estrazione2"
+></app-extraction>
 
 
 </ion-content>

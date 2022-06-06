@@ -17,6 +17,6 @@ import { DynamicFormModule } from '../modules/dynamic-form/dynamic-form.module';
     FolderPageRoutingModule,
     DynamicFormModule,
   ],
-  declarations: [FolderPage]
+  declarations: []
 })
 export class FolderPageModule {}

@@ -47,4 +47,6 @@ www/
 
 dataUploader/data.json
 
-src/assets/gif/pacman.gif
+dataUploader/archivio/storico.txt
+
+*.txt

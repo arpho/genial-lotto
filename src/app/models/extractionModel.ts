@@ -9,10 +9,12 @@ export class Extraction {
   _dateInmsec: number
   weel: string;
   _id:string;
-  extraction: string[]
+  italianDate
+  extraction: number[]
   set date(date: string) {
     const converter = new DateHelpers()
     this._date = converter.fromItalian2AmericanFormat( date)
+    this.italianDate = date
 
     this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( date)).getTime()
 
@@ -52,12 +54,13 @@ export class Extraction {
 
 
   load(v: {}) {
+    if(v){
     Object.assign(this, v)
-    if(v['date']){
+    if(v&&v['date']){
       const converter = new DateHelpers()
       this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( v['date'])).getTime()
     }
-    this.weel= this.weel||v["well"]
+  }
 
   }
 
