@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NumeroEstrattoComponent implements OnInit {
   @Input() numero:number
+  @Input() color:string
 
   constructor() { }
 
