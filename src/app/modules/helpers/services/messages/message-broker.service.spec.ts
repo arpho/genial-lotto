@@ -30,7 +30,14 @@ describe('MessageBrokerService', () => {
   })
   it("should publish",()=>{
     service.addBroker("test")
+    var out =0
+    const next =(value)=>{
+      out = value
+    }
+
+    service.subscribeTo("test",next)
     expect(service.publish("test",2)).toBeTrue()
+    expect(out).toBe(2)
     
   })
 });
