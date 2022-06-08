@@ -13,7 +13,16 @@ export class Extraction {
   transformation:TransformationInterface
   italianDate
  
-  extraction: number[]
+
+  _extraction: number[]
+  set extraction(data:number[]){
+    this._extraction = data
+  }
+get extraction(){
+  return this.transformation? this._extraction.map(this.transformation.transform): this._extraction
+}
+
+
   set date(date: string) {
     const converter = new DateHelpers()
     this._date = converter.fromItalian2AmericanFormat( date)
@@ -34,7 +43,7 @@ export class Extraction {
     return m>9?String(m): `0${m}`
   }
 
-
+  
   get title(){
     return this.transformation?`${this.transformation.title} sulla ruota di  ${this.weel}`:`ruota di ${this.weel}`
    }
@@ -92,7 +101,7 @@ export class Extraction {
     return {
       "dateInmsec": serializers.serialize2PositiveNumber(this._dateInmsec, -1),
       "weel": serializers.serialize2String(this.weel),
-      "extraction": serializers.serialize2Array(this.extraction)
+      "extraction": serializers.serialize2Array(this._extraction)
 
     }
   }
