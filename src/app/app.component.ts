@@ -18,8 +18,7 @@ export class AppComponent  implements OnInit{
 onOwnClick= (index:number)=>{
   const  out= ()=>{
     this.transformationIndex= index
-    console.log("transf",index)
-    this.messages.publish("selectedFunction",this.appPages[index])
+    this.messages.publish("selectedFunction",this.appPages[index].function)
     
   }
   return out
@@ -28,8 +27,8 @@ onOwnClick= (index:number)=>{
    return (index==this.transformationIndex)?"selected":"unselected"
  }
   public appPages = [
-    { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:piu2meno90},
-    { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:Figura },
+    { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new piu2meno90()},
+    { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
     { title: 'Favorites', url: '/folder/Favorites', icon: 'heart', onClick:this.onOwnClick(2) },
     { title: 'Archived', url: '/folder/Archived', icon: 'archive', onClick:this.onOwnClick(3) },
     { title: 'Trash', url: '/folder/Trash', icon: 'trash', onClick:this.onOwnClick(4) },
