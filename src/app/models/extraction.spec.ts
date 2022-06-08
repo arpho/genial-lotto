@@ -10,11 +10,11 @@ it("load full data",()=>{
   const test = new Extraction(data)
   expect(test.weel).toEqual(data.weel)
   expect(test.extraction.length).toBe(5)
-  expect(test.extraction[0]).toBe("24")
+  expect(test.extraction[0]).toBe(24)
   expect(test._dateInmsec).toBe(new Date("12/06/1941").getTime())
   expect(test.serialize().weel).toBe(data.weel)
   expect(test.serialize().dateInmsec).toBe(new Date("12/06/1941").getTime())
-  expect(test.serialize().extraction[0]).toBe("24")})
+  expect(test.serialize().extraction[0]).toBe(24)})
 })
 it("should work with partial data",()=>{
 

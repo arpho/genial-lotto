@@ -36,7 +36,7 @@ import { NumeroEstrattoComponent } from './components/numero-estratto/numero-est
     ItemModule,
     HelpersModule,
     UserModule,
-   // ExtractionComponent
+    
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -56,6 +56,10 @@ export class Extraction {
   load(v: {}) {
     if(v){
     Object.assign(this, v)
+    if(this.extraction){
+    this.extraction= this.extraction.map((e)=>{
+      return Number(e)
+    })}
     if(v&&v['date']){
       const converter = new DateHelpers()
       this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( v['date'])).getTime()

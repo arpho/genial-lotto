@@ -24,10 +24,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-article p {
-  display: inline;
+
+app-extraction article p {
+    display: inline;
+    border: solid 1px red;
+    border-radius: 9px;
+    background-color: orange;
 }
-app-numero-estratto p {
-  border-radius: 9px;
-  border: 2px solid green;
+
+.green{
+    background-color:green
 }
