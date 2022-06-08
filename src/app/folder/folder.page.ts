@@ -38,7 +38,9 @@ export class FolderPage implements OnInit {
   formFields: any[]
   ruota1
   estrazione1: Extraction
-  estrazione2
+  estrazione2: Extraction
+  trasformazione2: Extraction
+  trasformazione1: Extraction
   ruota2
   estrazioniItems: Extraction[]
 
@@ -78,7 +80,14 @@ export class FolderPage implements OnInit {
   }
   submit(ev) {
     console.log("submitted", ev);
-    console.log("funzione", this.transformation)
+    console.log("funzione", this.selectedFunction)
+    if(this.estrazione1){
+    this.trasformazione1 = new Extraction( this.estrazione1.apply(this.selectedFunction))
+  console.log("trasformazione1",this.trasformazione1)
+  }
+    if(this.estrazione2){
+    this.trasformazione2 = new Extraction( this.estrazione2.apply(this.selectedFunction))
+  }
   }
 
   transformation: TransformationInterface

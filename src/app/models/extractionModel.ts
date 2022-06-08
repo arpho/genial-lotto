@@ -10,7 +10,9 @@ export class Extraction {
   _dateInmsec: number
   weel: string;
   _id:string;
+  transformation:TransformationInterface
   italianDate
+ 
   extraction: number[]
   set date(date: string) {
     const converter = new DateHelpers()
@@ -32,7 +34,13 @@ export class Extraction {
     return m>9?String(m): `0${m}`
   }
 
+
+  get title(){
+    return this.transformation?`${this.transformation.title} sulla ruota di  ${this.weel}`:`ruota di ${this.weel}`
+   }
+
   apply(transformation:TransformationInterface){
+    this.transformation = transformation
     this.extraction = this.extraction.map(transformation.transform)
     return this
   }
@@ -45,6 +53,7 @@ export class Extraction {
     return this
 
   }
+
 
   get id(){
     return this._id
