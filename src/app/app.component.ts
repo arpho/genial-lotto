@@ -5,7 +5,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { configs } from './configs/credentials';
 import { Router } from '@angular/router';
 import { MessageBrokerService } from './modules/helpers/services/messages/message-broker.service';
-import { piu2meno90 } from './business/piu2meno90';
+import { Piu2meno90 } from './business/piu2meno90';
 import { Figura } from './business/figura';
 @Component({
   selector: 'app-root',
@@ -27,7 +27,7 @@ onOwnClick= (index:number)=>{
    return (index==this.transformationIndex)?"selected":"unselected"
  }
   public appPages = [
-    { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new piu2meno90()},
+    { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new Piu2meno90()},
     { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
     { title: 'Favorites', url: '/folder/Favorites', icon: 'heart', onClick:this.onOwnClick(2) },
     { title: 'Archived', url: '/folder/Archived', icon: 'archive', onClick:this.onOwnClick(3) },

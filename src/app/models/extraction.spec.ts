@@ -1,4 +1,4 @@
-import { piu2meno90 } from "../business/piu2meno90"
+import { Piu2meno90 } from "../business/piu2meno90"
 import { Extraction } from "./extractionModel"
 
 describe("extaction sould load data",()=>{
@@ -68,7 +68,7 @@ it( "should transform extraction",()=>{
     extraction:["24","39","53","23","49"]
   }
   const test = new Extraction(data)
-  const transformation = new piu2meno90()
+  const transformation = new Piu2meno90()
   expect(test.apply(transformation).extraction[0]).toBe(64)
   expect(test.apply(transformation).extraction[1]).toBe(49)
   expect(test.apply(transformation).extraction[2]).toBe(35)
