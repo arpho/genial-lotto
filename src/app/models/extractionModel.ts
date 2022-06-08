@@ -1,6 +1,7 @@
 import { stringify } from "querystring";
 import { DateHelpers } from "../modules/helpers/dateHelper";
 import { Serializers } from "../modules/helpers/serializers"
+import { TransformationInterface } from "./trasformationInterface";
 
 
 export class Extraction {
@@ -29,6 +30,11 @@ export class Extraction {
 
   format2Digit(m:number){
     return m>9?String(m): `0${m}`
+  }
+
+  apply(transformation:TransformationInterface){
+    this.extraction = this.extraction.map(transformation.transform)
+    return this
   }
 
   get date(){

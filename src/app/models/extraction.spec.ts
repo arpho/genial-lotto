@@ -1,3 +1,4 @@
+import { piu2meno90 } from "../business/piu2meno90"
 import { Extraction } from "./extractionModel"
 
 describe("extaction sould load data",()=>{
@@ -58,4 +59,19 @@ it("should create with no parameter",()=>{
 
   const test = new Extraction()
   expect(test).toBeDefined()
+})
+
+it( "should transform extraction",()=>{
+  const data = {
+    date:"06/12/1941",
+    weel:"Bari",
+    extraction:["24","39","53","23","49"]
+  }
+  const test = new Extraction(data)
+  const transformation = new piu2meno90()
+  expect(test.apply(transformation).extraction[0]).toBe(64)
+  expect(test.apply(transformation).extraction[1]).toBe(49)
+  expect(test.apply(transformation).extraction[2]).toBe(35)
+  expect(test.apply(transformation).extraction[3]).toBe(65)
+  expect(test.apply(transformation).extraction[4]).toBe(49)
 })
