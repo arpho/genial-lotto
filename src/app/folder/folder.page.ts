@@ -18,6 +18,8 @@ import { EstrazioniService } from '../services/extractions/estrazioni.service';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+
+  selectedFunction: TransformationInterface
   showSpinner = true
   weels: string[] = [
     "Bari",
@@ -43,7 +45,12 @@ export class FolderPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
-    public messages: MessageBrokerService) { }
+    public messages: MessageBrokerService) {
+    messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => {
+      this.selectedFunction = transformation
+      console.log("selected",this.selectedFunction)
+    })
+  }
 
   filter(ev) {
     console.log("typing", ev)
@@ -71,7 +78,7 @@ export class FolderPage implements OnInit {
   }
   submit(ev) {
     console.log("submitted", ev);
-    console.log("funzione",this.transformation)
+    console.log("funzione", this.transformation)
   }
 
   transformation: TransformationInterface
