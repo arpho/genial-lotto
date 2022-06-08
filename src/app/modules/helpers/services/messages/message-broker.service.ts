@@ -17,7 +17,7 @@ export class MessageBrokerService {
       
     }
   }
-  subscribeTo(key:string,next:(message:string)=>void){
+  subscribeTo(key:string,next:(message:{})=>void){
     return this.brokers[key]?this.brokers[key].subscribe(next):undefined
   }
   brokersList(){
