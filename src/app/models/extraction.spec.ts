@@ -73,5 +73,5 @@ it( "should transform extraction",()=>{
   expect(test.apply(transformation).extraction[1]).toBe(49)
   expect(test.apply(transformation).extraction[2]).toBe(35)
   expect(test.apply(transformation).extraction[3]).toBe(65)
-  expect(test.apply(transformation).extraction[4]).toBe(49)
+  expect(test.apply(transformation).extraction[4]).toBe(39)
 })
