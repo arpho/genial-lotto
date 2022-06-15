@@ -16,6 +16,7 @@ import { ProfilePage } from './modules/user/pages/profile/profile.page';
 import { ExtractionComponent } from './components/extraction/extraction.component';
 import { FolderPage } from './folder/folder.page';
 import { NumeroEstrattoComponent } from './components/numero-estratto/numero-estratto.component';
+import { WeelsViewerComponent } from './components/weels-viewer/weels-viewer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NumeroEstrattoComponent } from './components/numero-estratto/numero-est
     ProfilePage,
     ExtractionComponent,
     FolderPage,
-    NumeroEstrattoComponent
+    NumeroEstrattoComponent,
+    WeelsViewerComponent
    ],
   entryComponents: [],
   imports: [
