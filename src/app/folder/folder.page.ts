@@ -44,6 +44,7 @@ export class FolderPage implements OnInit {
   ruota2
   estrazioniItems: Extraction[]
 selectedData:string
+selectedData1:string
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
@@ -59,6 +60,8 @@ selectedData:string
     const helper = new DateHelpers()
     const data = this.dateEstrazioni[ev.extractionDate] // separo la data dall'ora
     this.selectedData = data
+    this.selectedData1 = this.dateEstrazioni[Number(ev.extractionDate)+1]
+    console.log("selected data 1",this.selectedData1)
     if (ev.weel1 && ev.extractionDate)
       var estrazione1 = this.estrazioniItems.filter((e: Extraction) => {
         return e.weel == this.weels[ev.weel1] && e.italianDate == data

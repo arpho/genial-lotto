@@ -26,16 +26,14 @@
     </div>
 </div>
 
-<app-extraction 
-[extraction]="trasformazione1"
-></app-extraction>
-<app-extraction 
-[extraction]="trasformazione2"
-></app-extraction>
 
 <app-weels-viewer
 [estrazioni]="estrazioniItems"
 [data]="selectedData"
+></app-weels-viewer>
+<app-weels-viewer
+[estrazioni]="estrazioniItems"
+[data]="selectedData1"
 ></app-weels-viewer>
 
 </ion-content>
