@@ -43,7 +43,7 @@ export class FolderPage implements OnInit {
   trasformazione1: Extraction
   ruota2
   estrazioniItems: Extraction[]
-
+selectedData:string
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
@@ -58,7 +58,7 @@ export class FolderPage implements OnInit {
     console.log("typing", ev)
     const helper = new DateHelpers()
     const data = this.dateEstrazioni[ev.extractionDate] // separo la data dall'ora
-
+    this.selectedData = data
     if (ev.weel1 && ev.extractionDate)
       var estrazione1 = this.estrazioniItems.filter((e: Extraction) => {
         return e.weel == this.weels[ev.weel1] && e.italianDate == data
@@ -93,7 +93,7 @@ export class FolderPage implements OnInit {
   transformation: TransformationInterface
 
   ngOnInit() {
-    this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => {
+    this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => { // we get the selected transformation
       transformation = transformation
     })
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
