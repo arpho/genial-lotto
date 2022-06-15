@@ -15,7 +15,6 @@ export class ExtractionComponent implements OnInit, OnChanges {
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("change",changes)
   }
 
 
@@ -25,7 +24,6 @@ export class ExtractionComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
-    console.log("extraction component",this.extraction)
     
   }
 

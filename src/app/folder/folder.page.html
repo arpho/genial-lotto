@@ -25,15 +25,21 @@
       <span></span>
     </div>
 </div>
-
-
+<ion-grid class="extractions">
+<ion-row>
+<ion-item>
 <app-weels-viewer
 [estrazioni]="estrazioniItems"
 [data]="selectedData"
 ></app-weels-viewer>
+</ion-item>
+<ion-item>
 <app-weels-viewer
 [estrazioni]="estrazioniItems"
 [data]="selectedData1"
 ></app-weels-viewer>
+</ion-item>
+</ion-row>
+</ion-grid>
 
 </ion-content>
