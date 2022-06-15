@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MessageBrokerService } from './modules/helpers/services/messages/message-broker.service';
 import { Piu2meno90 } from './business/piu2meno90';
 import { Figura } from './business/figura';
+import { Vertibile } from './business/vertibile';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -29,7 +30,7 @@ onOwnClick= (index:number)=>{
   public appPages = [
     { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new Piu2meno90()},
     { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart', onClick:this.onOwnClick(2) },
+    { title: 'Vertibili', url: '/folder/Favorites', src:"/assets/icon/vertibile2.svg", onClick:this.onOwnClick(2),function:new Vertibile() },
     { title: 'Archived', url: '/folder/Archived', icon: 'archive', onClick:this.onOwnClick(3) },
     { title: 'Trash', url: '/folder/Trash', icon: 'trash', onClick:this.onOwnClick(4) },
     { title: 'Spam', url: '/folder/Spam', icon: 'warning', onClick:this.onOwnClick(5) },

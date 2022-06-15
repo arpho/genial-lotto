@@ -1,0 +1,43 @@
+import { Vertibile } from "./vertibile"
+
+describe("calcolo corretto del vertibile, casi semplici",()=>{
+  const test = new Vertibile()
+  it("vertibili di numeri <10",()=>{
+    expect(test.transform(9)).toBe(90)
+    expect(test.transform(8)).toBe(80)
+    expect(test.transform(7)).toBe(70)
+    expect(test.transform(6)).toBe(60)
+    expect(test.transform(5)).toBe(50)
+    expect(test.transform(4)).toBe(40)
+    expect(test.transform(3)).toBe(30)
+    expect(test.transform(2)).toBe(20)
+    expect(test.transform(1)).toBe(10)
+  })
+  it("vertibili numeri a 2 cifre non simmetrici",()=>{
+    expect(test.transform(23)).toBe(32)
+    expect(test.transform(18)).toBe(81)
+    expect(test.transform(90)).toBe(9)
+  })
+  it("vertibili di numeri simmetrici",()=>{
+    expect(test.transform(11)).toBe(19)
+    expect(test.transform(22)).toBe(29)
+    expect(test.transform(33)).toBe(39)
+    expect(test.transform(22)).toBe(29)
+    expect(test.transform(44)).toBe(49)
+    expect(test.transform(55)).toBe(59)
+    expect(test.transform(66)).toBe(69)
+    expect(test.transform(77)).toBe(79)
+    expect(test.transform(88)).toBe(89)
+  })
+  it("vertibili di numeri con il 9",()=>{
+    expect(test.transform(19)).toBe(11)
+    expect(test.transform(29)).toBe(22)
+    expect(test.transform(39)).toBe(33)
+    expect(test.transform(29)).toBe(22)
+    expect(test.transform(49)).toBe(44)
+    expect(test.transform(59)).toBe(55)
+    expect(test.transform(69)).toBe(66)
+    expect(test.transform(79)).toBe(77)
+    expect(test.transform(89)).toBe(88)
+  })
+})
