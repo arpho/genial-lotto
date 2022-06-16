@@ -18,7 +18,6 @@ export class ExtractionComponent implements OnInit, OnChanges {
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("changes",changes)
   }
 
 

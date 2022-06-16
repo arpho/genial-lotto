@@ -25,7 +25,6 @@ export class WeelsViewerComponent implements OnInit,OnChanges {
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("changes",changes)
     if(this.estrazioni&& this.data){
       const extraction= this.estrazioni.filter(e=>{
         return e.italianDate==this.data
