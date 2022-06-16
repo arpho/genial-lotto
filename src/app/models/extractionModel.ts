@@ -45,7 +45,7 @@ get extraction(){
 
   
   get title(){
-    return this.transformation?`${this.transformation.title} sulla ruota di  ${this.weel}`:`ruota di ${this.weel}`
+    return this.transformation?`${this.transformation.title} sulla ruota di  ${this.weel}`:` ${this.weel}`
    }
 
   apply(transformation:TransformationInterface){

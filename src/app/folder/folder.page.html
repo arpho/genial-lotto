@@ -19,6 +19,7 @@
  [questions]="formFields"
  (interactiveSubmit)="filter($event)"
  (singleSubmit)="submit($event)"
+ [transformation]="selectedFunction"
   ></app-dynamic-form>
   <div  *ngIf="showSpinner">
     <div class="ring">Loading 
@@ -31,12 +32,21 @@
 <app-weels-viewer
 [estrazioni]="estrazioniItems"
 [data]="selectedData"
+[transformation]="selectedFunction"
 ></app-weels-viewer>
 </ion-item>
 <ion-item>
 <app-weels-viewer
 [estrazioni]="estrazioniItems"
 [data]="selectedData1"
+[transformation]="selectedFunction"
+></app-weels-viewer>
+</ion-item>
+<ion-item>
+  <app-weels-viewer
+[estrazioni]="estrazioniItems"
+[data]="selectedData2"
+[transformation]="selectedFunction"
 ></app-weels-viewer>
 </ion-item>
 </ion-row>

@@ -45,6 +45,7 @@ export class FolderPage implements OnInit {
   estrazioniItems: Extraction[]
 selectedData:string
 selectedData1:string
+selectedData2:string
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
@@ -61,6 +62,7 @@ selectedData1:string
     const data = this.dateEstrazioni[ev.extractionDate] // separo la data dall'ora
     this.selectedData = data
     this.selectedData1 = this.dateEstrazioni[Number(ev.extractionDate)+1]
+    this.selectedData2 = this.dateEstrazioni[Number(ev.extractionDate)+2]
     console.log("selected data 1",this.selectedData1)
     if (ev.weel1 && ev.extractionDate)
       var estrazione1 = this.estrazioniItems.filter((e: Extraction) => {

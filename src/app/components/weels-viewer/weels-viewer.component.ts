@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Extraction } from 'src/app/models/extractionModel';
+import { TransformationInterface } from 'src/app/models/trasformationInterface';
 
 @Component({
   selector: 'app-weels-viewer',
@@ -8,6 +9,7 @@ import { Extraction } from 'src/app/models/extractionModel';
 })
 export class WeelsViewerComponent implements OnInit,OnChanges {
   @Input() estrazioni:Extraction[]
+  @Input()transformation:TransformationInterface
   @Input() data:string
   Bari:Extraction
   Cagliari: Extraction
@@ -28,7 +30,6 @@ export class WeelsViewerComponent implements OnInit,OnChanges {
       const extraction= this.estrazioni.filter(e=>{
         return e.italianDate==this.data
       })
-      console.log("!filteering",extraction)
       this.Bari= extraction.filter(e=>{
         return e.weel== "Bari"
       })[0]
