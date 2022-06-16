@@ -1,5 +1,5 @@
 <article>
-<p class="ruota">{{extraction?.title}} </p>
+<p class="ruota" *ngIf="extraction">{{extraction?.title}} </p>
 
 <p id="estrazione" *ngIf="extraction">
   <app-numero-estratto
