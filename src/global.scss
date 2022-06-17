@@ -26,21 +26,23 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 app-extraction article p {
-    display: inline;
-    border: solid 1px red;
-    border-radius: 9px;
-    background-color: orange;
-}
-
-app-extraction article kbd {
   display: inline;
   border: solid 1px red;
   border-radius: 9px;
   background-color: orange;
 }
 
-.green{
-    background-color:green
+.browsable app-extraction article p  {
+  display: inline;
+  border: solid 1px red;
+  border-radius: 9px;
+  background-color: burlywood;
+}
+
+
+
+.green {
+  background-color: green
 }
 
 p.date {
@@ -54,9 +56,10 @@ p.date {
 app-weels-viewer {
   font-size: 30px;
 }
+
 p.info {
   font-size: large;
   font-family: cursive;
   font-weight: bolder;
-  color:darkblue ;
+  color: darkblue;
 }
