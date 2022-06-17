@@ -65,12 +65,23 @@ appliedFunction=""
   }
 
   setStepDates(startFrom:number,step:number){
-    if(startFrom+step+1<=this.dateEstrazioni.length){
+    if(startFrom+step+1<=this.dateEstrazioni.length && startFrom+step>=0){
       this.selectedData3= this.dateEstrazioni[startFrom+step]
       this.selectedData4= this.dateEstrazioni[startFrom+step+1]
       this.selectedData5= this.dateEstrazioni[startFrom+step+2]
   }
 
+  }
+
+  previous(){
+    this.step-= 1
+    console.log("prev",this.step)
+    this.setStepDates(this.index,this.step)
+  }
+  next(){
+    this.step+= 1
+    console.log("next",this.step)
+    this.setStepDates(this.index,this.step)
   }
 
   filter(ev) {

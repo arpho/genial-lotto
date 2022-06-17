@@ -26,6 +26,19 @@
     </div>
 </div>
 <p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>
+<div class="browsing_buttons">
+
+  <ion-button (click)="previous()">
+    <ion-icon name="arrow-back">
+
+    </ion-icon>
+  </ion-button>
+  <ion-button (click)="next()">
+    <ion-icon name="arrow-forward">
+
+    </ion-icon>
+  </ion-button>
+</div>
 <ion-grid class="extractions">
 <ion-row>
 <ion-item>
