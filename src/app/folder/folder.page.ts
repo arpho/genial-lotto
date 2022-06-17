@@ -44,16 +44,16 @@ export class FolderPage implements OnInit {
   trasformazione1: Extraction
   ruota2
   estrazioniItems: Extraction[]
-selectedData:string
-selectedData1:string
-selectedData2:string
-selectedData3:string
-selectedData4:string
-selectedData5:string
-neutralFunction = new Neutro()
-step=0
-index=0
-appliedFunction=""
+  selectedData: string
+  selectedData1: string
+  selectedData2: string
+  selectedData3: string
+  selectedData4: string
+  selectedData5: string
+  neutralFunction = new Neutro()
+  step = 0
+  index = 0
+  appliedFunction = ""
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
@@ -64,36 +64,36 @@ appliedFunction=""
     })
   }
 
-  setStepDates(startFrom:number,step:number){
-    if(startFrom+step+1<=this.dateEstrazioni.length && startFrom+step>=0){
-      this.selectedData3= this.dateEstrazioni[startFrom+step]
-      this.selectedData4= this.dateEstrazioni[startFrom+step+1]
-      this.selectedData5= this.dateEstrazioni[startFrom+step+2]
-  }
+  setStepDates(startFrom: number, step: number) {
+    if (startFrom + step + 1 <= this.dateEstrazioni.length && startFrom + step >= 0) {
+      this.selectedData3 = this.dateEstrazioni[startFrom + step]
+      this.selectedData4 = this.dateEstrazioni[startFrom + step + 1]
+      this.selectedData5 = this.dateEstrazioni[startFrom + step + 2]
+    }
 
   }
 
-  previous(){
-    this.step-= 1
-    console.log("prev",this.step)
-    this.setStepDates(this.index,this.step)
+  previous() {
+    this.step -= 1
+    console.log("prev", this.step)
+    this.setStepDates(this.index, this.step)
   }
-  next(){
-    this.step+= 1
-    console.log("next",this.step)
-    this.setStepDates(this.index,this.step)
+  next() {
+    this.step += 1
+    console.log("next", this.step)
+    this.setStepDates(this.index, this.step)
   }
 
   filter(ev) {
     console.log("typing", ev)
     this.index = Number(ev.extractionDate) // we set the index of the combobox
-    const data = this.dateEstrazioni[ev.extractionDate] 
+    const data = this.dateEstrazioni[ev.extractionDate]
 
     this.selectedData = data
-    this.selectedData1 = this.dateEstrazioni[Number(ev.extractionDate)+1]
-    this.selectedData2 = this.dateEstrazioni[Number(ev.extractionDate)+2]
-    this.setStepDates(this.index,this.step)
-    console.log("selected data 1",this.selectedData1)
+    this.selectedData1 = this.dateEstrazioni[Number(ev.extractionDate) + 1]
+    this.selectedData2 = this.dateEstrazioni[Number(ev.extractionDate) + 2]
+    this.setStepDates(this.index, this.step)
+    console.log("selected data 1", this.selectedData1)
     if (ev.weel1 && ev.extractionDate)
       var estrazione1 = this.estrazioniItems.filter((e: Extraction) => {
         return e.weel == this.weels[ev.weel1] && e.italianDate == data
@@ -116,13 +116,13 @@ appliedFunction=""
   submit(ev) {
     console.log("submitted", ev);
     console.log("funzione", this.selectedFunction)
-    if(this.estrazione1){
-    this.trasformazione1 = new Extraction( this.estrazione1.apply(this.selectedFunction))
-  console.log("trasformazione1",this.trasformazione1)
-  }
-    if(this.estrazione2){
-    this.trasformazione2 = new Extraction( this.estrazione2.apply(this.selectedFunction))
-  }
+    if (this.estrazione1) {
+      this.trasformazione1 = new Extraction(this.estrazione1.apply(this.selectedFunction))
+      console.log("trasformazione1", this.trasformazione1)
+    }
+    if (this.estrazione2) {
+      this.trasformazione2 = new Extraction(this.estrazione2.apply(this.selectedFunction))
+    }
   }
 
   transformation: TransformationInterface

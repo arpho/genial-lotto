@@ -15,80 +15,68 @@
   </ion-header>
 
 
-  <app-dynamic-form
- [questions]="formFields"
- (interactiveSubmit)="filter($event)"
- (singleSubmit)="submit($event)"
-  ></app-dynamic-form>
-  <div  *ngIf="showSpinner">
-    <div class="ring">Loading 
+  <app-dynamic-form [questions]="formFields" (interactiveSubmit)="filter($event)" (singleSubmit)="submit($event)">
+  </app-dynamic-form>
+  <div *ngIf="showSpinner">
+    <div class="ring">Loading
       <span></span>
     </div>
-</div>
-<p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>
-<div class="browsing_buttons">
+  </div>
+  <p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>
+  <div class="browsing_buttons">
 
-  <ion-button (click)="previous()">
-    <ion-icon name="arrow-back">
+    <ion-button (click)="previous()">
+      <ion-icon name="arrow-back">
 
-    </ion-icon>
-  </ion-button>
-  <ion-button (click)="next()">
-    <ion-icon name="arrow-forward">
+      </ion-icon>
+    </ion-button>
+    <ion-button (click)="next()">
+      <ion-icon name="arrow-forward">
 
-    </ion-icon>
-  </ion-button>
-</div>
-<ion-grid class="extractions">
-<ion-row>
-<ion-item>
-<app-weels-viewer
-[estrazioni]="estrazioniItems"
-[data]="selectedData"
-[transformation]="selectedFunction"
-></app-weels-viewer>
-</ion-item>
-<ion-item>
-<app-weels-viewer
-[estrazioni]="estrazioniItems"
-[data]="selectedData1"
-[transformation]="selectedFunction"
-></app-weels-viewer>
-</ion-item>
-<ion-item>
-  <app-weels-viewer
-[estrazioni]="estrazioniItems"
-[data]="selectedData2"
-[transformation]="selectedFunction"
-></app-weels-viewer>
-</ion-item>
-</ion-row>
-<ion-row>
+      </ion-icon>
+    </ion-button>
+  </div>
+  <ion-grid class="extractions">
+    <ion-row>
+      <ion-item>
+        <app-weels-viewer [estrazioni]="estrazioniItems" [data]="selectedData" [transformation]="selectedFunction">
+        </app-weels-viewer>
+      </ion-item>
+      <ion-item>
+        <app-weels-viewer [estrazioni]="estrazioniItems" [data]="selectedData1" [transformation]="selectedFunction">
+        </app-weels-viewer>
+      </ion-item>
+      <ion-item>
+        <app-weels-viewer [estrazioni]="estrazioniItems" [data]="selectedData2" [transformation]="selectedFunction">
+        </app-weels-viewer>
+      </ion-item>
+    </ion-row>
+    <ion-row>
 
-  <ion-item>
-    <app-weels-viewer
-  [estrazioni]="estrazioniItems"
-  [transformation]="neutralFunction"
-  [data]="selectedData3"
-  ></app-weels-viewer>
-  </ion-item>
-  <ion-item>
-    <app-weels-viewer
-  [estrazioni]="estrazioniItems"
-  [transformation]="neutralFunction"
-  [data]="selectedData4"
-  ></app-weels-viewer>
-  </ion-item>
+      <ion-item>
+        <app-weels-viewer class="browsable" [estrazioni]="estrazioniItems" [transformation]="neutralFunction"
+          [data]="selectedData3">
+        </app-weels-viewer>
+      </ion-item>
+      <ion-item>
+        <app-weels-viewer
+        class="browsable"
+         [estrazioni]="estrazioniItems"
+          [transformation]="neutralFunction"
+           [data]="selectedData4">
+        </app-weels-viewer>
+      </ion-item>
 
-<ion-item>
-  <app-weels-viewer
-[estrazioni]="estrazioniItems"
-[transformation]="neutralFunction"
-[data]="selectedData5"
-></app-weels-viewer>
-</ion-item>
-</ion-row>
-</ion-grid>
+      <ion-item>
+        <app-weels-viewer
+        class="browsable"
+        [estrazioni]="estrazioniItems"
+        [transformation]="neutralFunction"
+        [data]="selectedData5">
+        </app-weels-viewer>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
 
 
 </ion-content>
