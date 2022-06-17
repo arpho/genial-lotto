@@ -19,7 +19,6 @@
  [questions]="formFields"
  (interactiveSubmit)="filter($event)"
  (singleSubmit)="submit($event)"
- [transformation]="selectedFunction"
   ></app-dynamic-form>
   <div  *ngIf="showSpinner">
     <div class="ring">Loading 
