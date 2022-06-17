@@ -43,7 +43,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
   getTitle(){
     let out = ""
     if(this.extraction){
-      out = this.extraction.title   + this.makesPadding(this.extraction.title,9)
+      out = this.extraction.title  
     }
     console.log("out",out)
     return out

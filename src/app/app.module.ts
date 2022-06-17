@@ -18,6 +18,7 @@ import { FolderPage } from './folder/folder.page';
 import { NumeroEstrattoComponent } from './components/numero-estratto/numero-estratto.component';
 import { WeelsViewerComponent } from './components/weels-viewer/weels-viewer.component';
 import { TrailingZeroPipe } from './pipes/trailing-zero.pipe';
+import { SameLengthStringPipe } from './pipes/same-length-string.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TrailingZeroPipe } from './pipes/trailing-zero.pipe';
     FolderPage,
     NumeroEstrattoComponent,
     WeelsViewerComponent,
-    TrailingZeroPipe
+    TrailingZeroPipe,
+    SameLengthStringPipe
    ],
   entryComponents: [],
   imports: [
