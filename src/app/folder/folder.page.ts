@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Neutro } from '../business/neutro';
 import { Extraction } from '../models/extractionModel';
 import { TransformationInterface } from '../models/trasformationInterface';
 import { OptionsMaker } from '../modules/dynamic-form/helpers/optionMaker';
@@ -46,6 +47,12 @@ export class FolderPage implements OnInit {
 selectedData:string
 selectedData1:string
 selectedData2:string
+selectedData3:string
+selectedData4:string
+selectedData5:string
+neutralFunction = new Neutro()
+step=0
+index=0
 appliedFunction=""
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -57,13 +64,24 @@ appliedFunction=""
     })
   }
 
+  setStepDates(startFrom:number,step:number){
+    if(startFrom+step+1<=this.dateEstrazioni.length){
+      this.selectedData3= this.dateEstrazioni[startFrom+step]
+      this.selectedData4= this.dateEstrazioni[startFrom+step+1]
+      this.selectedData5= this.dateEstrazioni[startFrom+step+2]
+  }
+
+  }
+
   filter(ev) {
     console.log("typing", ev)
-    const helper = new DateHelpers()
-    const data = this.dateEstrazioni[ev.extractionDate] // separo la data dall'ora
+    this.index = Number(ev.extractionDate) // we set the index of the combobox
+    const data = this.dateEstrazioni[ev.extractionDate] 
+
     this.selectedData = data
     this.selectedData1 = this.dateEstrazioni[Number(ev.extractionDate)+1]
     this.selectedData2 = this.dateEstrazioni[Number(ev.extractionDate)+2]
+    this.setStepDates(this.index,this.step)
     console.log("selected data 1",this.selectedData1)
     if (ev.weel1 && ev.extractionDate)
       var estrazione1 = this.estrazioniItems.filter((e: Extraction) => {
