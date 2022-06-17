@@ -45,7 +45,6 @@ export class ExtractionComponent implements OnInit, OnChanges {
     if(this.extraction){
       out = this.extraction.title  
     }
-    console.log("out",out)
     return out
 
   }
