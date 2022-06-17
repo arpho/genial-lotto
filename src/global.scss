@@ -32,6 +32,13 @@ app-extraction article p {
     background-color: orange;
 }
 
+app-extraction article tt {
+  display: inline;
+  border: solid 1px red;
+  border-radius: 9px;
+  background-color: orange;
+}
+
 .green{
     background-color:green
 }

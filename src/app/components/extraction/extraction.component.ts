@@ -31,4 +31,23 @@ export class ExtractionComponent implements OnInit, OnChanges {
     
   }
 
+  makesPadding(str:string,size:number){
+  var out = ""
+  for (let i =0;i+str.length<=size;i++){
+    out= out +'_'
+  }
+  return out
+
+}
+
+  getTitle(){
+    let out = ""
+    if(this.extraction){
+      out = this.extraction.title   + this.makesPadding(this.extraction.title,9)
+    }
+    console.log("out",out)
+    return out
+
+  }
+
 }
