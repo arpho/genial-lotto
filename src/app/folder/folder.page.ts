@@ -46,13 +46,14 @@ export class FolderPage implements OnInit {
 selectedData:string
 selectedData1:string
 selectedData2:string
+appliedFunction=""
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
     public messages: MessageBrokerService) {
     messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => {
       this.selectedFunction = transformation
-      console.log("selected",this.selectedFunction)
+      this.appliedFunction = ` funzione applicata: ${transformation.title}`
     })
   }
 
