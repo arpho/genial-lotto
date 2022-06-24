@@ -32,6 +32,14 @@ app-extraction article p {
   background-color: orange;
 }
 
+app-extraction article p.green {
+  display: inline;
+  border: solid 1px red;
+  border-radius: 9px;
+  background-color: green;
+}
+
+
 .browsable app-extraction article p  {
   display: inline;
   border: solid 1px red;
@@ -41,9 +49,11 @@ app-extraction article p {
 
 
 
-.green {
+ .browsable app-extraction article p.green  {
   background-color: green
 }
+
+
 
 p.date {
   font-weight: bold;
