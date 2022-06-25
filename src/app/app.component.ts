@@ -16,10 +16,14 @@ import { Vertibile } from './business/vertibile';
 export class AppComponent  implements OnInit{
   transformationIndex=-1
 
-onOwnClick= (index:number)=>{
+onOwnClick= (index:number,url?:string)=>{
   const  out= ()=>{
+    if(index!=-1){
     this.transformationIndex= index
-    this.messages.publish("selectedFunction",this.appPages[index].function)
+    this.messages.publish("selectedFunction",this.appPages[index].function)}
+    else{
+      this.router.navigate([url])
+    }
     
   }
   return out
@@ -31,7 +35,7 @@ onOwnClick= (index:number)=>{
     { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new Piu2meno90()},
     { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
     { title: 'Vertibili', url: '/folder/Favorites', src:"/assets/icon/vertibile2.svg", onClick:this.onOwnClick(2),function:new Vertibile() },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive', onClick:this.onOwnClick(3) },
+    { title: "utenti", url: "/customers", icon: "people", onClick:this.onOwnClick(-1,"/customers") },
     { title: 'Trash', url: '/folder/Trash', icon: 'trash', onClick:this.onOwnClick(4) },
     { title: 'Spam', url: '/folder/Spam', icon: 'warning', onClick:this.onOwnClick(5) },
   ];
