@@ -19,6 +19,8 @@ import { NumeroEstrattoComponent } from './components/numero-estratto/numero-est
 import { WeelsViewerComponent } from './components/weels-viewer/weels-viewer.component';
 import { TrailingZeroPipe } from './pipes/trailing-zero.pipe';
 import { SameLengthStringPipe } from './pipes/same-length-string.pipe';
+import { NewCustomerPage } from './pages/customers/create/new-customer/new-customer.page';
+import { UpdateCustomerPage } from './pages/customers/edit/update-customer/update-customer.page';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { SameLengthStringPipe } from './pipes/same-length-string.pipe';
     ProfilePage,
     ExtractionComponent,
     FolderPage,
+    NewCustomerPage,
+    UpdateCustomerPage,
     NumeroEstrattoComponent,
     WeelsViewerComponent,
     TrailingZeroPipe,

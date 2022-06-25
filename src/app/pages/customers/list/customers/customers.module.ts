@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CustomersPageRoutingModule } from './customers-routing.module';
 
 import { CustomersPage } from './customers.page';
+import { ItemModule } from 'src/app/modules/item/item.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CustomersPageRoutingModule
+    CustomersPageRoutingModule,
+    ItemModule
   ],
   declarations: [CustomersPage]
 })

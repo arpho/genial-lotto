@@ -28,7 +28,16 @@ const routes: Routes = [
   {
     path: 'customers',
     loadChildren: () => import('./pages/customers/list/customers/customers.module').then( m => m.CustomersPageModule)
-  }
+  },
+  {
+    path: 'update-customer',
+    loadChildren: () => import('./pages/customers/edit/update-customer/update-customer.module').then( m => m.UpdateCustomerPageModule)
+  },
+  {
+    path: 'new-customer',
+    loadChildren: () => import('./pages/customers/create/new-customer/new-customer.module').then( m => m.NewCustomerPageModule)
+  },
+
 ];
 
 @NgModule({
