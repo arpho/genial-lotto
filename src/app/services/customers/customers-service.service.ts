@@ -31,11 +31,11 @@ export class CustomersService implements ItemServiceInterface {
 
 
   reference: string = "userProfile"
-  _items: BehaviorSubject<ItemModelInterface[]>;
+  _items: BehaviorSubject<ItemModelInterface[]>= new BehaviorSubject([])
   items_list: Customer[];
   db: Database;
   itemsListRef: DatabaseReference;
-  items: Observable<ItemModelInterface[]>;
+  readonly items: Observable<ItemModelInterface[]>= this._items.asObservable()
   getItem(key: string, next: (item?: any) => void): void {
     throw new Error('Method not implemented.');
   }
@@ -46,7 +46,7 @@ export class CustomersService implements ItemServiceInterface {
     throw new Error('Method not implemented.');
   }
   getEmptyItem(): ItemModelInterface {
-    throw new Error('Method not implemented.');
+   return new Customer()
   }
   createItem(item: ItemModelInterface) {
     throw new Error('Method not implemented.');
