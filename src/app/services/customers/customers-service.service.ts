@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/modules/user/services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomersServiceService implements ItemServiceInterface {
+export class CustomersService implements ItemServiceInterface {
   categoriesService?: ItemServiceInterface;
   suppliersService?: ItemServiceInterface;
   paymentsService?: ItemServiceInterface;
