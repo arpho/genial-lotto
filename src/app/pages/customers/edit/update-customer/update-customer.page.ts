@@ -19,6 +19,10 @@ export class UpdateCustomerPage implements OnInit {
   formFields: any[]
 customer= new Customer
 
+filter(ev){
+  console.log("typing",ev)
+}
+
 submit(ev){
   console.log("submitting form",ev)
 this.customer.load(ev)
