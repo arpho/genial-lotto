@@ -9,10 +9,8 @@ export const configs = {
     new RoleModel({ key: "Utente standard", value: 3 })
   ],
   userType:[
-	  {key:"genitore",value:UserType.genitore},
-	  {key:"studente",value:UserType.studente},
-	  {key:"autista",value:UserType.autista},
-	  {key:"addetto",value:UserType.addetto}
+	  {key:"regular",value:UserType.regular},
+	  {key:"clerk",value:UserType.clerk}
   ],
   offlineEntityNumber: 0
 };
