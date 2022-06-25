@@ -108,7 +108,7 @@ export class Customer extends UserModel {
         super(user, key)
         this.load(user)
         if (!this.userType) {
-            this.userType = UserType.genitore
+            this.userType = UserType.regular
         }
 
     }
