@@ -1,6 +1,4 @@
 export enum UserType {
-    studente = 0,
-    genitore,
-    autista,
-    addetto
+    regular = 0,
+    clerk
 }
