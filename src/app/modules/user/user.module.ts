@@ -8,14 +8,22 @@ import { AuthGuard } from './services/authguard.service';
 import { RoleGuardService } from './services/role-guards.service';
 import { routes } from './user-routing.module'
 import { DynamicFormModule } from '../dynamic-form/dynamic-form.module';
+import { LogoutUserComponent } from './components/logout-user/logout-user.component';
 
 
 
 @NgModule({
-  declarations: [LoginPage],
-  imports: [FormsModule, ReactiveFormsModule, IonicModule.forRoot(), RouterModule.forChild(routes),
-    CommonModule, DynamicFormModule
+  declarations: [LoginPage,
+    LogoutUserComponent
   ],
+  imports: [FormsModule,
+     ReactiveFormsModule,
+      IonicModule.forRoot(),
+       RouterModule.forChild(routes),
+    CommonModule,
+     DynamicFormModule
+  ],
+  exports:[LogoutUserComponent]
 })
 export class UserModule { }
 
