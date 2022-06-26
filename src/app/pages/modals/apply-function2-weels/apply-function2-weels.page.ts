@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NavParams } from '@ionic/angular';
+import { Extraction } from 'src/app/models/extractionModel';
+import { TransformationInterface } from 'src/app/models/trasformationInterface';
 
 @Component({
   selector: 'app-apply-function2-weels',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./apply-function2-weels.page.scss'],
 })
 export class ApplyFunction2WeelsPage implements OnInit {
-
-  constructor() { }
+weel1:String
+date:string
+weel2:String
+function:TransformationInterface
+extractions:Extraction[]
+  constructor(public navParams:NavParams) { }
 
   ngOnInit() {
+    this.weel1= this.navParams.get("weel1")
+    this.weel2= this.navParams.get("weel2")
+    this.date= this.navParams.get("date")
+    this.function= this.navParams.get("function")
+    this.extractions= this.navParams.get("extractions")
+    console.log("weel1",this.weel1,"weel2",this.weel2,"date",this.date,"function",this.function,this.extractions)
+
   }
 
 }

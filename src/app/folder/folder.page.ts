@@ -62,7 +62,7 @@ export class FolderPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
-    public modalCtrl:ModalController,
+    public modalCtrl: ModalController,
     public messages: MessageBrokerService) {
     messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => {
       this.selectedFunction = transformation
@@ -119,20 +119,29 @@ export class FolderPage implements OnInit {
     }
 
   }
- async submit(ev) {
+  async submit(ev) {
     console.log("submitted", ev);
     console.log("funzione", this.selectedFunction)
-  /*   if (this.estrazione1) {
-      this.trasformazione1 = new Extraction(this.estrazione1.apply(this.selectedFunction))
-      console.log("trasformazione1", this.trasformazione1)
+    /*   if (this.estrazione1) {
+        this.trasformazione1 = new Extraction(this.estrazione1.apply(this.selectedFunction))
+        console.log("trasformazione1", this.trasformazione1)
+      }
+      if (this.estrazione2) {
+        this.trasformazione2 = new Extraction(this.estrazione2.apply(this.selectedFunction))
+      } */
+
+    const functionList = [new Vertibile(), new Piu2meno90(), new Figura()]
+    const props =  {
+      weel1: this.weels[ ev.weel1],
+      weel2: this.weels[ ev.weel2],
+      function: functionList[Number(ev.function)],
+      date: this.dateEstrazioni[Number(ev.extractionDate)],
+      extractions:this.estrazioniItems
     }
-    if (this.estrazione2) {
-      this.trasformazione2 = new Extraction(this.estrazione2.apply(this.selectedFunction))
-    } */
-    
-    const functionList = [new Vertibile(),new Piu2meno90(),new Figura()]
-    const modal = await this.modalCtrl.create({ component: ApplyFunction2WeelsPage, componentProps: {well1:ev.wel1,
-    weel2:ev.weel2,function:functionList[ev.funzione] } })
+    console.log('props',props)
+    const modal = await this.modalCtrl.create({
+      component: ApplyFunction2WeelsPage, componentProps: props
+    })
     await modal.present()
   }
 
@@ -144,14 +153,7 @@ export class FolderPage implements OnInit {
     })
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.estrazioni.extractions.subscribe((items) => {
-      if (items.length == 0) {
-        console.time("subscription")
-        console.time("loading")
-      }
-      else {
-        console.timeEnd("subscription")
-        console.time("loading")
-      }
+  
       this.estrazioniItems = []
       this.showSpinner = items.length == 0
       items.sort((a: Extraction, b: Extraction) => {
@@ -170,14 +172,18 @@ export class FolderPage implements OnInit {
         return out
       }
       this.formFields = [
-        new DropdownQuestion({ label: "prima ruota ", key: "weel1", options: new OptionsMaker().makeOptionFromArray(this.weels) }),
-        new DropdownQuestion({ label: "seconda ruota ", key: "weel2", options: new OptionsMaker().makeOptionFromArray(this.weels) }),
-        new DropdownQuestion({ key: "extractionDate",
-         label: "data di estrazione",
-          options: new OptionsMaker().makeOptionFromArray(this.dateEstrazioni) }),
-        new DropdownQuestion({key:"function",
-        label:"funzione",
-        options:new OptionsMaker().makeOptionFromArray(["vertibili","+2-90","figura"])})
+        new DropdownQuestion({ label: "prima ruota ", key: "weel1", options: new OptionsMaker().makesOptionsFromArray(this.weels) }),
+        new DropdownQuestion({ label: "seconda ruota ", key: "weel2", options: new OptionsMaker().makesOptionsFromArray(this.weels) }),
+        new DropdownQuestion({
+          key: "extractionDate",
+          label: "data di estrazione",
+          options: new OptionsMaker().makesOptionsFromArray(this.dateEstrazioni)
+        }),
+        new DropdownQuestion({
+          key: "function",
+          label: "funzione",
+          options: new OptionsMaker().makesOptionsFromArray(["vertibili", "+2-90", "figura"])
+        })
       ]
 
     })
