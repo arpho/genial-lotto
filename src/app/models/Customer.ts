@@ -17,6 +17,7 @@ export class Customer extends UserModel {
     load(v: {}) {
         this.telephones = []
         Object.assign(this, v)
+        this.level = this.level||3
         this.role = super.roleFactory(this.level)
         if(v&&v['dor']){
         this.dor = new DateModel(new Date(this.dor))}
@@ -55,7 +56,7 @@ export class Customer extends UserModel {
             }
         }
         if (this.key) {
-            out = { ...out, ...{ key: this.key } }
+            out = { ...out, ...{ key: serializers.serialize2String( this.key) } }
         }
         if (this.address instanceof Address) {
             out = { ...out, ...{address: this.address.serialize() }, }
