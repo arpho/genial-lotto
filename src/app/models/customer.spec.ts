@@ -26,7 +26,7 @@ describe("customer with data",()=>{
   const data = {
     firstname:"joe",
     lastName:"friend",
-    level:1,
+    level:'1',
     key:"key",
     email:"a@iol.it"
   }
@@ -45,7 +45,7 @@ describe("customer with data",()=>{
     expect(customer.address).toBeDefined()
   })
   it("should serialize correctly",()=>{
-    expect(customer.role.value).toBe(1)
+    expect(customer.serialize().level).toBe(1)
     expect(customer.serialize().firstName).toBe(data.firstname)
     expect(customer.key).toBe(data.key)
     expect(customer.serialize().lastName).toBe(data.lastName)

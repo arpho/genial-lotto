@@ -17,6 +17,7 @@ export class Customer extends UserModel {
     load(v: {}) {
         this.telephones = []
         Object.assign(this, v)
+        this.level = Number(this.level) // casting to number
         this.level = this.level||3
         this.role = super.roleFactory(this.level)
         if(v&&v['dor']){
