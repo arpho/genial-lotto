@@ -79,7 +79,7 @@ export class Customer extends UserModel {
     }
 
     getValue3(): Value {
-        return new Value({ value: this.enabled?"abilitato":"non abilitato", label: 'abilitato' })
+        return new Value({ value: this.enabled?"abilitato":"non abilitato", label: 'utente ' })
     }
 
    /*  getUserTypeKey(level) {
