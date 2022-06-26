@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Figura } from '../business/figura';
 import { Neutro } from '../business/neutro';
+import { Piu2meno90 } from '../business/piu2meno90';
+import { Vertibile } from '../business/vertibile';
 import { Extraction } from '../models/extractionModel';
 import { TransformationInterface } from '../models/trasformationInterface';
 import { OptionsMaker } from '../modules/dynamic-form/helpers/optionMaker';
@@ -10,6 +14,7 @@ import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdo
 import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
 import { DateHelpers } from '../modules/helpers/dateHelper';
 import { MessageBrokerService } from '../modules/helpers/services/messages/message-broker.service';
+import { ApplyFunction2WeelsPage } from '../pages/modals/apply-function2-weels/apply-function2-weels.page';
 import { EstrazioniService } from '../services/extractions/estrazioni.service';
 
 @Component({
@@ -57,6 +62,7 @@ export class FolderPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: EstrazioniService,
+    public modalCtrl:ModalController,
     public messages: MessageBrokerService) {
     messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => {
       this.selectedFunction = transformation
@@ -113,16 +119,21 @@ export class FolderPage implements OnInit {
     }
 
   }
-  submit(ev) {
+ async submit(ev) {
     console.log("submitted", ev);
     console.log("funzione", this.selectedFunction)
-    if (this.estrazione1) {
+  /*   if (this.estrazione1) {
       this.trasformazione1 = new Extraction(this.estrazione1.apply(this.selectedFunction))
       console.log("trasformazione1", this.trasformazione1)
     }
     if (this.estrazione2) {
       this.trasformazione2 = new Extraction(this.estrazione2.apply(this.selectedFunction))
-    }
+    } */
+    
+    const functionList = [new Vertibile(),new Piu2meno90(),new Figura()]
+    const modal = await this.modalCtrl.create({ component: ApplyFunction2WeelsPage, componentProps: {well1:ev.wel1,
+    weel2:ev.weel2,function:functionList[ev.funzione] } })
+    await modal.present()
   }
 
   transformation: TransformationInterface
