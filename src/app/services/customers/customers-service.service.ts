@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Database, DatabaseReference, getDatabase, onValue, ref } from 'firebase/database';
+import { Database, DatabaseReference, getDatabase, onValue, push, ref, set } from 'firebase/database';
+import { getFunctions, httpsCallable } from 'firebase/functions';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { configs } from 'src/app/configs/credentials';
 import { Customer } from 'src/app/models/Customer';
@@ -29,6 +30,14 @@ export class CustomersService implements ItemServiceInterface {
 
   }
 
+  addCustomClaim(data:{email:string, claims:{}}){
+    console.log("setting claims",data.claims)
+    const functions = getFunctions()
+    const addAdminRole = httpsCallable(functions,'addAdminRole')
+    const addCustomClaims = httpsCallable(functions,'addCustomClaims')
+    return addCustomClaims({email: data.email, claims: data.claims})
+   }
+
 
   reference: string = "userProfile"
   _items: BehaviorSubject<ItemModelInterface[]>= new BehaviorSubject([])
@@ -40,16 +49,19 @@ export class CustomersService implements ItemServiceInterface {
     throw new Error('Method not implemented.');
   }
   updateItem(item: ItemModelInterface) {
-    throw new Error('Method not implemented.');
+    console.log("reference", `${this.reference}/${item.key}`)
+    const reference = ref(this.db, `${this.reference}/${item.key}`)
+    return  set(reference, item.serialize())
   }
   deleteItem(key: string) {
-    throw new Error('Method not implemented.');
+    const reference = ref(this.db, `${this.reference}/${key}`)
+    return set(reference, null)
   }
   getEmptyItem(): ItemModelInterface {
    return new Customer()
   }
   createItem(item: ItemModelInterface) {
-    throw new Error('Method not implemented.');
+    return  push(this.itemsListRef, item.serialize())
   }
   loadDataAndPublish(next?): void {
     onValue(this.itemsListRef, (snapshot) => {
@@ -58,6 +70,7 @@ export class CustomersService implements ItemServiceInterface {
       this.items_list = []
       snapshot.forEach(e => {
         const item = new Customer(e.val())
+        item.setKey(e.key)
 
         this.items_list.push(item)
 
