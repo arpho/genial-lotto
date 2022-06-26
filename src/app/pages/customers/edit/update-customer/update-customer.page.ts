@@ -24,9 +24,9 @@ filter(ev){
 }
 
 submit(ev){
-  console.log("submitting form",ev)
+  console.log("submitting form",ev,this.customer)
 this.customer.load(ev)
-  console.log("submitting")
+  console.log("submitting",this.customer)
 }
   constructor(public navParams:NavParams) {
    }
@@ -47,12 +47,20 @@ this.customer.load(ev)
     value:this.customer.lastName,
     required:true
   }),
-    new SwitchQuestion({key:'enabled',label:'Utente abilitato',value:this.customer.enabled,iconTrue:'checkmark',
-  iconFalse:'close',labelTrue:'utente abilitato',labelFalse:'utente non abilitato'}),
-  new DropdownQuestion({key:"userType",
+  new DropdownQuestion({key:"role",
   label:"privilegi utente",
   options:configs.accessLevel,value:this.customer.role
-})]
+}),
+new SwitchQuestion({
+  key:"enabled",
+  label:"abilitato",
+  value:this.customer.enabled,
+  iconTrue:"checkmark-circle",
+  iconFalse:"close-circle",
+  labelFalse:"utente non abilitato",
+  labelTrue:"utente abilitato"
+})
+]
   }
 
 }
