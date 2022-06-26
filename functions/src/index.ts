@@ -8,7 +8,9 @@ import {addEntry,
 } from "./entryController";
 import {addExtraction} from "./extractionController";
 import {addUserProfile} from "./insertUserProfile";
-
+if (admin.apps.length === 0) {
+  admin.initializeApp();
+}
 const app = express();
 app.get("/", (req, res) => res.status(200).send("Hey there!"));
 app.post("/entries", addEntry);
