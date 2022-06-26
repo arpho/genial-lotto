@@ -14,11 +14,12 @@ export class Customer extends UserModel {
     dor = new DateModel(new Date()) // date of registration
     role = new RoleModel({ key: "Utente standard", value: 3 })
 
+ 
     load(v: {}) {
         this.telephones = []
         Object.assign(this, v)
-        this.level = Number(this.level) // casting to number
         this.level = this.level||3
+        this.level = Number(this.level) // casting to number
         this.role = super.roleFactory(this.level)
         if(v&&v['dor']){
         this.dor = new DateModel(new Date(this.dor))}
