@@ -30,7 +30,7 @@ exports.addCustomClaim = functions.https.onCall((data) => {
         as been set on ${data.email}`,
       };
     }).catch((err) => {
-      return err;
+      return {error: err, data: data};
     });
   });
 });
