@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 import { EmailAuthCredential } from 'firebase/auth';
 import { configs } from 'src/app/configs/configs';
 import { Customer } from 'src/app/models/Customer';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
 import { EmailQuestion } from 'src/app/modules/dynamic-form/models/question-email';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
+import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toast-service.service';
 import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
+import { CustomersService } from 'src/app/services/customers/customers-service.service';
 
 @Component({
   selector: 'app-update-customer',
@@ -23,12 +25,39 @@ filter(ev){
   console.log("typing",ev)
 }
 
-submit(ev){
+async submit(ev){
   console.log("submitting form",ev,this.customer)
 this.customer.load(ev)
-  console.log("submitting",this.customer)
+try{
+  this.service.updateItem(this.customer)
+ const result = await this.service.addCustomClaim({
+    email:this.customer.email,
+  claims:{
+    enabled:this.customer.enabled,
+    level:this.customer.level,
+    userType:this.customer.userType
+  }
+})
+console.log("done",result)
+this.toaster.presentToast("user updated")
+this.dismiss(this.customer)
 }
-  constructor(public navParams:NavParams) {
+catch(error){
+  console.log(error)
+  this.toaster.presentToast("ho riscontrato dei problemi")
+  this.dismiss()
+}
+}
+
+  
+dismiss(customer?:Customer){
+  this.modalCtrl.dismiss(customer)
+}
+
+  constructor(public navParams:NavParams,
+    public modalCtrl:ModalController,
+    public service:CustomersService,
+    public toaster:MyToastService) {
    }
 
   ngOnInit() {
@@ -47,9 +76,9 @@ this.customer.load(ev)
     value:this.customer.lastName,
     required:true
   }),
-  new DropdownQuestion({key:"role",
+  new DropdownQuestion({key:"level",
   label:"privilegi utente",
-  options:configs.accessLevel,value:this.customer.role
+  options:configs.accessLevel,value:this.customer.level
 }),
 new SwitchQuestion({
   key:"enabled",
