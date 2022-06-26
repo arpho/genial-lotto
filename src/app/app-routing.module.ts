@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'new-customer',
     loadChildren: () => import('./pages/customers/create/new-customer/new-customer.module').then( m => m.NewCustomerPageModule)
   },
+  {
+    path: 'apply-function2-weels',
+    loadChildren: () => import('./pages/modals/apply-function2-weels/apply-function2-weels.module').then( m => m.ApplyFunction2WeelsPageModule)
+  },
 
 ];
 
