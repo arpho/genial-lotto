@@ -99,7 +99,6 @@ export class FolderPage implements OnInit {
     this.selectedData1 = this.dateEstrazioni[Number(ev.extractionDate) + 1]
     this.selectedData2 = this.dateEstrazioni[Number(ev.extractionDate) + 2]
     this.setStepDates(this.index, this.step)
-    console.log("selected data 1", this.selectedData1)
     if (ev.weel1 && ev.extractionDate)
       var estrazione1 = this.estrazioniItems.filter((e: Extraction) => {
         return e.weel == this.weels[ev.weel1] && e.italianDate == data
@@ -111,7 +110,6 @@ export class FolderPage implements OnInit {
     if (estrazione1) {
       this.ruota1 = estrazione1[0]?.weel
       this.estrazione1 = new Extraction({ weel: this.ruota1, date: data, extraction: estrazione1[0].extraction })
-      console.log("estrazione 1", this.estrazione1)
     }
     if (estrazione2) {
       this.ruota2 = estrazione2[0]?.weel
@@ -138,7 +136,6 @@ export class FolderPage implements OnInit {
       date: this.dateEstrazioni[Number(ev.extractionDate)],
       extractions:this.estrazioniItems
     }
-    console.log('props',props)
     const modal = await this.modalCtrl.create({
       component: ApplyFunction2WeelsPage, componentProps: props
     })
@@ -165,7 +162,6 @@ export class FolderPage implements OnInit {
         this.dateEstrazioni.push(e.italianDate)
         this.dateEstrazioni = Array.from(new Set(this.dateEstrazioni))
       })
-      console.timeEnd("loading")
       const isDateEnabled = (date: string) => {
         const helper = new DateHelpers()
         const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date)) > -1
