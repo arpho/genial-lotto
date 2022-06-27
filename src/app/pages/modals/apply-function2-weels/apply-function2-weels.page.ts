@@ -21,7 +21,7 @@ export class ApplyFunction2WeelsPage implements OnInit {
     public modalCtrl: ModalController
   ) { }
 
-  dismisss(){
+  dismiss(){
     this.modalCtrl.dismiss()
   }
 
