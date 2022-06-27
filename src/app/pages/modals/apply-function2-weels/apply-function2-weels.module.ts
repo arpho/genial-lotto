@@ -15,6 +15,6 @@ import { ApplyFunction2WeelsPage } from './apply-function2-weels.page';
     IonicModule,
     ApplyFunction2WeelsPageRoutingModule
   ],
-  declarations: [ApplyFunction2WeelsPage]
+  declarations: []
 })
 export class ApplyFunction2WeelsPageModule {}

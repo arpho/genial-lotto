@@ -21,6 +21,7 @@ import { TrailingZeroPipe } from './pipes/trailing-zero.pipe';
 import { SameLengthStringPipe } from './pipes/same-length-string.pipe';
 import { NewCustomerPage } from './pages/customers/create/new-customer/new-customer.page';
 import { UpdateCustomerPage } from './pages/customers/edit/update-customer/update-customer.page';
+import { ApplyFunction2WeelsPage } from './pages/modals/apply-function2-weels/apply-function2-weels.page';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UpdateCustomerPage } from './pages/customers/edit/update-customer/updat
     NumeroEstrattoComponent,
     WeelsViewerComponent,
     TrailingZeroPipe,
-    SameLengthStringPipe
+    SameLengthStringPipe,
+    ApplyFunction2WeelsPage
    ],
   entryComponents: [],
   imports: [
