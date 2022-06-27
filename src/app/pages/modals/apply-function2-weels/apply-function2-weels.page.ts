@@ -16,6 +16,7 @@ export class ApplyFunction2WeelsPage implements OnInit {
   WeelTwo: Extraction
   function: TransformationInterface
   extractions: Extraction[]
+  title:string
   constructor(
     public navParams: NavParams,
     public modalCtrl: ModalController
@@ -37,7 +38,7 @@ export class ApplyFunction2WeelsPage implements OnInit {
     this.WeelTwo = this.extractions.filter((e: Extraction) => {
       return e.weel == this.weel2 && e.italianDate == this.date
     })[0]
-
+    this.title = `${this.function.title} applicata alle ruote di ${this.weel1} e di ${this.weel2} del ${this.date}`
   }
 
 }
