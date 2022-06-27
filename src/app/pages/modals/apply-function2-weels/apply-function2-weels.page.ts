@@ -12,8 +12,8 @@ export class ApplyFunction2WeelsPage implements OnInit {
 weel1:String
 date:string
 weel2:String
-WeelOne:Extraction[]
-WeelTwo:Extraction[]
+WeelOne:Extraction
+WeelTwo:Extraction
 function:TransformationInterface
 extractions:Extraction[]
   constructor(public navParams:NavParams) { }
@@ -24,13 +24,12 @@ extractions:Extraction[]
     this.date= this.navParams.get("date")
     this.function= this.navParams.get("function")
     this.extractions= this.navParams.get("extractions")
-    console.log("weel1",this.weel1,"weel2",this.weel2,"date",this.date,"function",this.function,this.extractions)
     this.WeelOne =   this.extractions.filter((e: Extraction) => {
       return e.weel == this.weel1 && e.italianDate == this.date
-    })
+    })[0]
     this.WeelTwo =   this.extractions.filter((e: Extraction) => {
       return e.weel == this.weel2 && e.italianDate == this.date
-    })
+    })[0]
 
   }
 
