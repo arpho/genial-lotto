@@ -168,17 +168,28 @@ export class FolderPage implements OnInit {
         return out
       }
       this.formFields = [
-        new DropdownQuestion({ label: "prima ruota ", key: "weel1", options: new OptionsMaker().makesOptionsFromArray(this.weels) }),
-        new DropdownQuestion({ label: "seconda ruota ", key: "weel2", options: new OptionsMaker().makesOptionsFromArray(this.weels) }),
+        new DropdownQuestion({
+           label: "prima ruota ",
+            key: "weel1",
+             options: new OptionsMaker().makesOptionsFromArray(this.weels),
+            required:true
+           }),
+        new DropdownQuestion({ label: "seconda ruota ",
+         key: "weel2",
+          options: new OptionsMaker().makesOptionsFromArray(this.weels),
+        required:true
+       }),
         new DropdownQuestion({
           key: "extractionDate",
           label: "data di estrazione",
-          options: new OptionsMaker().makesOptionsFromArray(this.dateEstrazioni)
+          options: new OptionsMaker().makesOptionsFromArray(this.dateEstrazioni),
+          required:true
         }),
         new DropdownQuestion({
           key: "function",
           label: "funzione",
-          options: new OptionsMaker().makesOptionsFromArray(["vertibili", "+2-90", "figura"])
+          options: new OptionsMaker().makesOptionsFromArray(["vertibili", "+2-90", "figura"]),
+          required:true
         })
       ]
 
