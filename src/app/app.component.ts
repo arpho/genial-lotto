@@ -36,7 +36,6 @@ onOwnClick= (index:number,url?:string)=>{
     { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
     { title: 'Vertibili', url: '/folder/Favorites', src:"/assets/icon/vertibile2.svg", onClick:this.onOwnClick(2),function:new Vertibile() },
     { title: "utenti", url: "/customers", icon: "people", onClick:this.onOwnClick(-1,"/customers") },
-    { title: 'estrazioni', url: '/folder/Trash', icon: 'list', onClick:this.onOwnClick(-1,"/browse-extractions") },
     { title: 'Spam', url: '/folder/Spam', icon: 'warning', onClick:this.onOwnClick(5) },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];

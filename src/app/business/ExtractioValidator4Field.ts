@@ -6,9 +6,7 @@ export function extractionValidator4Field(control:AbstractControl){
   const extraction = control.value.split(' ').map(e=>{
     return Number(e)
   })
-  console.log('validating',control.value)
   const result = validator.isValid(extraction)
-  console.log("extraction is valid",result)
   return !result?{notValidExtraction:{value:control.value}}:null
 
 }

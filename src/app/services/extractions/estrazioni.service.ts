@@ -14,8 +14,8 @@ import { ItemModelInterface } from 'src/app/modules/item/models/itemModelInterfa
 export class ExtractionService implements ItemServiceInterface {
   collection= "extractions"
   extractions_list:Extraction[]
-  _extractions: BehaviorSubject<Array<Extraction>> = new BehaviorSubject([])
-  readonly extractions:Observable<Array<Extraction>> = this._extractions.asObservable()
+  _items: BehaviorSubject<Array<Extraction>> = new BehaviorSubject([])
+  readonly items:Observable<Array<Extraction>> = this._items.asObservable()
 
   async loadDataAndPublish(){
    const db = getDatabase()
@@ -27,7 +27,7 @@ export class ExtractionService implements ItemServiceInterface {
         const extraction = new Extraction(doc.val()).setId(doc.key)
         this.extractions_list.push(extraction)
       })
-    this._extractions.next(this.extractions_list)
+    this._items.next(this.extractions_list)
     })
     
   }
@@ -44,11 +44,9 @@ export class ExtractionService implements ItemServiceInterface {
   suppliersService?: ItemServiceInterface;
   paymentsService?: ItemServiceInterface;
   reference: string;
-  _items: BehaviorSubject<ItemModelInterface[]>;
   items_list: ItemModelInterface[];
   db: Database;
   itemsListRef: DatabaseReference;
-  items: Observable<ItemModelInterface[]>;
   getItem(key: string, next: (item?: any) => void): void {
     const customerRef = ref(this.db, `${this.reference}/${key}`)
     onValue(customerRef, (item => {

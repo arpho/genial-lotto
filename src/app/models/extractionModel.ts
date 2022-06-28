@@ -119,7 +119,7 @@ get extraction(){
   archived?: boolean;
   service?: ItemServiceInterface;
   getTitle(): Value {
-    throw new Error("Method not implemented.");
+   return new Value({value:`ruota di ${this.weel}`,label:""})
   }
   getCountingText(): { singular: string; plural: string; } {
     return {singular:"estrazioone",plural:"estrazioni"}
@@ -171,7 +171,7 @@ get extraction(){
   serialize() {
     const serializers = new Serializers()
     return {
-      "date":serializers.serialize2String(this.date),
+      "date":serializers.serialize2String(this.italianDate),
       "dateInmsec": serializers.serialize2PositiveNumber(this._dateInmsec, -1),
       "weel": serializers.serialize2String(this.weel),
       "extraction": serializers.serialize2Array(this._extraction)

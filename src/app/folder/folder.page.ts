@@ -158,7 +158,7 @@ export class FolderPage implements OnInit {
       transformation = transformation
     })
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
-    this.estrazioni.extractions.subscribe((items) => {
+    this.estrazioni.items.subscribe((items) => {
   
       this.estrazioniItems = []
       this.showSpinner = items.length == 0
