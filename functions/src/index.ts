@@ -39,3 +39,17 @@ exports.addCustomClaim = functions.
       });
     });
 
+exports.addCustomClaim = functions.https.onCall((data) => {
+  return admin.auth().getUserByEmail(data.email).then((user) => {
+    return admin.auth().setCustomUserClaims(user.uid, data.claim).
+        then(() => {
+          return {
+            message: ` Success!claim ${Object.keys(data.claim)} 
+        as been set on ${data.email}`,
+          };
+        }).catch((err) => {
+          return {error: err, data: data};
+        });
+  });
+});
+
