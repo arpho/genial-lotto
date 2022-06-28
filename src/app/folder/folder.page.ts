@@ -16,7 +16,7 @@ import { DateHelpers } from '../modules/helpers/dateHelper';
 import { MessageBrokerService } from '../modules/helpers/services/messages/message-broker.service';
 import { AddExtractionPage } from '../pages/modals/add-extraction/add-extraction.page';
 import { ApplyFunction2WeelsPage } from '../pages/modals/apply-function2-weels/apply-function2-weels.page';
-import { EstrazioniService } from '../services/extractions/estrazioni.service';
+import { ExtractionService } from '../services/extractions/estrazioni.service';
 
 @Component({
   selector: 'app-folder',
@@ -62,7 +62,7 @@ export class FolderPage implements OnInit {
   appliedFunction = ""
   constructor(
     private activatedRoute: ActivatedRoute,
-    public estrazioni: EstrazioniService,
+    public estrazioni: ExtractionService,
     public modalCtrl: ModalController,
     public messages: MessageBrokerService) {
     messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => {

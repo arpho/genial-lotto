@@ -9,7 +9,7 @@ import { getDatabase,onValue,push,ref} from 'firebase/database';
 @Injectable({
   providedIn: 'root'
 })
-export class EstrazioniService {
+export class ExtractionService {
   collection= "extractions"
   extractions_list:Extraction[]
   _extractions: BehaviorSubject<Array<Extraction>> = new BehaviorSubject([])
