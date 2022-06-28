@@ -8,6 +8,7 @@ import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date'
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
 import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toast-service.service';
 import { DateModel } from 'src/app/modules/user/models/birthDateModel';
+import { ExtractionService } from 'src/app/services/extractions/estrazioni.service';
 
 @Component({
   selector: 'app-add-extraction',
@@ -104,7 +105,9 @@ export class AddExtractionPage implements OnInit {
   }
   constructor(
     public modalCtrl: ModalController,
-    public toaster:MyToastService) { }
+    public toaster:MyToastService,
+    public service:ExtractionService
+    ) { }
 
   dismiss(v?: any) {
     this.modalCtrl.dismiss(v)
@@ -133,5 +136,14 @@ fetchExtraction(weel:string,data:{}){
     this.Nazionale = this.fetchExtraction("Nazionale",ev)
 
     console.log("extraction",this.Bari)
+    console.log("extraction",this.Cagliari)
+    console.log("extraction",this.Firenze)
+    console.log("extraction",this.Genova)
+    console.log("extraction",this.Milano)
+    console.log("extraction",this.Napoli)
+    console.log("extraction",this.Palermo)
+    console.log("extraction",this.Torino)
+    console.log("extraction",this.Venezia)
+    console.log("extraction",this.Nazionale)
   }
 }
