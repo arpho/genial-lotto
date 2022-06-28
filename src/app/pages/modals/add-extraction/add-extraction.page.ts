@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { ExtractionValidator } from 'src/app/business/extractionValidator';
+import { extractionValidator4Field } from 'src/app/business/ExtractioValidator4Field';
 import { Extraction } from 'src/app/models/extractionModel';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
@@ -33,7 +36,8 @@ export class AddExtractionPage implements OnInit {
       new TextboxQuestion({
         key:"Bari",
         label:"Bari",
-        required:true
+        required:true,
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Cagliari",

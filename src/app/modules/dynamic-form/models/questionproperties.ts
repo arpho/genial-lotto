@@ -1,4 +1,5 @@
 // tslint:disable:semicolon
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { ItemModelInterface } from '../../item/models/itemModelInterface';
 
 export interface QuestionProperties<T> {
@@ -10,6 +11,7 @@ export interface QuestionProperties<T> {
     retypePassword?:boolean
     type?: string
     controlType?: string;
+    validator?:(control: AbstractControl)=> ValidationErrors
     disabled?:boolean;
     filterFunction?: (value: ItemModelInterface | string, item?: ItemModelInterface | any) => boolean
 }

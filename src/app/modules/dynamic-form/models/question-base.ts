@@ -5,6 +5,7 @@ import { ItemModelInterface } from '../../item/models/itemModelInterface';
 import { QuestionProperties } from './questionproperties';
 import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 import { ComboValue } from './ComboValueinterface';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 //import { Options } from 'selenium-webdriver';
 
 export class QuestionBase<T> {
@@ -19,6 +20,7 @@ export class QuestionBase<T> {
   repeatPassword?:boolean
   iconFalse: string;
   labelTrue: string;
+  validator?:(control: AbstractControl)=> ValidationErrors
   retypePassword?:boolean
   presentation?:'date'|'date-time'|'time'
   isDateEnabled?:(date:string)=> boolean
