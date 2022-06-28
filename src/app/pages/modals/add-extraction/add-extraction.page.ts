@@ -145,5 +145,34 @@ fetchExtraction(weel:string,data:{}){
     console.log("extraction",this.Torino)
     console.log("extraction",this.Venezia)
     console.log("extraction",this.Nazionale)
+
+    try{
+      this.service.createItem(this.Bari)
+      this.toaster.presentToast("ruota di Bari inserita","top")
+      this.service.createItem(this.Cagliari)
+      this.toaster.presentToast("ruota di Cagliari inserita","middle")
+      this.service.createItem(this.Firenze)
+      this.toaster.presentToast("ruota di Firenze inserita","bottom")
+      this.service.createItem(this.Genova)
+      this.toaster.presentToast("ruota di Genova inserita","top")
+      this.service.createItem(this.Milano)
+      this.toaster.presentToast("ruota di Milano inserita","middle")
+      this.service.createItem(this.Napoli)
+      this.toaster.presentToast("ruota di Napoli inserita","bottom")
+      this.service.createItem(this.Palermo)
+      this.toaster.presentToast("ruota di Palermo inserita","top")
+      this.service.createItem(this.Torino)
+      this.toaster.presentToast("ruota di Torino inserita","middle")
+      this.service.createItem(this.Venezia)
+      this.toaster.presentToast("ruota di Venezia inserita","bottom")
+      this.service.createItem(this.Nazionale)
+      this.toaster.presentToast("ruota Nazionale inserita","top")
+      this.dismiss
+    }
+    catch(error){
+      console.error(error)
+      this.toaster.presentToast("ho riscontrato degli errori")
+      this.dismiss()
+    }
   }
 }
