@@ -24,7 +24,7 @@ describe("empty customer",()=>{
 
 describe("customer with data",()=>{
   const data = {
-    firstname:"joe",
+    firstName:"joe",
     lastName:"friend",
     level:'1',
     key:"key",
@@ -35,7 +35,7 @@ describe("customer with data",()=>{
     
     expect(customer).toBeDefined()
     expect(customer.role.value).toBe(1)
-    expect(customer.firstName).toBe(data.firstname)
+    expect(customer.firstName).toBe(data.firstName)
     expect(customer.key).toBe(data.key)
     expect(customer.lastName).toBe(data.lastName)
     expect(customer.email).toBe(data.email)
@@ -46,7 +46,7 @@ describe("customer with data",()=>{
   })
   it("should serialize correctly",()=>{
     expect(customer.serialize().level).toBe(1)
-    expect(customer.serialize().firstName).toBe(data.firstname)
+    expect(customer.serialize().firstName).toBe(data.firstName)
     expect(customer.key).toBe(data.key)
     expect(customer.serialize().lastName).toBe(data.lastName)
     expect(customer.serialize().email).toBe(data.email)
