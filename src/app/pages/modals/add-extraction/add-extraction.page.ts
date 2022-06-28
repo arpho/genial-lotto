@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-extraction',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddExtractionPage implements OnInit {
 
-  constructor() { }
+  constructor(public modalCtrl:ModalController) { }
+
+
 
   ngOnInit() {
+  }
+
+  dismiss(v?:any){
+    this.modalCtrl.dismiss(v)
   }
 
 }
