@@ -24,16 +24,18 @@ exports.adminAddUserProfile = functions.https.onCall((data)=>{
   addUserProfile(data);
 });
 
-exports.addCustomClaim = functions.https.onCall((data) => {
-  return admin.auth().getUserByEmail(data.email).then((user) => {
-    return admin.auth().setCustomUserClaims(user.uid, data.claim).then(() => {
-      return {
-        message: ` Success!claim ${Object.keys(data.claim)} 
+exports.addCustomClaim = functions.
+    region("europe-west1").https.onCall((data) => {
+      return admin.auth().getUserByEmail(data.email).then((user) => {
+        return admin.auth().setCustomUserClaims(user.uid, data.claim).
+            then(() => {
+              return {
+                message: ` Success!claim ${Object.keys(data.claim)} 
         as been set on ${data.email}`,
-      };
-    }).catch((err) => {
-      return {error: err, data: data};
+              };
+            }).catch((err) => {
+              return {error: err, data: data};
+            });
+      });
     });
-  });
-});
 
