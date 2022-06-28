@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EstrazioniService } from './estrazioni.service';
+import { ExtractionService } from './estrazioni.service';
 
 describe('EstrazioniService', () => {
-  let service: EstrazioniService;
+  let service: ExtractionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EstrazioniService);
+    service = TestBed.inject(ExtractionService);
   });
 
   it('should be created', () => {
