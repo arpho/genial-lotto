@@ -16,7 +16,17 @@ import { DateModel } from 'src/app/modules/user/models/birthDateModel';
 })
 export class AddExtractionPage implements OnInit {
   formFields: any[]
-  extraction = new Extraction()
+  Bari = new Extraction()
+  Cagliari = new Extraction()
+  Firenze = new Extraction()
+   Genova = new Extraction()
+   Milano = new Extraction()
+   Napoli = new Extraction()
+   Palermo = new Extraction()
+   Roma = new Extraction()
+   Torino = new Extraction()
+   Venezia = new Extraction()
+  Nazionale = new Extraction()
 
   filter(ev) {
     console.log("typing", ev)
@@ -99,12 +109,29 @@ export class AddExtractionPage implements OnInit {
   dismiss(v?: any) {
     this.modalCtrl.dismiss(v)
   }
-
+fetchExtraction(weel:string,data:{}){
+  const extraction= new Extraction()
+  extraction.weel= weel
+  extraction.extraction = data[weel].split(" ").map(e=>{
+    return Number(e)
+  })
+  extraction.date = new DateModel(new Date(data['date'])).ItalianFormatDate()
+  return extraction
+}
 
   submit(ev) {
     console.log("submitting", ev)
-    new DateModel()
-    this.extraction.date = new DateModel(new Date(ev.date)).ItalianFormatDate()
-    console.log("extraction",this.extraction)
+    this.Bari = this.fetchExtraction("Bari",ev)
+    this.Cagliari = this.fetchExtraction("Cagliari",ev)
+    this.Firenze = this.fetchExtraction("Firenze",ev)
+    this.Genova = this.fetchExtraction("Genova",ev)
+    this.Milano = this.fetchExtraction("Milano",ev)
+    this.Napoli = this.fetchExtraction("Napoli",ev)
+    this.Palermo = this.fetchExtraction("Palermo",ev)
+    this.Torino = this.fetchExtraction("Torino",ev)
+    this.Venezia = this.fetchExtraction("Venezia",ev)
+    this.Nazionale = this.fetchExtraction("Nazionale",ev)
+
+    console.log("extraction",this.Bari)
   }
 }

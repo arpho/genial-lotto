@@ -22,7 +22,8 @@ export class Extraction {
     this._extraction = data
   }
 else{
-  throw new Error("estrazione non valida")
+  
+  throw new Error(`estrazione non valida ${data}`)
 }
   }
 get extraction(){
@@ -87,8 +88,14 @@ get extraction(){
 
   load(v: {}) {
     if(v){
+      if(v['extraction']){
+        v['extraction']= v['extraction'].map(e=>{
+          return Number(e)
+        })
+      }
     Object.assign(this, v)
     if(this.extraction){
+      console.log("#* extraction",)
     this.extraction= this.extraction.map((e)=>{
       return Number(e)
     })}
