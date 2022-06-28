@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BrowseExtractionsPageRoutingModule } from './browse-extractions-routing.module';
 
 import { BrowseExtractionsPage } from './browse-extractions.page';
+import { ItemModule } from 'src/app/modules/item/item.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BrowseExtractionsPageRoutingModule
+    BrowseExtractionsPageRoutingModule,
+    ItemModule
   ],
   declarations: [BrowseExtractionsPage]
 })

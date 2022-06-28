@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemMocker } from 'src/app/modules/item/mockers/ItemMocker';
+import { ItemModelInterface } from 'src/app/modules/item/models/itemModelInterface';
+import { ExtractionService } from 'src/app/services/extractions/estrazioni.service';
+import { AddExtractionPage } from '../../modals/add-extraction/add-extraction.page';
 
 @Component({
   selector: 'app-browse-extractions',
@@ -7,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseExtractionsPage implements OnInit {
 
-  constructor() { }
+  editModalPage = AddExtractionPage
+  createModalPage = AddExtractionPage
+  filterFunction = (item:ItemModelInterface)=>{
+    return true
+  }
+
+  constructor(public service:ExtractionService) { }
 
   ngOnInit() {
   }
