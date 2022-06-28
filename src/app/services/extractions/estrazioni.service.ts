@@ -4,7 +4,7 @@ import { Extraction } from 'src/app/models/extractionModel';
 import { collection, doc, setDoc, getDocs } from "firebase/firestore"; 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getDatabase,onValue,ref} from 'firebase/database';
+import { getDatabase,onValue,push,ref} from 'firebase/database';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,12 @@ export class EstrazioniService {
     this._extractions.next(this.extractions_list)
     })
     
+  }
+
+  createItem(extraction:Extraction){
+    const db = getDatabase()
+    const extractionReference = ref(db,this.collection)
+    return  push(extractionReference,extraction.serialize())
   }
   constructor() {
     this.loadAndPublish()
