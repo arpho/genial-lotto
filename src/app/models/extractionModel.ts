@@ -1,4 +1,5 @@
 import { stringify } from "querystring";
+import { ExtractionValidator } from "../business/extractionValidator";
 import { DateHelpers } from "../modules/helpers/dateHelper";
 import { Serializers } from "../modules/helpers/serializers"
 import { TransformationInterface } from "./trasformationInterface";
@@ -16,11 +17,18 @@ export class Extraction {
 
   _extraction: number[]
   set extraction(data:number[]){
+    const validator = new ExtractionValidator()
+    if(validator.isValid(data)){
     this._extraction = data
+  }
+else{
+  throw new Error("estrazione non valida")
+}
   }
 get extraction(){
   return this.transformation? this._extraction.map(this.transformation.transform): this._extraction
 }
+
 
 
   set date(date: string) {
