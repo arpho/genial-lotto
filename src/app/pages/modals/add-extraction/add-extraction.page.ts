@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Extraction } from 'src/app/models/extractionModel';
+import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
+import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
+import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toast-service.service';
+import { DateModel } from 'src/app/modules/user/models/birthDateModel';
 
 @Component({
   selector: 'app-add-extraction',
@@ -8,24 +13,84 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddExtractionPage implements OnInit {
   formFields: any[]
+  extraction = new Extraction()
 
-  filter(ev){
-    console.log("typing",ev)
+  filter(ev) {
+    console.log("typing", ev)
   }
 
-
-  submit(ev){
-    console.log("submitting",ev)
-  }
-  constructor(public modalCtrl:ModalController) { }
 
 
 
   ngOnInit() {
+    this.formFields = [
+      new DateQuestion({
+        key: "date",
+        label: "data di estrazione",
+        required: true,
+        presentation:"date",
+      }),
+      new TextboxQuestion({
+        key:"Bari",
+        label:"Bari",
+        required:true
+      }),
+      new TextboxQuestion({
+        key:"Cagliari",
+        label:"Cagliari"
+      }),
+      new TextboxQuestion({
+        key:"Firenze",
+        label:"Firenze"
+      }),
+      new TextboxQuestion({
+        key:"Genova",
+        label:"Genova"
+      }),
+      new TextboxQuestion({
+        key:"Milano",
+        label:"Milano"
+      }),
+      new TextboxQuestion({
+        key:"Napoli",
+        label:"Napoli"
+      }),
+      new TextboxQuestion({
+        key:"Palermo",
+        label:"Palermo"
+      }),
+      new TextboxQuestion({
+        key:"Roma",
+        label:"Roma"
+      }),
+      new TextboxQuestion({
+        key:"Torino",
+        label:"Torino"
+      }),
+      new TextboxQuestion({
+        key:"Venezia",
+        label:"Venezia"
+      }),
+      new TextboxQuestion({
+        key:"Nazionale",
+        label:"Nazionale"
+      })
+    ]
+    this.toaster.presentToast("inserire i numeri separati da uno spazio","middle",5000)
   }
+  constructor(
+    public modalCtrl: ModalController,
+    public toaster:MyToastService) { }
 
-  dismiss(v?:any){
+  dismiss(v?: any) {
     this.modalCtrl.dismiss(v)
   }
 
+
+  submit(ev) {
+    console.log("submitting", ev)
+    new DateModel()
+    this.extraction.date = new DateModel(new Date(ev.date)).ItalianFormatDate()
+    console.log("extraction",this.extraction)
+  }
 }
