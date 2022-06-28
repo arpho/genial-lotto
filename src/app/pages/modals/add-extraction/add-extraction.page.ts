@@ -7,7 +7,16 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./add-extraction.page.scss'],
 })
 export class AddExtractionPage implements OnInit {
+  formFields: any[]
 
+  filter(ev){
+    console.log("typing",ev)
+  }
+
+
+  submit(ev){
+    console.log("submitting",ev)
+  }
   constructor(public modalCtrl:ModalController) { }
 
 
