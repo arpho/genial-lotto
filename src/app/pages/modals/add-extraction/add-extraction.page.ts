@@ -41,43 +41,53 @@ export class AddExtractionPage implements OnInit {
       }),
       new TextboxQuestion({
         key:"Cagliari",
-        label:"Cagliari"
+        label:"Cagliari",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Firenze",
-        label:"Firenze"
+        label:"Firenze",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Genova",
-        label:"Genova"
+        label:"Genova",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Milano",
-        label:"Milano"
+        label:"Milano",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Napoli",
-        label:"Napoli"
+        label:"Napoli",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Palermo",
-        label:"Palermo"
+        label:"Palermo",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Roma",
-        label:"Roma"
+        label:"Roma",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Torino",
-        label:"Torino"
+        label:"Torino",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Venezia",
-        label:"Venezia"
+        label:"Venezia",
+        validator:extractionValidator4Field
       }),
       new TextboxQuestion({
         key:"Nazionale",
-        label:"Nazionale"
+        label:"Nazionale",
+        validator:extractionValidator4Field
       })
     ]
     this.toaster.presentToast("inserire i numeri separati da uno spazio","middle",5000)
