@@ -95,7 +95,6 @@ get extraction(){
       }
     Object.assign(this, v)
     if(this.extraction){
-      console.log("#* extraction",)
     this.extraction= this.extraction.map((e)=>{
       return Number(e)
     })}

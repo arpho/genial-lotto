@@ -11,7 +11,6 @@ export class QuestionControlService {
     const Question =  new FormControl(question.value||'');
     const validators = []
     if(question.required){
-      console.log("required",question)
       validators.push(Validators.required)
     }
     if(question.validator){
