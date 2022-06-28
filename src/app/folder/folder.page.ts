@@ -14,6 +14,7 @@ import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdo
 import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
 import { DateHelpers } from '../modules/helpers/dateHelper';
 import { MessageBrokerService } from '../modules/helpers/services/messages/message-broker.service';
+import { AddExtractionPage } from '../pages/modals/add-extraction/add-extraction.page';
 import { ApplyFunction2WeelsPage } from '../pages/modals/apply-function2-weels/apply-function2-weels.page';
 import { EstrazioniService } from '../services/extractions/estrazioni.service';
 
@@ -143,6 +144,14 @@ export class FolderPage implements OnInit {
   }
 
   transformation: TransformationInterface
+
+ async addExtraction(){
+    console.log("add")
+    const modal =await this.modalCtrl.create({
+      component:AddExtractionPage
+    })
+    await modal.present()
+  }
 
   ngOnInit() {
     this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => { // we get the selected transformation
