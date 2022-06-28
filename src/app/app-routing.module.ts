@@ -41,6 +41,10 @@ const routes: Routes = [
     path: 'apply-function2-weels',
     loadChildren: () => import('./pages/modals/apply-function2-weels/apply-function2-weels.module').then( m => m.ApplyFunction2WeelsPageModule)
   },
+  {
+    path: 'add-extraction',
+    loadChildren: () => import('./pages/modals/add-extraction/add-extraction.module').then( m => m.AddExtractionPageModule)
+  },
 
 ];
 
