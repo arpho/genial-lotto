@@ -87,7 +87,7 @@ get extraction(){
 
 
   load(v: {}) {
-    if(v){
+    if(v){// the extraction setter validates the input  then we have to sanitize extraction before Object.assign
       if(v['extraction']){
         v['extraction']= v['extraction'].map(e=>{
           return Number(e)
