@@ -20,13 +20,13 @@ export class AddExtractionPage implements OnInit {
   Bari = new Extraction()
   Cagliari = new Extraction()
   Firenze = new Extraction()
-   Genova = new Extraction()
-   Milano = new Extraction()
-   Napoli = new Extraction()
-   Palermo = new Extraction()
-   Roma = new Extraction()
-   Torino = new Extraction()
-   Venezia = new Extraction()
+  Genova = new Extraction()
+  Milano = new Extraction()
+  Napoli = new Extraction()
+  Palermo = new Extraction()
+  Roma = new Extraction()
+  Torino = new Extraction()
+  Venezia = new Extraction()
   Nazionale = new Extraction()
 
   filter(ev) {
@@ -42,136 +42,127 @@ export class AddExtractionPage implements OnInit {
         key: "date",
         label: "data di estrazione",
         required: true,
-        presentation:"date",
+        presentation: "date",
       }),
       new TextboxQuestion({
-        key:"Bari",
-        label:"Bari",
-        required:true,
-        validator:extractionValidator4Field
+        key: "Bari",
+        label: "Bari",
+        required: true,
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Cagliari",
-        label:"Cagliari",
-        validator:extractionValidator4Field
+        key: "Cagliari",
+        label: "Cagliari",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Firenze",
-        label:"Firenze",
-        validator:extractionValidator4Field
+        key: "Firenze",
+        label: "Firenze",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Genova",
-        label:"Genova",
-        validator:extractionValidator4Field
+        key: "Genova",
+        label: "Genova",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Milano",
-        label:"Milano",
-        validator:extractionValidator4Field
+        key: "Milano",
+        label: "Milano",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Napoli",
-        label:"Napoli",
-        validator:extractionValidator4Field
+        key: "Napoli",
+        label: "Napoli",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Palermo",
-        label:"Palermo",
-        validator:extractionValidator4Field
+        key: "Palermo",
+        label: "Palermo",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Roma",
-        label:"Roma",
-        validator:extractionValidator4Field
+        key: "Roma",
+        label: "Roma",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Torino",
-        label:"Torino",
-        validator:extractionValidator4Field
+        key: "Torino",
+        label: "Torino",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Venezia",
-        label:"Venezia",
-        validator:extractionValidator4Field
+        key: "Venezia",
+        label: "Venezia",
+        validator: extractionValidator4Field
       }),
       new TextboxQuestion({
-        key:"Nazionale",
-        label:"Nazionale",
-        validator:extractionValidator4Field
+        key: "Nazionale",
+        label: "Nazionale",
+        validator: extractionValidator4Field
       })
     ]
-    this.toaster.presentToast("inserire i numeri separati da uno spazio","middle",5000)
+    this.toaster.presentToast("inserire i numeri separati da uno spazio", "middle", 5000)
   }
   constructor(
     public modalCtrl: ModalController,
-    public toaster:MyToastService,
-    public service:ExtractionService
-    ) { }
+    public toaster: MyToastService,
+    public service: ExtractionService
+  ) { }
 
   dismiss(v?: any) {
     this.modalCtrl.dismiss(v)
   }
-fetchExtraction(weel:string,data:{}){
-  const extraction= new Extraction()
-  extraction.weel= weel
-  extraction.extraction = data[weel].split(" ").map(e=>{
-    return Number(e)
-  })
-  extraction.date = new DateModel(new Date(data['date'])).ItalianFormatDate()
-  return extraction
-}
+  fetchExtraction(weel: string, data: {}) {
+    const extraction = new Extraction()
+    extraction.weel = weel
+    extraction.extraction = data[weel].split(" ").map(e => {
+      return Number(e)
+    })
+    extraction.date = new DateModel(new Date(data['date'])).ItalianFormatDate()
+    return extraction
+  }
 
-  submit(ev) {
+  async submit(ev) {
     console.log("submitting", ev)
-    this.Bari = this.fetchExtraction("Bari",ev)
-    this.Cagliari = this.fetchExtraction("Cagliari",ev)
-    this.Firenze = this.fetchExtraction("Firenze",ev)
-    this.Genova = this.fetchExtraction("Genova",ev)
-    this.Milano = this.fetchExtraction("Milano",ev)
-    this.Napoli = this.fetchExtraction("Napoli",ev)
-    this.Palermo = this.fetchExtraction("Palermo",ev)
-    this.Torino = this.fetchExtraction("Torino",ev)
-    this.Venezia = this.fetchExtraction("Venezia",ev)
-    this.Nazionale = this.fetchExtraction("Nazionale",ev)
+    this.Bari = this.fetchExtraction("Bari", ev)
+    this.Cagliari = this.fetchExtraction("Cagliari", ev)
+    this.Firenze = this.fetchExtraction("Firenze", ev)
+    this.Genova = this.fetchExtraction("Genova", ev)
+    this.Milano = this.fetchExtraction("Milano", ev)
+    this.Napoli = this.fetchExtraction("Napoli", ev)
+    this.Palermo = this.fetchExtraction("Palermo", ev)
+    this.Torino = this.fetchExtraction("Torino", ev)
+    this.Venezia = this.fetchExtraction("Venezia", ev)
+    this.Nazionale = this.fetchExtraction("Nazionale", ev)
 
-    console.log("extraction",this.Bari)
-    console.log("extraction",this.Cagliari)
-    console.log("extraction",this.Firenze)
-    console.log("extraction",this.Genova)
-    console.log("extraction",this.Milano)
-    console.log("extraction",this.Napoli)
-    console.log("extraction",this.Palermo)
-    console.log("extraction",this.Torino)
-    console.log("extraction",this.Venezia)
-    console.log("extraction",this.Nazionale)
 
-    try{
+
+    try {
       this.service.createItem(this.Bari)
-      this.toaster.presentToast("ruota di Bari inserita","top")
-      this.service.createItem(this.Cagliari)
-      this.toaster.presentToast("ruota di Cagliari inserita","middle")
-      this.service.createItem(this.Firenze)
-      this.toaster.presentToast("ruota di Firenze inserita","bottom")
-      this.service.createItem(this.Genova)
-      this.toaster.presentToast("ruota di Genova inserita","top")
-      this.service.createItem(this.Milano)
-      this.toaster.presentToast("ruota di Milano inserita","middle")
-      this.service.createItem(this.Napoli)
-      this.toaster.presentToast("ruota di Napoli inserita","bottom")
-      this.service.createItem(this.Palermo)
-      this.toaster.presentToast("ruota di Palermo inserita","top")
-      this.service.createItem(this.Torino)
-      this.toaster.presentToast("ruota di Torino inserita","middle")
-      this.service.createItem(this.Venezia)
-      this.toaster.presentToast("ruota di Venezia inserita","bottom")
-      this.service.createItem(this.Nazionale)
-      this.toaster.presentToast("ruota Nazionale inserita","top")
-      this.dismiss
+      await this.toaster.presentToast("ruota di Bari inserita", "top")
+      await this.service.createItem(this.Cagliari)
+      await this.toaster.presentToast("ruota di Cagliari inserita", "middle")
+      await this.service.createItem(this.Firenze)
+      await this.toaster.presentToast("ruota di Firenze inserita", "bottom")
+      await this.service.createItem(this.Genova)
+      await this.toaster.presentToast("ruota di Genova inserita", "top")
+      await this.service.createItem(this.Milano)
+      await this.toaster.presentToast("ruota di Milano inserita", "middle")
+      await this.service.createItem(this.Napoli)
+      await this.toaster.presentToast("ruota di Napoli inserita", "bottom")
+      await this.service.createItem(this.Palermo)
+      await this.toaster.presentToast("ruota di Palermo inserita", "top")
+      await this.service.createItem(this.Torino)
+      await this.toaster.presentToast("ruota di Torino inserita", "middle")
+      await this.service.createItem(this.Venezia)
+      await this.toaster.presentToast("ruota di Venezia inserita", "bottom")
+      await this.service.createItem(this.Nazionale)
+      await this.toaster.presentToast("ruota Nazionale inserita", "top")
+      this.dismiss()
     }
-    catch(error){
+    catch (error) {
       console.error(error)
-      this.toaster.presentToast("ho riscontrato degli errori")
+      await this.toaster.presentToast("ho riscontrato degli errori")
       this.dismiss()
     }
   }
