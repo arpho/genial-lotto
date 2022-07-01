@@ -56,6 +56,10 @@ get extraction(){
     return m>9?String(m): `0${m}`
   }
 
+  getFirst(){
+    return this.extraction[0]
+  }
+
   
   get title(){
     return this.transformation?`${this.transformation.title} sulla ruota di  ${this.weel}`:` ${this.weel}`
