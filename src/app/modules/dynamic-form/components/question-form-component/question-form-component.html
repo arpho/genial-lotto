@@ -90,16 +90,16 @@
           (selectedItem)="question.selectedItem($event)" ></app-selector-items>
       
     </section>
-    <select
+    <ion-select
       [id]="question?.key"
       *ngSwitchCase="'dropdown'"
       [value]="question?.value"
       [formControlName]="question?.key"
     >
-      <option *ngFor="let opt of question?.options" [value]="opt?.value">{{
+      <ion-select-option *ngFor="let opt of question?.options" [value]="opt?.value">{{
         opt.key
-      }}</option>
-    </select>
+      }}</ion-select-option>
+    </ion-select>
 
   <section style="color:red" *ngIf="!isValid">
     {{ question ? question.label : "" }} è richiesto
