@@ -29,7 +29,7 @@ app-extraction article p {
   display: inline;
   border: solid 1px red;
   border-radius: 9px;
-  background-color: orange;
+  background-color: aliceblue;
 }
 
 app-extraction article p.green {
@@ -41,6 +41,15 @@ app-extraction article p.green {
 
 ion-title.md.title-default.hydrated {
   text-align: center;
+}
+
+app-numero-estratto p {
+  background: antiquewhite;
+  border: 1px solid green;
+  border-radius: 9px;
+  size: auto;
+  width: fit-content;
+  background-color: aliceblue;
 }
 
 
