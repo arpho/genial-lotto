@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { Vertibile } from 'src/app/business/vertibile';
 import { Extraction } from 'src/app/models/extractionModel';
 import { TransformationInterface } from 'src/app/models/trasformationInterface';
 
@@ -13,16 +14,21 @@ export class ApplyFunction2WeelsPage implements OnInit {
   date: string
   weel2: String
   WeelOne: Extraction
+  ambata11: number
+  ambata12
+  ambata21
+  ambata22
   WeelTwo: Extraction
   function: TransformationInterface
   extractions: Extraction[]
-  title:string
+  ambate_weel1: string
+  title: string
   constructor(
     public navParams: NavParams,
     public modalCtrl: ModalController
   ) { }
 
-  dismiss(){
+  dismiss() {
     this.modalCtrl.dismiss()
   }
 
@@ -39,6 +45,13 @@ export class ApplyFunction2WeelsPage implements OnInit {
       return e.weel == this.weel2 && e.italianDate == this.date
     })[0]
     this.title = `${this.function.title} applicata alle ruote di ${this.weel1} e di ${this.weel2} del ${this.date}`
+
+    this.ambata11 = this.function.transform(this.WeelOne.getFirst())
+    this.ambata12 = new Vertibile().transform(this.function.transform(this.WeelOne.getFirst()))
+    this.ambata21 = this.function.transform(this.WeelTwo.getFirst())
+    this.ambata22 = new Vertibile().transform(this.function.transform(this.WeelTwo.getFirst()))
+    this.ambate_weel1 = `${this.function.transform(this.WeelOne.getFirst())}-${new Vertibile().transform(this.function.transform(this.WeelOne.getFirst()))}`
+    console.log(this.ambate_weel1)
   }
 
 }
