@@ -9,15 +9,17 @@ export class QuestionControlService {
 
   questionFactory(question:QuestionBase<any>){
     const Question =  new FormControl(question.value||'');
-    const validators = []
     if(question.required){
-      validators.push(Validators.required)
+      Question.addValidators(Validators.required)
     }
     if(question.validator){
-      console.log("validator",question.validator)
-      validators.push(question.validator)
+      Question.addValidators(question.validator)
+
+     
     }
-    Question.setValidators(validators)
+    if(question.asyncValidator){
+     Question.addAsyncValidators(question.asyncValidator)
+    }
     return Question
   }
 

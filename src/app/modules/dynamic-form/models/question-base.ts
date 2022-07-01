@@ -5,7 +5,7 @@ import { ItemModelInterface } from '../../item/models/itemModelInterface';
 import { QuestionProperties } from './questionproperties';
 import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 import { ComboValue } from './ComboValueinterface';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 //import { Options } from 'selenium-webdriver';
 
 export class QuestionBase<T> {
@@ -20,7 +20,8 @@ export class QuestionBase<T> {
   repeatPassword?:boolean
   iconFalse: string;
   labelTrue: string;
-  validator?:(control: AbstractControl)=> ValidationErrors
+  validator?:(control: AbstractControl)=> ValidationErrors;
+  asyncValidator?:AsyncValidatorFn;
   retypePassword?:boolean
   presentation?:'date'|'date-time'|'time'
   isDateEnabled?:(date:string)=> boolean
@@ -48,6 +49,7 @@ export class QuestionBase<T> {
     this.value = options['value']
     this.filterFunction = options['filterFunction']
     this.order = options['order'] === undefined ? 1 : options['order'];
+    this.asyncValidator=options['asyncValidator']
     this.controlType = options['controlType'] || "";
     // tslint:disable-next-line: prefer-const
     for (let key in options) {

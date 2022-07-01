@@ -3,7 +3,7 @@ import { connectableObservableDescriptor } from "rxjs/internal/observable/Connec
 import { DateProperties } from "./dateProperties";
 import { QuestionBase } from "./question-base";
 import { QuestionProperties } from './questionproperties';
-
+import { AsyncValidatorFn } from "@angular/forms";
 export class DateQuestion extends QuestionBase<any> {
 
   controlType = "datebox";
