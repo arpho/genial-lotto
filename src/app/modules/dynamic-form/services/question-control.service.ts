@@ -18,7 +18,9 @@ export class QuestionControlService {
      
     }
     if(question.asyncValidator){
-     Question.addAsyncValidators(question.asyncValidator)
+      console.log(question,question.asyncValidator)
+     Question.setAsyncValidators(question.asyncValidator)
+     Question.updateValueAndValidity()
     }
     return Question
   }
