@@ -146,7 +146,6 @@ export class FolderPage implements OnInit {
   transformation: TransformationInterface
 
  async addExtraction(){
-    console.log("add")
     const modal =await this.modalCtrl.create({
       component:AddExtractionPage
     })
