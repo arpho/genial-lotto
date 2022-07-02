@@ -6,7 +6,6 @@ import { extractionValidator4Field } from 'src/app/business/ExtractioValidator4F
 import { Extraction } from 'src/app/models/extractionModel';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
-import { DateIsPresentService } from 'src/app/modules/dynamic-form/services/validators/date-is-present.service';
 import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toast-service.service';
 import { DateModel } from 'src/app/modules/user/models/birthDateModel';
 import { ExtractionService } from 'src/app/services/extractions/estrazioni.service';
@@ -44,7 +43,6 @@ export class AddExtractionPage implements OnInit {
         label: "data di estrazione",
         required: true,
         presentation: "date",
-        asyncValidator:[this.dateValidator.dateValidator()]
       
       }),
       new TextboxQuestion({
@@ -110,7 +108,6 @@ export class AddExtractionPage implements OnInit {
     public modalCtrl: ModalController,
     public toaster: MyToastService,
     public service: ExtractionService,
-    public dateValidator:DateIsPresentService
   ) { }
 
   dismiss(v?: any) {
