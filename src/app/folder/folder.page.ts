@@ -169,6 +169,7 @@ export class FolderPage implements OnInit {
         // this.weels =  Array.from( new Set(this.weels))
         this.dateEstrazioni.push(e.italianDate)
         this.dateEstrazioni = Array.from(new Set(this.dateEstrazioni))
+        this.dateEstrazioni = this.dateEstrazioni.reverse()
       })
       const isDateEnabled = (date: string) => {
         const helper = new DateHelpers()
@@ -180,22 +181,26 @@ export class FolderPage implements OnInit {
            label: "prima ruota ",
             key: "weel1",
              options: new OptionsMaker().makesOptionsFromArray(this.weels),
+             value:1,
             required:true
            }),
         new DropdownQuestion({ label: "seconda ruota ",
          key: "weel2",
+         value:2,
           options: new OptionsMaker().makesOptionsFromArray(this.weels),
         required:true
        }),
         new DropdownQuestion({
           key: "extractionDate",
           label: "data di estrazione",
+          value:1,
           options: new OptionsMaker().makesOptionsFromArray(this.dateEstrazioni),
           required:true
         }),
         new DropdownQuestion({
           key: "function",
           label: "funzione",
+          value:1,
           options: new OptionsMaker().makesOptionsFromArray(["vertibili", "+2-90", "figura"]),
           required:true
         })
