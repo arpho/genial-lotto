@@ -38,9 +38,26 @@ app-extraction article p.green {
   border-radius: 9px;
   background-color: green;
 }
+app-extraction article p.red {
+  display: inline;
+  border: solid 1px red;
+  border-radius: 9px;
+  background-color: red;
+}
+app-extraction article p.orange {
+  display: inline;
+  border: solid 1px red;
+  border-radius: 9px;
+  background-color: orange;
+}
 
 ion-title.md.title-default.hydrated {
   text-align: center;
+}
+
+app-numero-estratto.ambata {
+  background: radial-gradient(green, transparent);
+  font-size: 3rem;
 }
 
 app-numero-estratto p {

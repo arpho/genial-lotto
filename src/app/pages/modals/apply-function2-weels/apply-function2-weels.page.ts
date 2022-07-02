@@ -15,9 +15,11 @@ export class ApplyFunction2WeelsPage implements OnInit {
   weel2: String
   WeelOne: Extraction
   ambata11: number
-  ambata12
-  ambata21
-  ambata22
+  ambata12: number
+  ambata21: number
+  ambata22: number
+  color1="red"
+  color2="orange"
   WeelTwo: Extraction
   function: TransformationInterface
   extractions: Extraction[]
