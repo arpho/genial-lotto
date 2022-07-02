@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TransformationInterface } from 'src/app/models/trasformationInterface';
 
 @Component({
   selector: 'app-numero-estratto',
@@ -8,9 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NumeroEstrattoComponent implements OnInit {
   @Input() numero:number
   @Input() color:string
+  @Input() function:TransformationInterface
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
 }

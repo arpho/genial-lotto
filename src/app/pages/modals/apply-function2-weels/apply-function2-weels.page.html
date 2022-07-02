@@ -12,7 +12,7 @@
 <ion-content>
   <app-extraction 
   [extraction]="WeelOne"
-  
+  [function]="function"
   [transformation]="function"
   ></app-extraction><app-extraction 
   [extraction]="WeelTwo"
@@ -24,6 +24,7 @@
     <ion-row>
   <app-numero-estratto
   class="ambata"
+  [function]="function"
   [numero]="ambata11"
   ></app-numero-estratto>
   <app-numero-estratto

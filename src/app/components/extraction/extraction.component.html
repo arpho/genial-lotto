@@ -4,12 +4,17 @@
   <app-numero-estratto
    [numero]="getNumber(0)"
    [color]="color"
+   [function]="transformation"
   ></app-numero-estratto>
   <app-numero-estratto [numero]="getNumber(1)"
+  [function]="transformation"
   ></app-numero-estratto>
-  <app-numero-estratto [numero]="getNumber(2)"></app-numero-estratto>
-  <app-numero-estratto [numero]="getNumber(3)"></app-numero-estratto>
-  <app-numero-estratto [numero]="getNumber(4)"></app-numero-estratto>
+  <app-numero-estratto [numero]="getNumber(2)"
+  [function]="transformation"></app-numero-estratto>
+  <app-numero-estratto [numero]="getNumber(3)"
+  [function]="transformation"></app-numero-estratto>
+  <app-numero-estratto [numero]="getNumber(4)"
+  [function]="transformation"></app-numero-estratto>
 
 </p>
 </article>
