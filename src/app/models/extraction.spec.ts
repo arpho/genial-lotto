@@ -1,3 +1,4 @@
+import { ExpectedConditions } from "protractor"
 import { Piu2meno90 } from "../business/piu2meno90"
 import { Extraction } from "./extractionModel"
 
@@ -75,3 +76,21 @@ it( "should transform extraction",()=>{
   expect(test.apply(transformation).extraction[3]).toBe(65)
   expect(test.apply(transformation).extraction[4]).toBe(39)
 })
+it("should load with italianDate",()=>{
+  const data = {
+    "date": "16/04/2022",
+    "extraction": [
+      47,
+      90,
+      39,
+      40,
+      85
+    ],
+    "weel": "Bari"
+  }
+  const test = new Extraction(data)
+  expect(test).toBeDefined()
+  expect(test.date).toBe("04/16/2022")
+  expect(test.italianDate).toBe("16/04/2022")
+})
+
