@@ -152,6 +152,39 @@ export class FolderPage implements OnInit {
     await modal.present()
   }
 
+  initFormFields(){
+
+    this.formFields = [
+      new DropdownQuestion({
+         label: "prima ruota ",
+          key: "weel1",
+           options: new OptionsMaker().makesOptionsFromArray(this.weels),
+           value:1,
+          required:true
+         }),
+      new DropdownQuestion({ label: "seconda ruota ",
+       key: "weel2",
+       value:2,
+        options: new OptionsMaker().makesOptionsFromArray(this.weels),
+      required:true
+     }),
+      new DropdownQuestion({
+        key: "extractionDate",
+        label: "data di estrazione",
+        value:0,
+        options: new OptionsMaker().makesOptionsFromArray(this.dateEstrazioni),
+        required:true
+      }),
+      new DropdownQuestion({
+        key: "function",
+        label: "funzione",
+        value:1,
+        options: new OptionsMaker().makesOptionsFromArray(["vertibili", "+2-90", "figura"]),
+        required:true
+      })
+    ]
+  }
+
   ngOnInit() {
     this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => { // we get the selected transformation
       transformation = transformation
@@ -162,49 +195,30 @@ export class FolderPage implements OnInit {
       this.estrazioniItems = []
       this.showSpinner = items.length == 0
       items.sort((a: Extraction, b: Extraction) => {
-        return a._dateInmsec - b._dateInmsec// ordinamento crescente dal più vecchio al più recente
+        return b._dateInmsec - a._dateInmsec// ordinamento crescente dal  più recente al più vecchio
       }).forEach((e: Extraction) => {
         // this.weels.push(e.weel)
         this.estrazioniItems = items
         // this.weels =  Array.from( new Set(this.weels))
         this.dateEstrazioni.push(e.italianDate)
         this.dateEstrazioni = Array.from(new Set(this.dateEstrazioni))
-        this.dateEstrazioni = this.dateEstrazioni.reverse()
-      })
+        
+       
+        
+      }
+      
+      )
+
       const isDateEnabled = (date: string) => {
         const helper = new DateHelpers()
         const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date)) > -1
         return out
       }
-      this.formFields = [
-        new DropdownQuestion({
-           label: "prima ruota ",
-            key: "weel1",
-             options: new OptionsMaker().makesOptionsFromArray(this.weels),
-             value:1,
-            required:true
-           }),
-        new DropdownQuestion({ label: "seconda ruota ",
-         key: "weel2",
-         value:2,
-          options: new OptionsMaker().makesOptionsFromArray(this.weels),
-        required:true
-       }),
-        new DropdownQuestion({
-          key: "extractionDate",
-          label: "data di estrazione",
-          value:1,
-          options: new OptionsMaker().makesOptionsFromArray(this.dateEstrazioni),
-          required:true
-        }),
-        new DropdownQuestion({
-          key: "function",
-          label: "funzione",
-          value:1,
-          options: new OptionsMaker().makesOptionsFromArray(["vertibili", "+2-90", "figura"]),
-          required:true
-        })
-      ]
+      console.log("date before sorting",this.dateEstrazioni)
+      this.dateEstrazioni = this.dateEstrazioni.sort((a,b)=>{ 
+        return new Date(b).getTime()-new Date(a).getTime()
+      })
+this.initFormFields()
 
     })
 
