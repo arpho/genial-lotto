@@ -53,10 +53,8 @@ export class ApplyFunction2WeelsComponent implements OnInit {
         this.ambata12 = new Vertibile().transform(data.function.transform(this.WeelOne.getFirst()))
         this.ambata21 = data.function.transform(this.WeelTwo.getFirst())
         this.ambata22 = new Vertibile().transform(data.function.transform(this.WeelTwo.getFirst()))
-        this.ambate_weel1 = `${data.function.transform(this.WeelOne.getFirst())}-${new Vertibile().
-          transform(this.function.transform(this.WeelOne.getFirst()))}`
+        this.ambate_weel1 = `${data.function.transform(this.WeelOne.getFirst())}-${new Vertibile().transform(data.function.transform(this.WeelOne.getFirst()))}`
       }
-      console.log(this.ambate_weel1)
     })
   }
 
