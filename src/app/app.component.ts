@@ -8,6 +8,7 @@ import { MessageBrokerService } from './modules/helpers/services/messages/messag
 import { Piu2meno90 } from './business/piu2meno90';
 import { Figura } from './business/figura';
 import { Vertibile } from './business/vertibile';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -40,11 +41,17 @@ onOwnClick= (index:number,url?:string)=>{
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(public router:Router,
+    public menu:MenuController,
     public messages:MessageBrokerService) {
       messages.addBroker("selectedFunction")
     }
   ngOnInit(): void {
-    this.messages.addBroker("ambate")
+    this.messages.subscribeTo("ambate",(data=>{
+      if(data){
+this.menu.enable(true,"main-content")
+this.menu.open("main-content")
+      }
+    }))
     const app = initializeApp(configs.firebase)
     const auth = getAuth()
     onAuthStateChanged(auth,async (user)=>{
