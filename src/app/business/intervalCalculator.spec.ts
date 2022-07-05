@@ -1,5 +1,5 @@
 import { Extraction } from "../models/extractionModel"
-import { data1, data2 } from "./dataInterval"
+import { data1, data2, manyIntervals } from "./dataInterval"
 import { IntervalCalculator } from "./intervalCalculator"
 
 
@@ -8,7 +8,6 @@ describe("IntervalCalculator should instantiate",()=>{
   
   const data =[]
   for (let key in rawData){
-    console.log("*# raw data",key,new Extraction(rawData[key]).setKey(key))
     data.push(new Extraction(rawData[key]).setKey(key))
   }
     const test =  new IntervalCalculator(data)
@@ -17,7 +16,6 @@ describe("IntervalCalculator should instantiate",()=>{
   
   const data =[]
   for (let key in rawData){
-    console.log("*# raw data",key,new Extraction(rawData[key]).setKey(key))
     data.push(new Extraction(rawData[key]).setKey(key))
   }
     const test =  new IntervalCalculator(data)
@@ -41,5 +39,24 @@ describe("IntervalCalculator should instantiate",()=>{
     expect(intervals[0].interval).toBe(1)
     expect(intervals[1].interval).toBe(2)
 
+  })
+
+  it("rertrieve more intervals",()=>{
+    const rawData = manyIntervals
+    const data =[]
+  for (let key in rawData){
+    data.push(new Extraction(rawData[key]).setKey(key))
+  }
+  const test = new IntervalCalculator(data)
+  const intervals = test.retrieveInterval("Bari",7,"05/06/2022")
+  expect(intervals.length).toBe(4)
+  expect(intervals[0].interval).toBe(2)
+  expect(intervals[1].interval).toBe(3)
+  expect(intervals[2].interval).toBe(5)
+  expect(intervals[3].interval).toBe(1)
+  expect(intervals[0].date).toBe("10/06/2022")
+  expect(intervals[1].date).toBe("5/05/2022")
+  expect(intervals[2].date).toBe("22/04/2022")
+  expect(intervals[3].date).toBe("21/04/2022")
   })
 })
