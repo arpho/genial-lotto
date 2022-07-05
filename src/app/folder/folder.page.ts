@@ -141,6 +141,7 @@ export class FolderPage implements OnInit {
       component: ApplyFunction2WeelsPage, componentProps: props
     })
     this.messages.publish("ambate",props)
+    await modal.present()
   }
 
   transformation: TransformationInterface
