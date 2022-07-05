@@ -22,6 +22,7 @@ import { SameLengthStringPipe } from './pipes/same-length-string.pipe';
 import { NewCustomerPage } from './pages/customers/create/new-customer/new-customer.page';
 import { UpdateCustomerPage } from './pages/customers/edit/update-customer/update-customer.page';
 import { ApplyFunction2WeelsPage } from './pages/modals/apply-function2-weels/apply-function2-weels.page';
+import { ApplyFunction2WeelsComponent } from './components/apply-function2-weels/apply-function2-weels.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ApplyFunction2WeelsPage } from './pages/modals/apply-function2-weels/ap
     WeelsViewerComponent,
     TrailingZeroPipe,
     SameLengthStringPipe,
-    ApplyFunction2WeelsPage
+    ApplyFunction2WeelsPage,
+    ApplyFunction2WeelsComponent
    ],
   entryComponents: [],
   imports: [
