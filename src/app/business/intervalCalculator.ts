@@ -25,7 +25,6 @@ for( let i = startIndex+1; i< extractions4Weel.length;i++){
 
 
 }
-console.log("intervals *#",intervals)
 
 return intervals
 }
