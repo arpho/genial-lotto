@@ -140,7 +140,7 @@ export class FolderPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: ApplyFunction2WeelsPage, componentProps: props
     })
-    await modal.present()
+    this.messages.publish("ambate",props)
   }
 
   transformation: TransformationInterface
@@ -171,7 +171,7 @@ export class FolderPage implements OnInit {
       new DropdownQuestion({
         key: "extractionDate",
         label: "data di estrazione",
-        value:0,
+        value:3,
         options: new OptionsMaker().makesOptionsFromArray(this.dateEstrazioni),
         required:true
       }),
@@ -214,7 +214,6 @@ export class FolderPage implements OnInit {
         const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date)) > -1
         return out
       }
-      console.log("date before sorting",this.dateEstrazioni)
       this.dateEstrazioni = this.dateEstrazioni.sort((a,b)=>{ 
         return new Date(b).getTime()-new Date(a).getTime()
       })
