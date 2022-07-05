@@ -44,6 +44,7 @@ onOwnClick= (index:number,url?:string)=>{
       messages.addBroker("selectedFunction")
     }
   ngOnInit(): void {
+    this.messages.addBroker("ambate")
     const app = initializeApp(configs.firebase)
     const auth = getAuth()
     onAuthStateChanged(auth,async (user)=>{
