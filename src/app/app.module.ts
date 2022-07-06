@@ -23,6 +23,9 @@ import { NewCustomerPage } from './pages/customers/create/new-customer/new-custo
 import { UpdateCustomerPage } from './pages/customers/edit/update-customer/update-customer.page';
 import { ApplyFunction2WeelsPage } from './pages/modals/apply-function2-weels/apply-function2-weels.page';
 import { ApplyFunction2WeelsComponent } from './components/apply-function2-weels/apply-function2-weels.component';
+import { ScatterComponent } from './components/scatter/scatter.component';
+import { BarComponent } from './components/bar/bar.component';
+import {LinesComponent} from "./components/lines/lines.component"
 
 
 
@@ -41,7 +44,10 @@ import { ApplyFunction2WeelsComponent } from './components/apply-function2-weels
     TrailingZeroPipe,
     SameLengthStringPipe,
     ApplyFunction2WeelsPage,
-    ApplyFunction2WeelsComponent
+    ApplyFunction2WeelsComponent,
+    ScatterComponent,
+    BarComponent,
+    LinesComponent
    ],
   entryComponents: [],
   imports: [
