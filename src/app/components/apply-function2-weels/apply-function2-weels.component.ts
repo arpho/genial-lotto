@@ -42,6 +42,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
     }) => {
       if (data) {
         this.show = true
+        this.function= data.function
         this.WeelOne = data.extractions.filter((e: Extraction) => {
           return e.weel == data.weel1 && e.italianDate == data.date
         })[0]
