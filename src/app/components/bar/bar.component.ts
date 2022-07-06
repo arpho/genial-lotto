@@ -56,7 +56,16 @@ private drawBars(data: any[]): void {
   .call(d3.axisLeft(y));
 
   // Create and fill the bars
-  this.svg.selectAll("bars")
+  this.svg.append("path")
+  .datum(data).attr("fill", "none")
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 1.5)
+  .attr("d", d3.line()
+    .x(function(d) { return x(d['id']) })
+    .y(function(d) { return y(d['interval']) })
+    )
+  
+  /* .selectAll("bars")
   .data(this.data)
   .enter()
   .append("rect")
@@ -64,7 +73,7 @@ private drawBars(data: any[]): void {
   .attr("y", d => y(d.interval))
   .attr("width", x.bandwidth())
   .attr("height", (d) => this.height - y(d.interval))
-  .attr("fill", "#d04a35");
+  .attr("fill", "#d04a35"); */
 }
 
   ngOnInit() {
