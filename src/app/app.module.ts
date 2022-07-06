@@ -23,10 +23,8 @@ import { NewCustomerPage } from './pages/customers/create/new-customer/new-custo
 import { UpdateCustomerPage } from './pages/customers/edit/update-customer/update-customer.page';
 import { ApplyFunction2WeelsPage } from './pages/modals/apply-function2-weels/apply-function2-weels.page';
 import { ApplyFunction2WeelsComponent } from './components/apply-function2-weels/apply-function2-weels.component';
-import * as PlotlyJS from 'plotly.js-dist-min';
-import { PlotlyModule } from 'angular-plotly.js';
 
-PlotlyModule.plotlyjs = PlotlyJS;
+
 
 @NgModule({
   declarations: [
@@ -47,7 +45,6 @@ PlotlyModule.plotlyjs = PlotlyJS;
    ],
   entryComponents: [],
   imports: [
-    PlotlyModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,

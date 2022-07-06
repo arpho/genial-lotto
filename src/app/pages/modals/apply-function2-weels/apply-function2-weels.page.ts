@@ -27,7 +27,8 @@ export class ApplyFunction2WeelsPage implements OnInit {
   title: string
   constructor(
     public navParams: NavParams,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+
   ) { }
 
   dismiss() {
@@ -54,6 +55,20 @@ export class ApplyFunction2WeelsPage implements OnInit {
     this.ambata22 = new Vertibile().transform(this.function.transform(this.WeelTwo.getFirst()))
     this.ambate_weel1 = `${this.function.transform(this.WeelOne.getFirst())}-${new Vertibile().transform(this.function.transform(this.WeelOne.getFirst()))}`
     console.log(this.ambate_weel1)
+    var trace1 = {
+      x: [1, 2, 3, 4],
+      y: [10, 15, 13, 17],
+      type: 'scatter'
+    };
+    
+    var trace2 = {
+      x: [1, 2, 3, 4],
+      y: [16, 5, 11, 9],
+      type: 'scatter'
+    };
+    var data = [trace1, trace2];
+ 
+
   }
 
 }
