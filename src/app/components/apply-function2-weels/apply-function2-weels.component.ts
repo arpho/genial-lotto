@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IntervalCalculator } from 'src/app/business/intervalCalculator';
 import { Vertibile } from 'src/app/business/vertibile';
 import { Extraction } from 'src/app/models/extractionModel';
 import { TransformationInterface } from 'src/app/models/trasformationInterface';
 import { MessageBrokerService } from 'src/app/modules/helpers/services/messages/message-broker.service';
-
+import * as d3 from "d3"
+import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
+import { makeData4D3 } from 'src/app/business/makeData4D3';
 @Component({
   selector: 'app-apply-function2-weels-component',
   templateUrl: './apply-function2-weels.component.html',
@@ -18,6 +21,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   ambata12: number
   ambata21: number
   ambata22: number
+  barData
   show = false
   color1 = "red"
   color2 = "orange"
@@ -27,7 +31,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   ambate_weel1: string
   title: string ="ciao"
   constructor(
-    public messages: MessageBrokerService
+    public messages: MessageBrokerService,
   ) { }
 
 
@@ -55,6 +59,12 @@ export class ApplyFunction2WeelsComponent implements OnInit {
         this.ambata21 = data.function.transform(this.WeelTwo.getFirst())
         this.ambata22 = new Vertibile().transform(data.function.transform(this.WeelTwo.getFirst()))
         this.ambate_weel1 = `${data.function.transform(this.WeelOne.getFirst())}-${new Vertibile().transform(data.function.transform(this.WeelOne.getFirst()))}`
+        const intervals1= new IntervalCalculator(data.extractions).retrieveInterval(data.weel1,this.ambata11,data.date)
+        console.log(`intervals per ${this.ambata11}`,intervals1)
+        const makeData = new makeData4D3()
+        this.barData= makeData.transform(intervals1).slice(0,20)
+        console.log("bar data",this.barData)
+   
       }
     })
   }
