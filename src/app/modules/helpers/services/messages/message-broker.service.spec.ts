@@ -17,8 +17,10 @@ describe('MessageBrokerService', () => {
     service.addBroker("test")
     expect(service.brokers['test']).toBeDefined()
   })
-  it("should not subscribe",()=>{
-    expect(service.subscribeTo("test",()=>{})).toBeUndefined()
+  it("should   add a broker subscribe ",()=>{
+    expect(service.brokers['test']).toBeUndefined()
+    expect(service.subscribeTo("test",()=>{})).toBeDefined()
+    expect(service.brokers['test']).toBeDefined()
   })
   it("should subscribe",()=>{
     service.addBroker("test")
