@@ -11,6 +11,7 @@ export class BarComponent implements OnInit,OnChanges {
   margin: number;
   height: number;
   width: number;
+  title:string
   @Input() numeroEstratto:number
  @Input() data: { id: number; date: string; interval: string; }[];
 
@@ -19,6 +20,9 @@ export class BarComponent implements OnInit,OnChanges {
    console.log("changes",changes.data)
    this.createSvg();
     this.drawBars(this.data);
+    if(changes.numeroEstratto){
+      this.title=`intervalli per ${this.numeroEstratto}`
+    }
   }
 
   createSvg(): void {
