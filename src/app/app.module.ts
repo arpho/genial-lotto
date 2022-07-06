@@ -6,9 +6,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ItemModule } from 'src/app/modules/item/item.module';
-import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
-import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
+import { ItemModule } from './modules/item/item.module';
+import { DynamicFormModule } from './modules/dynamic-form/dynamic-form.module';
+import { HelpersModule } from './modules/helpers/helpers.module';
 import { UserModule } from './modules/user/user.module';
 import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-items.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
@@ -23,6 +23,10 @@ import { NewCustomerPage } from './pages/customers/create/new-customer/new-custo
 import { UpdateCustomerPage } from './pages/customers/edit/update-customer/update-customer.page';
 import { ApplyFunction2WeelsPage } from './pages/modals/apply-function2-weels/apply-function2-weels.page';
 import { ApplyFunction2WeelsComponent } from './components/apply-function2-weels/apply-function2-weels.component';
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
+
+PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [
@@ -43,6 +47,7 @@ import { ApplyFunction2WeelsComponent } from './components/apply-function2-weels
    ],
   entryComponents: [],
   imports: [
+    PlotlyModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
