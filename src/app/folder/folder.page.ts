@@ -44,6 +44,7 @@ export class FolderPage implements OnInit {
     "Venezia",
     "Nazionale"
   ]
+  weel1
   dateEstrazioni: string[] = []
   formFields: any[]
   ambata11:number
@@ -144,7 +145,7 @@ export class FolderPage implements OnInit {
     const intervals1= new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata11,props.date)
         const makeData = new makeData4D3()
         this.barData= makeData.transform(intervals1).slice(0,20)
-  
+    this.weel1= props.weel1
     const modal = await this.modalCtrl.create({
       component: ApplyFunction2WeelsPage, componentProps: props
     })
