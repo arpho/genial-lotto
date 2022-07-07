@@ -3,10 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Figura } from '../business/figura';
+import { IntervalCalculator } from '../business/intervalCalculator';
+import { makeData4D3 } from '../business/makeData4D3';
 import { Neutro } from '../business/neutro';
 import { Piu2meno90 } from '../business/piu2meno90';
 import { Vertibile } from '../business/vertibile';
 import { Extraction } from '../models/extractionModel';
+import { Interval } from '../models/interval';
 import { TransformationInterface } from '../models/trasformationInterface';
 import { OptionsMaker } from '../modules/dynamic-form/helpers/optionMaker';
 import { DateQuestion } from '../modules/dynamic-form/models/question-date';
@@ -43,12 +46,16 @@ export class FolderPage implements OnInit {
   ]
   dateEstrazioni: string[] = []
   formFields: any[]
+  ambata11:number
+  barData:Interval[]
   ruota1
+  showGraph=false
   estrazione1: Extraction
   estrazione2: Extraction
   trasformazione2: Extraction
   trasformazione1: Extraction
   ruota2
+  weelOne:Extraction
   estrazioniItems: Extraction[]
   selectedData: string
   selectedData1: string
@@ -60,6 +67,7 @@ export class FolderPage implements OnInit {
   step = 0
   index = 0
   appliedFunction = ""
+  WeelOne: any;
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: ExtractionService,
@@ -121,14 +129,6 @@ export class FolderPage implements OnInit {
   async submit(ev) {
     console.log("submitted", ev);
     console.log("funzione", this.selectedFunction)
-    /*   if (this.estrazione1) {
-        this.trasformazione1 = new Extraction(this.estrazione1.apply(this.selectedFunction))
-        console.log("trasformazione1", this.trasformazione1)
-      }
-      if (this.estrazione2) {
-        this.trasformazione2 = new Extraction(this.estrazione2.apply(this.selectedFunction))
-      } */
-
     const functionList = [new Vertibile(), new Piu2meno90(), new Figura()]
     const props =  {
       weel1: this.weels[ ev.weel1],
@@ -137,10 +137,20 @@ export class FolderPage implements OnInit {
       date: this.dateEstrazioni[Number(ev.extractionDate)],
       extractions:this.estrazioniItems
     }
+    this.WeelOne = props.extractions.filter((e: Extraction) => {
+      return e.weel == props.weel1 && e.italianDate == props.date
+    })[0]
+    this.ambata11 =props.function.transform(this.WeelOne.getFirst())
+    const intervals1= new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata11,props.date)
+        console.log(`intervals per ${this.ambata11}`,intervals1)
+        const makeData = new makeData4D3()
+        this.barData= makeData.transform(intervals1).slice(0,20)
+  
     const modal = await this.modalCtrl.create({
       component: ApplyFunction2WeelsPage, componentProps: props
     })
     this.messages.publish("ambate",props)
+    this.showGraph= true
     //await modal.present()
   }
 

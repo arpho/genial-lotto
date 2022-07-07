@@ -37,6 +37,9 @@
       </ion-icon>
     </ion-button>
   </div>
+  <app-bar *ngIf="showGraph"
+  [numeroEstratto]="ambata11"
+  [data]="barData"></app-bar>
   <ion-grid class="extractions">
     <ion-row>
       <ion-item>
@@ -80,5 +83,6 @@
   </ion-grid>
   <ion-button (click)="addExtraction()"><ion-icon name ="add-circle"></ion-icon></ion-button>
 
+  
 
 </ion-content>
