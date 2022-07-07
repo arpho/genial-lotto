@@ -15,6 +15,7 @@ export class BarComponent implements OnInit, OnChanges {
   title: string
   @Input() numeroEstratto: number
   @Input() data: Interval[];
+  @Input() weel:string
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -28,13 +29,15 @@ export class BarComponent implements OnInit, OnChanges {
       this.createSvg()
     }
     else{
-      d3.selectAll("g >*").remove()// remove all the g elements to reset the svg
+      this.svg.selectAll("g >*").remove()// remove all the g elements to reset the svg
+      this.createSvg()
+      this.drawBars(this.data)
     }
     if(changes.data){
       this.drawBars(this.data);
   }
     if (changes.numeroEstratto) {
-      this.title = `intervalli per ${this.numeroEstratto}`
+      this.title = `intervalli del ${this.numeroEstratto} sulla ruota di ${this.weel} fino al ${this.data[this.data.length-1].date}`
     }
   }
 
