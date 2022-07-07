@@ -29,6 +29,9 @@
   [numeroEstratto]="ambata11"
   [weel]="weel1"
   [data]="barData"></app-bar>
+
+    </ion-row>
+    <ion-row>
   <p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>
   <div class="browsing_buttons">
 
@@ -43,9 +46,6 @@
       </ion-icon>
     </ion-button>
   </div>
-
-    </ion-row>
-    <ion-row>
 
       <ion-item>
         <app-weels-viewer class="browsable" [estrazioni]="estrazioniItems" [transformation]="neutralFunction"
