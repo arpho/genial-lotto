@@ -79,7 +79,25 @@ private drawBars(data: any[]): void {
     .attr("cy", d => y(d['interval']))
     .attr("r", 7)
     .style("opacity", .5)
-    .style("fill", "#69b3a2");
+    .style("fill", "#69b3a2")
+    .on('mouseover',function(d,i){
+      d3.select(this).transition().duration(500)
+      .text(d=>d['date'])
+    })
+    .on('mouseout',function(d,i){
+      d3.select(this).transition()
+      .duration(200)
+      .attr('r',5)
+    })
+
+    // Add labels
+/*     dots.selectAll("text")
+    .data(this.data)
+    .enter()
+    .append("text")
+    .text(d => d['date'])
+    .attr("x", d => x(d['id']))
+    .attr("y", d => y(d['interval'])) */
   
   /* .selectAll("bars")
   .data(this.data)
