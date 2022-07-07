@@ -91,12 +91,10 @@ export class FolderPage implements OnInit {
 
   previous() {
     this.step += 1
-    console.log("prev", this.step)
     this.setStepDates(this.index, this.step)
   }
   next() {
     this.step -= 1
-    console.log("next", this.step)
     this.setStepDates(this.index, this.step)
   }
 
