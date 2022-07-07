@@ -69,6 +69,13 @@ private drawBars(data: any[]): void {
     .y(function(d) { return y(d['interval']) })
     )
 
+    //div for text on hover
+    var div = d3.select("body").append("div")
+     .attr("class", "tooltip")
+     .style("opacity", 0); // div hidden at start
+
+     
+
     // Add dots
     const dots = this.svg.append('g');
     dots.selectAll("dot")
@@ -77,17 +84,28 @@ private drawBars(data: any[]): void {
     .append("circle")
     .attr("cx", d => x(d['id']))
     .attr("cy", d => y(d['interval']))
-    .attr("r", 7)
+    .attr("r", 5)
     .style("opacity", .5)
     .style("fill", "#69b3a2")
     .on('mouseover',function(d,i){
       d3.select(this).transition().duration(500)
-      .text(d=>d['date'])
+      .attr('r',7)
+      div.transition()
+      .duration(100)
+      .style("opacity",1) // tooltip div is visible
+      div.html(`${i['interval']}- ${i['date']}`)
+      .style("left", (d.pageX + 10) + "px")
+      .style("top", (d.pageY - 15) + "px");
+      
+      console.log("show",d)
     })
     .on('mouseout',function(d,i){
       d3.select(this).transition()
       .duration(200)
       .attr('r',5)
+      div.transition()
+      .duration(200)
+      .style('opacity',0) // div tooltip hidden
     })
 
     // Add labels
@@ -111,7 +129,6 @@ private drawBars(data: any[]): void {
 }
 
   ngOnInit() {
-   console.log("data",this.data)
     this.svg;
     this.margin = 50;
     this.width = 450 - (this.margin * 2);
