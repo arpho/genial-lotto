@@ -142,7 +142,6 @@ export class FolderPage implements OnInit {
     })[0]
     this.ambata11 =props.function.transform(this.WeelOne.getFirst())
     const intervals1= new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata11,props.date)
-        console.log(`intervals per ${this.ambata11}`,intervals1)
         const makeData = new makeData4D3()
         this.barData= makeData.transform(intervals1).slice(0,20)
   
