@@ -20,7 +20,7 @@ export class BarComponent implements OnInit, OnChanges {
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     this.svg;
-    this.margin = 50;
+    this.margin = 40;
     this.width = 450 - (this.margin * 2);
     this.height = 400 - (this.margin * 2);
     console.log("changes", changes.data)
