@@ -68,6 +68,18 @@ private drawBars(data: any[]): void {
     .x(function(d) { return x(d['id']) })
     .y(function(d) { return y(d['interval']) })
     )
+
+    // Add dots
+    const dots = this.svg.append('g');
+    dots.selectAll("dot")
+    .data(this.data)
+    .enter()
+    .append("circle")
+    .attr("cx", d => x(d['id']))
+    .attr("cy", d => y(d['interval']))
+    .attr("r", 7)
+    .style("opacity", .5)
+    .style("fill", "#69b3a2");
   
   /* .selectAll("bars")
   .data(this.data)
