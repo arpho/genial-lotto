@@ -60,10 +60,8 @@ export class ApplyFunction2WeelsComponent implements OnInit {
         this.ambata22 = new Vertibile().transform(data.function.transform(this.WeelTwo.getFirst()))
         this.ambate_weel1 = `${data.function.transform(this.WeelOne.getFirst())}-${new Vertibile().transform(data.function.transform(this.WeelOne.getFirst()))}`
         const intervals1= new IntervalCalculator(data.extractions).retrieveInterval(data.weel1,this.ambata11,data.date)
-        console.log(`intervals per ${this.ambata11}`,intervals1)
         const makeData = new makeData4D3()
         this.barData= makeData.transform(intervals1).slice(0,20)
-        console.log("bar data",this.barData)
    
       }
     })
