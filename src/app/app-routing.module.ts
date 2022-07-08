@@ -45,6 +45,10 @@ const routes: Routes = [
     path: 'add-extraction',
     loadChildren: () => import('./pages/modals/add-extraction/add-extraction.module').then( m => m.AddExtractionPageModule)
   },
+  {
+    path: 'browsing',
+    loadChildren: () => import('./pages/extractions/browsing/browsing.module').then( m => m.BrowsingPageModule)
+  },
 
 
 ];

@@ -25,6 +25,7 @@ import { ApplyFunction2WeelsPage } from './pages/modals/apply-function2-weels/ap
 import { ApplyFunction2WeelsComponent } from './components/apply-function2-weels/apply-function2-weels.component';
 import { ScatterComponent } from './components/scatter/scatter.component';
 import { BarComponent } from './components/bar/bar.component';
+import { BrowsingPage } from './pages/extractions/browsing/browsing.page';
 
 
 
@@ -46,6 +47,7 @@ import { BarComponent } from './components/bar/bar.component';
     ApplyFunction2WeelsComponent,
     ScatterComponent,
     BarComponent,
+    BrowsingPage
    ],
   entryComponents: [],
   imports: [
