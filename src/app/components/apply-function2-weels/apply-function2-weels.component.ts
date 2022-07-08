@@ -7,6 +7,8 @@ import { MessageBrokerService } from 'src/app/modules/helpers/services/messages/
 import * as d3 from "d3"
 import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
 import { makeData4D3 } from 'src/app/business/makeData4D3';
+import { ModalController } from '@ionic/angular';
+import { BrowsingPage } from 'src/app/pages/extractions/browsing/browsing.page';
 @Component({
   selector: 'app-apply-function2-weels-component',
   templateUrl: './apply-function2-weels.component.html',
@@ -32,7 +34,14 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   title: string ="ciao"
   constructor(
     public messages: MessageBrokerService,
+    public modalCtrl: ModalController
   ) { }
+
+  async browse(){
+    console.log("browse")
+    const modal = await this.modalCtrl.create({component:BrowsingPage})
+    await modal.present()
+  }
 
 
   ngOnInit() {
