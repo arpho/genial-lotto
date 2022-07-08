@@ -13,7 +13,7 @@ retrieveInterval(weel:string,numero:number,date:string):Interval[]
 const intervals = []
 const extractions4Weel = this.extractions.filter(e=>{ 
   return e.weel==weel})
-const startIndex = extractions4Weel.map(e=>new DateModel( new Date(e.dateInmmsec)).ItalianFormatDate()).indexOf(date) // the position where to start retrieving interval from
+const startIndex = 0 //we strat from the most recent extraction extractions4Weel.map(e=>new DateModel( new Date(e.dateInmmsec)).ItalianFormatDate()).indexOf(date) // the position where to start retrieving interval from
 var count=0
 for( let i = startIndex+1; i< extractions4Weel.length;i++){
   count+=1
