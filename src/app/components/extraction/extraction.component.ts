@@ -12,7 +12,7 @@ import { TransformationInterface } from 'src/app/models/trasformationInterface';
 
 })
 export class ExtractionComponent implements OnInit, OnChanges {
-  color="green"
+   color="" 
   @Input() extraction: Extraction
   @Input()transformation:TransformationInterface
 
