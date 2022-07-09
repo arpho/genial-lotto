@@ -23,7 +23,6 @@ export class BarComponent implements OnInit, OnChanges {
     this.margin = 40;
     this.width = 450 - (this.margin * 2);
     this.height = 400 - (this.margin * 2);
-    console.log("changes", changes.data)
     //this.createSvg(); 
     if(!this.svg){
       this.createSvg()
