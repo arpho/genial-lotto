@@ -9,7 +9,7 @@ export class Ambate{
   _ambata22:number
   set ambata11 (ambata){
     this._ambata11= ambata
-    this._ambata21 = new Vertibile().transform(ambata)
+    this._ambata12 = new Vertibile().transform(ambata)
   }
   get ambata11(){
     return this._ambata11
