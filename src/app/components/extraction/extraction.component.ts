@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Neutro } from 'src/app/business/neutro';
+import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
 import { TransformationInterface } from 'src/app/models/trasformationInterface';
 
@@ -16,6 +17,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
   @Input() extraction: Extraction
   @Input()transformation:TransformationInterface
   @Input()highlighted:boolean
+  @Input() ambate:Ambate
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -27,9 +29,17 @@ export class ExtractionComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    console.log("ambate",this.ambate)
     this.transformation= this.transformation ||new Neutro()
 
     
+  }
+  setColor(estrazione:number){
+    let output= ""
+    if(this.ambate){
+    const ambate =[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22]
+     output =ambate.includes(estrazione)?"verde":""}
+    return output
   }
 
   makesPadding(str:string,size:number){
