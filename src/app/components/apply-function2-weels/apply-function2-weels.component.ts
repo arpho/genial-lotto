@@ -9,6 +9,7 @@ import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
 import { makeData4D3 } from 'src/app/business/makeData4D3';
 import { ModalController } from '@ionic/angular';
 import { BrowsingPage } from 'src/app/pages/extractions/browsing/browsing.page';
+import { stringify } from 'querystring';
 @Component({
   selector: 'app-apply-function2-weels-component',
   templateUrl: './apply-function2-weels.component.html',
@@ -24,6 +25,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   ambata21: number
   ambata22: number
   barData
+  dateEstrazioni:string[]
   show = false
   color1 = "red"
   color2 = "orange"
@@ -38,8 +40,20 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   ) { }
 
   async browse(){
-    console.log("browse")
-    const modal = await this.modalCtrl.create({component:BrowsingPage})
+    const props={
+      extractions:this.extractions,
+      date:this.date,
+      weel1:this.weel1,
+      weel2:this.weel2,
+      ambata11:this.ambata11,
+      ambata12:this.ambata12,
+      ambata21:this.ambata21,
+      ambata22:this.ambata22,
+      dateEstrazioni:this.dateEstrazioni,
+    }
+    console.log("props",props)
+    const modal = await this.modalCtrl.create({component:BrowsingPage,
+    componentProps:props})
     await modal.present()
   }
 
@@ -50,11 +64,17 @@ export class ApplyFunction2WeelsComponent implements OnInit {
       weel2: string,
       date: string,
       function: TransformationInterface,
+      dateEstrazioni:string[]
       extractions: Extraction[]
 
     }) => {
       if (data) {
         this.show = true
+        this.extractions=data.extractions
+        this.date= data.date
+        this.weel1=data.weel1
+        this.weel2=data.weel2
+        this.dateEstrazioni=data.dateEstrazioni
         this.function= data.function
         this.WeelOne = data.extractions.filter((e: Extraction) => {
           return e.weel == data.weel1 && e.italianDate == data.date

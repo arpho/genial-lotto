@@ -25,6 +25,7 @@
   </div>
   <ion-grid class="extractions">
     <ion-row>
+      <div id="intervals">
       <app-bar *ngIf="showGraph"
       [numeroEstratto]="ambata11"
       [weel]="weel1"
@@ -33,7 +34,7 @@
       [numeroEstratto]="ambata21"
       [weel]="weel2"
       [data]="barData2"></app-bar>
-
+</div>
     </ion-row>
     <ion-row>
   <p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>

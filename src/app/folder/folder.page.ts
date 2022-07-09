@@ -130,12 +130,11 @@ export class FolderPage implements OnInit {
 
   }
   async submit(ev) {
-    console.log("submitted", ev);
-    console.log("funzione", this.selectedFunction)
     const functionList = [new Vertibile(), new Piu2meno90(), new Figura()]
     const props =  {
       weel1: this.weels[ ev.weel1],
       weel2: this.weels[ ev.weel2],
+      dateEstrazioni:this.dateEstrazioni,
       function: functionList[Number(ev.function)],
       date: this.dateEstrazioni[Number(ev.extractionDate)],
       extractions:this.estrazioniItems
@@ -155,7 +154,6 @@ export class FolderPage implements OnInit {
         this.barData2= makeData.transform(intervals2).slice(0,20)
     this.weel1= props.weel1
     this.weel2=props.weel2
-    console.log("data for graph2",this.barData2,intervals2,this.weel2)
     const modal = await this.modalCtrl.create({
       component: ApplyFunction2WeelsPage, componentProps: props
     })
