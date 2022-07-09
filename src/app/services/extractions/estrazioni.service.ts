@@ -28,6 +28,8 @@ export class ExtractionService implements ItemServiceInterface {
         this.extractions_list.push(extraction)
       })
     this._items.next(this.extractions_list)
+    },(error)=>{
+      console.log("errore",error)
     })
     
   }
