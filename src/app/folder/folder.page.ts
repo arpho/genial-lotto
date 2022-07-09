@@ -48,7 +48,9 @@ export class FolderPage implements OnInit {
   dateEstrazioni: string[] = []
   formFields: any[]
   ambata11:number
-  barData:Interval[]
+  ambata21:number
+  barData1:Interval[]
+  barData2:Interval[]
   ruota1
   showGraph=false
   estrazione1: Extraction
@@ -69,6 +71,8 @@ export class FolderPage implements OnInit {
   index = 0
   appliedFunction = ""
   WeelOne: any;
+  weel2: string;
+  WeelTwo: Extraction;
   constructor(
     private activatedRoute: ActivatedRoute,
     public estrazioni: ExtractionService,
@@ -139,11 +143,19 @@ export class FolderPage implements OnInit {
     this.WeelOne = props.extractions.filter((e: Extraction) => {
       return e.weel == props.weel1 && e.italianDate == props.date
     })[0]
+    this.WeelTwo = props.extractions.filter((e: Extraction) => {
+      return e.weel == props.weel2 && e.italianDate == props.date
+    })[0]
     this.ambata11 =props.function.transform(this.WeelOne.getFirst())
+    this.ambata21 =props.function.transform(this.WeelTwo.getFirst())
     const intervals1= new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata11,props.date)
+    const intervals2= new IntervalCalculator(props.extractions).retrieveInterval(props.weel2,this.ambata21,props.date)
         const makeData = new makeData4D3()
-        this.barData= makeData.transform(intervals1).slice(0,20)
+        this.barData1= makeData.transform(intervals1).slice(0,20)
+        this.barData2= makeData.transform(intervals2).slice(0,20)
     this.weel1= props.weel1
+    this.weel2=props.weel2
+    console.log("data for graph2",this.barData2,intervals2,this.weel2)
     const modal = await this.modalCtrl.create({
       component: ApplyFunction2WeelsPage, componentProps: props
     })
