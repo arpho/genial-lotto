@@ -38,7 +38,9 @@ export class ExtractionComponent implements OnInit, OnChanges {
     let output= ""
     if(this.ambate){
     const ambate =[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22]
-     output =ambate.includes(estrazione)?"verde":""}
+     output =ambate.includes(estrazione)?"green":""
+    }
+     
     return output
   }
 
