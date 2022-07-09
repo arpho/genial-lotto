@@ -111,11 +111,13 @@ export class FolderPage implements OnInit {
     this.selectedData1 = this.dateEstrazioni[Number(ev.extractionDate) + 1]
     this.selectedData2 = this.dateEstrazioni[Number(ev.extractionDate) + 2]
     this.setStepDates(this.index, this.step)
-    if (ev.weel1 && ev.extractionDate)
+    if (ev.weel1!=undefined && ev.extractionDate!=undefined)
       var estrazione1 = this.estrazioniItems.filter((e: Extraction) => {
+        console.log("filtering",e,this.weels[ev.weel1])
         return e.weel == this.weels[ev.weel1] && e.italianDate == data
       })
-    if (ev.weel2 && ev.extractionDate)
+      console.log("estrazione1",estrazione1)
+    if (ev.weel2!=undefined && ev.extractionDate!=undefined)
       var estrazione2 = this.estrazioniItems.filter((e: Extraction) => {
         return e.weel == this.weels[ev.weel2] && e.italianDate == data
       })
