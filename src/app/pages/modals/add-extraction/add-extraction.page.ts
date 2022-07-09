@@ -131,6 +131,7 @@ export class AddExtractionPage implements OnInit {
     this.Genova = this.fetchExtraction("Genova", ev)
     this.Milano = this.fetchExtraction("Milano", ev)
     this.Napoli = this.fetchExtraction("Napoli", ev)
+    this.Roma = this.fetchExtraction("Roma", ev)
     this.Palermo = this.fetchExtraction("Palermo", ev)
     this.Torino = this.fetchExtraction("Torino", ev)
     this.Venezia = this.fetchExtraction("Venezia", ev)
