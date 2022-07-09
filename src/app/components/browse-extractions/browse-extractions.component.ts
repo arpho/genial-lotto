@@ -32,14 +32,6 @@ export class BrowseExtractionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("ambata11",this.ambata11)
-    console.log("ambata12",this.ambata12)
-    console.log("ambata21",this.ambata21)
-    console.log("ambata22",this.ambata22)
-    console.log("weel1",this.weel1)
-    console.log("weel2",this.weel2)
-    console.log(this.dateEstrazioni)
-    console.log("estrazioni",this.extractionsItems)
 this.ambate = new Ambate({
   weel1:this.weel1,
   weel2:this.weel2,
