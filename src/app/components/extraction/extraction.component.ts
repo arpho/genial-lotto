@@ -15,6 +15,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
    color="" 
   @Input() extraction: Extraction
   @Input()transformation:TransformationInterface
+  @Input()highlighted:boolean
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
