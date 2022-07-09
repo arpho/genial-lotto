@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Neutro } from 'src/app/business/neutro';
 import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
+import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toast-service.service';
 
 @Component({
   selector: 'app-browse-extractions',
@@ -13,6 +14,23 @@ export class BrowseExtractionsComponent implements OnInit {
   selectedData: string
   selectedData1: string
   selectedData2: string
+
+  previous() {
+    if(this.step+1<this.dateEstrazioni.length){
+    this.step += 1
+    this.setData()}
+    else{
+      this.toaster.presentToast("non ci estrazioni precedenti a questa")
+    }
+  }
+  next() {
+    if(this.step>=1){
+    this.step -= 1
+    this.setData()}
+    else{
+      this.toaster.presentToast("non ci sono estrazioni successive a questa!")
+    }
+  }
   neutralFunction = new Neutro()
   ambate:Ambate
   @Input() dateEstrazioni: string[]
@@ -27,9 +45,8 @@ export class BrowseExtractionsComponent implements OnInit {
     this.selectedData=this.dateEstrazioni[this.step]
     this.selectedData1=this.dateEstrazioni[this.step+1]
     this.selectedData2=this.dateEstrazioni[this.step+2]
-    console.log(this.selectedData,this.selectedData1,this.selectedData2)
   }
-  constructor() { }
+  constructor(public toaster:MyToastService) { }
 
   ngOnInit() {
 this.ambate = new Ambate({
@@ -38,6 +55,7 @@ this.ambate = new Ambate({
   ambata11:this.ambata11,
   ambata21:this.ambata21
 })
+console.log("ambate",this.ambate)
     this.setData()
    }
 

@@ -2,6 +2,23 @@
   <ion-grid class="extractions">
     <ion-row>
       <ion-item>
+        <div class="browsing_buttons">
+
+          <ion-button (click)="previous()">
+            <ion-icon name="arrow-back">
+      
+            </ion-icon>
+          </ion-button>
+          <ion-button (click)="next()">
+            <ion-icon name="arrow-forward">
+      
+            </ion-icon>
+          </ion-button>
+      </div>
+    </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item>
       <app-weels-viewer class="browsable"
        [estrazioni]="extractionsItems"
        [ambate]="ambate"
