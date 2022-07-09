@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Neutro } from 'src/app/business/neutro';
+import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
 
 @Component({
@@ -13,6 +14,7 @@ export class BrowseExtractionsComponent implements OnInit {
   selectedData1: string
   selectedData2: string
   neutralFunction = new Neutro()
+  ambate:Ambate
   @Input() dateEstrazioni: string[]
   @Input() ambata11: number
   @Input() ambata12: number
@@ -38,6 +40,12 @@ export class BrowseExtractionsComponent implements OnInit {
     console.log("weel2",this.weel2)
     console.log(this.dateEstrazioni)
     console.log("estrazioni",this.extractionsItems)
+this.ambate = new Ambate({
+  weel1:this.weel1,
+  weel2:this.weel2,
+  ambata11:this.ambata11,
+  ambata21:this.ambata21
+})
     this.setData()
    }
 

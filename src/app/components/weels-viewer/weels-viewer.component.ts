@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
 import { TransformationInterface } from 'src/app/models/trasformationInterface';
 
@@ -10,6 +11,7 @@ import { TransformationInterface } from 'src/app/models/trasformationInterface';
 export class WeelsViewerComponent implements OnInit,OnChanges {
   @Input() estrazioni:Extraction[]
   @Input()transformation:TransformationInterface
+  @Input() ambate:Ambate
   @Input() data:string
   Bari:Extraction
   Cagliari: Extraction
