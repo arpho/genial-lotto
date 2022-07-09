@@ -16,6 +16,8 @@ class Extraction:
              "RN": "Nazionale",
              "RM": "Roma",
              "CA": "Cagliari",
+             "NAZ": "Nazionale",
+             "NZ": "Nazionale"
     }
     def __init__(self,data):
         print("parasm", data)

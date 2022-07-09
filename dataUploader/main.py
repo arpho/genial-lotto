@@ -17,12 +17,13 @@ if __name__ == '__main__':
     count = 0
     dataList= []
     f = open("data.json",'w')
-    with open("./archivio/storico01-oggi.txt") as fp:
+    with open("./ArchivioLotto.italia/ArchivioLotto.italia.txt") as fp:
         Lines = fp.readlines()
         for line in Lines:
             L = line.strip().split()
-            print("raw data ",line.strip().split())
-            d = convertFormatDate(L[0])
+            d = L[0]
+            #print("raw data ",line.strip().split())
+            #d = convertFormatDate(L[0])
             print("data",d)
             params = [d,L[1],L[2],L[3],L[4],L[5],L[6]]
             print("params",params)
@@ -30,7 +31,7 @@ if __name__ == '__main__':
 
 
             data = Extraction(params).setdata()
-            if(datetime.strptime(L[0],'%Y/%m/%d')>datetime.strptime("2017/05/31","%Y/%m/%d")):
+            if(datetime.strptime(L[0],'%d/%m/%Y')>datetime.strptime("2017/05/31","%Y/%m/%d")): # prendo solo dati successivi al 2017
               print ("pushing", data)
               dataList.append(data)
               count+=1
