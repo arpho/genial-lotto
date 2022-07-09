@@ -23,9 +23,8 @@
       <span></span>
     </div>
   </div>
-  <ion-grid class="extractions">
+  <ion-grid class="intervals">
     <ion-row>
-      <div id="intervals">
       <app-bar *ngIf="showGraph"
       [numeroEstratto]="ambata11"
       [weel]="weel1"
@@ -34,46 +33,12 @@
       [numeroEstratto]="ambata21"
       [weel]="weel2"
       [data]="barData2"></app-bar>
-</div>
     </ion-row>
     <ion-row>
   <p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>
-  <div class="browsing_buttons">
 
-    <ion-button (click)="previous()">
-      <ion-icon name="arrow-back">
 
-      </ion-icon>
-    </ion-button>
-    <ion-button (click)="next()">
-      <ion-icon name="arrow-forward">
-
-      </ion-icon>
-    </ion-button>
-  </div>
-
-      <ion-item>
-        <app-weels-viewer class="browsable" [estrazioni]="estrazioniItems" [transformation]="neutralFunction"
-          [data]="selectedData3">
-        </app-weels-viewer>
-      </ion-item>
-      <ion-item>
-        <app-weels-viewer
-        class="browsable"
-         [estrazioni]="estrazioniItems"
-          [transformation]="neutralFunction"
-           [data]="selectedData4">
-        </app-weels-viewer>
-      </ion-item>
-
-      <ion-item>
-        <app-weels-viewer
-        class="browsable"
-        [estrazioni]="estrazioniItems"
-        [transformation]="neutralFunction"
-        [data]="selectedData5">
-        </app-weels-viewer>
-      </ion-item>
+      
     </ion-row>
   </ion-grid>
   <ion-button (click)="addExtraction()"><ion-icon name ="add-circle"></ion-icon></ion-button>
