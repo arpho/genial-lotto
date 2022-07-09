@@ -1,4 +1,6 @@
-<article>
+<article
+[ngClass]="{'highlighted':highlighted}"
+>
 <p style="font-family:'Lucida Console', monospace" class="ruota" *ngIf="extraction">{{getTitle()|sameLengthString:9}} </p>
 <p id="estrazione" *ngIf="extraction">
   <app-numero-estratto
