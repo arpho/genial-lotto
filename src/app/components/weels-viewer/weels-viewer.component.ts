@@ -27,7 +27,6 @@ export class WeelsViewerComponent implements OnInit,OnChanges {
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
     if(this.estrazioni&& this.data){
       const extraction= this.estrazioni.filter(e=>{
         return e.italianDate==this.data
@@ -68,9 +67,18 @@ export class WeelsViewerComponent implements OnInit,OnChanges {
     }
   }
 
-  ngOnInit() {}
   isHighlighted(weel:string){
-    return [this.ambate.weel1,this.ambate.weel2].includes(weel)
+    return true
   }
+
+  ngOnInit() {
+ if(this.ambate){
+  this.isHighlighted= (weel:string)=>{
+    const out = this.ambate? [this.ambate.weel1,this.ambate.weel2].includes(weel):false
+    return out
+ }
+}
+  }
+
 
 }
