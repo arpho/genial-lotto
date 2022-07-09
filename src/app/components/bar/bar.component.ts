@@ -19,7 +19,7 @@ export class BarComponent implements OnInit, OnChanges {
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    this.svg;
+    console.log("changes",this.svg)
     this.margin = 40;
     this.width = 450 - (this.margin * 2);
     this.height = 400 - (this.margin * 2);
@@ -143,12 +143,15 @@ export class BarComponent implements OnInit, OnChanges {
 }  }
 
   ngOnInit() {
-    this.svg;
+    console.log("init ",this.svg)
+
     this.margin = 50;
     this.width = 450 - (this.margin * 2);
     this.height = 400 - (this.margin * 2);
-
+    if(!this.svg){
+      console.log("svg not defined")
     this.createSvg();
+  }
     //this.drawBars(this.data);
   }
 
