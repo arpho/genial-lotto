@@ -32,7 +32,6 @@ date:string
     this.ambata21 = this.navParams.get("ambata21")
     this.ambata22 = this.navParams.get("ambata22")
     this.extractionsItems=this.navParams.get("extractions")
-    console.log("extractions",this.extractionsItems)
   }
   dismiss(value?:{}){
     this.modalCtrl.dismiss(value)
