@@ -27,6 +27,7 @@ export class MessageBrokerService {
     return Object.keys(this.brokers)
   }
   publish(key:string,msg:{}){
+    console.log("publishing",key,msg)
     var out = true
     if(this._brokers[key]){
       this._brokers[key].next(msg)
