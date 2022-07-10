@@ -70,6 +70,7 @@ export class FolderPage implements OnInit {
   neutralFunction = new Neutro()
   step = 0
   index = 0
+  canAdd=false
   appliedFunction = ""
   WeelOne: any;
   weel2: string;
@@ -206,6 +207,10 @@ export class FolderPage implements OnInit {
   }
 
   ngOnInit() {
+    this.messages.subscribeTo("claims",(claims:{level:number,role:number,enabled:boolean})=>{
+      this.canAdd= claims.level<=2 && claims.enabled
+      console.log("claims",claims,this.canAdd)
+    })
     this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => { // we get the selected transformation
       transformation = transformation
     })
@@ -236,7 +241,6 @@ export class FolderPage implements OnInit {
       }
         const DescendentsorterItalianDate = (a:string,b:string)=>new Date( new DateHelpers().fromItalian2AmericanFormat(b)).getTime()-
         new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
-        console.log("ordwered dates",this.dateEstrazioni.sort(DescendentsorterItalianDate))
         this.dateEstrazioni= this.dateEstrazioni.sort(DescendentsorterItalianDate)
      
 this.initFormFields()

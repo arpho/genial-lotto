@@ -41,7 +41,7 @@
       
     </ion-row>
   </ion-grid>
-  <ion-button (click)="addExtraction()"><ion-icon name ="add-circle"></ion-icon></ion-button>
+  <ion-button *ngIf="canAdd"  (click)="addExtraction()"><ion-icon name ="add-circle"></ion-icon></ion-button>
 
   
 
