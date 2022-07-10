@@ -17,6 +17,7 @@ import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdo
 import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
 import { DateHelpers } from '../modules/helpers/dateHelper';
 import { MessageBrokerService } from '../modules/helpers/services/messages/message-broker.service';
+import { DateModel } from '../modules/user/models/birthDateModel';
 import { AddExtractionPage } from '../pages/modals/add-extraction/add-extraction.page';
 import { ApplyFunction2WeelsPage } from '../pages/modals/apply-function2-weels/apply-function2-weels.page';
 import { ExtractionService } from '../services/extractions/estrazioni.service';
@@ -220,7 +221,7 @@ export class FolderPage implements OnInit {
         this.estrazioniItems = items
         // this.weels =  Array.from( new Set(this.weels))
         this.dateEstrazioni.push(e.italianDate)
-        this.dateEstrazioni = Array.from(new Set(this.dateEstrazioni))
+        this.dateEstrazioni = Array.from(new Set(this.dateEstrazioni)) // elimino i doppioni
         
        
         
@@ -233,9 +234,11 @@ export class FolderPage implements OnInit {
         const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date)) > -1
         return out
       }
-      this.dateEstrazioni = this.dateEstrazioni.sort((a,b)=>{ 
-        return new Date(b).getTime()-new Date(a).getTime()
-      })
+        const DescendentsorterItalianDate = (a:string,b:string)=>new Date( new DateHelpers().fromItalian2AmericanFormat(b)).getTime()-
+        new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
+        console.log("ordwered dates",this.dateEstrazioni.sort(DescendentsorterItalianDate))
+        this.dateEstrazioni= this.dateEstrazioni.sort(DescendentsorterItalianDate)
+     
 this.initFormFields()
 
     })
