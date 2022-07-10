@@ -31,10 +31,11 @@ if __name__ == '__main__':
 
 
             data = Extraction(params).setdata()
-            if(datetime.strptime(L[0],'%d/%m/%Y')>datetime.strptime("2017/05/31","%Y/%m/%d")): # prendo solo dati successivi al 2017
-              print ("pushing", data)
-              dataList.append(data)
-              count+=1
+            print("checking",L[0])
+            if(datetime.strptime(L[0],'%d/%m/%Y')>datetime.strptime("2017/05/31","%Y/%m/%d")) and  datetime.strptime(L[0],"%d/%m/%Y")<datetime.strptime("10/07/2022","%d/%m/%Y"):
+                print ("pushing", data)
+                dataList.append(data)
+                count+=1
     json_string = json.dumps(dataList)
     print("inserted",count,"estrazioni")
     f.write(json_string)
