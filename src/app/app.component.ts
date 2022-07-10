@@ -32,16 +32,16 @@ onOwnClick= (index:number,url?:string)=>{
  isSelected(index){
    return (index==this.transformationIndex)?"selected":"unselected"
  }
-  public appPages = [
+  public appPages:any[] = [
     { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new Piu2meno90()},
     { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
     { title: 'Vertibili', url: '/folder/Favorites', src:"/assets/icon/vertibile2.svg", onClick:this.onOwnClick(2),function:new Vertibile() },
-    { title: "utenti", url: "/customers", icon: "people", onClick:this.onOwnClick(-1,"/customers") },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning', onClick:this.onOwnClick(5) },
+   
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(public router:Router,
     public menu:MenuController,
+    
     public messages:MessageBrokerService) {
       messages.addBroker("selectedFunction")
     }
@@ -58,6 +58,15 @@ this.menu.open("main-content")
     onAuthStateChanged(auth,async (user)=>{
       if( user){
       const token = await user.getIdTokenResult(true).then(result=>{
+        this.messages.addBroker("claims")
+        this.messages.publish("claims",result.claims)
+        if(Number(result.claims["level"])<=2){
+          this.appPages.push( { title: "utenti", url: "/customers", icon: "people", onClick:this.onOwnClick(-1,"/customers") },
+         )
+         if(!result.claims["enabled"]){
+          alert("il suo account non è abilitato, se il problema persiste contatti l'amministratore")
+         }
+        }
         console.log("claims",result.claims)
         })
 
