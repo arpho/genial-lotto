@@ -31,7 +31,6 @@ export class CustomersService implements ItemServiceInterface {
   }
 
   addCustomClaim(data:{email:string, claims:{}}){
-    console.log("setting claims",data.claims)
     const functions = getFunctions()
     const addCustomClaim = httpsCallable(functions,'addCustomClaim')
     return addCustomClaim({email: data.email, claims: data.claims})
@@ -48,7 +47,6 @@ export class CustomersService implements ItemServiceInterface {
     throw new Error('Method not implemented.');
   }
   updateItem(item: ItemModelInterface) {
-    console.log("reference", `${this.reference}/${item.key}`)
     const reference = ref(this.db, `${this.reference}/${item.key}`)
     return  set(reference, item.serialize())
   }
