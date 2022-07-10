@@ -29,6 +29,6 @@ export class SwitchQuestion<T> extends QuestionBase<boolean> {
     this.iconTrue = options["iconTrue"] || "";
   }
   textValue() {
-    return this.value ? this.labelTrue : this.labelFalse;
+    return Boolean(this.value) ? this.labelTrue : this.labelFalse;
   }
 }
