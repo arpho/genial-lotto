@@ -11,6 +11,8 @@ import { UserModel } from '../../models/userModel';
 import { PasswordQuestion } from 'src/app/modules/dynamic-form/models/password-question';
 import { UsersService } from '../../services/users.service';
 import { servicesVersion } from 'typescript';
+import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
+import { CheckBoxQuestion } from 'src/app/modules/dynamic-form/models/question-checkBox';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -55,7 +57,18 @@ export class SignupPage implements OnInit, OnDestroy {
       key: 'password',
       label: 'password', required: true,
       retypePassword: true,
-    })]
+    }),
+  new CheckBoxQuestion({
+    key:"GDPR",
+    label:"Autorizzazione alla gestione dei dati personali",
+  text:"Autorizzo il trattamento dei miei dati personali "+
+  " ai sensi dell’art. 13 del Decreto Legislativo 30 giugno 2003,"+
+  " n. 196 “Codice in materia di protezione dei dati personali” e dell’art. 13 del GDPR (Regolamento UE 2016/679).x",
+required:true,
+value:false,
+validator:Validators.requiredTrue
+})
+  ]
     this.signupForm = this.formBuilder.group({
       email: [
         '',
@@ -65,6 +78,7 @@ export class SignupPage implements OnInit, OnDestroy {
         '',
         Validators.compose([Validators.minLength(6), Validators.required]),
       ],
+
     });
   }
   ngOnDestroy(): void {
@@ -76,7 +90,6 @@ export class SignupPage implements OnInit, OnDestroy {
   ngOnInit() { }
 
   filter(ev) {
-
   }
   dismiss(payment?) {
     this.modalCtrl.dismiss(payment)
