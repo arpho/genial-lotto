@@ -33,9 +33,8 @@ export class CustomersService implements ItemServiceInterface {
   addCustomClaim(data:{email:string, claims:{}}){
     console.log("setting claims",data.claims)
     const functions = getFunctions()
-    const addAdminRole = httpsCallable(functions,'addAdminRole')
-    const addCustomClaims = httpsCallable(functions,'addCustomClaims')
-    return addCustomClaims({email: data.email, claims: data.claims})
+    const addCustomClaim = httpsCallable(functions,'addCustomClaim')
+    return addCustomClaim({email: data.email, claims: data.claims})
    }
 
 
