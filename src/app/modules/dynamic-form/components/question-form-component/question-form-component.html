@@ -39,6 +39,15 @@
           
 
     </section>
+    <section *ngSwitchCase="'checkbox'">
+      <ion-checkbox
+      class='question'
+      [value]="question?.value"
+      [formControlName]="question?.key"
+      [id]="question.key">
+    </ion-checkbox>
+    <p>{{question?.text}}</p>
+    </section>
 
     <section *ngSwitchCase="'password'">
   
