@@ -29,7 +29,6 @@ export class ExtractionComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log("ambate",this.ambate)
     this.transformation= this.transformation ||new Neutro()
 
     
