@@ -26,7 +26,7 @@ exports.adminAddUserProfile = functions.https.onCall((data)=>{
 
 exports.addCustomClaim = functions.https.onCall((data) => {
   return admin.auth().getUserByEmail(data.email).then((user) => {
-    return admin.auth().setCustomUserClaims(user.uid, data.claim).
+    return admin.auth().setCustomUserClaims(user.uid, data.claims).
         then(() => {
           return {
             message: ` Success!claim ${Object.keys(data.claim)} 
