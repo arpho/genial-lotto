@@ -72,9 +72,9 @@ app-numero-estratto p {
 
 .browsable app-extraction article p  {
   display: inline;
-  border: solid 1px blanchedalmond;
+  border: solid 1px white;
   border-radius: 9px;
-  background-color: burlywood;
+  background-color: white;
 }
 
 
@@ -120,4 +120,11 @@ div.tooltip {
 
 article.highlighted {
   border: 1px solid red;
+}
+
+app-extraction article p.gold {
+  display: inline;
+  border: solid 1px red;
+  border-radius: 9px;
+  background-color: goldenrod;
 }
