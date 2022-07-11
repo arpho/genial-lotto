@@ -99,8 +99,8 @@ export class ApplyFunction2WeelsComponent implements OnInit {
           console.log("ruota 1t",weelOnePlus2Minus90,weelTwoPlus2Minus90)
           const repetitonFinder4weelOne = new RepetitionsFinder(weelOnePlus2Minus90)
           const repetitonFinder4weelTwo = new RepetitionsFinder(weelTwoPlus2Minus90)
-          this.repetition4WeelOne = repetitonFinder4weelOne.findRepetitions()
-          this.repetition4WeelTwo = repetitonFinder4weelTwo.findRepetitions()
+          this.repetition4WeelOne = repetitonFinder4weelOne.findRepetitions(weelTwoPlus2Minus90)
+          this.repetition4WeelTwo = repetitonFinder4weelTwo.findRepetitions(weelOnePlus2Minus90)
         }
         this.title = `${data.function.title} applicata alle ruote di ${data.weel1} e di ${data.weel2} del ${data.date}`
         this.ambata11 = data.function.transform(this.WeelOne.getFirst())
