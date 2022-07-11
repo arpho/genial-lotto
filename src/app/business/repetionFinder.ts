@@ -7,7 +7,7 @@ export class RepetitionsFinder{
     this.extraction = extraction
   }
 
-  findRepetiotions(){
+  findRepetitions(){
     const vertibile= new Vertibile()
     return this.extraction.map(item=>{
       return this.extraction.includes(vertibile.transform(item))?1:0
