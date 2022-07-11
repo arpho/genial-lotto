@@ -34,5 +34,14 @@ describe("repetitionFinder",()=>{
    expect(test.findRepetitions()[3]).toBe(1)
    expect(test.findRepetitions()[4]).toBe(1)
   })
+  it("should find  repetitions in the other weel",()=>{
+   const test = new RepetitionsFinder([12,33,19,10,2])
+   expect(test).toBeDefined()
+   expect(test.findRepetitions([3,12,21,54,6])[0]).toBe(1)
+   expect(test.findRepetitions([3,12,21,54,6])[1]).toBe(0)
+   expect(test.findRepetitions([3,12,21,54,6])[2]).toBe(0)
+   expect(test.findRepetitions([3,12,21,54,6])[3]).toBe(0)
+   expect(test.findRepetitions([3,12,21,54,6])[4]).toBe(0)
+  })
 
 })
