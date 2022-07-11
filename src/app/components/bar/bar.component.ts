@@ -40,6 +40,10 @@ export class BarComponent implements OnInit, OnChanges {
     }
   }
 
+  makeTitle(){
+    return  `intervalli del ${this.numeroEstratto} sulla ruota di ${this.weel} fino al ${this.data[this.data.length-1].date}`
+  }
+
   createSvg(): void {
     this.svg = d3.select("figure#bar")
       .append("svg")
@@ -48,6 +52,9 @@ export class BarComponent implements OnInit, OnChanges {
       .append("g")
       .attr("transform", "translate(" + this.margin + "," + this.margin + ")")
     //.text(`intervalli per ${this.numeroEstratto} `);
+    const title = this.svg.append("g")
+    title.append("text")
+    .text(this.makeTitle())
   }
 
   private drawBars(data: any[]): void {
