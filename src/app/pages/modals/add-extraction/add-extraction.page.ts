@@ -140,7 +140,7 @@ export class AddExtractionPage implements OnInit {
 
 
     try {
-      this.service.createItem(this.Bari)
+      await this.service.createItem(this.Bari)
       await this.toaster.presentToast("ruota di Bari inserita", "top")
       await this.service.createItem(this.Cagliari)
       await this.toaster.presentToast("ruota di Cagliari inserita", "middle")
@@ -153,7 +153,9 @@ export class AddExtractionPage implements OnInit {
       await this.service.createItem(this.Napoli)
       await this.toaster.presentToast("ruota di Napoli inserita", "bottom")
       await this.service.createItem(this.Palermo)
-      await this.toaster.presentToast("ruota di Palermo inserita", "top")
+      await this.toaster.presentToast("ruota di Palermo inserita", "middle")
+      await this.service.createItem(this.Roma)
+      await this.toaster.presentToast("ruota di Roma inserita", "top")
       await this.service.createItem(this.Torino)
       await this.toaster.presentToast("ruota di Torino inserita", "middle")
       await this.service.createItem(this.Venezia)
