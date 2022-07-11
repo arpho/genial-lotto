@@ -16,16 +16,16 @@ export class BrowseExtractionsComponent implements OnInit {
   selectedData2: string
 
   previous() {
-    if(this.step+1<this.dateEstrazioni.length){
-    this.step += 1
+    if(this.step>=1){
+    this.step -= 1
     this.setData()}
     else{
       this.toaster.presentToast("non ci estrazioni precedenti a questa")
     }
   }
   next() {
-    if(this.step>=1){
-    this.step -= 1
+    if(this.step<=this.dateEstrazioni.length-1){
+    this.step += 1
     this.setData()}
     else{
       this.toaster.presentToast("non ci sono estrazioni successive a questa!")
