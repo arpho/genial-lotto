@@ -10,6 +10,8 @@ import { makeData4D3 } from 'src/app/business/makeData4D3';
 import { ModalController } from '@ionic/angular';
 import { BrowsingPage } from 'src/app/pages/extractions/browsing/browsing.page';
 import { stringify } from 'querystring';
+import { Piu2meno90 } from 'src/app/business/piu2meno90';
+import { RepetitionsFinder } from 'src/app/business/repetionFinder';
 @Component({
   selector: 'app-apply-function2-weels-component',
   templateUrl: './apply-function2-weels.component.html',
@@ -25,6 +27,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   ambata21: number
   ambata22: number
   barData
+  showAmbate= false
   dateEstrazioni:string[]
   show = false
   color1 = "red"
@@ -33,6 +36,8 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   function: TransformationInterface
   extractions: Extraction[]
   ambate_weel1: string
+  repetition4WeelOne:number[]
+  repetition4WeelTwo:number[]
   title: string ="ciao"
   constructor(
     public messages: MessageBrokerService,
@@ -76,12 +81,27 @@ export class ApplyFunction2WeelsComponent implements OnInit {
         this.weel2=data.weel2
         this.dateEstrazioni=data.dateEstrazioni
         this.function= data.function
+        
+        if(this.function.title==new Piu2meno90().title){
+          this.showAmbate= true
+        }
+        console.log("function",this.function,this.showAmbate)
         this.WeelOne = data.extractions.filter((e: Extraction) => {
           return e.weel == data.weel1 && e.italianDate == data.date
         })[0]
         this.WeelTwo = data.extractions.filter((e: Extraction) => {
           return e.weel == data.weel2 && e.italianDate == data.date
         })[0]
+        if(data.function.title==new Piu2meno90().title){
+          console.log("find repetitions")
+          var weelOnePlus2Minus90= this.WeelOne.extraction.map(es=>data.function.transform(es))
+          var weelTwoPlus2Minus90= this.WeelTwo.extraction.map(es=>data.function.transform(es))
+          console.log("ruota 1t",weelOnePlus2Minus90,weelTwoPlus2Minus90)
+          const repetitonFinder4weelOne = new RepetitionsFinder(weelOnePlus2Minus90)
+          const repetitonFinder4weelTwo = new RepetitionsFinder(weelTwoPlus2Minus90)
+          this.repetition4WeelOne = repetitonFinder4weelOne.findRepetitions()
+          this.repetition4WeelTwo = repetitonFinder4weelTwo.findRepetitions()
+        }
         this.title = `${data.function.title} applicata alle ruote di ${data.weel1} e di ${data.weel2} del ${data.date}`
         this.ambata11 = data.function.transform(this.WeelOne.getFirst())
         this.ambata12 = new Vertibile().transform(data.function.transform(this.WeelOne.getFirst()))

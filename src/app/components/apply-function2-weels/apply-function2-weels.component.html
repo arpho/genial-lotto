@@ -2,15 +2,17 @@
 [extraction]="WeelOne"
 [function]="function"
 [transformation]="function"
+[repetitions]="repetition4WeelOne"
 ></app-extraction><app-extraction 
 [extraction]="WeelTwo"
 [transformation]="function"
+[repetitions]="repetition4WeelTwo"
 ></app-extraction>
 <div *ngIf="show">
 <p>{{title}}</p>
 <p class="ambata">ambate consigliate</p>
 
-<ion-grid>
+<ion-grid *ngIf="showAmbate">
   <ion-row>
 <app-numero-estratto
 class="ambata"
