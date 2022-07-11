@@ -28,14 +28,22 @@
       <app-bar *ngIf="showGraph"
       [numeroEstratto]="ambata11"
       [weel]="weel1"
-      [data]="barData1"></app-bar>
+      [data]="barData11"></app-bar>
       <app-bar *ngIf="showGraph"
-      [numeroEstratto]="ambata21"
-      [weel]="weel2"
-      [data]="barData2"></app-bar>
+      [numeroEstratto]="ambata12"
+      [weel]="weel1"
+      [data]="barData12"></app-bar>
     </ion-row>
     <ion-row>
   <p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>
+  <app-bar *ngIf="showGraph"
+  [numeroEstratto]="ambata21"
+  [weel]="weel2"
+  [data]="barData21"></app-bar>
+  <app-bar *ngIf="showGraph"
+  [numeroEstratto]="ambata22"
+  [weel]="weel2"
+  [data]="barData22"></app-bar>
 
 
       
