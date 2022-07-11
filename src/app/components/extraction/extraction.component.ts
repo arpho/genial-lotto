@@ -18,6 +18,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
   @Input()transformation:TransformationInterface
   @Input()highlighted:boolean
   @Input() ambate:Ambate
+  @Input() repetitions: number[]
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -33,11 +34,15 @@ export class ExtractionComponent implements OnInit, OnChanges {
 
     
   }
-  setColor(estrazione:number){
+  setColor(index:number){
     let output= ""
     if(this.ambate){
     const ambate =[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22]
-     output =ambate.includes(estrazione)?"green":""
+     output =ambate.includes(index)?"green":""
+    }
+    if(this.repetitions){
+      output=this.repetitions[index]==1?"repetition":""
+      console.log("output",output)
     }
      
     return output
