@@ -42,7 +42,6 @@ export class ExtractionComponent implements OnInit, OnChanges {
     }
     if(this.repetitions){
       output=this.repetitions[index]==1?"repetition":""
-      console.log("output",output)
     }
      
     return output
