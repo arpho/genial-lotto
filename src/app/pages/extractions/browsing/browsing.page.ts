@@ -35,7 +35,7 @@ export class BrowsingPage implements OnInit {
     this.extractionsItems = this.navParams.get("extractions")
     this.date = this.navParams.get("date")
     this.dateEstrazioni = this.dateEstrazioni.filter(d =>
-      new Date(this.fromItalianDate2UsDate(d)).getTime() <= new Date(this.fromItalianDate2UsDate(this.date)).getTime())
+      new Date(this.fromItalianDate2UsDate(d)).getTime() >= new Date(this.fromItalianDate2UsDate(this.date)).getTime())
     this.weel1 = this.navParams.get("weel1")
     this.weel2 = this.navParams.get("weel2")
     this.ambata11 = this.navParams.get("ambata11")
