@@ -39,7 +39,7 @@ export class BrowsingPage implements OnInit {
       new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
     if (this.dateEstrazioni) {
       this.dateEstrazioni = this.dateEstrazioni.filter(d =>
-        new Date(this.fromItalianDate2UsDate(d)).getTime() >=
+        new Date(this.fromItalianDate2UsDate(d)).getTime() >
         new Date(this.fromItalianDate2UsDate(this.date)).getTime())
         .sort(crerscententSorterItalianDate)
     }
