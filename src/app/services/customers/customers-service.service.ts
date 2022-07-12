@@ -13,9 +13,6 @@ import { AuthService } from 'src/app/modules/user/services/auth.service';
   providedIn: 'root'
 })
 export class CustomersService implements ItemServiceInterface {
-  categoriesService?: ItemServiceInterface;
-  suppliersService?: ItemServiceInterface;
-  paymentsService?: ItemServiceInterface;
   constructor(public authService: AuthService) {
     new MyFirebaseHelper().createFirebaseApp(configs.firebase)
     this.reference = 'userProfile'
