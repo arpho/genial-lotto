@@ -18,7 +18,7 @@ TestBed.configureTestingModule({
     ],
   imports: [
     firebase,
-    RouterTestingModule,
+    RouterTestingModule,Router
     ],
 })
 .compileComponents();
