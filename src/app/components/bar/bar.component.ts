@@ -41,7 +41,7 @@ export class BarComponent implements OnInit, OnChanges {
   }
 
   makeTitle(){
-    return  `intervalli del ${this.numeroEstratto} sulla ruota di ${this.weel} fino al ${this.data[this.data.length-1].date}`
+    return this.data? `intervalli del ${this.numeroEstratto} sulla ruota di ${this.weel} fino al ${this.data[this.data.length-1].date}`:""
   }
 
   createSvg(): void {
