@@ -8,6 +8,7 @@ import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
   selector: 'app-browsing',
   templateUrl: './browsing.page.html',
   styleUrls: ['./browsing.page.scss'],
+  providers:[NavParams]
 })
 export class BrowsingPage implements OnInit {
   extractionsItems: Extraction[]
