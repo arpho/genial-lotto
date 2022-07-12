@@ -35,12 +35,14 @@ export class BrowsingPage implements OnInit {
   ngOnInit() {
     this.extractionsItems = this.navParams.get("extractions")
     this.date = this.navParams.get("date")
-    const crerscententSorterItalianDate = (b:string,a:string)=>new Date( new DateHelpers().fromItalian2AmericanFormat(b)).getTime()-
-        new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
-    this.dateEstrazioni = this.dateEstrazioni.filter(d =>
-      new Date(this.fromItalianDate2UsDate(d)).getTime() >=
-       new Date(this.fromItalianDate2UsDate(this.date)).getTime())
-       .sort(crerscententSorterItalianDate)
+    const crerscententSorterItalianDate = (b: string, a: string) => new Date(new DateHelpers().fromItalian2AmericanFormat(b)).getTime() -
+      new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
+    if (this.dateEstrazioni) {
+      this.dateEstrazioni = this.dateEstrazioni.filter(d =>
+        new Date(this.fromItalianDate2UsDate(d)).getTime() >=
+        new Date(this.fromItalianDate2UsDate(this.date)).getTime())
+        .sort(crerscententSorterItalianDate)
+    }
     this.weel1 = this.navParams.get("weel1")
     this.weel2 = this.navParams.get("weel2")
     this.ambata11 = this.navParams.get("ambata11")
