@@ -43,8 +43,8 @@ export class BrowseExtractionsComponent implements OnInit {
   step = 0
   setData(){
     this.selectedData=this.dateEstrazioni[this.step]
-    this.selectedData1=this.dateEstrazioni[this.step+1]
-    this.selectedData2=this.dateEstrazioni[this.step+2]
+    this.selectedData1=this.step+1<=this.dateEstrazioni.length-1? this.dateEstrazioni[this.step+1]:this.selectedData1
+    this.selectedData2=this.step+2 <=this.dateEstrazioni.length-1? this.dateEstrazioni[this.step+2]:this.selectedData2
   }
   constructor(public toaster:MyToastService) { }
 
