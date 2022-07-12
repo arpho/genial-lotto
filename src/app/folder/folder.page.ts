@@ -56,6 +56,10 @@ export class FolderPage implements OnInit {
   barData12:Interval[]
   barData21:Interval[]
   barData22:Interval[]
+  barData112:Interval[]
+  barData122:Interval[]
+  barData211:Interval[]
+  barData221:Interval[]
   ruota1
   showGraph=false
   estrazione1: Extraction
@@ -165,6 +169,19 @@ export class FolderPage implements OnInit {
         this.barData12= makeData.transform(intervals12).slice(0,20)
         this.barData21= makeData.transform(intervals21).slice(0,20)
         this.barData22= makeData.transform(intervals22).slice(0,20)
+            // intervalli dell'ambata11 sulla ruota2
+    const intervals112 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel2,this.ambata11,props.date)
+// intervalli dell'ambata12 sulla ruota 2
+    const intervals122 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel2,this.ambata12,props.date)
+    //intervalli dell'ambata21 asulla ruota 1    
+    const intervals211 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata21,props.date)
+// intervalli dell'ambata22 sulla ruota 1
+const intervals221 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata22,props.date)
+this.barData112 = makeData.transform(intervals112).slice(0,20)
+this.barData122 = makeData.transform(intervals122).slice(0,20)
+this.barData211 = makeData.transform(intervals211).slice(0,20)
+this.barData221 = makeData.transform(intervals221).slice(0,20)
+
 
 
     this.weel1= props.weel1
