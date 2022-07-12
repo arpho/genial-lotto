@@ -18,8 +18,8 @@ export class ApplyFunction2WeelsPage implements OnInit {
   ambata12: number
   ambata21: number
   ambata22: number
-  color1="red"
-  color2="orange"
+  color1 = "red"
+  color2 = "orange"
   WeelTwo: Extraction
   function: TransformationInterface
   extractions: Extraction[]
@@ -41,35 +41,38 @@ export class ApplyFunction2WeelsPage implements OnInit {
     this.date = this.navParams.get("date")
     this.function = this.navParams.get("function")
     this.extractions = this.navParams.get("extractions")
-    if(this.extractions){
-    this.WeelOne = this.extractions.filter((e: Extraction) => {
-      return e.weel == this.weel1 && e.italianDate == this.date
-    })[0]
-    this.WeelTwo = this.extractions.filter((e: Extraction) => {
-      return e.weel == this.weel2 && e.italianDate == this.date
-    })[0]
-  }
-    this.title = `${this.function.title} applicata alle ruote di ${this.weel1} e di ${this.weel2} del ${this.date}`
-
-    this.ambata11 = this.function.transform(this.WeelOne.getFirst())
-    this.ambata12 = new Vertibile().transform(this.function.transform(this.WeelOne.getFirst()))
-    this.ambata21 = this.function.transform(this.WeelTwo.getFirst())
-    this.ambata22 = new Vertibile().transform(this.function.transform(this.WeelTwo.getFirst()))
-    this.ambate_weel1 = `${this.function.transform(this.WeelOne.getFirst())}-${new Vertibile().transform(this.function.transform(this.WeelOne.getFirst()))}`
-    console.log(this.ambate_weel1)
+    if (this.extractions) {
+      this.WeelOne = this.extractions.filter((e: Extraction) => {
+        return e.weel == this.weel1 && e.italianDate == this.date
+      })[0]
+      this.WeelTwo = this.extractions.filter((e: Extraction) => {
+        return e.weel == this.weel2 && e.italianDate == this.date
+      })[0]
+    }
+    if (this.function) {
+      this.title = `${this.function.title} applicata alle ruote di ${this.weel1} e di ${this.weel2} del ${this.date}`
+    }
+    if (this.function) {
+      this.ambata11 = this.function.transform(this.WeelOne.getFirst())
+      this.ambata12 = new Vertibile().transform(this.function.transform(this.WeelOne.getFirst()))
+      this.ambata21 = this.function.transform(this.WeelTwo.getFirst())
+      this.ambata22 = new Vertibile().transform(this.function.transform(this.WeelTwo.getFirst()))
+      this.ambate_weel1 = `${this.function.transform(this.WeelOne.getFirst())}-${new Vertibile()
+        .transform(this.function.transform(this.WeelOne.getFirst()))}`
+    }
     var trace1 = {
       x: [1, 2, 3, 4],
       y: [10, 15, 13, 17],
       type: 'scatter'
     };
-    
+
     var trace2 = {
       x: [1, 2, 3, 4],
       y: [16, 5, 11, 9],
       type: 'scatter'
     };
     var data = [trace1, trace2];
- 
+
 
   }
 
