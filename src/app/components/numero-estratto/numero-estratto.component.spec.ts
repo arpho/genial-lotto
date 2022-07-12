@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { TrailingZeroPipe } from 'src/app/pipes/trailing-zero.pipe';
 
 import { NumeroEstrattoComponent } from './numero-estratto.component';
 
@@ -9,7 +10,7 @@ describe('NumeroEstrattoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NumeroEstrattoComponent ],
+      declarations: [ NumeroEstrattoComponent,TrailingZeroPipe ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
