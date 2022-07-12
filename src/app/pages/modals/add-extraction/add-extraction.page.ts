@@ -117,7 +117,7 @@ export class AddExtractionPage implements OnInit {
   fetchExtraction(weel: string, data: {}) {
     const extraction = new Extraction()
     extraction.weel = weel
-    extraction.extraction = FetchExtractionNumbers.fetchNumbersFromInputString(data['weel'])
+    extraction.extraction = FetchExtractionNumbers.fetchNumbersFromInputString(data[weel])
     extraction.date = new DateModel(new Date(data['date'])).ItalianFormatDate()
     return extraction
   }
