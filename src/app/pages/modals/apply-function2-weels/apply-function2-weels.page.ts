@@ -41,12 +41,14 @@ export class ApplyFunction2WeelsPage implements OnInit {
     this.date = this.navParams.get("date")
     this.function = this.navParams.get("function")
     this.extractions = this.navParams.get("extractions")
+    if(this.extractions){
     this.WeelOne = this.extractions.filter((e: Extraction) => {
       return e.weel == this.weel1 && e.italianDate == this.date
     })[0]
     this.WeelTwo = this.extractions.filter((e: Extraction) => {
       return e.weel == this.weel2 && e.italianDate == this.date
     })[0]
+  }
     this.title = `${this.function.title} applicata alle ruote di ${this.weel1} e di ${this.weel2} del ${this.date}`
 
     this.ambata11 = this.function.transform(this.WeelOne.getFirst())

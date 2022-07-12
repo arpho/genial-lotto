@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavParams } from '@ionic/angular';
 
 import { ApplyFunction2WeelsPage } from './apply-function2-weels.page';
 
@@ -10,7 +10,8 @@ describe('ApplyFunction2WeelsPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ApplyFunction2WeelsPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot()],
+      providers:[NavParams]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ApplyFunction2WeelsPage);
