@@ -36,12 +36,13 @@ export class ExtractionComponent implements OnInit, OnChanges {
   }
   setColor(index:number){
     let output= ""
+    const number2Check= this.getNumber(index)
     if(this.ambate){
     const ambate =[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22]
-     output =ambate.includes(index)?"green":""
+     output =ambate.includes(number2Check)?"green":""
     }
     if(this.repetitions){
-      output=this.repetitions[index]==1?"repetition":""
+      output=this.repetitions[index]==1?"repetition":output
     }
      
     return output

@@ -5,21 +5,21 @@
 <p id="estrazione" *ngIf="extraction">
   <app-numero-estratto
    [numero]="getNumber(0)"
-   [color]="setColor(getNumber(0))"
+   [color]="setColor(0)"
    [function]="transformation"
   ></app-numero-estratto>
   <app-numero-estratto [numero]="getNumber(1)"
   [function]="transformation"
-  [color]="setColor(getNumber(1))"
+  [color]="setColor(1)"
   ></app-numero-estratto>
   <app-numero-estratto [numero]="getNumber(2)"
-  [color]="setColor(getNumber(2))"
+  [color]="setColor(2)"
   [function]="transformation"></app-numero-estratto>
   <app-numero-estratto [numero]="getNumber(3)"
-  [color]="setColor(getNumber(3))"
+  [color]="setColor(3)"
   [function]="transformation"></app-numero-estratto>
   <app-numero-estratto [numero]="getNumber(4)"
-  [color]="setColor(getNumber(4))"
+  [color]="setColor(4)"
   [function]="transformation"></app-numero-estratto>
 
 </p>
