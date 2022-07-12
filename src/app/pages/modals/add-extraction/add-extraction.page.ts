@@ -3,6 +3,7 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ExtractionValidator } from 'src/app/business/extractionValidator';
 import { extractionValidator4Field } from 'src/app/business/ExtractioValidator4Field';
+import { FetchExtractionNumbers } from 'src/app/business/fetchExtractionNumbers';
 import { Extraction } from 'src/app/models/extractionModel';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
@@ -116,9 +117,7 @@ export class AddExtractionPage implements OnInit {
   fetchExtraction(weel: string, data: {}) {
     const extraction = new Extraction()
     extraction.weel = weel
-    extraction.extraction = data[weel].split(" ").map(e => {
-      return Number(e)
-    })
+    extraction.extraction = FetchExtractionNumbers.fetchNumbersFromInputString(data['weel'])
     extraction.date = new DateModel(new Date(data['date'])).ItalianFormatDate()
     return extraction
   }
