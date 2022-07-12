@@ -12,20 +12,22 @@ import { BrowsingPage } from 'src/app/pages/extractions/browsing/browsing.page';
 import { stringify } from 'querystring';
 import { Piu2meno90 } from 'src/app/business/piu2meno90';
 import { RepetitionsFinder } from 'src/app/business/repetionFinder';
+import { Ambate } from 'src/app/models/ambate';
 @Component({
   selector: 'app-apply-function2-weels-component',
   templateUrl: './apply-function2-weels.component.html',
   styleUrls: ['./apply-function2-weels.component.scss'],
 })
 export class ApplyFunction2WeelsComponent implements OnInit {
-  @Input() weel1: String
+  @Input() weel1: string
   @Input() date: string
-  @Input() weel2: String
+  @Input() weel2: string
   WeelOne: Extraction
   ambata11: number
   ambata12: number
   ambata21: number
   ambata22: number
+  ambate:Ambate
   barData
   showAmbate= false
   dateEstrazioni:string[]
@@ -111,6 +113,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
         const intervals1= new IntervalCalculator(data.extractions).retrieveInterval(data.weel1,this.ambata11,data.date)
         const makeData = new makeData4D3()
         this.barData= makeData.transform(intervals1).slice(0,20)
+        this.ambate = new Ambate({weel1:this.weel1,weel2:this.weel2,ambata11:this.ambata11,ambata21:this.ambata21})
    
       }
     })
