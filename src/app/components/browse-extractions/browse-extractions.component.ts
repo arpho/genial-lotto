@@ -55,8 +55,9 @@ this.ambate = new Ambate({
   ambata11:this.ambata11,
   ambata21:this.ambata21
 })
-console.log("ambate",this.ambate)
+if(this.dateEstrazioni){
     this.setData()
+  }
    }
 
 }
