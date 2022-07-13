@@ -1,3 +1,5 @@
+import { Extraction } from "src/app/models/extractionModel"
+
 export class DateHelpers{
 
   converter(date){
@@ -11,4 +13,6 @@ export class DateHelpers{
   fromItalian2AmericanFormat(date:string){
     return this.converter(date)
   }
+
+   static sorterDescendingDate  = (a:Extraction,b:Extraction)=>a.dateInmmsec-b.dateInmmsec
 }
