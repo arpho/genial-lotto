@@ -33,8 +33,8 @@ onOwnClick= (index:number,url?:string)=>{
    return (index==this.transformationIndex)?"selected":"unselected"
  }
   public appPages:any[] = [
-    { title: '+2-90', url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new Piu2meno90()},
-    { title: 'figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
+    { title: 'Algoritmo Genial',src:"/assets/icon/icons/genial.svg", url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new Piu2meno90()},
+    { title: 'Figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
     { title: 'Vertibili', url: '/folder/Favorites', src:"/assets/icon/vertibile2.svg", onClick:this.onOwnClick(2),function:new Vertibile() },
    
   ];
