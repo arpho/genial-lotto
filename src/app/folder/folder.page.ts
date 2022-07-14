@@ -159,24 +159,24 @@ export class FolderPage implements OnInit {
     this.ambata12 =new Vertibile().transform(this.ambata11)
     this.ambata21 =props.function.transform(this.WeelTwo.getFirst())
     this.ambata22 = new Vertibile().transform(this.ambata21)
-    console.log("ambate", this.ambata11,this.ambata12,this.ambata21,this.ambata22)
-    const intervals11= new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata11,props.date)
-    const intervals12= new IntervalCalculator(props.extractions).retrieveInterval(props.weel2,this.ambata12,props.date)
-    const intervals21= new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata21,props.date)
-    const intervals22= new IntervalCalculator(props.extractions).retrieveInterval(props.weel2,this.ambata22,props.date)
+    const sorter = DateHelpers.sorterDescendingDate
+    const intervals11= new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel1,this.ambata11,props.date)
+    const intervals12= new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel2,this.ambata12,props.date)
+    const intervals21= new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel1,this.ambata21,props.date)
+    const intervals22= new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel2,this.ambata22,props.date)
         const makeData = new makeData4D3()
         this.barData11= makeData.transform(intervals11).slice(0,20)
         this.barData12= makeData.transform(intervals12).slice(0,20)
         this.barData21= makeData.transform(intervals21).slice(0,20)
         this.barData22= makeData.transform(intervals22).slice(0,20)
             // intervalli dell'ambata11 sulla ruota2
-    const intervals112 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel2,this.ambata11,props.date)
+    const intervals112 = new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel2,this.ambata11,props.date)
 // intervalli dell'ambata12 sulla ruota 2
-    const intervals122 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel2,this.ambata12,props.date)
+    const intervals122 = new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel2,this.ambata12,props.date)
     //intervalli dell'ambata21 asulla ruota 1    
-    const intervals211 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata21,props.date)
+    const intervals211 = new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel1,this.ambata21,props.date)
 // intervalli dell'ambata22 sulla ruota 1
-const intervals221 = new IntervalCalculator(props.extractions).retrieveInterval(props.weel1,this.ambata22,props.date)
+const intervals221 = new IntervalCalculator(props.extractions.sort(sorter)).retrieveInterval(props.weel1,this.ambata22,props.date)
 this.barData112 = makeData.transform(intervals112).slice(0,20)
 this.barData122 = makeData.transform(intervals122).slice(0,20)
 this.barData211 = makeData.transform(intervals211).slice(0,20)
@@ -230,7 +230,7 @@ this.barData221 = makeData.transform(intervals221).slice(0,20)
         key: "function",
         label: "funzione",
         value:1,
-        options: new OptionsMaker().makesOptionsFromArray(["vertibili", "+2-90", "figura"]),
+        options: new OptionsMaker().makesOptionsFromArray(["vertibili", "Genial", "figura"]),
         required:true
       })
     ]
