@@ -15,6 +15,6 @@ import { MagicPage } from './magic.page';
     IonicModule,
     MagicPageRoutingModule
   ],
-  declarations: [MagicPage]
+  declarations: []
 })
 export class MagicPageModule {}
