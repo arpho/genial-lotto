@@ -37,18 +37,4 @@ exports.addCustomClaim = functions.https.onCall((data) => {
         });
   });
 });
-/*
-export const addCustomClaims = functions.https.onCall(
-  async (data,context)=>{
-    await admin.auth()
-    .getUserByEmail(data.email)
-    .then(async (user)=>{
-      await admin.auth().setCustomUserClaims(user.uid,data.claims)
-
-    })
-    return{
-            message: ` Success!claim ${Object.keys(data.claim)} 
-        as been set on ${data.email}`,
-          };
-  }) */
 
