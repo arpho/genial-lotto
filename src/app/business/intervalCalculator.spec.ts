@@ -14,7 +14,7 @@ describe("IntervalCalculator should instantiate",()=>{
   for (let key in rawData){
     data.push(new Extraction(rawData[key]).setKey(key))
   }
-  console.log("#* data1")
+
     const test =  new IntervalCalculator(data)
   })
   it("retrieve the intervals of 85 for bari not interval",()=>{const rawData= data1
@@ -37,7 +37,7 @@ describe("IntervalCalculator should instantiate",()=>{
     data.push(new Extraction(rawData[key]).setKey(key))
   }
   const sorterDateDescending = (a:Extraction,b:Extraction)=>a.dateInmmsec-b.dateInmmsec
-  console.log("#* data2")
+
     const test =  new IntervalCalculator(data.sort(sorterDateDescending))
     expect(test).toBeDefined()
     const intervals =test.retrieveInterval("Bari",85)
@@ -57,7 +57,7 @@ describe("IntervalCalculator should instantiate",()=>{
   for (let key in rawData){
     data.push(new Extraction(rawData[key]).setKey(key))
   }
-  console.log("#* manyIntervals")
+
   const test = new IntervalCalculator(data.sort(sorterDateDescending))
   const intervals = test.retrieveInterval("Bari",7)
   expect(intervals.length).toBe(5)
@@ -75,7 +75,6 @@ describe("IntervalCalculator should instantiate",()=>{
   it("2 intervals for 47 on Bari",()=>{
     const rawData = data3
     const data =  rawData.map(e=>new Extraction(e))
-    console.log("#* data3")
     const test = new IntervalCalculator(data)
     const intervals = test.retrieveInterval("Bari",47)
     expect(intervals.length).toBe(2)
