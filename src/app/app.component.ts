@@ -36,6 +36,7 @@ onOwnClick= (index:number,url?:string)=>{
     { title: 'Algoritmo Genial',src:"/assets/icon/icons/genial.svg", url: '/folder/Inbox', icon: 'mail',onClick:this.onOwnClick(0),function:new Piu2meno90()},
     { title: 'Figura', url: '/folder/Outbox', icon: 'paper-plane', onClick:this.onOwnClick(1),function:new Figura() },
     { title: 'Vertibili', url: '/folder/Favorites', src:"/assets/icon/vertibile2.svg", onClick:this.onOwnClick(2),function:new Vertibile() },
+  
    
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
