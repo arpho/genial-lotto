@@ -49,6 +49,10 @@ const routes: Routes = [
     path: 'browsing',
     loadChildren: () => import('./pages/extractions/browsing/browsing.module').then( m => m.BrowsingPageModule)
   },
+  {
+    path: 'magic',
+    loadChildren: () => import('./pages/magic/magic.module').then( m => m.MagicPageModule)
+  },
 
 
 ];
