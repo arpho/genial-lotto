@@ -27,6 +27,8 @@ import { ScatterComponent } from './components/scatter/scatter.component';
 import { BarComponent } from './components/bar/bar.component';
 import { BrowsingPage } from './pages/extractions/browsing/browsing.page';
 import { BrowseExtractionsComponent } from './components/browse-extractions/browse-extractions.component';
+import { MagicComponent } from './components/magic/magic.component';
+import { MagicPage } from './pages/magic/magic.page';
 
 
 
@@ -49,7 +51,9 @@ import { BrowseExtractionsComponent } from './components/browse-extractions/brow
     ScatterComponent,
     BarComponent,
     BrowsingPage,
-    BrowseExtractionsComponent
+    BrowseExtractionsComponent,
+    MagicComponent,
+    MagicPage
    ],
   entryComponents: [],
   imports: [
