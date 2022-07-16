@@ -55,16 +55,24 @@ export class MagicComponent implements OnInit, OnDestroy {
     let estrazione1 :number[]
     let estrazione2 :number[]
    this.subscription1= this.service.items.subscribe(items=>{
+    const Items = items.sort(DateHelpers.sorterDescendingDate)
 
-      estrazione1 = items
+      estrazione1 = Items
       .filter(extraction=>{
-        extraction.italianDate==date && extraction.weel==this.weel1
-      })[0].extraction
-      estrazione2 = items
-      .filter(extraction=>{
-        extraction.italianDate==date && extraction.weel==this.weel2
-      })[0].extraction
+       return extraction.italianDate==date && extraction.weel==this.weel1
+      })[0]?.extraction
 
+      console.log("estrazioner1 #*",estrazione1)
+
+  
+      estrazione2 = Items
+      .filter(extraction=>{
+        return extraction.italianDate==date && extraction.weel==this.weel2
+      })[0]?.extraction
+
+      console.log("estrazione2 #* ",estrazione2)
+
+if(estrazione1 &&estrazione2){
       const figura1 = this.calculateFigures(estrazione1)
       const figura2 = this.calculateFigures(estrazione2)
       const magic = new MagicCombination(figura1,figura2,ev.combination)
@@ -72,6 +80,8 @@ export class MagicComponent implements OnInit, OnDestroy {
       this.secondMagic = magic.fetch_second()
       this.firstVertibleMagic = new Vertibile().transform(this.firstMagic)
       this.secondVertibleMagic = new Vertibile().transform(this.secondMagic)
+      this.showMagicNumbers= true
+    }
     })
 
   }
@@ -87,23 +97,7 @@ export class MagicComponent implements OnInit, OnDestroy {
 
 
 
-  demo(){
-    this.weel1="Bari"
-    this.weel2="Cagliari"
-    const estrazione1 = [27,38,71,15,84]
-    const estrazione2 =[68,28,19,22,76]
-    const figura1 = estrazione1.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
-    const figura2 = estrazione2.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
-    const figuralMap= "16.90.23"
-    const magic = new MagicCombination(figura1,figura2,figuralMap)
-    this.firstMagic = magic.fetch_first()
-    this.secondMagic = magic.fetch_second()
-    this.firstVertibleMagic = new Vertibile().transform(this.firstMagic)
-    this.secondVertibleMagic = new Vertibile().transform(this.secondMagic)
-    this.showMagicNumbers=true
   
-
-  }
 
   constructor(private service: ExtractionService,
     ) { }
@@ -142,7 +136,7 @@ export class MagicComponent implements OnInit, OnDestroy {
           new DropdownQuestion({
             key: "extractionDate",
             label: "data di estrazione",
-            value:3,
+            value:0,
             options: new OptionsMaker().makesOptionsFromArray(this.dates),
             required:true
           }),
