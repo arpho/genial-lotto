@@ -77,12 +77,12 @@ export class MagicCombination {
     return out
 
   }
-  fetch_primo(){
+  fetch_first(){
     return this.fetch_d()+this.fetch_e()
   }
 
-fetch_secondo(){
-  return 90- this.fetch_primo()
+fetch_second(){
+  return 90- this.fetch_first()
 
 }
 }
