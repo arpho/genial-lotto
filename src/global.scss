@@ -50,6 +50,12 @@ app-extraction article p.orange {
   border-radius: 9px;
   background-color: orange;
 }
+app-extraction article p.yellow {
+  display: inline;
+  border: solid 1px red;
+  border-radius: 9px;
+  background-color: yellow;
+}
 
 ion-title.md.title-default.hydrated {
   text-align: center;
