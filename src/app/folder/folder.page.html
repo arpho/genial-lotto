@@ -23,50 +23,57 @@
       <span></span>
     </div>
   </div>
-  <ion-grid class="intervals">
+  <ion-grid class="intervals"
+  *ngIf="showGraph"
+  >
     <ion-row>
-      <app-bar *ngIf="showGraph"
-      [numeroEstratto]="ambata11"
-      [weel]="weel1"
-      [data]="barData11"></app-bar>
-      <app-bar *ngIf="showGraph"
-      [numeroEstratto]="ambata12"
-      [weel]="weel1"
-      [data]="barData12"></app-bar>
+
+
+    <app-intervals-d3
+    [weel]="weel1" 
+    [extractedNumber]="ambata11"
+    ></app-intervals-d3>
+      <app-intervals-d3
+    [weel]="weel1" 
+    [extractedNumber]="ambata12"
+    ></app-intervals-d3>
     </ion-row>
     <ion-row>
   <p class="info selected" *ngIf="selectedFunction">{{appliedFunction}}</p>
-  <app-bar *ngIf="showGraph"
-  [numeroEstratto]="ambata21"
-  [weel]="weel2"
-  [data]="barData21"></app-bar>
-  <app-bar *ngIf="showGraph"
-  [numeroEstratto]="ambata22"
-  [weel]="weel2"
-  [data]="barData22"></app-bar>
+  
+  <app-intervals-d3
+    [weel]="weel2" 
+    [extractedNumber]="ambata21"
+    ></app-intervals-d3>
 
+
+
+  <app-intervals-d3
+  [weel]="weel2" 
+  [extractedNumber]="ambata22"
+  ></app-intervals-d3>
 
       
     </ion-row>
-    <app-bar *ngIf="showGraph"
-    [numeroEstratto]="ambata11"
-    [weel]="weel2"
-    [data]="barData112"></app-bar>
-    <app-bar *ngIf="showGraph"
-    [numeroEstratto]="ambata12"
-    [weel]="weel2"
-    [data]="barData122"></app-bar>
+    <app-intervals-d3
+    [weel]="weel2" 
+    [extractedNumber]="ambata11"
+    ></app-intervals-d3>
+    <app-intervals-d3
+    [weel]="weel2" 
+    [extractedNumber]="ambata12"
+    ></app-intervals-d3>
     <ion-row>
     </ion-row>
     <ion-row>
-      <app-bar *ngIf="showGraph"
-      [numeroEstratto]="ambata21"
-      [weel]="weel1"
-      [data]="barData211"></app-bar>
-      <app-bar *ngIf="showGraph"
-      [numeroEstratto]="ambata22"
-      [weel]="weel1"
-      [data]="barData221"></app-bar>
+      <app-intervals-d3
+    [weel]="weel1" 
+    [extractedNumber]="ambata21"
+    ></app-intervals-d3>
+      <app-intervals-d3
+    [weel]="weel1" 
+    [extractedNumber]="ambata22"
+    ></app-intervals-d3>
 
     </ion-row>
   </ion-grid>
