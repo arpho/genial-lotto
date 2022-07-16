@@ -1,2 +1,62 @@
 <app-dynamic-form [questions]="formFields" (interactiveSubmit)="filter($event)" (singleSubmit)="submit($event)"></app-dynamic-form>
 <ion-button (click)="demo()"></ion-button>
+<ion-grid *ngIf="showMagicNumbers">
+  <ion-row>
+<app-numero-estratto
+class="ambata"
+[numero]="firstMagic"
+></app-numero-estratto>
+<app-numero-estratto
+class="ambata"
+[numero]="secondMagic"
+></app-numero-estratto>
+</ion-row>
+<ion-row>
+<app-numero-estratto
+class="ambata"
+[numero]="firstVertibleMagic"
+[color]="color1"
+></app-numero-estratto>
+<app-numero-estratto
+class="ambata"
+[numero]="secondVertibleMagic"
+[color]="color2"
+></app-numero-estratto>
+</ion-row>
+
+</ion-grid>
+<ion-grid
+*ngIf="showMagicNumbers"
+>
+  <ion-row>
+    <app-intervals-d3
+    [weel]="weel1"
+    [extractedNumber]="firstMagic"
+    ></app-intervals-d3>
+    <app-intervals-d3
+    [weel]="weel2"
+    [extractedNumber]="firstMagic"
+    ></app-intervals-d3>
+    <ion-col>
+      <app-intervals-d3
+      [weel]="weel1"
+      [extractedNumber]="secondMagic"
+      ></app-intervals-d3>
+      <app-intervals-d3
+      [weel]="weel2"
+      [extractedNumber]="secondMagic"
+      ></app-intervals-d3>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <app-intervals-d3
+    [weel]="weel1"
+    [extractedNumber]="firstVertibleMagic"
+    ></app-intervals-d3>
+    <app-intervals-d3
+    [weel]="weel2"
+    [extractedNumber]="firstVertibleMagic"
+    ></app-intervals-d3>
+  </ion-row>
+</ion-grid>
