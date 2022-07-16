@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>intervals</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="button-clear ion-chevron-left" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-dynamic-form [questions]="formFields" (interactiveSubmit)="filter($event)" (singleSubmit)="submit($event)"></app-dynamic-form>
+
+
+  <app-intervals-d3
+  [weel]="weel" 
+  *ngIf="showGraph"
+  [extractedNumber]="numero"
+  ></app-intervals-d3>
+</ion-content>

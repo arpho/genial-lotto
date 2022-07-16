@@ -53,6 +53,10 @@ const routes: Routes = [
     path: 'magic',
     loadChildren: () => import('./pages/magic/magic.module').then( m => m.MagicPageModule)
   },
+  {
+    path: 'intervals',
+    loadChildren: () => import('./pages/intervals/intervals.module').then( m => m.IntervalsPageModule)
+  },
 
 
 ];
