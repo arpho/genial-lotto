@@ -1,4 +1,4 @@
-export class FiguralMapValidator{
+export class FiguralMap{
   static splitNumbers(input:number){
     const dec = Math.floor(input/10)
     const unity = input%10
