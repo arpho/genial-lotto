@@ -29,6 +29,7 @@ import { BrowsingPage } from './pages/extractions/browsing/browsing.page';
 import { BrowseExtractionsComponent } from './components/browse-extractions/browse-extractions.component';
 import { MagicComponent } from './components/magic/magic.component';
 import { MagicPage } from './pages/magic/magic.page';
+import { IntervalsD3Component } from './components/intervals-d3/intervals-d3.component';
 
 
 
@@ -53,7 +54,8 @@ import { MagicPage } from './pages/magic/magic.page';
     BrowsingPage,
     BrowseExtractionsComponent,
     MagicComponent,
-    MagicPage
+    MagicPage,
+    IntervalsD3Component
    ],
   entryComponents: [],
   imports: [
