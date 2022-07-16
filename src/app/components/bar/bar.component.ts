@@ -19,7 +19,6 @@ export class BarComponent implements OnInit, OnChanges {
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("changes",this.svg)
     this.margin = 40;
     this.width = 450 - (this.margin * 2);
     this.height = 400 - (this.margin * 2);
@@ -41,7 +40,8 @@ export class BarComponent implements OnInit, OnChanges {
   }
 
   makeTitle(){
-    return this.data? `intervalli del ${this.numeroEstratto} sulla ruota di ${this.weel} fino al ${this.data[this.data.length-1].date}`:""
+    return this.data?
+     `intervalli del ${this.numeroEstratto} sulla ruota di ${this.weel} fino al ${this.data[this.data.length-1].date}`:""
   }
 
   createSvg(): void {
