@@ -43,7 +43,16 @@ onOwnClick= (index:number,url?:string)=>{
       icon: 'paper-plane',
        onClick:this.onOwnClick(1),
        function:new Figura() },
-    { title: 'Vertibili', url: '/folder/Favorites', src:"/assets/icon/vertibile2.svg", onClick:this.onOwnClick(2),function:new Vertibile() },
+    { title: 'Vertibili',
+     url: '/folder/Favorites',
+      src:"/assets/icon/vertibile2.svg",
+       onClick:this.onOwnClick(2),
+       function:new Vertibile() },
+       {title:"Intervalli",
+      url:"intervals",
+      icon:"stats-chart",
+      onClick:this.onOwnClick(-1,"/intervals")
+      }
   
    
   ];
