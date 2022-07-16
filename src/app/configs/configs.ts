@@ -12,5 +12,18 @@ export const configs = {
 	  {key:"regular",value:UserType.regular},
 	  {key:"clerk",value:UserType.clerk}
   ],
-  offlineEntityNumber: 0
+  offlineEntityNumber: 0,
+  weels: [
+    "Bari",
+    "Cagliari",
+    "Firenze",
+    "Genova",
+    "Milano",
+    "Napoli",
+    "Palermo",
+    "Roma",
+    "Torino",
+    "Venezia",
+    "Nazionale"
+  ]
 };
