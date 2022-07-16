@@ -6,6 +6,7 @@ import { Figura } from 'src/app/business/figura';
 import { FiguralMap } from 'src/app/business/figuralMap';
 import { MagicCombination } from 'src/app/business/magicCombination';
 import { Piu2meno90 } from 'src/app/business/piu2meno90';
+import { Vertibile } from 'src/app/business/vertibile';
 import { Extraction } from 'src/app/models/extractionModel';
 import { OptionsMaker } from 'src/app/modules/dynamic-form/helpers/optionMaker';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
@@ -23,7 +24,14 @@ export class MagicComponent implements OnInit, OnDestroy {
   private subscription: Subscription
   public formFields:any[]
   firstMagic:number
+  firstVertibleMagic:number
+  secondVertibleMagic:number
+  showMagicNumbers= false
   secondMagic:number
+  weel1:string
+  weel2:string
+  color1 = "yellow"
+  color2 = "orange"
   weels: string[] = [
     "Bari",
     "Cagliari",
@@ -50,8 +58,8 @@ export class MagicComponent implements OnInit, OnDestroy {
 
 
   demo(){
-    const weel1="Bari"
-    const weel2="Cagliari"
+    this.weel1="Bari"
+    this.weel2="Cagliari"
     const estrazione1 = [27,38,71,15,84]
     const estrazione2 =[68,28,19,22,76]
     const figura1 = estrazione1.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
@@ -60,6 +68,9 @@ export class MagicComponent implements OnInit, OnDestroy {
     const magic = new MagicCombination(figura1,figura2,figuralMap)
     this.firstMagic = magic.fetch_primo()
     this.secondMagic = magic.fetch_secondo()
+    this.firstVertibleMagic = new Vertibile().transform(this.firstMagic)
+    this.secondVertibleMagic = new Vertibile().transform(this.secondMagic)
+    this.showMagicNumbers=true
   
 
   }
