@@ -8,6 +8,10 @@ import { ModalController } from '@ionic/angular';
 })
 export class MagicPage implements OnInit {
 
+   dismiss(value?:{}){
+    this.modalCtrl.dismiss()
+  }
+
   constructor(public modalCtrl:ModalController) { }
 
 
@@ -18,10 +22,6 @@ export class MagicPage implements OnInit {
   ciao(){
     console.log("ciao")
     this.dismiss()
-  }
-
- public  dismiss(value?:{}){
-    this.modalCtrl.dismiss(value)
   }
 
 }
