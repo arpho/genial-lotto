@@ -7,6 +7,7 @@ import { FiguralMap } from 'src/app/business/figuralMap';
 import { MagicCombination } from 'src/app/business/magicCombination';
 import { Piu2meno90 } from 'src/app/business/piu2meno90';
 import { Vertibile } from 'src/app/business/vertibile';
+import { configs } from 'src/app/configs/configs';
 import { Extraction } from 'src/app/models/extractionModel';
 import { OptionsMaker } from 'src/app/modules/dynamic-form/helpers/optionMaker';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
@@ -33,19 +34,7 @@ export class MagicComponent implements OnInit, OnDestroy {
   weel2:string
   color1 = "yellow"
   color2 = "orange"
-  weels: string[] = [
-    "Bari",
-    "Cagliari",
-    "Firenze",
-    "Genova",
-    "Milano",
-    "Napoli",
-    "Palermo",
-    "Roma",
-    "Torino",
-    "Venezia",
-    "Nazionale"
-  ]
+  weels= configs.weels
   submit(ev){
     console.log("submit",ev)
     console.log("map",FiguralMap.fetchMap(ev.combination))

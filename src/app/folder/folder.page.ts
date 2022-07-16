@@ -8,6 +8,7 @@ import { makeData4D3 } from '../business/makeData4D3';
 import { Neutro } from '../business/neutro';
 import { Piu2meno90 } from '../business/piu2meno90';
 import { Vertibile } from '../business/vertibile';
+import { configs } from '../configs/configs';
 import { Extraction } from '../models/extractionModel';
 import { Interval } from '../models/interval';
 import { TransformationInterface } from '../models/trasformationInterface';
@@ -32,19 +33,7 @@ export class FolderPage implements OnInit {
 
   selectedFunction: TransformationInterface
   showSpinner = true
-  weels: string[] = [
-    "Bari",
-    "Cagliari",
-    "Firenze",
-    "Genova",
-    "Milano",
-    "Napoli",
-    "Palermo",
-    "Roma",
-    "Torino",
-    "Venezia",
-    "Nazionale"
-  ]
+  weels=configs.weels
   weel1
   dateEstrazioni: string[] = []
   formFields: any[]
@@ -252,9 +241,7 @@ this.barData221 = makeData.transform(intervals221).slice(0,20)
       items.sort((a: Extraction, b: Extraction) => {
         return b._dateInmsec - a._dateInmsec// ordinamento crescente dal  più recente al più vecchio
       }).forEach((e: Extraction) => {
-        // this.weels.push(e.weel)
         this.estrazioniItems = items
-        // this.weels =  Array.from( new Set(this.weels))
         this.dateEstrazioni.push(e.italianDate)
         this.dateEstrazioni = Array.from(new Set(this.dateEstrazioni)) // elimino i doppioni
         
