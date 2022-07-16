@@ -21,13 +21,14 @@ import { ExtractionService } from 'src/app/services/extractions/estrazioni.servi
 export class MagicComponent implements OnInit, OnDestroy {
   private extractions: Extraction[]
   private dates: string[]
-  private subscription: Subscription
   public formFields:any[]
   firstMagic:number
   firstVertibleMagic:number
   secondVertibleMagic:number
   showMagicNumbers= false
   secondMagic:number
+  subscription1
+  subscription2
   weel1:string
   weel2:string
   color1 = "yellow"
@@ -48,10 +49,39 @@ export class MagicComponent implements OnInit, OnDestroy {
   submit(ev){
     console.log("submit",ev)
     console.log("map",FiguralMap.fetchMap(ev.combination))
+    const date = this.dates[ev.extractionDate]
+    this.weel1 = this.weels[ev.weel1]
+    this.weel2 = this.weels[ev.weel2]
+    let estrazione1 :number[]
+    let estrazione2 :number[]
+   this.subscription1= this.service.items.subscribe(items=>{
+
+      estrazione1 = items
+      .filter(extraction=>{
+        extraction.italianDate==date && extraction.weel==this.weel1
+      })[0].extraction
+      estrazione2 = items
+      .filter(extraction=>{
+        extraction.italianDate==date && extraction.weel==this.weel2
+      })[0].extraction
+
+      const figura1 = this.calculateFigures(estrazione1)
+      const figura2 = this.calculateFigures(estrazione2)
+      const magic = new MagicCombination(figura1,figura2,ev.combination)
+      this.firstMagic = magic.fetch_first()
+      this.secondMagic = magic.fetch_second()
+      this.firstVertibleMagic = new Vertibile().transform(this.firstMagic)
+      this.secondVertibleMagic = new Vertibile().transform(this.secondMagic)
+    })
+
   }
 
   filter(ev){
     console.log("typing",ev)
+  }
+
+  calculateFigures(extraction:number[]){
+    return extraction.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
   }
 
 
@@ -66,8 +96,8 @@ export class MagicComponent implements OnInit, OnDestroy {
     const figura2 = estrazione2.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
     const figuralMap= "16.90.23"
     const magic = new MagicCombination(figura1,figura2,figuralMap)
-    this.firstMagic = magic.fetch_primo()
-    this.secondMagic = magic.fetch_secondo()
+    this.firstMagic = magic.fetch_first()
+    this.secondMagic = magic.fetch_second()
     this.firstVertibleMagic = new Vertibile().transform(this.firstMagic)
     this.secondVertibleMagic = new Vertibile().transform(this.secondMagic)
     this.showMagicNumbers=true
@@ -78,13 +108,16 @@ export class MagicComponent implements OnInit, OnDestroy {
   constructor(private service: ExtractionService,
     ) { }
   ngOnDestroy(): void {
-    if(this.subscription){
-    this.subscription.unsubscribe()
+  if(this.subscription1){
+    this.subscription1.unsubscribe()
+  }
+  if(this.subscription2){
+    this.subscription2.unsubscribe()
   }
   }
 
   ngOnInit() {
-    this.subscription = this.service.items.subscribe((items) => {
+   this.subscription2 =this.service.items.subscribe((items) => {
       if (items) {
         this.extractions = items.sort(DateHelpers.sorterDescendingDate);
         this.dates = Array.from(new Set(this.extractions.map(ex => ex.italianDate)))
@@ -113,13 +146,6 @@ export class MagicComponent implements OnInit, OnDestroy {
             options: new OptionsMaker().makesOptionsFromArray(this.dates),
             required:true
           }),
-          new DropdownQuestion({
-            key: "function",
-            label: "funzione",
-            value:1,
-            options: new OptionsMaker().makesOptionsFromArray(["vertibili", "Genial", "figura"]),
-            required:true
-          }),
           new TextboxQuestion({
             key:"combination",
             label:"combinazione figurale",
@@ -129,6 +155,7 @@ export class MagicComponent implements OnInit, OnDestroy {
         ]
       }
     })
+   
 
   }
 
