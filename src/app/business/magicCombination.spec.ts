@@ -70,60 +70,32 @@ describe("MagicCombination works",()=>{
     const test = new MagicCombination(figure1,figure2,mask)
     expect(test.fetchC()).toBe(36)
   })
-  it("fetchd should work with case standard",()=>{
+  it("fetchX should work",()=>{
     const figure1=[1,2,3,4,5]
     const figure2=[6,7,8,9,0]
-    const mask ="16.22.36"
+    const mask ="72.33.36"
     const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_d()).toBe(38)
+    expect(test.fetch_X()).toBe(15)
   })
-  it("fetchd should work with case >90",()=>{
+  it("fetchY should work",()=>{
     const figure1=[1,2,3,4,5]
     const figure2=[6,7,8,9,0]
-    const mask ="72.22.36"
+    const mask ="72.33.58"
     const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_d()).toBe(4)
+    expect(test.fetch_Y()).toBe(1)
   })
-  it("fetchd should work with case =90",()=>{
-    const figure1=[1,0,3,4,5]
-    const figure2=[2,7,8,9,0]
-    const mask ="72.62.36"
-    const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_d()).toBe(1)
-  })
-  it("fetch_e should work with case standard",()=>{
+  it("fetch_first should work",()=>{
     const figure1=[1,2,3,4,5]
     const figure2=[6,7,8,9,0]
-    const mask ="16.22.36"
+    const mask ="72.33.58"
     const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_e()).toBe(58)
+    expect(test.fetch_first()).toBe(16)
   })
-  it("fetch_e should work with case >90",()=>{
+  it("fetch_second should work",()=>{
     const figure1=[1,2,3,4,5]
     const figure2=[6,7,8,9,0]
-    const mask ="72.83.36"
+    const mask ="72.33.58"
     const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_e()).toBe(29)
-  })
-  it("fetchd should work with case =90",()=>{
-    const figure1=[1,0,3,4,5]
-    const figure2=[2,7,8,9,0]
-    const mask ="72.12.80"
-    const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_e()).toBe(1)
-  })
-  it("fetch_primo should work ",()=>{
-    const figure1=[7,5,8,1,4]
-    const figure2=[2,6,6,3,3]
-    const mask ="16.90.23"
-    const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_first()).toBe(16)
-  })
-  it("fetch_secondo",()=>{
-    const figure1=[7,5,8,1,4]
-    const figure2=[2,6,6,3,3]
-    const mask ="16.90.23"
-    const test = new MagicCombination(figure1,figure2,mask)
-  expect(test.fetch_second()).toBe(74)
+    expect(test.fetch_second()).toBe(74)
   })
 })

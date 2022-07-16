@@ -1,6 +1,9 @@
 import { FiguralMap } from "./figuralMap"
 
 export class MagicCombination {
+  /* per la formula guardare in credentials*/
+
+
   private figures4Weel1: number[]
   private figures4Weel2: number[]
   private mask: number[]
@@ -28,9 +31,9 @@ export class MagicCombination {
   normalize(input:number){
     var out =input 
     if(input>90){
-      out = out -90
+      out = input -90
     }
-    if(input=90){
+    if(input==90){
       out= 1
     }
     return out
@@ -51,35 +54,17 @@ export class MagicCombination {
     return this.combineFigures(this.figuralMap[4], this.figuralMap[5])
   }
 
-  fetch_d() {
-    const a = this.fetchA()
-    const b = this.fetchB()
-    var out = a + b
-    if (out > 90) {
-      out = out - 90
-    }
-    if(out==90){
-      out = 1
-    }
-    return out
-  }
-
-  fetch_e(){
-    const b= this.fetchB()
-    const c = this.fetchC()
-    var out = b+c
-    if (out > 90) {
-      out = out - 90
-    }
-    if(out==90){
-      out = 1
-    }
-    return out
-
-  }
   fetch_first(){
-    return this.fetch_d()+this.fetch_e()
+    return this.normalize( this.fetch_X()+this.fetch_Y())
   }
+
+fetch_X(){
+  return this.normalize(this.fetchA()+this.fetchB())
+}
+
+fetch_Y(){
+  return this.normalize(this.fetchB()+this.fetchC())
+}
 
 fetch_second(){
   return 90- this.fetch_first()
