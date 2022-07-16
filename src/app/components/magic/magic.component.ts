@@ -1,6 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { DateHelpers } from 'src/app/business/dateHelpers';
+import { Figura } from 'src/app/business/figura';
+import { FiguralMap } from 'src/app/business/figuralMap';
+import { MagicCombination } from 'src/app/business/magicCombination';
+import { Piu2meno90 } from 'src/app/business/piu2meno90';
 import { Extraction } from 'src/app/models/extractionModel';
 import { OptionsMaker } from 'src/app/modules/dynamic-form/helpers/optionMaker';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
@@ -17,6 +22,8 @@ export class MagicComponent implements OnInit, OnDestroy {
   private dates: string[]
   private subscription: Subscription
   public formFields:any[]
+  firstMagic:number
+  secondMagic:number
   weels: string[] = [
     "Bari",
     "Cagliari",
@@ -32,15 +39,37 @@ export class MagicComponent implements OnInit, OnDestroy {
   ]
   submit(ev){
     console.log("submit",ev)
+    console.log("map",FiguralMap.fetchMap(ev.combination))
   }
 
   filter(ev){
     console.log("typing",ev)
   }
 
-  constructor(private service: ExtractionService) { }
+
+
+
+  demo(){
+    const weel1="Bari"
+    const weel2="Cagliari"
+    const estrazione1 = [27,38,71,15,84]
+    const estrazione2 =[68,28,19,22,76]
+    const figura1 = estrazione1.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
+    const figura2 = estrazione2.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
+    const figuralMap= "16.90.23"
+    const magic = new MagicCombination(figura1,figura2,figuralMap)
+    this.firstMagic = magic.fetch_primo()
+    this.secondMagic = magic.fetch_secondo()
+  
+
+  }
+
+  constructor(private service: ExtractionService,
+    ) { }
   ngOnDestroy(): void {
+    if(this.subscription){
     this.subscription.unsubscribe()
+  }
   }
 
   ngOnInit() {
@@ -48,6 +77,9 @@ export class MagicComponent implements OnInit, OnDestroy {
       if (items) {
         this.extractions = items.sort(DateHelpers.sorterDescendingDate);
         this.dates = Array.from(new Set(this.extractions.map(ex => ex.italianDate)))
+        const  figuralMapValidator = (control:AbstractControl)=>{
+          return !FiguralMap.isValid(control.value)?{figuralMap:"not valid"}:null
+        }
 
         this.formFields = [
           new DropdownQuestion({
@@ -81,6 +113,7 @@ export class MagicComponent implements OnInit, OnDestroy {
             key:"combination",
             label:"combinazione figurale",
             required:true,
+            validator:figuralMapValidator
           })
         ]
       }
