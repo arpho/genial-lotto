@@ -39,7 +39,7 @@ showGraph = false
   submit(ev){
     this.weel = configs.weels[ev.weel]
     console.log("submit",ev,this.weel)
-    this.numero= ev.number2Check
+    this.numero= Number(ev.number2Check)
     this.showGraph= true
 
   }
