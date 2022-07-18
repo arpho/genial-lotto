@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { DateHelpers } from 'src/app/business/dateHelpers';
 import { Figura } from 'src/app/business/figura';
@@ -12,6 +13,8 @@ import { Extraction } from 'src/app/models/extractionModel';
 import { OptionsMaker } from 'src/app/modules/dynamic-form/helpers/optionMaker';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
+import { BrowsingPageModule } from 'src/app/pages/extractions/browsing/browsing.module';
+import { BrowsingPage } from 'src/app/pages/extractions/browsing/browsing.page';
 import { ExtractionService } from 'src/app/services/extractions/estrazioni.service';
 
 @Component({
@@ -32,13 +35,16 @@ export class MagicComponent implements OnInit, OnDestroy {
   subscription2
   weel1:string
   weel2:string
+  date:string
+  showSpinner = true
   color1 = "yellow"
   color2 = "orange"
   weels= configs.weels
   submit(ev){
     console.log("submit",ev)
     console.log("map",FiguralMap.fetchMap(ev.combination))
-    const date = this.dates[ev.extractionDate]
+
+     this.date = this.dates[ev.extractionDate]
     this.weel1 = this.weels[ev.weel1]
     this.weel2 = this.weels[ev.weel2]
     let estrazione1 :number[]
@@ -48,7 +54,7 @@ export class MagicComponent implements OnInit, OnDestroy {
 
       estrazione1 = Items
       .filter(extraction=>{
-       return extraction.italianDate==date && extraction.weel==this.weel1
+       return extraction.italianDate==this.date && extraction.weel==this.weel1
       })[0]?.extraction
 
       console.log("estrazioner1 #*",estrazione1)
@@ -56,7 +62,7 @@ export class MagicComponent implements OnInit, OnDestroy {
   
       estrazione2 = Items
       .filter(extraction=>{
-        return extraction.italianDate==date && extraction.weel==this.weel2
+        return extraction.italianDate==this.date && extraction.weel==this.weel2
       })[0]?.extraction
 
       console.log("estrazione2 #* ",estrazione2)
@@ -89,6 +95,7 @@ if(estrazione1 &&estrazione2){
   
 
   constructor(private service: ExtractionService,
+              private modalCtrl:ModalController
     ) { }
   ngOnDestroy(): void {
   if(this.subscription1){
@@ -102,6 +109,7 @@ if(estrazione1 &&estrazione2){
   ngOnInit() {
    this.subscription2 =this.service.items.subscribe((items) => {
       if (items) {
+        this.showSpinner= false
         this.extractions = items.sort(DateHelpers.sorterDescendingDate);
         this.dates = Array.from(new Set(this.extractions.map(ex => ex.italianDate)))
         const  figuralMapValidator = (control:AbstractControl)=>{
@@ -140,6 +148,24 @@ if(estrazione1 &&estrazione2){
     })
    
 
+  }
+
+  async browse(){
+    const props={
+      extractions:this.extractions,
+      date:this.date,
+      weel1:this.weel1,
+      weel2:this.weel2,
+      ambata11:this.firstMagic,
+      ambata12:this.firstVertibleMagic,
+      ambata21:this.secondMagic,
+      ambata22:this.secondVertibleMagic,
+      dateEstrazioni:this.dates,
+    }
+    console.log("props",props)
+    const modal = await this.modalCtrl.create({component:BrowsingPage,
+    componentProps:props})
+    await modal.present()
   }
 
 }

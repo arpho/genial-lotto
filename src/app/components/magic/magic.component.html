@@ -1,5 +1,15 @@
 <app-dynamic-form [questions]="formFields" (interactiveSubmit)="filter($event)" (singleSubmit)="submit($event)"></app-dynamic-form>
 
+<div *ngIf="showSpinner">
+  <div class="ring">Loading
+    <span></span>
+  </div>
+</div>
+<ion-button 
+*ngIf="showMagicNumbers"
+(click)="browse()">
+<ion-icon name="search"></ion-icon>verifica estrazioni
+</ion-button>
 <ion-grid *ngIf="showMagicNumbers">
   <ion-row>
 <app-numero-estratto
