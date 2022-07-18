@@ -1,3 +1,4 @@
+import { allowedNodeEnvironmentFlags } from "process"
 import { FiguralMap } from "./figuralMap"
 
 export class MagicCombination {
@@ -44,14 +45,14 @@ export class MagicCombination {
     return index == 0 ? data[9] : data[index - 1]
   }
   fetchA() {
-    return  this.combineFigures(this.figuralMap[0], this.figuralMap[1])
+    return this.normalize( this.combineFigures(this.figuralMap[0], this.figuralMap[1]))
   }
 
   fetchB() {
-    return this.combineFigures(this.figuralMap[2], this.figuralMap[3])
+    return this.normalize( this.combineFigures(this.figuralMap[2], this.figuralMap[3]))
   }
   fetchC() {
-    return this.combineFigures(this.figuralMap[4], this.figuralMap[5])
+    return this.normalize( this.combineFigures(this.figuralMap[4], this.figuralMap[5]))
   }
 
   fetch_first(){
