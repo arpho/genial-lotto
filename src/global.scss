@@ -138,3 +138,12 @@ app-extraction article p.gold {
 p.repetition {
   background-color: yellow;
 }
+
+@font-face {
+  font-family: 'Anton';
+  src: url(./assets/fonts/Anton/Anton-Regular.ttf);
+}
+
+ion-content{
+  font-family: Anton !important;
+}
