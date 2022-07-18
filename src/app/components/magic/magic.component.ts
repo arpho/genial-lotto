@@ -41,8 +41,6 @@ export class MagicComponent implements OnInit, OnDestroy {
   color2 = "orange"
   weels= configs.weels
   submit(ev){
-    console.log("submit",ev)
-    console.log("map",FiguralMap.fetchMap(ev.combination))
 
      this.date = this.dates[ev.extractionDate]
     this.weel1 = this.weels[ev.weel1]
@@ -56,16 +54,11 @@ export class MagicComponent implements OnInit, OnDestroy {
       .filter(extraction=>{
        return extraction.italianDate==this.date && extraction.weel==this.weel1
       })[0]?.extraction
-
-      console.log("estrazioner1 #*",estrazione1)
-
-  
       estrazione2 = Items
       .filter(extraction=>{
         return extraction.italianDate==this.date && extraction.weel==this.weel2
       })[0]?.extraction
 
-      console.log("estrazione2 #* ",estrazione2)
 
 if(estrazione1 &&estrazione2){
       const figura1 = this.calculateFigures(estrazione1)
