@@ -98,4 +98,31 @@ describe("MagicCombination works",()=>{
     const test = new MagicCombination(figure1,figure2,mask)
     expect(test.fetch_second()).toBe(74)
   })
+
+  it("one more test",()=>{
+    const figure1=[3, 7,8,7,7]
+    const figure2=[7,8,2,4,2]
+    const mask ="17.17.17"
+    const test = new MagicCombination(figure1,figure2,mask)
+    expect(test.fetchA()).toBe(38)
+    expect(test.fetchB()).toBe(38)
+    expect(test.fetchC()).toBe(38)
+    expect(test.fetch_X()).toBe(76)
+    expect(test.fetch_first()).toBe(62)
+    expect(test.fetch_second()).toBe(28)
+
+  })
+
+  it("two more test",()=>{
+    const figure1=[9,6,3,4,3]
+    const figure2=[5,3,2,6,6]
+    const mask ="17.17.17"
+    const test = new MagicCombination(figure1,figure2,mask)
+    expect(test.fetchA()).toBe(3)
+    expect(test.fetchB()).toBe(3)
+    expect(test.fetchC()).toBe(3)
+    expect(test.fetch_X()).toBe(6)
+    expect(test.fetch_Y()).toBe(6)
+
+})
 })
