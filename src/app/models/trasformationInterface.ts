@@ -1,4 +1,4 @@
 export interface TransformationInterface{
-    transform:(estratto:number)=> number
+    transform:(estratto:number)=> number 
     title:string
 }
