@@ -6,6 +6,7 @@ import { DateHelpers } from 'src/app/business/dateHelpers';
 import { Figura } from 'src/app/business/figura';
 import { FiguralMap } from 'src/app/business/figuralMap';
 import { MagicCombination } from 'src/app/business/magicCombination';
+import { Neutro } from 'src/app/business/neutro';
 import { Piu2meno90 } from 'src/app/business/piu2meno90';
 import { Vertibile } from 'src/app/business/vertibile';
 import { configs } from 'src/app/configs/configs';
@@ -149,6 +150,7 @@ if(estrazione1 &&estrazione2){
       date:this.date,
       weel1:this.weel1,
       weel2:this.weel2,
+      function:new Neutro(),
       ambata11:this.firstMagic,
       ambata12:this.firstVertibleMagic,
       ambata21:this.secondMagic,
