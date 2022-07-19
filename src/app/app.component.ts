@@ -32,30 +32,7 @@ onOwnClick= (index:number,url?:string)=>{
  isSelected(index){
    return (index==this.transformationIndex)?"selected":"unselected"
  }
-  public appPages:any[] = [
-    { title: 'Algoritmo Genial',
-    src:"/assets/icon/icons/genial.svg",
-     url: '/magic', icon: 'mail',
-     onClick:this.onOwnClick(-1,"/magic"),
-    function:new Piu2meno90()},
-    { title: 'Figura',
-     url: '/folder/Outbox',
-      icon: 'paper-plane',
-       onClick:this.onOwnClick(1),
-       function:new Figura() },
-    { title: 'Vertibili',
-     url: '/folder/Favorites',
-      src:"/assets/icon/vertibile2.svg",
-       onClick:this.onOwnClick(2),
-       function:new Vertibile() },
-       {title:"Intervalli",
-      url:"intervals",
-      icon:"stats-chart",
-      onClick:this.onOwnClick(-1,"/intervals")
-      }
-  
-   
-  ];
+  public appPages:any[] = []
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(public router:Router,
     public menu:MenuController,
@@ -83,6 +60,34 @@ this.menu.open("main-content")
          )
          if(!result.claims["enabled"]){
           alert("il suo account non è abilitato, se il problema persiste contatti l'amministratore")
+         }
+         else{
+
+          this.appPages = [
+            ...this.appPages,
+            { title: 'Algoritmo Genial',
+            src:"/assets/icon/icons/genial.svg",
+             url: '/magic', icon: 'mail',
+             onClick:this.onOwnClick(-1,"/magic"),
+            function:new Piu2meno90()},
+            { title: 'Figura',
+             url: '/folder/Outbox',
+              icon: 'paper-plane',
+               onClick:this.onOwnClick(1),
+               function:new Figura() },
+            { title: 'Vertibili',
+             url: '/folder/Favorites',
+              src:"/assets/icon/vertibile2.svg",
+               onClick:this.onOwnClick(2),
+               function:new Vertibile() },
+               {title:"Intervalli",
+              url:"intervals",
+              icon:"stats-chart",
+              onClick:this.onOwnClick(-1,"/intervals")
+              }
+          
+           
+          ];
          }
         }
         console.log("claims",result.claims)
