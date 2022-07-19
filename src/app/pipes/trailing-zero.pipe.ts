@@ -8,7 +8,11 @@ import { Value } from '../modules/item/models/value';
 })
 export class TrailingZeroPipe implements PipeTransform {
   trailingZero(value){
-    return value>9?value:`0${value}`
+    var out = value>9?value:`0${value}`
+    if(Number(value)==-1){
+      out = "1(89)"
+    }
+    return out
   }
 
   neutral(value){
