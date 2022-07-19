@@ -56,7 +56,6 @@ export class BrowsingPage implements OnInit {
       ambata11: this.ambata11,
       ambata21: this.ambata21
     })
-    console.log("ambata", this.ambate)
   }
   dismiss(value?: {}) {
     this.modalCtrl.dismiss(value)
