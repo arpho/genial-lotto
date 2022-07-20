@@ -53,8 +53,6 @@ this.menu.open("main-content")
     onAuthStateChanged(auth,async (user)=>{
       if( user){
       const token = await user.getIdTokenResult(true).then(result=>{
-        this.messages.addBroker("claims")
-        this.messages.publish("claims",result.claims)
         if(Number(result.claims["level"])<=2){
           this.appPages.push( { title: "utenti", url: "/customers", icon: "people", onClick:this.onOwnClick(-1,"/customers") },
          )
