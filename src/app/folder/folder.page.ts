@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Figura } from '../business/figura';
 import { IntervalCalculator } from '../business/intervalCalculator';
@@ -19,6 +20,7 @@ import { SelectorQuestion } from '../modules/dynamic-form/models/question-select
 import { DateHelpers } from '../modules/helpers/dateHelper';
 import { MessageBrokerService } from '../modules/helpers/services/messages/message-broker.service';
 import { DateModel } from '../modules/user/models/birthDateModel';
+import { AuthService } from '../modules/user/services/auth.service';
 import { AddExtractionPage } from '../pages/modals/add-extraction/add-extraction.page';
 import { ApplyFunction2WeelsPage } from '../pages/modals/apply-function2-weels/apply-function2-weels.page';
 import { ExtractionService } from '../services/extractions/estrazioni.service';
@@ -73,6 +75,7 @@ export class FolderPage implements OnInit {
   weel2: string;
   WeelTwo: Extraction;
   constructor(
+    private authService:AuthService,
     private activatedRoute: ActivatedRoute,
     public estrazioni: ExtractionService,
     public modalCtrl: ModalController,
@@ -226,10 +229,18 @@ this.barData221 = makeData.transform(intervals221).slice(0,20)
   }
 
   ngOnInit() {
-    this.messages.subscribeTo("claims",(claims:{level:number,role:number,enabled:boolean})=>{
+
+    this.authService.getCustomclaims(claims=>{
+      console.log("got claims",claims)
       this.canAdd= claims.level<=2 && claims.enabled
       console.log("claims",claims,this.canAdd)
     })
+    
+
+
+     
+  
+
     this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => { // we get the selected transformation
       transformation = transformation
     })
