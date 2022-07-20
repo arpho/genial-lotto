@@ -18,8 +18,9 @@ export class RoleGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): boolean {
     // this will be passed from the route config
     // on the data property
-    console.log('role guard')
-    const expectedRole = route.data.expectedRole[0];
+    console.log('role guard',route)
+    const maximumRoleLevel = this.Users.FetchRole(route.data.maximumRoleLevel);
+    console.log("minimum role",maximumRoleLevel)
     const firebaseApp = firebase.initializeApp(credentials.firebase)
     const auth = getAuth(firebaseApp)
     onAuthStateChanged(auth,((user: firebase.User) => {
@@ -36,10 +37,10 @@ export class RoleGuardService implements CanActivate {
       .then(token => {
         console.log("claims", token.claims);
         // tslint:disable-next-line: curly
-        if (token.claims.level <= expectedRole.level) return true;
+        if (token.claims.level <= maximumRoleLevel.value) return true;
         else {
           const message =
-            `per accedere a questa sezione devi godere almeno dei privilegi di ${expectedRole.key} 
+            `per accedere a questa sezione devi godere almeno dei privilegi di ${maximumRoleLevel.key} 
              per chiarimenti rivolgiti all'amministratore`;
           this.router.navigate(["user/not-authorized", message]);
         }
