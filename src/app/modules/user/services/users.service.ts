@@ -7,6 +7,7 @@ import { UserModel } from "../models/userModel";
 import { ItemModelInterface } from "../../item/models/itemModelInterface";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { getFunctions, httpsCallable } from "firebase/functions";
+import { configs } from "src/app/configs/configs";
 
 @Injectable({
   providedIn: "root"
@@ -65,6 +66,10 @@ db
       onValue(itemRef,(snap)=>{next(snap)})
 
     }
+  }
+
+  FetchRole(level:number){
+    return configs.accessLevel.filter(accesslevel=>accesslevel.value==level)[0]
   }
 
   getLoggedUser() {
