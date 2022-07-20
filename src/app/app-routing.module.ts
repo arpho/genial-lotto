@@ -31,19 +31,19 @@ const routes: Routes = [
   {
     path: 'customers',
     canActivate:[AuthGuard,RoleGuardService],
-    data:{expectedRole:2},
+    data:{maximumRoleLevel:2},
     loadChildren: () => import('./pages/customers/list/customers/customers.module').then( m => m.CustomersPageModule)
   },
   {
     path: 'update-customer',
     canActivate:[AuthGuard,RoleGuardService],
-    data:{expectedRole:2},
+    data:{maximumRoleLevel:2},
     loadChildren: () => import('./pages/customers/edit/update-customer/update-customer.module').then( m => m.UpdateCustomerPageModule)
   },
   {
     path: 'new-customer',
     canActivate:[AuthGuard,RoleGuardService],
-    data:{expectedRole:2},
+    data:{maximumRoleLevel:2},
     loadChildren: () => import('./pages/customers/create/new-customer/new-customer.module').then( m => m.NewCustomerPageModule)
   },
   {
@@ -54,7 +54,7 @@ const routes: Routes = [
   {
     path: 'add-extraction',
     canActivate:[AuthGuard,RoleGuardService],
-    data:{expectedRole:2},
+    data:{maximumRoleLevel:2},
     loadChildren: () => import('./pages/modals/add-extraction/add-extraction.module').then( m => m.AddExtractionPageModule)
   },
   {
