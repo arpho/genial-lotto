@@ -12,7 +12,8 @@ export class SuggestedNumbersComponent implements OnInit {
   @Input() secondVNumber:number
   @Input() weel1:string
   @Input() weel2:string
-  @Input() message:string
+  @Input() message1:string
+  @Input() message2:string
   color1 = "yellow"
   color2 = "orange"
   constructor() { }
