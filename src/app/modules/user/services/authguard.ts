@@ -12,6 +12,7 @@ import {UserModel} from '../models/userModel'
 
 
 import "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 @Injectable({
   providedIn: "root"
 })
@@ -26,7 +27,8 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> | Promise<boolean> {
     return new Promise((resolve, reject) => {
-      firebase.auth().onAuthStateChanged((user: firebase.User) => {
+      const auth = getAuth()
+      onAuthStateChanged(auth,(user) => {
         if (user) {
           console.log('authorised',user)
           this.User.setLoggedUser(new UserModel().setKey(user.uid));
