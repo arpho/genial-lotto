@@ -42,7 +42,7 @@ export class RoleGuardService implements CanActivate {
           const message =
             `per accedere a questa sezione devi godere almeno dei privilegi di ${maximumRoleLevel.key} 
              per chiarimenti rivolgiti all'amministratore`;
-          this.router.navigate(["user/not-authorized", message]);
+          this.router.navigate(["users/not-authorized", message]);
         }
       });
 
