@@ -1,0 +1,29 @@
+
+
+<ion-grid class="ambata" >
+  <p>
+    {{message}}
+  </p>
+  <ion-row>
+<app-numero-estratto
+class="ambata"
+[numero]="firstNumber"
+></app-numero-estratto>
+<app-numero-estratto
+class="ambata"
+[numero]="secondNumber"
+></app-numero-estratto>
+</ion-row>
+<ion-row>
+<app-numero-estratto
+class="ambata"
+[numero]="firstVNumber"
+[color]="color1"
+></app-numero-estratto>
+<app-numero-estratto
+class="ambata"
+[numero]="secondVNumber"
+[color]="color2"
+></app-numero-estratto>
+</ion-row>
+</ion-grid>
