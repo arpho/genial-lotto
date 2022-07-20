@@ -80,7 +80,7 @@ if(estrazione1 &&estrazione2){
   }
 
   calculateFigures(extraction:number[]){
-    return extraction.map(i=>new Piu2meno90().transform(i)).map(e=>new Figura().transform(e))
+    return extraction.map(i=>new Piu2meno90().transform(i)).map(i=>Math.abs(i)).map(e=>new Figura().transform(e))
   }
 
 
