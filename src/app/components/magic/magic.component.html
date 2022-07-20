@@ -10,31 +10,18 @@
 (click)="browse()">
 <ion-icon name="search"></ion-icon>verifica estrazioni
 </ion-button>
-<ion-grid *ngIf="showMagicNumbers">
-  <ion-row>
-<app-numero-estratto
-class="ambata"
-[numero]="firstMagic"
-></app-numero-estratto>
-<app-numero-estratto
-class="ambata"
-[numero]="secondMagic"
-></app-numero-estratto>
-</ion-row>
-<ion-row>
-<app-numero-estratto
-class="ambata"
-[numero]="firstVertibleMagic"
-[color]="color1"
-></app-numero-estratto>
-<app-numero-estratto
-class="ambata"
-[numero]="secondVertibleMagic"
-[color]="color2"
-></app-numero-estratto>
-</ion-row>
+<app-suggested-numbers
+*ngIf="showMagicNumbers"
+[firstNumber]="firstMagic"
+[secondNumber]="secondMagic"
+[firstVNumber]="firstVertibleMagic"
+[secondVNumber]="secondVertibleMagic"
+[weel1]="weel1"
+[weel2]="weel2"
+[message1]="message1"
+[message2]="message2"
+></app-suggested-numbers>
 
-</ion-grid>
 <ion-grid
 *ngIf="showMagicNumbers"
 >

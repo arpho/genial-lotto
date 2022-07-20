@@ -37,6 +37,8 @@ export class MagicComponent implements OnInit, OnDestroy {
   weel1:string
   weel2:string
   date:string
+  message1="primo numero"
+  message2= "ambate consigliate"
   showSpinner = true
   color1 = "yellow"
   color2 = "orange"
