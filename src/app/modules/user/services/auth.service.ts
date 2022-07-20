@@ -6,7 +6,8 @@ import 'firebase/database';
 import { DatabaseReference, getDatabase, ref, push } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, Auth, UserCredential, sendPasswordResetEmail, onAuthStateChanged } from 'firebase/auth'
 import { UserModel } from '../models/userModel'
-
+import {credentials } from "../../../configs/credentials"
+firebase.initializeApp(credentials.firebase);
 @Injectable({
   providedIn: 'root'
 })
