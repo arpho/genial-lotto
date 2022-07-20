@@ -6,7 +6,7 @@ import "firebase/auth";
 import { UsersService } from "./users.service";
 import { UserModel } from "../models/userModel";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import {configs} from "../../../configs/credentials"
+import {credentials} from "../../../configs/credentials"
 
 @Injectable({
   providedIn: "root"
@@ -20,7 +20,7 @@ export class RoleGuardService implements CanActivate {
     // on the data property
     console.log('role guard')
     const expectedRole = route.data.expectedRole[0];
-    const firebaseApp = firebase.initializeApp(configs.firebase)
+    const firebaseApp = firebase.initializeApp(credentials.firebase)
     const auth = getAuth(firebaseApp)
     onAuthStateChanged(auth,((user: firebase.User) => {
       if (user) {
@@ -39,9 +39,8 @@ export class RoleGuardService implements CanActivate {
         if (token.claims.level <= expectedRole.level) return true;
         else {
           const message =
-            "per accedere a questa funzione devi godere almeno dei privilegi di " +
-            expectedRole.key +
-            ". per chiarimenti rivolgiti all'amministratore";
+            `per accedere a questa sezione devi godere almeno dei privilegi di ${expectedRole.key} 
+             per chiarimenti rivolgiti all'amministratore`;
           this.router.navigate(["user/not-authorized", message]);
         }
       });

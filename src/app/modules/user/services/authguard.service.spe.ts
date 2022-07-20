@@ -2,11 +2,11 @@ import { TestBed } from '@angular/core/testing';
 import { Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthGuard } from './authguard.service';
-import { configs } from '../../../configs/credentials';
+import { credentials } from '../../../configs/credentials';
 import firebase from 'firebase/compat/app';
 
 describe('AuthguardService', () => {
-  firebase.initializeApp(configs.firebase);
+  firebase.initializeApp(credentials.firebase);
   beforeEach(() => TestBed.configureTestingModule({
     imports: [RouterModule, RouterTestingModule],
   }));

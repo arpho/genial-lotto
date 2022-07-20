@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {db} from "./../../functions/src/configs/firebase"
 import {initializeApp} from "firebase/app"
 import { getAuth, getIdToken, onAuthStateChanged } from "firebase/auth";
-import { configs } from './configs/credentials';
+import { credentials } from './configs/credentials';
 import { Router } from '@angular/router';
 import { MessageBrokerService } from './modules/helpers/services/messages/message-broker.service';
 import { Piu2meno90 } from './business/piu2meno90';
@@ -47,7 +47,7 @@ this.menu.enable(true,"main-content")
 this.menu.open("main-content")
       }
     }))
-    const app = initializeApp(configs.firebase)
+    const app = initializeApp(credentials.firebase)
     const auth = getAuth()
     
     onAuthStateChanged(auth,async (user)=>{

@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { initializeApp } from 'firebase/app';
-import {configs} from "../../../../configs/credentials"
+import {credentials} from "../../../../configs/credentials"
 
 import { UsersPage } from './users.page';
 
@@ -19,7 +19,7 @@ describe('UsersPage', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UsersPage);
-    var app = initializeApp(configs.firebase)
+    var app = initializeApp(credentials.firebase)
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

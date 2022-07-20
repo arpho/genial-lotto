@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Database, DatabaseReference, getDatabase, onValue, push, ref, set } from 'firebase/database';
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { configs } from 'src/app/configs/credentials';
+import { credentials } from 'src/app/configs/credentials';
 import { Customer } from 'src/app/models/Customer';
 import { MyFirebaseHelper } from 'src/app/modules/helpers/createFirebaseApp';
 import { ItemModelInterface } from 'src/app/modules/item/models/itemModelInterface';
@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/modules/user/services/auth.service';
 })
 export class CustomersService implements ItemServiceInterface {
   constructor(public authService: AuthService) {
-    new MyFirebaseHelper().createFirebaseApp(configs.firebase)
+    new MyFirebaseHelper().createFirebaseApp(credentials.firebase)
     this.reference = 'userProfile'
     this.db = getDatabase()
     this.itemsListRef = ref(this.db, this.reference)
