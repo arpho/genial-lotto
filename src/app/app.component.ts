@@ -83,7 +83,7 @@ this.menu.open("main-content")
               icon:"stats-chart",
               onClick:this.onOwnClick(-1,"/intervals")
               },
-              {title:"Più 2 Meno 90",
+              {title:"Distanza Bivalente",
               icon:"add-circle",
               onClick:this.onOwnClick(5),
               function: new Piu2meno90()
