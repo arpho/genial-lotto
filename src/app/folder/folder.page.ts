@@ -132,15 +132,18 @@ export class FolderPage implements OnInit {
 
   }
   async submit(ev) {
-    const functionList = [new Vertibile(), new Piu2meno90(), new Figura()]
     const props =  {
       weel1: this.weels[ ev.weel1],
       weel2: this.weels[ ev.weel2],
       dateEstrazioni:this.dateEstrazioni,
-      function: functionList[Number(ev.function)],
+      function: null,
       date: this.dateEstrazioni[Number(ev.extractionDate)],
       extractions:this.estrazioniItems
     }
+    this.messages.subscribeTo("selectedFunction",selectedFunction=>{
+props.function = selectedFunction
+    })
+    console.log( "data send to apply",props)
     this.WeelOne = props.extractions.filter((e: Extraction) => {
       return e.weel == props.weel1 && e.italianDate == props.date
     })[0]
