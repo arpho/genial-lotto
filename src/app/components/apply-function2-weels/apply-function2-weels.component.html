@@ -9,11 +9,12 @@
 [transformation]="function"
 [repetitions]="repetition4WeelTwo"
 ></app-extraction>
-<div *ngIf="show">
+<div *ngIf="showTitle">
 <p>{{title}}</p>
-<p class="ambata">ambate Genial</p>
+</div>
 
-<ion-grid *ngIf="showAmbate">
+<ion-grid *ngIf="showAmbate" >
+<p  class="ambata">ambate Genial</p>
   <ion-row>
 <app-numero-estratto
 class="ambata"
@@ -39,8 +40,7 @@ class="ambata"
 </ion-row>
 
 </ion-grid>
-<ion-button 
+<ion-button *ngIf="showAmbate"
 (click)="browse()">
 <ion-icon name="search"></ion-icon>verifica estrazioni
 </ion-button>
-</div>
