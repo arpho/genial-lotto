@@ -2,35 +2,47 @@
 
 <ion-grid class="ambata" >
   <ion-row>
+    <ion-col>
    <p class="firstNumber">
     {{message1}}
   </p> 
+  </ion-col>
+  <ion-col>
 <p
 class="secondNumber"
 >{{message2}}</p>
+</ion-col>
   </ion-row>
   
   <ion-row>
+    <ion-col>
 <app-numero-estratto
 class="ambata"
 [numero]="firstNumber"
 ></app-numero-estratto>
+</ion-col>
+<ion-col>
 <app-numero-estratto
 class="ambata"
 [numero]="secondNumber"
 ></app-numero-estratto>
+</ion-col>
 </ion-row>
 
 <ion-row>
+  <ion-col>
 <app-numero-estratto
 class="ambata"
 [numero]="firstVNumber"
 [color]="color1"
 ></app-numero-estratto>
+</ion-col>
+<ion-col>
 <app-numero-estratto
 class="ambata"
 [numero]="secondVNumber"
 [color]="color2"
 ></app-numero-estratto>
+</ion-col>
 </ion-row>
 </ion-grid>
