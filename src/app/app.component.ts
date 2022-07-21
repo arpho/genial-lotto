@@ -71,18 +71,24 @@ this.menu.open("main-content")
             { title: 'Figura',
              url: '/folder/Outbox',
               icon: 'paper-plane',
-               onClick:this.onOwnClick(1),
+               onClick:this.onOwnClick(2),
                function:new Figura() },
             { title: 'Vertibili',
              url: '/folder/Favorites',
               src:"/assets/icon/vertibile2.svg",
-               onClick:this.onOwnClick(2),
+               onClick:this.onOwnClick(3),
                function:new Vertibile() },
                {title:"Intervalli",
               url:"intervals",
               icon:"stats-chart",
               onClick:this.onOwnClick(-1,"/intervals")
-              }
+              },
+              {title:"Più 2 Meno 90",
+              icon:"add-circle",
+              onClick:this.onOwnClick(5),
+              function: new Piu2meno90()
+            }
+
           
            
           ];
