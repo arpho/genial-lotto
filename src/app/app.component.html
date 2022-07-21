@@ -3,7 +3,7 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Algoritmo intelligente GeniaLotto</ion-list-header>
+          <ion-list-header> GeniaLotto</ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" lines="none" detail="false" routerLinkActive="selected"(click)="p.onClick()"[ngClass]="isSelected(i)">
