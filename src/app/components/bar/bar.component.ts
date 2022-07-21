@@ -150,7 +150,6 @@ export class BarComponent implements OnInit, OnChanges {
 }  }
 
   ngOnInit() {
-    console.log("init ",this.svg)
 
     this.margin = 50;
     this.width = 450 - (this.margin * 2);
