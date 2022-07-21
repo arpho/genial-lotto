@@ -244,7 +244,7 @@ this.barData221 = makeData.transform(intervals221).slice(0,20)
     this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => { // we get the selected transformation
       transformation = transformation
     })
-    this.folder = "Algoritmo intelligente GeniaLotto"// this.activatedRoute.snapshot.paramMap.get('id');
+    this.folder = "GeniaLotto"// this.activatedRoute.snapshot.paramMap.get('id');
     this.estrazioni.items.subscribe((items) => {
   
       this.estrazioniItems = []
