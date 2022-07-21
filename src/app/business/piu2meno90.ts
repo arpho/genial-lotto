@@ -2,7 +2,7 @@ import { TransformationInterface } from "../models/trasformationInterface";
 
 export class Piu2meno90 implements TransformationInterface {
 
-  title = "Più 2 Meno 90"
+  title = "Distanza bivalente"
   transform(estratto: number) {
 
     var out = Math.abs(90 - (estratto + 2))
