@@ -12,7 +12,7 @@ import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
 })
 export class BrowsingPage implements OnInit {
   extractionsItems: Extraction[]
-  dateEstrazioni: string[]
+  extractionsDate: string[]
   ambata11: number
   ambata12: number
   ambata21: number
@@ -38,12 +38,12 @@ export class BrowsingPage implements OnInit {
     console.log("date",this.date,"items",this.extractionsItems)
     const crescententSorterItalianDate = (b: string, a: string) => new Date(new DateHelpers().fromItalian2AmericanFormat(b)).getTime() -
       new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
-    if (this.dateEstrazioni) {
-      this.dateEstrazioni = this.dateEstrazioni.filter(d =>
+    this.extractionsDate = DateHelpers.getDateListFrom(this.extractionsItems)
+      this.extractionsDate = this.extractionsDate.filter(d =>
         new Date(this.fromItalianDate2UsDate(d)).getTime() >
         new Date(this.fromItalianDate2UsDate(this.date)).getTime())
         .sort(crescententSorterItalianDate)
-    }
+    
     this.weel1 = this.navParams.get("weel1")
     this.weel2 = this.navParams.get("weel2")
     this.ambata11 = this.navParams.get("ambata11")
