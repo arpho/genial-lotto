@@ -5,11 +5,6 @@
     <span></span>
   </div>
 </div>
-<ion-button 
-*ngIf="showMagicNumbers"
-(click)="browse()">
-<ion-icon name="search"></ion-icon>verifica estrazioni
-</ion-button>
 <app-suggested-numbers
 *ngIf="showMagicNumbers"
 [firstNumber]="firstMagic"
@@ -21,6 +16,14 @@
 [message1]="message1"
 [message2]="message2"
 ></app-suggested-numbers>
+<ion-button 
+color="success"
+expand="full"
+*ngIf="showMagicNumbers"
+(click)="browse()">
+<ion-icon
+ name="search"></ion-icon>verifica estrazioni
+</ion-button>
 
 <ion-grid
 *ngIf="showMagicNumbers"
