@@ -44,7 +44,7 @@ export class MagicComponent implements OnInit, OnDestroy {
   color2 = "orange"
   weels= configs.weels
   submit(ev){
-
+this.showMagicNumbers=true
      this.date = this.dates[ev.extractionDate]
     this.weel1 = this.weels[ev.weel1]
     this.weel2 = this.weels[ev.weel2]
