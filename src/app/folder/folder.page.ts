@@ -74,6 +74,9 @@ export class FolderPage implements OnInit {
   WeelOne: any;
   weel2: string;
   WeelTwo: Extraction;
+  functionsList = [new Vertibile(),new Figura(),new Piu2meno90()]
+  functionsTitle: string[] = this.functionsList.map(f=>f.title)
+
   constructor(
     private authService:AuthService,
     private activatedRoute: ActivatedRoute,
@@ -136,13 +139,10 @@ export class FolderPage implements OnInit {
       weel1: this.weels[ ev.weel1],
       weel2: this.weels[ ev.weel2],
       dateEstrazioni:this.dateEstrazioni,
-      function: null,
+      function: this.functionsList[ev.function],
       date: this.dateEstrazioni[Number(ev.extractionDate)],
       extractions:this.estrazioniItems
     }
-    this.messages.subscribeTo("selectedFunction",selectedFunction=>{
-props.function = selectedFunction
-    })
     console.log( "data send to apply",props)
     this.WeelOne = props.extractions.filter((e: Extraction) => {
       return e.weel == props.weel1 && e.italianDate == props.date
@@ -225,7 +225,7 @@ this.barData221 = makeData.transform(intervals221).slice(0,20)
         key: "function",
         label: "funzione",
         value:1,
-        options: new OptionsMaker().makesOptionsFromArray(["vertibili", "Genial", "figura"]),
+        options: new OptionsMaker().makesOptionsFromArray(this.functionsTitle),
         required:true
       })
     ]
