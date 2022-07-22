@@ -67,9 +67,7 @@ export class WeelsViewerComponent implements OnInit,OnChanges {
     }
   }
 
-  isHighlighted(weel:string){
-    return true
-  }
+  isHighlighted = null
 
   ngOnInit() {
  if(this.ambate){
