@@ -20,20 +20,20 @@ export class BrowseExtractionsComponent implements OnInit {
     this.step -= 1
     this.setData()}
     else{
-      this.toaster.presentToast("non ci estrazioni precedenti a questa")
+      this.toaster.presentToast("non ci estrazioni precedenti a questa","middle")
     }
   }
   next() {
-    if(this.step<=this.dateEstrazioni.length-1){
+    if(this.step<=this.extractionsDate.length-1){
     this.step += 1
     this.setData()}
     else{
-      this.toaster.presentToast("non ci sono estrazioni successive a questa!")
+      this.toaster.presentToast("non ci sono estrazioni successive a questa!","middle")
     }
   }
   neutralFunction = new Neutro()
   ambate:Ambate
-  @Input() dateEstrazioni: string[]
+  @Input() extractionsDate: string[]
   @Input() ambata11: number
   @Input() ambata12: number
   @Input() ambata21: number
@@ -42,9 +42,9 @@ export class BrowseExtractionsComponent implements OnInit {
   @Input() weel2: string
   step = 0
   setData(){
-    this.selectedData=this.dateEstrazioni[this.step]
-    this.selectedData1=this.step+1<=this.dateEstrazioni.length-1? this.dateEstrazioni[this.step+1]:this.selectedData1
-    this.selectedData2=this.step+2 <=this.dateEstrazioni.length-1? this.dateEstrazioni[this.step+2]:this.selectedData2
+    this.selectedData=this.extractionsDate[this.step]
+    this.selectedData1=this.step+1<=this.extractionsDate.length? this.extractionsDate[this.step+1]:this.selectedData1
+    this.selectedData2=this.step+2 <=this.extractionsDate.length? this.extractionsDate[this.step+2]:this.selectedData2
   }
   constructor(public toaster:MyToastService) { }
 
@@ -55,7 +55,7 @@ this.ambate = new Ambate({
   ambata11:this.ambata11,
   ambata21:this.ambata21
 })
-if(this.dateEstrazioni){
+if(this.extractionsDate){
     this.setData()
   }
    }
