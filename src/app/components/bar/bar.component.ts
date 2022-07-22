@@ -27,7 +27,7 @@ export class BarComponent implements OnInit, OnChanges {
       this.createSvg()
     }
     else{
-      this.svg.selectAll("g >*").remove()// remove all the g elements to reset the svg
+     // remove all the g elements to reset the svg
       d3.select("svg").remove()
       this.createSvg()
       this.drawBars(this.data)
