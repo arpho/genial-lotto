@@ -58,7 +58,6 @@ export class ApplyFunction2WeelsComponent implements OnInit {
       ambata22:this.ambata22,
       dateEstrazioni:this.dateEstrazioni,
     }
-    console.log("props",props)
     const modal = await this.modalCtrl.create({component:BrowsingPage,
     componentProps:props})
     await modal.present()
