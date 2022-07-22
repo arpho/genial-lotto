@@ -7,6 +7,7 @@
     <ion-row>
       <ion-item>
       <app-weels-viewer class="browsable"
+      *ngIf="selectedData"
        [estrazioni]="extractionsItems"
        [ambate]="ambate"
        [transformation]="neutralFunction"
@@ -15,6 +16,7 @@
     </ion-item>
     <ion-item>
       <app-weels-viewer
+      *ngIf="selectedData1"
       class="browsable"
        [ambate]="ambate"
        [estrazioni]="extractionsItems"
@@ -38,6 +40,7 @@
 
     <ion-item>
       <app-weels-viewer
+      *ngIf="selectedData2"
       class="browsable"
       [estrazioni]="extractionsItems"
       [ambate]="ambate"
