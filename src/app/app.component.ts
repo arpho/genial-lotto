@@ -68,29 +68,11 @@ this.menu.open("main-content")
              url: '/magic', icon: 'mail',
              onClick:this.onOwnClick(-1,"/magic"),
             function:new Piu2meno90()},
-            { title: 'Figura',
-             url: '/folder/Outbox',
-              icon: 'paper-plane',
-               onClick:this.onOwnClick(2),
-               function:new Figura() },
-            { title: 'Vertibili',
-             url: '/folder/Favorites',
-              src:"/assets/icon/vertibile2.svg",
-               onClick:this.onOwnClick(3),
-               function:new Vertibile() },
                {title:"Intervalli",
               url:"intervals",
               icon:"stats-chart",
               onClick:this.onOwnClick(-1,"/intervals")
               },
-              {title:"Distanza Bivalente",
-              icon:"add-circle",
-              onClick:this.onOwnClick(5),
-              function: new Piu2meno90()
-            }
-
-          
-           
           ];
          }
         }
