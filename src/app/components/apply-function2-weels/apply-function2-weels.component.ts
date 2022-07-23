@@ -29,12 +29,15 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   ambata22: number
   ambate:Ambate
   barData
+  showsBrowseButton = false
   showAmbate= false
   dateEstrazioni:string[]
   showTitle = false
   color1 = "red"
   color2 = "orange"
   WeelTwo: Extraction
+  echoedNumbersOnWeel1: number[]
+  echoedNumbersOnWeel2:number[]
   function: TransformationInterface
   extractions: Extraction[]
   ambate_weel1: string
@@ -76,6 +79,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
     }) => {
       this.showTitle= !!data
       if (data) {
+        this.showsBrowseButton= true
         console.log("data",data)
         this.showTitle = true
         this.extractions=data.extractions
@@ -95,10 +99,12 @@ export class ApplyFunction2WeelsComponent implements OnInit {
         if(data.function.title==new Piu2meno90().title){
           var weelOnePlus2Minus90= this.WeelOne.extraction.map(es=>data.function.transform(es))
           var weelTwoPlus2Minus90= this.WeelTwo.extraction.map(es=>data.function.transform(es))
-          const repetitonFinder4weelOne = new RepetitionsFinder(weelOnePlus2Minus90)
-          const repetitonFinder4weelTwo = new RepetitionsFinder(weelTwoPlus2Minus90)
-          this.repetition4WeelOne = repetitonFinder4weelOne.findRepetitions(weelTwoPlus2Minus90)
-          this.repetition4WeelTwo = repetitonFinder4weelTwo.findRepetitions(weelOnePlus2Minus90)
+          const repetitionFinder4weelOne = new RepetitionsFinder(weelOnePlus2Minus90)
+          const repetitionFinder4weelTwo = new RepetitionsFinder(weelTwoPlus2Minus90)
+          this.repetition4WeelOne = repetitionFinder4weelOne.findRepetitions(weelTwoPlus2Minus90)
+          this.repetition4WeelTwo = repetitionFinder4weelTwo.findRepetitions(weelOnePlus2Minus90)
+          this.echoedNumbersOnWeel2= repetitionFinder4weelTwo.fetchEchoedNumbers(this.repetition4WeelTwo)
+          this.echoedNumbersOnWeel1= repetitionFinder4weelOne.fetchEchoedNumbers(this.repetition4WeelOne)
         }
         this.title = `${data.function.title} applicata alle ruote di ${data.weel1} e di ${data.weel2} del ${data.date}`
         this.ambata11 = data.function.transform(this.WeelOne.getFirst())
