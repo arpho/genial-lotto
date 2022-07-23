@@ -35,7 +35,6 @@ export class BrowsingPage implements OnInit {
   ngOnInit() {
     this.extractionsItems = this.navParams.get("extractions")
     this.date = this.navParams.get("date")
-    console.log("date",this.date,"items",this.extractionsItems)
     const crescententSorterItalianDate = (b: string, a: string) => new Date(new DateHelpers().fromItalian2AmericanFormat(b)).getTime() -
       new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
     this.extractionsDate = DateHelpers.getDateListFrom(this.extractionsItems)
