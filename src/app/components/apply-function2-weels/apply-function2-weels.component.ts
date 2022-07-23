@@ -62,6 +62,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
       dateEstrazioni:this.dateEstrazioni,
     }
     const modal = await this.modalCtrl.create({component:BrowsingPage,
+      cssClass: 'fullscreen',
     componentProps:props})
     await modal.present()
   }

@@ -161,6 +161,7 @@ if(estrazione1 &&estrazione2){
     }
     console.log("props",props)
     const modal = await this.modalCtrl.create({component:BrowsingPage,
+      cssClass:"fullscreen",
     componentProps:props})
     await modal.present()
   }
