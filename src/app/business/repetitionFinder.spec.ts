@@ -44,4 +44,13 @@ describe("repetitionFinder",()=>{
    expect(test.findRepetitions([3,12,21,54,6])[4]).toBe(0)
   })
 
+  it("should fetch echoed numbers",()=>{
+    const test = new RepetitionsFinder([12,33,19,10,2])
+    expect(test.fetchRepetitions([1,1,1,0,0]).length).toBe(3)
+    expect(test.fetchRepetitions([0,0,0,0,0]).length).toBe(0)
+    expect(test.fetchRepetitions([1,1,1,0,0])[0]).toBe(12)
+    expect(test.fetchRepetitions([1,1,1,0,0])[1]).toBe(33)
+    expect(test.fetchRepetitions([1,1,1,0,0])[2]).toBe(19)
+  })
+
 })
