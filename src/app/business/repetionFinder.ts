@@ -7,7 +7,7 @@ export class RepetitionsFinder{
     this.extraction = extraction
   }
 
-  fetchRepetitions(repetitionsMap:number[]){
+  fetchEchoedNumbers(repetitionsMap:number[]){
     return repetitionsMap.map((v,i)=>{
       return v==1? this.extraction[i]:null
     }).filter(e=> e!=null)
