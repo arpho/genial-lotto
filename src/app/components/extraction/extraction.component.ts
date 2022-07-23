@@ -19,6 +19,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
   @Input()highlighted:boolean
   @Input() ambate:Ambate
   @Input() repetitions: number[]
+  @Input() echoedNumbers: number[]
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -38,7 +39,8 @@ export class ExtractionComponent implements OnInit, OnChanges {
     let output= ""
     const number2Check= this.getNumber(index)
     if(this.ambate){
-    const ambate =[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22]
+    const ambate =!this.echoedNumbers?[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22,]:
+    [this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22,...this.echoedNumbers]
      output =ambate.includes(number2Check)?"green":""
     }
     if(this.repetitions){
