@@ -35,6 +35,7 @@ export class DynamicFormComponent implements OnInit,OnChanges {
   @Output() changes:EventEmitter<SimpleChanges> = new EventEmitter()
   @Input() questions: QuestionBase<any>[] = [];
   @Input() submitText: string;
+  @Input() hideSubmitButton:boolean
 
   form: FormGroup;
   payLoad

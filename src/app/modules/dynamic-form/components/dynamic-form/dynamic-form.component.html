@@ -5,6 +5,7 @@
     </div>
 
       <ion-button
+      *ngIf="!hideSubmitButton"
         type="submit"
         [disabled]="!form?.valid"
         expand="block"
