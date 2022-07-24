@@ -16,7 +16,15 @@ export class Extraction implements ItemModelInterface {
   weel: string;
   _id:string;
   transformation:TransformationInterface
-  italianDate
+  _italianDate
+
+  get key(){
+    return this._id
+  }
+
+  get italianDate(){
+    return this._italianDate
+  }
  
 
   _extraction: number[]
@@ -60,6 +68,11 @@ get extraction(){
     return this.extraction[0]
   }
 
+  set key (key:string){
+    this._id=key
+
+  }
+
   
   get title(){
     return this.transformation?`${this.transformation.title} sulla ruota di  ${this.weel}`:` ${this.weel}`
@@ -86,6 +99,7 @@ get extraction(){
   }
   set id(id:string){
     this._id= id
+    this.key= id
 
   }
 
@@ -118,7 +132,6 @@ get extraction(){
     this.load(v)
   }
   note?: string;
-  key: string;
   quickActions?: QuickAction[];
   archived?: boolean;
   service?: ItemServiceInterface;
@@ -137,6 +150,13 @@ get extraction(){
   isArchived?(): boolean {
     return false
   }
+  set italianDate(date:string){
+  
+   this._italianDate= date
+   const converter = new DateHelpers()
+   this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( date)).getTime()
+   
+  }
   archiveItem?(b: boolean) {
     
   }
@@ -154,6 +174,7 @@ get extraction(){
   }
   setKey?(key: string): ItemModelInterface {
     this.key = key
+    this._id= key
     return this
   }
   getEditPopup(item?: ItemModelInterface, service?: ItemServiceInterface) {
@@ -175,6 +196,7 @@ get extraction(){
   serialize() {
     const serializers = new Serializers()
     return {
+      "key":serializers.serialize2String(this.key),
       "date":serializers.serialize2String(this.italianDate),
       "dateInmsec": serializers.serialize2PositiveNumber(this._dateInmsec, -1),
       "weel": serializers.serialize2String(this.weel),
