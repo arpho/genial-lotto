@@ -8,6 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <app-dynamic-form [questions]="formFields" (interactiveSubmit)="setFilter($event)" ></app-dynamic-form>
-
+  <app-dynamic-form [questions]="formFields" (interactiveSubmit)="setFilter($event)" [hideSubmitButton]="hideSubmitButton"></app-dynamic-form>
+  <app-page-items-list
+  [service]='service'
+  [filterFunction]="filterFunction"
+  [createModalPage]="createModalPage"
+  [editModalPage]="editModalPage">
+   </app-page-items-list>
 </ion-content>
