@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CrudPageRoutingModule } from './crud-routing.module';
 
 import { CrudPage } from './crud.page';
+import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrudPageRoutingModule
+    CrudPageRoutingModule,
+    DynamicFormModule
   ],
-  declarations: [CrudPage]
+  declarations: []
 })
 export class CrudPageModule {}
