@@ -79,6 +79,10 @@ const routes: Routes = [
     canActivate:[AuthGuard,RoleGuardService],
     data:{maximumRoleLevel:2}
   },
+  {
+    path: 'edit',
+    loadChildren: () => import('./pages/extractions/edit/edit.module').then( m => m.EditPageModule)
+  },
 
 
 ];
