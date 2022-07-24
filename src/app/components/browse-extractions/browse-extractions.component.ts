@@ -17,23 +17,25 @@ export class BrowseExtractionsComponent implements OnInit {
   selectedData2: string
 
   previous() {
-    if(this.step>=1){
-    this.step -= 1
-    this.setData()}
-    else{
-      this.toaster.presentToast("non ci estrazioni precedenti a questa","middle")
+    if (this.step >= 1) {
+      this.step -= 1
+      this.setData()
+    }
+    else {
+      this.toaster.presentToast("non ci estrazioni precedenti a questa", "middle")
     }
   }
   next() {
-    if(this.step<=this.extractionsDate.length-1){
-    this.step += 1
-    this.setData()}
-    else{
-      this.toaster.presentToast("non ci sono estrazioni successive a questa!","middle")
+    if (this.step <= this.extractionsDate.length - 1) {
+      this.step += 1
+      this.setData()
+    }
+    else {
+      this.toaster.presentToast("non ci sono estrazioni successive a questa!", "middle")
     }
   }
-  
-  ambate:Ambate
+
+  ambate: Ambate
   @Input() extractionsDate: string[]
   @Input() ambata11: number
   @Input() ambata12: number
@@ -41,25 +43,25 @@ export class BrowseExtractionsComponent implements OnInit {
   @Input() ambata22: number
   @Input() weel1: string
   @Input() weel2: string
-  @Input() transformation:TransformationInterface
+  @Input() transformation: TransformationInterface
   step = 0
-  setData(){
-    this.selectedData=this.extractionsDate[this.step]
-    this.selectedData1=this.step+1<=this.extractionsDate.length? this.extractionsDate[this.step+1]:this.selectedData1
-    this.selectedData2=this.step+2 <=this.extractionsDate.length? this.extractionsDate[this.step+2]:this.selectedData2
+  setData() {
+    this.selectedData = this.extractionsDate[this.step]
+    this.selectedData1 = this.step + 1 <= this.extractionsDate.length ? this.extractionsDate[this.step + 1] : this.selectedData1
+    this.selectedData2 = this.step + 2 <= this.extractionsDate.length ? this.extractionsDate[this.step + 2] : this.selectedData2
   }
-  constructor(public toaster:MyToastService) { }
+  constructor(public toaster: MyToastService) { }
 
   ngOnInit() {
-this.ambate = new Ambate({
-  weel1:this.weel1,
-  weel2:this.weel2,
-  ambata11:this.ambata11,
-  ambata21:this.ambata21
-})
-if(this.extractionsDate){
-    this.setData()
+    this.ambate = new Ambate({
+      weel1: this.weel1,
+      weel2: this.weel2,
+      ambata11: this.ambata11,
+      ambata21: this.ambata21
+    })
+    if (this.extractionsDate) {
+      this.setData()
+    }
   }
-   }
 
 }

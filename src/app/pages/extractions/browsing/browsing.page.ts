@@ -27,25 +27,25 @@ export class BrowsingPage implements OnInit {
   color2 = "orange"
   date: string
   switchViewValue = false
-  switchText="quadro estrazionale"
-  transformation= new Neutro()
+  switchText = "quadro estrazionale"
+  transformation = new Neutro()
   constructor(
     public modalCtrl: ModalController,
     public navParams: NavParams) { }
 
-    switchView(){
-      console.log("switch")
-      this.switchViewValue = !this.switchViewValue
-      if(!this.switchViewValue){
-        this.switchText="quadro estrazionale"
-        this.transformation = new Neutro()
-      }
-      else{
-        this.switchText= "figure"
-        this.transformation = new Figura()
-      }
-      console.log("switch",this.switchText,this.switchViewValue)
+  switchView() {
+    console.log("switch")
+    this.switchViewValue = !this.switchViewValue
+    if (!this.switchViewValue) {
+      this.switchText = "quadro estrazionale"
+      this.transformation = new Neutro()
     }
+    else {
+      this.switchText = "figure"
+      this.transformation = new Figura()
+    }
+    console.log("switch", this.switchText, this.switchViewValue)
+  }
 
   fromItalianDate2UsDate(d: string) {
     const transformer = new DateHelpers()
@@ -57,14 +57,14 @@ export class BrowsingPage implements OnInit {
     this.date = this.navParams.get("date")
     const crescententSorterItalianDate = (b: string, a: string) => new Date(new DateHelpers().fromItalian2AmericanFormat(b)).getTime() -
       new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
-      if(this.extractionsItems){
-    this.extractionsDate = DateHelpers.getDateListFrom(this.extractionsItems)
+    if (this.extractionsItems) {
+      this.extractionsDate = DateHelpers.getDateListFrom(this.extractionsItems)
       this.extractionsDate = this.extractionsDate.filter(d =>
         new Date(this.fromItalianDate2UsDate(d)).getTime() >
         new Date(this.fromItalianDate2UsDate(this.date)).getTime())
         .sort(crescententSorterItalianDate)
-      }
-    
+    }
+
     this.weel1 = this.navParams.get("weel1")
     this.weel2 = this.navParams.get("weel2")
     this.ambata11 = this.navParams.get("ambata11")

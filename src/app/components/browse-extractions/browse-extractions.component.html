@@ -1,51 +1,36 @@
-
-  <ion-grid class="extractions">
-    <ion-row>
-      <ion-item>
+<ion-grid class="extractions">
+  <ion-row>
+    <ion-item>
     </ion-item>
-    </ion-row>
-    <ion-row>
-      <ion-item>
-      <app-weels-viewer class="browsable"
-      *ngIf="selectedData"
-       [estrazioni]="extractionsItems"
-       [ambate]="ambate"
-       [transformation]="transformation"
-       [data]="selectedData">
+  </ion-row>
+  <ion-row>
+    <ion-item>
+      <app-weels-viewer class="browsable" *ngIf="selectedData" [estrazioni]="extractionsItems" [ambate]="ambate"
+        [transformation]="transformation" [data]="selectedData">
       </app-weels-viewer>
     </ion-item>
     <ion-item>
-      <app-weels-viewer
-      *ngIf="selectedData1"
-      class="browsable"
-       [ambate]="ambate"
-       [estrazioni]="extractionsItems"
-       [transformation]="transformation"
-       [data]="selectedData1">
+      <app-weels-viewer *ngIf="selectedData1" class="browsable" [ambate]="ambate" [estrazioni]="extractionsItems"
+        [transformation]="transformation" [data]="selectedData1">
       </app-weels-viewer>
-    <div class="browsing_buttons">
+      <div class="browsing_buttons">
 
-      <ion-button (click)="previous()">
-        <ion-icon name="arrow-back">
-  
-        </ion-icon>
-      </ion-button>
-      <ion-button (click)="next()">
-        <ion-icon name="arrow-forward">
-  
-        </ion-icon>
-      </ion-button>
-  </div>
+        <ion-button (click)="previous()">
+          <ion-icon name="arrow-back">
+
+          </ion-icon>
+        </ion-button>
+        <ion-button (click)="next()">
+          <ion-icon name="arrow-forward">
+
+          </ion-icon>
+        </ion-button>
+      </div>
     </ion-item>
 
     <ion-item>
-      <app-weels-viewer
-      *ngIf="selectedData2"
-      class="browsable"
-      [estrazioni]="extractionsItems"
-      [ambate]="ambate"
-      [transformation]="transformation"
-      [data]="selectedData2">
+      <app-weels-viewer *ngIf="selectedData2" class="browsable" [estrazioni]="extractionsItems" [ambate]="ambate"
+        [transformation]="transformation" [data]="selectedData2">
       </app-weels-viewer>
     </ion-item>
   </ion-row>
