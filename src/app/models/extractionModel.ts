@@ -123,7 +123,7 @@ get extraction(){
   archived?: boolean;
   service?: ItemServiceInterface;
   getTitle(): Value {
-   return new Value({value:`ruota di ${this.weel}`,label:""})
+   return new Value({value:` ${this.weel}`,label:"ruota"})
   }
   getCountingText(): { singular: string; plural: string; } {
     return {singular:"estrazioone",plural:"estrazioni"}
@@ -144,7 +144,7 @@ get extraction(){
   return false
   }
   getValue2(): Value {
-    return new Value({value:this.weel,label:"ruota di"})
+    return new Value({value:this.extraction.join(','),label:"estrazione"})
   }
   getValue3(): Value {
     return new Value({value:this.date,label:"estrazione del"})
