@@ -36,7 +36,6 @@ export class CrudPage implements OnInit,OnDestroy {
       
      const Items = items.sort(DateHelpers.sorterDescendingDate);
      this.dates = Array.from(new Set(Items.map(ex => ex._italianDate)))
-      console.log("dates",this.dates)
       this.formFields = [new DropdownQuestion({label:"scegli una data",
     key:"date",
     options:new OptionsMaker().makesOptionsFromArray(this.dates)})]
