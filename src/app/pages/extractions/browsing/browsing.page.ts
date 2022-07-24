@@ -37,11 +37,13 @@ export class BrowsingPage implements OnInit {
     this.date = this.navParams.get("date")
     const crescententSorterItalianDate = (b: string, a: string) => new Date(new DateHelpers().fromItalian2AmericanFormat(b)).getTime() -
       new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
+      if(this.extractionsItems){
     this.extractionsDate = DateHelpers.getDateListFrom(this.extractionsItems)
       this.extractionsDate = this.extractionsDate.filter(d =>
         new Date(this.fromItalianDate2UsDate(d)).getTime() >
         new Date(this.fromItalianDate2UsDate(this.date)).getTime())
         .sort(crescententSorterItalianDate)
+      }
     
     this.weel1 = this.navParams.get("weel1")
     this.weel2 = this.navParams.get("weel2")
