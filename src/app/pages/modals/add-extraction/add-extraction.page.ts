@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { asyncDateValidatorFactory } from 'src/app/business/asyncDateValidatorFactory';
 import { ExtractionValidator } from 'src/app/business/extractionValidator';
 import { extractionValidator4Field } from 'src/app/business/ExtractioValidator4Field';
 import { FetchExtractionNumbers } from 'src/app/business/fetchExtractionNumbers';
@@ -44,6 +45,7 @@ export class AddExtractionPage implements OnInit {
         label: "data di estrazione",
         required: true,
         presentation: "date",
+        asyncValidator:[new asyncDateValidatorFactory(this.service).getValidator()]
       
       }),
       new TextboxQuestion({
