@@ -8,5 +8,6 @@
 </ion-header>
 
 <ion-content>
+  <app-dynamic-form [questions]="formFields" (interactiveSubmit)="setFilter($event)" ></app-dynamic-form>
 
 </ion-content>
