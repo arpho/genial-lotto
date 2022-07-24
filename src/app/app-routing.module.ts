@@ -77,7 +77,7 @@ const routes: Routes = [
     path: 'crud',
     loadChildren: () => import('./pages/extractions/crud/crud.module').then( m => m.CrudPageModule),
     canActivate:[AuthGuard,RoleGuardService],
-    data:{maxmumRoleLevel:2}
+    data:{maximumRoleLevel:2}
   },
 
 
