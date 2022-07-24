@@ -73,6 +73,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/intervals/intervals.module').then( m => m.IntervalsPageModule)
   },
 
+  {
+    path: 'crud',
+    loadChildren: () => import('./pages/extractions/crud/crud.module').then( m => m.CrudPageModule),
+    canActivate:[AuthGuard,RoleGuardService],
+    data:{maxmumRoleLevel:2}
+  },
+
 
 ];
 

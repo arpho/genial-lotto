@@ -54,7 +54,17 @@ this.menu.open("main-content")
       if( user){
       const token = await user.getIdTokenResult(true).then(result=>{
         if(Number(result.claims["level"])<=2){
-          this.appPages.push( { title: "utenti", url: "/customers", icon: "people", onClick:this.onOwnClick(-1,"/customers") },
+          this.appPages.push( {
+             title: "utenti",
+              url: "/customers",
+               icon: "people",
+                onClick:this.onOwnClick(-1,"/customers") },
+                {
+                  title:"gestisci estrazioni",
+              url:"/crud",
+            icon:"list",
+          onClick:this.onOwnClick(-1,"/crud")}
+
          )
          if(!result.claims["enabled"]){
           alert("il suo account non è abilitato, se il problema persiste contatti l'amministratore")
