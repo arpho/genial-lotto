@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { Figura } from 'src/app/business/figura';
+import { Neutro } from 'src/app/business/neutro';
 import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
 import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
+import { ApplyFunction2WeelsPageRoutingModule } from '../../modals/apply-function2-weels/apply-function2-weels-routing.module';
 
 @Component({
   selector: 'app-browsing',
@@ -23,9 +26,26 @@ export class BrowsingPage implements OnInit {
   color1 = "red"
   color2 = "orange"
   date: string
+  switchViewValue = false
+  switchText="quadro estrazionale"
+  transformation= new Neutro()
   constructor(
     public modalCtrl: ModalController,
     public navParams: NavParams) { }
+
+    switchView(){
+      console.log("switch")
+      this.switchViewValue = !this.switchViewValue
+      if(!this.switchViewValue){
+        this.switchText="quadro estrazionale"
+        this.transformation = new Neutro()
+      }
+      else{
+        this.switchText= "figure"
+        this.transformation = new Figura()
+      }
+      console.log("switch",this.switchText,this.switchViewValue)
+    }
 
   fromItalianDate2UsDate(d: string) {
     const transformer = new DateHelpers()

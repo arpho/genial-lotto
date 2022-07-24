@@ -6,6 +6,16 @@
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-item
+    slot="start"
+    >
+    <ion-label>
+      {{switchText}}
+    </ion-label>
+    <ion-toggle
+    value="switchViewValue"
+    (ionChange)="switchView()"></ion-toggle>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
@@ -43,6 +53,7 @@
   
   </ion-grid>
   <app-browse-extractions
+  [transformation]="transformation"
   [ambata11]="ambata11"
   [ambata12]="ambata12"
   [ambata21]="ambata21"
