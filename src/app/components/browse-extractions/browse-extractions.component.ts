@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Neutro } from 'src/app/business/neutro';
 import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
+import { TransformationInterface } from 'src/app/models/trasformationInterface';
 import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toast-service.service';
 
 @Component({
@@ -31,7 +32,7 @@ export class BrowseExtractionsComponent implements OnInit {
       this.toaster.presentToast("non ci sono estrazioni successive a questa!","middle")
     }
   }
-  neutralFunction = new Neutro()
+  
   ambate:Ambate
   @Input() extractionsDate: string[]
   @Input() ambata11: number
@@ -40,6 +41,7 @@ export class BrowseExtractionsComponent implements OnInit {
   @Input() ambata22: number
   @Input() weel1: string
   @Input() weel2: string
+  @Input() transformation:TransformationInterface
   step = 0
   setData(){
     this.selectedData=this.extractionsDate[this.step]
