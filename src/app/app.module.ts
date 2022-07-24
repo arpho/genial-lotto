@@ -32,6 +32,7 @@ import { MagicPage } from './pages/magic/magic.page';
 import { IntervalsD3Component } from './components/intervals-d3/intervals-d3.component';
 import { IntervalsPage } from './pages/intervals/intervals.page';
 import { SuggestedNumbersComponent } from './components/suggested-numbers/suggested-numbers.component';
+import { CrudPage } from './pages/extractions/crud/crud.page';
 
 
 
@@ -59,8 +60,8 @@ import { SuggestedNumbersComponent } from './components/suggested-numbers/sugges
     MagicPage,
     IntervalsD3Component,
     IntervalsPage,
-    SuggestedNumbersComponent
-    
+    SuggestedNumbersComponent,
+    CrudPage
    ],
   entryComponents: [],
   imports: [
