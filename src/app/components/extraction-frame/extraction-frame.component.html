@@ -1,0 +1,14 @@
+
+<h2>{{data}}</h2>
+<article *ngIf="Cagliari" [ngClass]="{'highlighted':highlighted}">
+
+ 
+
+<app-weel-frame *ngFor="let extraction of weels"
+[extraction]="extraction"
+[highlighted]="isHighLighted(extraction)"
+[ambate]="ambate"
+[transformation]="transformation"
+></app-weel-frame>
+
+</article>

@@ -33,6 +33,8 @@ import { IntervalsD3Component } from './components/intervals-d3/intervals-d3.com
 import { IntervalsPage } from './pages/intervals/intervals.page';
 import { SuggestedNumbersComponent } from './components/suggested-numbers/suggested-numbers.component';
 import { CrudPage } from './pages/extractions/crud/crud.page';
+import { ExtractionFrameComponent } from './components/extraction-frame/extraction-frame.component';
+import { WeelFrameComponent } from './components/weel-frame/weel-frame.component';
 
 
 
@@ -61,7 +63,9 @@ import { CrudPage } from './pages/extractions/crud/crud.page';
     IntervalsD3Component,
     IntervalsPage,
     SuggestedNumbersComponent,
-    CrudPage
+    CrudPage,
+    ExtractionFrameComponent,
+    WeelFrameComponent,
    ],
   entryComponents: [],
   imports: [
