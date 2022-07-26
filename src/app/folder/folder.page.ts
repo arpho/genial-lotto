@@ -108,7 +108,6 @@ export class FolderPage implements OnInit {
   }
 
   filter(ev) {
-    console.log("typing", ev)
     this.index = Number(ev.extractionDate) // we set the index of the combobox
     const data = this.dateEstrazioni[ev.extractionDate]
 
@@ -143,7 +142,6 @@ export class FolderPage implements OnInit {
       date: this.dateEstrazioni[Number(ev.extractionDate)],
       extractions:this.estrazioniItems
     }
-    console.log( "data send to apply",props)
     this.WeelOne = props.extractions.filter((e: Extraction) => {
       return e.weel == props.weel1 && e.italianDate == props.date
     })[0]

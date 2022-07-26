@@ -81,7 +81,6 @@ export class ApplyFunction2WeelsComponent implements OnInit {
       this.showTitle= !!data
       if (data) {
         this.showsBrowseButton= true
-        console.log("data",data)
         this.showTitle = true
         this.extractions=data.extractions
         this.date= data.date
@@ -89,7 +88,6 @@ export class ApplyFunction2WeelsComponent implements OnInit {
         this.weel2=data.weel2
         this.dateEstrazioni=data.dateEstrazioni
         this.function= data.function
-        console.log("function",this.function,this.function.title==new Piu2meno90().title)
       this.showAmbate = this.function.title==new Piu2meno90().title
         this.WeelOne = data.extractions.filter((e: Extraction) => {
           return e.weel == data.weel1 && e.italianDate == data.date
