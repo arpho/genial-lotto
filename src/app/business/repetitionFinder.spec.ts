@@ -53,4 +53,13 @@ describe("repetitionFinder",()=>{
     expect(test.fetchEchoedNumbers([1,1,1,0,0])[2]).toBe(19)
   })
 
+  it("should complete echoedNumber with their vertible",()=>{
+    const test = new RepetitionsFinder([12,33,19,10,2])
+    expect(test.reflectArrayAndRemoveDuplicated([17,43,17,34]).length).toBe(4)
+    expect(test.reflectArrayAndRemoveDuplicated([17,43,17,34]).includes(17)).toBeTrue()
+    expect(test.reflectArrayAndRemoveDuplicated([17,43,17,34]).includes(71)).toBeTrue()
+    expect(test.reflectArrayAndRemoveDuplicated([17,43,17,34]).includes(43)).toBeTrue()
+    expect(test.reflectArrayAndRemoveDuplicated([17,43,17,34]).includes(34)).toBeTrue()
+  })
+
 })
