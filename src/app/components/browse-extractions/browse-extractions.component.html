@@ -5,14 +5,14 @@
   </ion-row>
   <ion-row>
     <ion-item>
-      <app-weels-viewer class="browsable" *ngIf="selectedData" [estrazioni]="extractionsItems" [ambate]="ambate"
+      <app-extraction-frame class="browsable" *ngIf="selectedData" [estrazioni]="extractionsItems" [ambate]="ambate"
         [transformation]="transformation" [data]="selectedData">
-      </app-weels-viewer>
+      </app-extraction-frame>
     </ion-item>
     <ion-item>
-      <app-weels-viewer *ngIf="selectedData1" class="browsable" [ambate]="ambate" [estrazioni]="extractionsItems"
+      <app-extraction-frame *ngIf="selectedData1" class="browsable" [ambate]="ambate" [estrazioni]="extractionsItems"
         [transformation]="transformation" [data]="selectedData1">
-      </app-weels-viewer>
+      </app-extraction-frame>
       <div class="browsing_buttons">
 
         <ion-button (click)="previous()">
@@ -29,8 +29,8 @@
     </ion-item>
 
     <ion-item>
-      <app-weels-viewer *ngIf="selectedData2" class="browsable" [estrazioni]="extractionsItems" [ambate]="ambate"
+      <app-extraction-frame *ngIf="selectedData2" class="browsable" [estrazioni]="extractionsItems" [ambate]="ambate"
         [transformation]="transformation" [data]="selectedData2">
-      </app-weels-viewer>
+      </app-extraction-frame>
     </ion-item>
   </ion-row>
