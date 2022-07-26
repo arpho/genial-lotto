@@ -106,7 +106,8 @@ export class ApplyFunction2WeelsComponent implements OnInit {
           this.repetition4WeelTwo = repetitionFinder4weelTwo.findRepetitions(weelOnePlus2Minus90)
           this.echoedNumbersOnWeel2= repetitionFinder4weelTwo.fetchEchoedNumbers(this.repetition4WeelTwo)
           this.echoedNumbersOnWeel1= repetitionFinder4weelOne.fetchEchoedNumbers(this.repetition4WeelOne)
-          this.echoedNumbers= [...this.echoedNumbersOnWeel1,... this.echoedNumbersOnWeel2]
+          this.echoedNumbers=repetitionFinder4weelTwo.reflectArrayAndRemoveDuplicated( [...this.echoedNumbersOnWeel1,... this.echoedNumbersOnWeel2])
+
           console.log("echoedNumbers",this.echoedNumbers)
         }
         this.title = `${data.function.title} applicata alle ruote di ${data.weel1} e di ${data.weel2} del ${data.date}`
