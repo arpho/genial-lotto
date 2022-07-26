@@ -1,18 +1,6 @@
 <ion-grid class="extractions">
   <ion-row>
-    <ion-item>
-    </ion-item>
-  </ion-row>
-  <ion-row>
-    <ion-item>
-      <app-extraction-frame class="browsable" *ngIf="selectedData" [estrazioni]="extractionsItems" [ambate]="ambate"
-        [transformation]="transformation" [data]="selectedData">
-      </app-extraction-frame>
-    </ion-item>
-    <ion-item>
-      <app-extraction-frame *ngIf="selectedData1" class="browsable" [ambate]="ambate" [estrazioni]="extractionsItems"
-        [transformation]="transformation" [data]="selectedData1">
-      </app-extraction-frame>
+    <ion-col>
       <div class="browsing_buttons">
 
         <ion-button (click)="previous()">
@@ -26,6 +14,19 @@
           </ion-icon>
         </ion-button>
       </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-item>
+      <app-extraction-frame class="browsable" *ngIf="selectedData" [estrazioni]="extractionsItems" [ambate]="ambate"
+        [transformation]="transformation" [data]="selectedData">
+      </app-extraction-frame>
+    </ion-item>
+    <ion-item>
+      <app-extraction-frame *ngIf="selectedData1" class="browsable" [ambate]="ambate" [estrazioni]="extractionsItems"
+        [transformation]="transformation" [data]="selectedData1">
+      </app-extraction-frame>
+      
     </ion-item>
 
     <ion-item>
