@@ -126,7 +126,8 @@ div.tooltip {
 
 article.highlighted {
   border: 2px solid red;
-  background-color: red;
+  background-color: white;
+  border-radius: 0.5em;
 }
 
 app-extraction article p.gold {
@@ -175,4 +176,17 @@ ion-modal.fullscreen {
 
 h1.itemTitle {
   width: 5em;
+}
+
+ion-grid{
+  --ion-grid-columns: 60
+
+}
+
+app-extraction-frame ion-row.md.hydrated {
+  width: 17em;
+}
+
+app-weel-frame app-numero-estratto p.green{
+  background-color: green;
 }
