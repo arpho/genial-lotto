@@ -9,46 +9,46 @@ import { TransformationInterface } from 'src/app/models/trasformationInterface';
   styleUrls: ['./weel-frame.component.scss'],
 })
 export class WeelFrameComponent implements OnInit {
-  @Input() extraction:Extraction
-  @Input() transformation:TransformationInterface
-  @Input() ambate:Ambate
+  @Input() extraction: Extraction
+  @Input() transformation: TransformationInterface
+  @Input() ambate: Ambate
   @Input() repetitions: number[]
   @Input() echoedNumbers: number[]
   @Input() highlighted: boolean
   constructor() { }
 
   ngOnInit() {
-    console.log("echoed number",this.echoedNumbers)
+    console.log("echoed number", this.echoedNumbers)
   }
 
 
 
-  getNumber(index:number){
-    return this.extraction ?this.transformation.transform( this.extraction.extraction[index]):undefined
+  getNumber(index: number) {
+    return this.extraction ? this.transformation.transform(this.extraction.extraction[index]) : undefined
   }
 
-  getTitle(){
+  getTitle() {
     let out = ""
-    if(this.extraction){
-      out = this.extraction.title  
+    if (this.extraction) {
+      out = this.extraction.title
     }
     return out
   }
 
 
 
-  setColor(index:number){
-    let output= ""
-    const number2Check= this.getNumber(index)
-    if(this.ambate){
-    const ambate =!this.echoedNumbers? [this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22,]:
-    [this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22,...this.echoedNumbers]
-     output =ambate.includes(number2Check)?"green":""
+  setColor(index: number) {
+    let output = ""
+    const number2Check = this.getNumber(index)
+    if (this.ambate) {
+      const numbers2Highlight = !this.echoedNumbers ? [this.ambate.ambata11,
+      this.ambate.ambata12,
+      this.ambate.ambata21,
+      this.ambate.ambata22,] :
+        [this.ambate.ambata11, this.ambate.ambata12, this.ambate.ambata21, this.ambate.ambata22, ...this.echoedNumbers]
+      output = numbers2Highlight.includes(number2Check) ? "green" : ""
     }
-    if(this.repetitions){
-      output=this.repetitions[index]==1?"repetition":output
-    }
-     
+
     return output
   }
 
