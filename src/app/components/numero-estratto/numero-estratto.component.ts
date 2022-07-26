@@ -14,7 +14,6 @@ export class NumeroEstrattoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 
 }

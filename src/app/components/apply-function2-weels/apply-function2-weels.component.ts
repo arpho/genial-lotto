@@ -36,6 +36,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
   color1 = "red"
   color2 = "orange"
   WeelTwo: Extraction
+  echoedNumbers:number[]
   echoedNumbersOnWeel1: number[]
   echoedNumbersOnWeel2:number[]
   function: TransformationInterface
@@ -59,6 +60,7 @@ export class ApplyFunction2WeelsComponent implements OnInit {
       ambata12:this.ambata12,
       ambata21:this.ambata21,
       ambata22:this.ambata22,
+      echoedNumbers:this.echoedNumbers,
       dateEstrazioni:this.dateEstrazioni,
     }
     const modal = await this.modalCtrl.create({component:BrowsingPage,
@@ -104,6 +106,8 @@ export class ApplyFunction2WeelsComponent implements OnInit {
           this.repetition4WeelTwo = repetitionFinder4weelTwo.findRepetitions(weelOnePlus2Minus90)
           this.echoedNumbersOnWeel2= repetitionFinder4weelTwo.fetchEchoedNumbers(this.repetition4WeelTwo)
           this.echoedNumbersOnWeel1= repetitionFinder4weelOne.fetchEchoedNumbers(this.repetition4WeelOne)
+          this.echoedNumbers= [...this.echoedNumbersOnWeel1,... this.echoedNumbersOnWeel2]
+          console.log("echoedNumbers",this.echoedNumbers)
         }
         this.title = `${data.function.title} applicata alle ruote di ${data.weel1} e di ${data.weel2} del ${data.date}`
         this.ambata11 = data.function.transform(this.WeelOne.getFirst())

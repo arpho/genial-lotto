@@ -89,6 +89,7 @@ export class ExtractionFrameComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    console.log("echoed numbers",this.echoedNumbers)
 
   }
 

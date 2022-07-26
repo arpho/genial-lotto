@@ -15,7 +15,6 @@ export class BrowseExtractionsComponent implements OnInit {
   selectedData: string
   selectedData1: string
   selectedData2: string
-
   previous() {
     if (this.step >= 1) {
       this.step -= 1
@@ -44,6 +43,7 @@ export class BrowseExtractionsComponent implements OnInit {
   @Input() weel1: string
   @Input() weel2: string
   @Input() transformation: TransformationInterface
+  @Input() echoedNumbers:number[]
   step = 0
   setData() {
     this.selectedData = this.extractionsDate[this.step]
@@ -59,6 +59,7 @@ export class BrowseExtractionsComponent implements OnInit {
       ambata11: this.ambata11,
       ambata21: this.ambata21
     })
+    console.log("echoed number",this.echoedNumbers)
     if (this.extractionsDate) {
       this.setData()
     }

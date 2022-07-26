@@ -20,6 +20,7 @@ export class BrowsingPage implements OnInit {
   ambata12: number
   ambata21: number
   ambata22: number
+  echoedNumbers:number[]
   ambate: Ambate
   weel1: string
   weel2: string
@@ -72,6 +73,8 @@ export class BrowsingPage implements OnInit {
     this.ambata21 = this.navParams.get("ambata21")
     this.ambata22 = this.navParams.get("ambata22")
     this.extractionsItems = this.navParams.get("extractions")
+    this.echoedNumbers = this.navParams.get("echoedNumbers")
+    console.log("echoedNumbers",this.echoedNumbers)
     this.ambate = new Ambate({
       weel1: this.weel1,
       weel2: this.weel2,
