@@ -3,33 +3,39 @@
   <ion-grid>
 
     <ion-row>
-      <ion-col size="20">
+      <ion-col >
 
         <p style="font-family:'Lucida Console', monospace" class="ruota" *ngIf="extraction">{{getTitle()}} </p>
-        <p id="estrazione" *ngIf="extraction">
-        </p>
       </ion-col>
-      <ion-col size="4">
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
         <app-numero-estratto [numero]="getNumber(0)" [color]="setColor(0)" [function]="transformation">
-        </app-numero-estratto>
-
-      </ion-col>
-      <ion-col size="4">
+        </app-numero-estratto></ion-col>
+            <ion-col>
         <app-numero-estratto [numero]="getNumber(1)" [color]="setColor(1)" [function]="transformation">
-        </app-numero-estratto>
-      </ion-col>
-        <ion-col size="4">
+        </app-numero-estratto></ion-col>
+            <ion-col>
           <app-numero-estratto [numero]="getNumber(2)" [color]="setColor(2)" [function]="transformation">
-          </app-numero-estratto>
-        </ion-col>
-        <ion-col size="4">
+          </app-numero-estratto></ion-col>
+            <ion-col>
           <app-numero-estratto [numero]="getNumber(3)" [color]="setColor(3)" [function]="transformation">
-          </app-numero-estratto>
-        </ion-col>
-        <ion-col size="4">
+          </app-numero-estratto></ion-col>
+            <ion-col>
           <app-numero-estratto [numero]="getNumber(4)" [color]="setColor(4)" [function]="transformation">
           </app-numero-estratto>
         </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+
+
+
+
+
+
+     
     </ion-row>
   </ion-grid>
 
