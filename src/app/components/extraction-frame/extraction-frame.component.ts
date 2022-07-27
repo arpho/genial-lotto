@@ -36,7 +36,6 @@ export class ExtractionFrameComponent implements OnInit, OnChanges {
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(`showFigures$ {this.showFigures}`)
     if (this.estrazioni && this.data) {
       const extraction = this.estrazioni.filter(e => {
         return e.italianDate == this.data
