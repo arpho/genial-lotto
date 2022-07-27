@@ -10,7 +10,7 @@ import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toas
   templateUrl: './browse-extractions.component.html',
   styleUrls: ['./browse-extractions.component.scss'],
 })
-export class BrowseExtractionsComponent implements OnInit,OnChanges {
+export class BrowseExtractionsComponent implements OnInit {
   @Input() extractionsItems: Extraction[]
   selectedData: string
   selectedData1: string
@@ -52,8 +52,7 @@ export class BrowseExtractionsComponent implements OnInit,OnChanges {
     this.selectedData2 = this.step + 2 <= this.extractionsDate.length ? this.extractionsDate[this.step + 2] : this.selectedData2
   }
   constructor(public toaster: MyToastService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-  }
+
 
   ngOnInit() {
     this.ambate = new Ambate({

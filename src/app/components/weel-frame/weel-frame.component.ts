@@ -8,7 +8,7 @@ import { TransformationInterface } from 'src/app/models/trasformationInterface';
   templateUrl: './weel-frame.component.html',
   styleUrls: ['./weel-frame.component.scss'],
 })
-export class WeelFrameComponent implements OnInit,OnChanges {
+export class WeelFrameComponent implements OnInit {
   @Input() extraction: Extraction
   @Input() transformation: TransformationInterface
   @Input() ambate: Ambate
@@ -17,9 +17,6 @@ export class WeelFrameComponent implements OnInit,OnChanges {
   @Input() highlighted: boolean
   @Input() showFigures:boolean
   constructor() { }
-  ngOnChanges(changes: SimpleChanges): void {
-   console.log(`showFigures ${this.showFigures}`)
-  }
 
   ngOnInit() {
   }
