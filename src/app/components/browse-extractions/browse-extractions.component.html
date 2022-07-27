@@ -17,22 +17,11 @@
     </ion-col>
   </ion-row>
   <ion-row>
+    <ion-col>
     <ion-item>
       <app-extraction-frame class="browsable" *ngIf="selectedData" [estrazioni]="extractionsItems" [ambate]="ambate"
-        [transformation]="transformation" [data]="selectedData">
+        [transformation]="transformation" [data]="selectedData" [showFigures]="showFigures">
       </app-extraction-frame>
     </ion-item>
-    <ion-item>
-      <app-extraction-frame *ngIf="selectedData1" class="browsable" [ambate]="ambate" [estrazioni]="extractionsItems"
-        [transformation]="transformation" [data]="selectedData1">
-      </app-extraction-frame>
-      
-    </ion-item>
-
-    <ion-item>
-      <app-extraction-frame *ngIf="selectedData2" class="browsable" [estrazioni]="extractionsItems"
-      [echoedNumbers]="echoedNumbers" [ambate]="ambate"
-        [transformation]="transformation" [data]="selectedData2">
-      </app-extraction-frame>
-    </ion-item>
+    </ion-col>
   </ion-row>
