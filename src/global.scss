@@ -177,9 +177,8 @@ h1.itemTitle {
   width: 5em;
 }
 
-ion-grid{
-  --ion-grid-columns: 60
-
+app-weel-frame ion-col.md.hydrated {
+  width: 10em;
 }
 
 app-extraction-frame ion-row.md.hydrated {
