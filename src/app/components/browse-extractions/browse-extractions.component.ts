@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Neutro } from 'src/app/business/neutro';
 import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
@@ -10,7 +10,7 @@ import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toas
   templateUrl: './browse-extractions.component.html',
   styleUrls: ['./browse-extractions.component.scss'],
 })
-export class BrowseExtractionsComponent implements OnInit {
+export class BrowseExtractionsComponent implements OnInit,OnChanges {
   @Input() extractionsItems: Extraction[]
   selectedData: string
   selectedData1: string
@@ -44,6 +44,7 @@ export class BrowseExtractionsComponent implements OnInit {
   @Input() weel2: string
   @Input() transformation: TransformationInterface
   @Input() echoedNumbers:number[]
+  @Input() showFigures:boolean
   step = 0
   setData() {
     this.selectedData = this.extractionsDate[this.step]
@@ -51,6 +52,8 @@ export class BrowseExtractionsComponent implements OnInit {
     this.selectedData2 = this.step + 2 <= this.extractionsDate.length ? this.extractionsDate[this.step + 2] : this.selectedData2
   }
   constructor(public toaster: MyToastService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+  }
 
   ngOnInit() {
     this.ambate = new Ambate({
@@ -59,7 +62,6 @@ export class BrowseExtractionsComponent implements OnInit {
       ambata11: this.ambata11,
       ambata21: this.ambata21
     })
-    console.log("echoed number",this.echoedNumbers)
     if (this.extractionsDate) {
       this.setData()
     }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
 import { TransformationInterface } from 'src/app/models/trasformationInterface';
@@ -8,17 +8,20 @@ import { TransformationInterface } from 'src/app/models/trasformationInterface';
   templateUrl: './weel-frame.component.html',
   styleUrls: ['./weel-frame.component.scss'],
 })
-export class WeelFrameComponent implements OnInit {
+export class WeelFrameComponent implements OnInit,OnChanges {
   @Input() extraction: Extraction
   @Input() transformation: TransformationInterface
   @Input() ambate: Ambate
   @Input() repetitions: number[]
   @Input() echoedNumbers: number[]
   @Input() highlighted: boolean
+  @Input() showFigures:boolean
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+   console.log(`showFigures ${this.showFigures}`)
+  }
 
   ngOnInit() {
-    console.log("echoed number", this.echoedNumbers)
   }
 
 

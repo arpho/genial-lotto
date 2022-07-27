@@ -9,12 +9,13 @@ import { TransformationInterface } from 'src/app/models/trasformationInterface';
   styleUrls: ['./extraction-frame.component.scss'],
 })
 export class ExtractionFrameComponent implements OnInit, OnChanges {
-  @Input() estrazioni:Extraction[]
-  @Input()transformation:TransformationInterface
-  @Input() ambate:Ambate
-  @Input() data:string
-  selectedWeels:string[] = []
-  Bari:Extraction
+  @Input() estrazioni: Extraction[]
+  @Input() transformation: TransformationInterface
+  @Input() ambate: Ambate
+  @Input() data: string
+  @Input() showFigures: boolean
+  selectedWeels: string[] = []
+  Bari: Extraction
   Cagliari: Extraction
   Firenze: Extraction
   Genova: Extraction
@@ -25,52 +26,53 @@ export class ExtractionFrameComponent implements OnInit, OnChanges {
   Torino: Extraction
   Venezia: Extraction
   Nazionale: Extraction
-  highlighted:boolean
+  highlighted: boolean
 
   weels: Extraction[]
 
 
-  @Input()repetitions: number[]
-  @Input()echoedNumbers: number[]
+  @Input() repetitions: number[]
+  @Input() echoedNumbers: number[]
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.estrazioni&& this.data){
-      const extraction= this.estrazioni.filter(e=>{
-        return e.italianDate==this.data
+    console.log(`showFigures$ {this.showFigures}`)
+    if (this.estrazioni && this.data) {
+      const extraction = this.estrazioni.filter(e => {
+        return e.italianDate == this.data
       })
-      this.Bari= extraction.filter(e=>{
-        return e.weel== "Bari"
+      this.Bari = extraction.filter(e => {
+        return e.weel == "Bari"
       })[0]
-      this.Cagliari= extraction.filter(e=>{
-        return e.weel== "Cagliari"
+      this.Cagliari = extraction.filter(e => {
+        return e.weel == "Cagliari"
       })[0]
-      this.Firenze= extraction.filter(e=>{
-        return e.weel== "Firenze"
+      this.Firenze = extraction.filter(e => {
+        return e.weel == "Firenze"
       })[0]
-      this.Genova= extraction.filter(e=>{
-        return e.weel== "Genova"
+      this.Genova = extraction.filter(e => {
+        return e.weel == "Genova"
       })[0]
-      this.Milano= extraction.filter(e=>{
-        return e.weel== "Milano"
+      this.Milano = extraction.filter(e => {
+        return e.weel == "Milano"
       })[0]
-      this.Napoli= extraction.filter(e=>{
-        return e.weel== "Napoli"
+      this.Napoli = extraction.filter(e => {
+        return e.weel == "Napoli"
       })[0]
-      this.Palermo= extraction.filter(e=>{
-        return e.weel== "Palermo"
+      this.Palermo = extraction.filter(e => {
+        return e.weel == "Palermo"
       })[0]
-      this.Roma= extraction.filter(e=>{
-        return e.weel== "Roma"
+      this.Roma = extraction.filter(e => {
+        return e.weel == "Roma"
       })[0]
-      this.Torino= extraction.filter(e=>{
-        return e.weel== "Torino"
+      this.Torino = extraction.filter(e => {
+        return e.weel == "Torino"
       })[0]
-      this.Venezia= extraction.filter(e=>{
-        return e.weel== "Venezia"
+      this.Venezia = extraction.filter(e => {
+        return e.weel == "Venezia"
       })[0]
-      this.Nazionale= extraction.filter(e=>{
-        return e.weel== "Nazionale"
+      this.Nazionale = extraction.filter(e => {
+        return e.weel == "Nazionale"
       })[0]
       this.weels = [
         this.Bari,
@@ -89,41 +91,43 @@ export class ExtractionFrameComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log("echoed numbers",this.echoedNumbers)
 
   }
 
-  getNumber(index:number){
-    return this.Cagliari ?this.transformation.transform( this.Cagliari.extraction[index]):undefined
+  getNumber(index: number) {
+    return this.Cagliari ? this.transformation.transform(this.Cagliari.extraction[index]) : undefined
   }
 
-  getTitle(){
+  getTitle() {
     let out = ""
-    if(this.Cagliari){
-      out = this.Cagliari.title  
+    if (this.Cagliari) {
+      out = this.Cagliari.title
     }
     return out
   }
 
 
 
-  setColor(index:number){
-    let output= ""
-    const number2Check= this.getNumber(index)
-    console.log("echoed number",this.echoedNumbers)
-     if(this.ambate){
-    const ambate =[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22,]
-     output =ambate.includes(number2Check)?"green":""
-    } 
-    if(this.repetitions){
-      output=this.repetitions[index]==1?"repetition":output
+  setColor(index: number) {
+    let output = ""
+    if (!this.showFigures) {
+      const number2Check = this.getNumber(index)
+      console.log("echoed number", this.echoedNumbers)
+      if (this.ambate) {
+        const ambate = [this.ambate.ambata11, this.ambate.ambata12, this.ambate.ambata21, this.ambate.ambata22,]
+        output = ambate.includes(number2Check) ? "green" : ""
+      }
+      if (this.repetitions) {
+        output = this.repetitions[index] == 1 ? "repetition" : output
+      }
     }
-     
+
     return output
   }
-  isHighLighted(extraction:Extraction){ // evidenzia la ruota selezionata nel quadro estrazionario
-  this.selectedWeels= [this.ambate.weel1,this.ambate.weel2]
-    return this.selectedWeels.includes( extraction.weel)
+  isHighLighted(extraction: Extraction) { // evidenzia la ruota selezionata nel quadro estrazionario
+
+    this.selectedWeels = [this.ambate.weel1, this.ambate.weel2]
+    return !this.showFigures? this.selectedWeels.includes(extraction.weel):false
 
   }
 

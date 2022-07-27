@@ -35,7 +35,6 @@ export class BrowsingPage implements OnInit {
     public navParams: NavParams) { }
 
   switchView() {
-    console.log("switch")
     this.switchViewValue = !this.switchViewValue
     if (!this.switchViewValue) {
       this.switchText = "quadro estrazionale"
@@ -45,7 +44,6 @@ export class BrowsingPage implements OnInit {
       this.switchText = "figure"
       this.transformation = new Figura()
     }
-    console.log("switch", this.switchText, this.switchViewValue)
   }
 
   fromItalianDate2UsDate(d: string) {
@@ -74,7 +72,6 @@ export class BrowsingPage implements OnInit {
     this.ambata22 = this.navParams.get("ambata22")
     this.extractionsItems = this.navParams.get("extractions")
     this.echoedNumbers = this.navParams.get("echoedNumbers")
-    console.log("echoedNumbers",this.echoedNumbers)
     this.ambate = new Ambate({
       weel1: this.weel1,
       weel2: this.weel2,
