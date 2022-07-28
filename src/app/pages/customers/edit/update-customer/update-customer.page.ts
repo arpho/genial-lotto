@@ -65,6 +65,7 @@ dismiss(customer?:Customer){
 
   ngOnInit() {
     this.customer.load(this.navParams.get("item"))
+    console.log("customer",this.customer)
     
     console.log("customer",this.customer)
     this.formFields= [
@@ -95,7 +96,8 @@ new SwitchQuestion({
 new DateQuestion({
   key:"expirationDate",
   label:"scadenza Abbonamento",
-  value:new DateModel( new Date(this.customer.expirationDate))
+  presentation:"date",
+  value:this.customer.expirationDate
 })
 ]
   }
