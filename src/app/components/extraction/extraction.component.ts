@@ -20,6 +20,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
   @Input() ambate:Ambate
   @Input() repetitions: number[]
   @Input() echoedNumbers: number[]
+  @Input()showFigures:boolean
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -47,7 +48,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
       output=this.repetitions[index]==1?"repetition":output
     }
      
-    return output
+    return !this.showFigures?output:""
   }
 
   makesPadding(str:string,size:number){

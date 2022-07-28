@@ -10,6 +10,7 @@ export class NumeroEstrattoComponent implements OnInit {
   @Input() numero:number
   @Input() color:string
   @Input() function:TransformationInterface
+  @Input()showFigures:boolean
 
   constructor() { }
 
