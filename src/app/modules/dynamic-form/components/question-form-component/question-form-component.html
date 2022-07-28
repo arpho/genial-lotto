@@ -64,7 +64,9 @@
     <section *ngSwitchCase="'datebox'" class='question'>
       <ion-datetime [formControlName]="question?.key" [id]="question?.key"
       [isDateEnabled]="question?.isDateEnabled"
-      [presentation]="question?.presentation">
+      [presentation]="question?.presentation"
+      max="3000-12-31T23:59:59"
+      >
       </ion-datetime>
     </section>
 
