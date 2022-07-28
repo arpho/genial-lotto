@@ -31,7 +31,7 @@ async submit(ev){
 this.customer.load(ev)
   console.log("submitting form",ev,this.customer)
 try{
-//  this.service.updateItem(this.customer)
+  this.service.updateItem(this.customer)
  const result = await this.service.addCustomClaim({
     email:this.customer.email,
   claims:{
