@@ -3,11 +3,13 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { EmailAuthCredential } from 'firebase/auth';
 import { configs } from 'src/app/configs/configs';
 import { Customer } from 'src/app/models/Customer';
+import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
 import { EmailQuestion } from 'src/app/modules/dynamic-form/models/question-email';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
 import { MyToastService } from 'src/app/modules/helpers/services/toaster/my-toast-service.service';
 import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
+import { DateModel } from 'src/app/modules/user/models/birthDateModel';
 import { CustomersService } from 'src/app/services/customers/customers-service.service';
 
 @Component({
@@ -26,13 +28,14 @@ filter(ev){
 }
 
 async submit(ev){
-  console.log("submitting form",ev,this.customer)
 this.customer.load(ev)
+  console.log("submitting form",ev,this.customer)
 try{
-  this.service.updateItem(this.customer)
+//  this.service.updateItem(this.customer)
  const result = await this.service.addCustomClaim({
     email:this.customer.email,
   claims:{
+    expirationTime:this.customer._expirationTime,
     enabled:this.customer.enabled,
     level:this.customer.level,
     userType:this.customer.userType
@@ -88,6 +91,11 @@ new SwitchQuestion({
   iconFalse:"close-circle",
   labelFalse:"utente non abilitato",
   labelTrue:"utente abilitato"
+}),
+new DateQuestion({
+  key:"expirationDate",
+  label:"scadenza Abbonamento",
+  value:new DateModel( new Date(this.customer.expirationDate))
 })
 ]
   }
