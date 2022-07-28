@@ -16,6 +16,7 @@ export class Customer extends UserModel {
 
  
     load(v: {}) {
+        super.load(v)
         this.telephones = []
         Object.assign(this, v)
         this.level = this.level||3
