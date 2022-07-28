@@ -7,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import firebase from 'firebase/compat/app';
 import { AuthService } from '../../services/auth.service';
 import { ProfileService } from '../../services/profile.service';
+import { LoginPage } from '../login/login.page';
 
 TestBed.configureTestingModule({
   declarations: [ ProfilePage ],
@@ -19,7 +20,9 @@ TestBed.configureTestingModule({
     ],
   imports: [
     firebase,
-    RouterTestingModule,Router
+    RouterTestingModule.withRoutes([{
+      path:"/users/login",component:LoginPage
+    }])
     ],
 })
 .compileComponents();
