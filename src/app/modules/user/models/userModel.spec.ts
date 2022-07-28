@@ -10,6 +10,7 @@ const val = {
   firstName: "joe",
   lastName: "friend",
   level: 1,
+  expirationDate:"12/25/2022",
   birthDate: { day: 16, month: 2, year: 1977 },
   enabled: true
 };
@@ -19,6 +20,7 @@ describe("test build function", () => {
     firstName: "joe",
     lastName: "friend",
     level: 1,
+    expirationDate:"12/25/2022",
     birthDate: { day: 16, month: 2, year: 1977 },
     enabled: true
   };
@@ -28,6 +30,8 @@ describe("test build function", () => {
     expect(user.lastName).toBe(val.lastName);
     expect(user.email).toBe(val.email);
     expect(user.birthDate.day).toBe(16);
+    expect(user.expirationDate).toBe("2022-12-25")
+    expect(user.expirationTime).toBe(new Date(Val.expirationDate).getTime())
     expect(user.birthDate.month).toBe(2);
     expect(user.birthDate.year).toBe(1977);
     expect(user.level).toBe(1);
@@ -43,6 +47,7 @@ describe("serialize should work", () => {
   it("the user is serialized", () => {
     const serializedUser = user.serialize();
     expect(typeof serializedUser).toBe("object");
+    expect(serializedUser.expirationDate).toBe("2022-12-25")
     expect(serializedUser.firstName).toBe(val.firstName);
     expect(serializedUser.lastName).toBe(val.lastName);
     expect(serializedUser.level).toBe(val.level);

@@ -9,6 +9,7 @@ import { RoleModel } from './privilegesLevelModel';
 import { configs } from 'src/app/configs/configs';
 import { QuickAction } from '../../item/models/QuickAction';
 import { KeyboardResize } from '@capacitor/keyboard';
+import { Serializers } from '../../helpers/serializers';
 // import { EditUserPage } from '../pages/edit-user/edit-user.page';
 export class UserModel implements ItemModelInterface {
   birthDate: DateModel; // { day: number; month: number; year: number };
@@ -16,6 +17,8 @@ export class UserModel implements ItemModelInterface {
   firstName: string;
   lastName: string;
   password: string;
+  _expirationDate:DateModel
+  _expirationTime:number
   title: string;
   key: string;
   offlineEnabled = false // for the moment false for default
@@ -25,6 +28,17 @@ export class UserModel implements ItemModelInterface {
   enabled: boolean;
   role: RoleModel;
   service: ItemServiceInterface;
+
+  set expirationDate (date:string){
+    this._expirationDate = new DateModel(new Date(date))
+    this._expirationTime = this._expirationDate.getTime()
+  }
+  get expirationDate (){
+    return this._expirationDate?this._expirationDate.formatDate():""
+  }
+   get expirationTime(){
+    return this._expirationTime
+   }
 
   constructor(user?: {}, key?: string,) {
     this.load(user)
@@ -78,6 +92,9 @@ export class UserModel implements ItemModelInterface {
     const loader = ([Key, value]) => {
       this[Key] = value;
     };
+    if(!this._expirationDate){
+        this.expirationDate = new DateModel(new Date()).formatDate()
+    }
     Object.entries(item).forEach(loader);
     // tslint:disable-next-line: no-string-literal
     if (item['birthDate']) {
@@ -87,6 +104,7 @@ export class UserModel implements ItemModelInterface {
     this.role = configs.accessLevel.filter(
       (access: RoleModel) => access.value === this.level
     )[0];
+
   }
   hasQuickActions() {
     return false;
@@ -100,6 +118,7 @@ export class UserModel implements ItemModelInterface {
   }
 
   serialize() {
+    const serializer= new Serializers()
     const out = {
       uid: this.uid || this.key,
       birthDate: this.birthDate ? this.birthDate.serialize() : '',
@@ -107,6 +126,7 @@ export class UserModel implements ItemModelInterface {
       firstName: this.firstName ?? '',
       lastName: this.lastName ?? '',
       enabled: !!this.enabled,
+      expirationDate:serializer.serialize2String(this.expirationDate),
       level: this.role && this.role.value ? this.role.value : 3,
       archived: !!this.archived
     };

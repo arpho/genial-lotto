@@ -1,3 +1,4 @@
+import { ExpectedConditions } from "protractor"
 import { Customer } from "./Customer"
 
 describe("empty customer",()=>{
@@ -26,6 +27,7 @@ describe("customer with data",()=>{
   const data = {
     firstName:"joe",
     lastName:"friend",
+    expirationDate:"12/25/2022",
     level:'1',
     key:"key",
     email:"a@iol.it"
@@ -52,5 +54,6 @@ describe("customer with data",()=>{
     expect(customer.serialize().email).toBe(data.email)
     expect(customer.serialize().level).toBe(1)
     expect(customer.address).toBeDefined()
+    expect(customer.serialize()["expirationDate"]).toBe("2022-12-25")
   })
 })
