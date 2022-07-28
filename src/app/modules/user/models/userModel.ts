@@ -153,6 +153,7 @@ export class UserModel implements ItemModelInterface {
     this.role = this.roleFactory(this.level)
     this.key = this.key ?? this.uid
     this.enabled = Boolean(this.enabled)
+    this.expirationDate= this.expirationDate||new DateModel(new Date()).formatDate()
     return this;
 
   }
