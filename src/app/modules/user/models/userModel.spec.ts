@@ -41,6 +41,11 @@ describe("test build function", () => {
     expect(user.role.key).toBe("Sviluppatore");
     expect(user.role.value).toBe(1);
   });
+
+  it("user withouth expirationDate",()=>{
+    const user =new UserModel()
+    expect(user.expirationDate).toBe("2022-07-28")
+  })
 });
 describe("serialize should work", () => {
   user.build(val);
