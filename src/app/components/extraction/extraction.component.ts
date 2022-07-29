@@ -39,7 +39,7 @@ export class ExtractionComponent implements OnInit, OnChanges {
   setColor(index:number){
     let output= ""
     const number2Check= this.getNumber(index)
-    if(this.ambate){
+    if(this.ambate && !this.showFigures){
     const ambate =!this.echoedNumbers?[this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22,]:
     [this.ambate.ambata11,this.ambate.ambata12,this.ambate.ambata21,this.ambate.ambata22,...this.echoedNumbers]
      output =ambate.includes(number2Check)?"green":""
