@@ -40,7 +40,7 @@ export class WeelFrameComponent implements OnInit {
   setColor(index: number) {
     let output = ""
     const number2Check = this.getNumber(index)
-    if (this.ambate) {
+    if (this.ambate &&!this.showFigures) {
       const numbers2Highlight = !this.echoedNumbers ? [this.ambate.ambata11,
       this.ambate.ambata12,
       this.ambate.ambata21,
