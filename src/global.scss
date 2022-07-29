@@ -123,10 +123,11 @@ div.tooltip {
   font-size: .9rem;
 }
 
-article.highlighted {
+article.highlighted{
   border: 2px solid red;
   background-color: white;
   border-radius: 0.5em;
+  height: 2em;
 }
 
 app-extraction article p.gold {
@@ -191,4 +192,8 @@ app-extraction-frame ion-row.md.hydrated {
 
 app-weel-frame app-numero-estratto p.green{
   background-color: green;
+}
+
+app-extraction-frame ion-row.md.hydrated {
+  height: 1em;
 }
