@@ -18,7 +18,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col *ngIf="!switchViewValue">
        <h2> {{weel1}}</h2>
         <app-numero-estratto class="ambata" [numero]="ambata11"></app-numero-estratto>
         <app-numero-estratto class="ambata" [numero]="ambata12"></app-numero-estratto>
@@ -26,7 +26,7 @@
       </ion-col>
 
 
-      <ion-col>
+      <ion-col *ngIf="!switchViewValue">
         <h2>
         {{weel2}}
         </h2>
