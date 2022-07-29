@@ -1,8 +1,9 @@
 <article
-[ngClass]="{'highlighted':highlighted}"
+[ngClass]="{'highlighted':highlighted}" 
+*ngIf="extraction"
 >
 <p style="font-family:'Lucida Console', monospace" class="ruota" *ngIf="extraction">{{getTitle()|sameLengthString:9}} </p>
-<p id="estrazione" *ngIf="extraction">
+
   <app-numero-estratto
    [numero]="getNumber(0)"
    [color]="setColor(0)"
@@ -22,5 +23,4 @@
   [color]="setColor(4)"
   [function]="transformation"></app-numero-estratto>
 
-</p>
 </article>
