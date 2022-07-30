@@ -24,6 +24,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     IonicModule.forRoot(),
   ],
-    declarations: [FilterPopupPage]
+    declarations: []
 })
 export class FilterPopupPageModule {}
