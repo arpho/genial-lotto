@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DateHelpers } from '../../../../modules/helpers/dateHelper';
+import { Utilities4Date } from '../../../../modules/helpers/dateHelper';
 import { Customer } from 'src/app/models/Customer';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
 import { ItemModelInterface } from 'src/app/modules/item/models/itemModelInterface';
@@ -46,9 +46,8 @@ export class CustomersPage implements OnInit {
   ngOnInit() {
   }
   expiringCustomers(){
-    console.log("filtering expiring")
     const today= new Date()
-    const expirationDate = DateHelpers.addDays2Date(today,31)
+    const expirationDate = Utilities4Date.addDays2Date(today,31)
     this.filterFunction = (customer:Customer)=>customer.expirationTime<expirationDate.getTime()
 
   }

@@ -5,7 +5,7 @@ import { Extraction } from 'src/app/models/extractionModel';
 import { TransformationInterface } from 'src/app/models/trasformationInterface';
 import { MessageBrokerService } from 'src/app/modules/helpers/services/messages/message-broker.service';
 import * as d3 from "d3"
-import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
+import { Utilities4Date } from 'src/app/modules/helpers/dateHelper';
 import { makeData4D3 } from 'src/app/business/makeData4D3';
 import { ModalController } from '@ionic/angular';
 import { BrowsingPage } from 'src/app/pages/extractions/browsing/browsing.page';

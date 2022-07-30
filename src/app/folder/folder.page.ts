@@ -17,7 +17,7 @@ import { OptionsMaker } from '../modules/dynamic-form/helpers/optionMaker';
 import { DateQuestion } from '../modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdown';
 import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
-import { DateHelpers } from '../modules/helpers/dateHelper';
+import { Utilities4Date } from '../modules/helpers/dateHelper';
 import { MessageBrokerService } from '../modules/helpers/services/messages/message-broker.service';
 import { DateModel } from '../modules/user/models/birthDateModel';
 import { AuthService } from '../modules/user/services/auth.service';
@@ -152,7 +152,7 @@ export class FolderPage implements OnInit {
     this.ambata12 =new Vertibile().transform(this.ambata11)
     this.ambata21 =props.function.transform(this.WeelTwo.getFirst())
     this.ambata22 = new Vertibile().transform(this.ambata21)
-    const sorter = DateHelpers.sorterDescendingDate
+    const sorter = Utilities4Date.sorterDescendingDate
 
 
     this.weel1= props.weel1
@@ -242,12 +242,12 @@ export class FolderPage implements OnInit {
       )
 
       const isDateEnabled = (date: string) => {
-        const helper = new DateHelpers()
+        const helper = new Utilities4Date()
         const out = this.dateEstrazioni.indexOf(helper.fromDatePickerFormat2ItalianFormat(date)) > -1
         return out
       }
-        const DescendentsorterItalianDate = (a:string,b:string)=>new Date( new DateHelpers().fromItalian2AmericanFormat(b)).getTime()-
-        new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
+        const DescendentsorterItalianDate = (a:string,b:string)=>new Date( new Utilities4Date().fromItalian2AmericanFormat(b)).getTime()-
+        new Date(new Utilities4Date().fromItalian2AmericanFormat(a)).getTime()
         this.dateEstrazioni= this.dateEstrazioni.sort(DescendentsorterItalianDate)
      
 this.initFormFields()

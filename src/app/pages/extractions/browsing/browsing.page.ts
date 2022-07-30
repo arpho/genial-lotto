@@ -4,7 +4,7 @@ import { Figura } from 'src/app/business/figura';
 import { Neutro } from 'src/app/business/neutro';
 import { Ambate } from 'src/app/models/ambate';
 import { Extraction } from 'src/app/models/extractionModel';
-import { DateHelpers } from 'src/app/modules/helpers/dateHelper';
+import { Utilities4Date } from 'src/app/modules/helpers/dateHelper';
 import { ApplyFunction2WeelsPageRoutingModule } from '../../modals/apply-function2-weels/apply-function2-weels-routing.module';
 
 @Component({
@@ -47,17 +47,17 @@ export class BrowsingPage implements OnInit {
   }
 
   fromItalianDate2UsDate(d: string) {
-    const transformer = new DateHelpers()
+    const transformer = new Utilities4Date()
     return transformer.fromItalian2AmericanFormat(d)
   }
 
   ngOnInit() {
     this.extractionsItems = this.navParams.get("extractions")
     this.date = this.navParams.get("date")
-    const crescententSorterItalianDate = (b: string, a: string) => new Date(new DateHelpers().fromItalian2AmericanFormat(b)).getTime() -
-      new Date(new DateHelpers().fromItalian2AmericanFormat(a)).getTime()
+    const crescententSorterItalianDate = (b: string, a: string) => new Date(new Utilities4Date().fromItalian2AmericanFormat(b)).getTime() -
+      new Date(new Utilities4Date().fromItalian2AmericanFormat(a)).getTime()
     if (this.extractionsItems) {
-      this.extractionsDate = DateHelpers.getDateListFrom(this.extractionsItems)
+      this.extractionsDate = Utilities4Date.getDateListFrom(this.extractionsItems)
       this.extractionsDate = this.extractionsDate.filter(d =>
         new Date(this.fromItalianDate2UsDate(d)).getTime() >
         new Date(this.fromItalianDate2UsDate(this.date)).getTime())

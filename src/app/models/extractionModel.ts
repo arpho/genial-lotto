@@ -1,6 +1,6 @@
 import { stringify } from "querystring";
 import { ExtractionValidator } from "../business/extractionValidator";
-import { DateHelpers } from "../modules/helpers/dateHelper";
+import { Utilities4Date } from "../modules/helpers/dateHelper";
 import { Serializers } from "../modules/helpers/serializers"
 import { Genere, ItemModelInterface } from "../modules/item/models/itemModelInterface";
 import { ItemServiceInterface } from "../modules/item/models/ItemServiceInterface";
@@ -45,7 +45,7 @@ get extraction(){
 
 
   set date(date: string) {
-    const converter = new DateHelpers()
+    const converter = new Utilities4Date()
     this._date = converter.fromItalian2AmericanFormat( date)
     this.italianDate = date
 
@@ -121,7 +121,7 @@ get extraction(){
       return Number(e)
     })}
     if(v&&v['date']){
-      const converter = new DateHelpers()
+      const converter = new Utilities4Date()
       this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( v['date'])).getTime()
     }
   }
@@ -153,7 +153,7 @@ get extraction(){
   set italianDate(date:string){
   
    this._italianDate= date
-   const converter = new DateHelpers()
+   const converter = new Utilities4Date()
    this._dateInmsec = new Date(converter.fromItalian2AmericanFormat( date)).getTime()
    
   }

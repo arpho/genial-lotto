@@ -1,10 +1,10 @@
 import { Extraction } from "../models/extractionModel"
-import { DateHelpers } from "../modules/helpers/dateHelper"
+import { Utilities4Date } from "../modules/helpers/dateHelper"
 import { data1, data2, data3, manyIntervals } from "./dataInterval"
 import { IntervalCalculator } from "./intervalCalculator"
 
 
-const sorterDateDescending = DateHelpers.sorterDescendingDate
+const sorterDateDescending = Utilities4Date.sorterDescendingDate
 
 
 describe("IntervalCalculator should instantiate",()=>{

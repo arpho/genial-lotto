@@ -2,7 +2,7 @@ import { AbstractControl } from "@angular/forms";
 import { Extraction } from "../models/extractionModel";
 import { ExtractionService } from "../services/extractions/estrazioni.service";
 import { last, map } from 'rxjs/operators';
-import { DateHelpers } from "../modules/helpers/dateHelper";
+import { Utilities4Date } from "../modules/helpers/dateHelper";
 
 export class asyncDateValidatorFactory{
 
@@ -12,7 +12,7 @@ export class asyncDateValidatorFactory{
     return async (control:AbstractControl)=>{
       console.log("checking",control.value)
 
-      const converter= new DateHelpers()
+      const converter= new Utilities4Date()
       
    const date2Check = converter.fromDatePickerFormat2ItalianFormat(control.value.split('T')[0])
     var result = false

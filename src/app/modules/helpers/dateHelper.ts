@@ -1,6 +1,6 @@
 import { Extraction } from "src/app/models/extractionModel"
 
-export class DateHelpers{
+export class Utilities4Date{
   static getDateListFrom(extractionsItems: Extraction[]): string[] {
    return Array.from(new Set(extractionsItems.map(e=>e.italianDate)))
   }
