@@ -9,4 +9,9 @@ describe("conversion format should work",()=>{
     const test = new DateHelpers()
     expect(test.fromDatePickerFormat2ItalianFormat("2022-05-24")).toBe("24/05/2022")
   })
+  it("add days correctly",()=>{
+    const today = new Date()
+    expect(DateHelpers.addDays2Date(today,2).getDate()).toBe(1)
+    expect(DateHelpers.addDays2Date(today,2).getMonth()).toBe(7)
+  })
 })

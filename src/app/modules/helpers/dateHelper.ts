@@ -16,6 +16,8 @@ export class DateHelpers{
   fromItalian2AmericanFormat(date:string){
     return this.converter(date)
   }
-
+  private static  mSecIn24H= 1000*60*60*24
    static sorterDescendingDate  = (a:Extraction,b:Extraction)=>a.dateInmmsec-b.dateInmmsec
+
+   static addDays2Date=(day:Date,days:number)=> new Date(day.getTime()+this.mSecIn24H*days)
 }
