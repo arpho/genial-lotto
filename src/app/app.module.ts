@@ -35,6 +35,7 @@ import { SuggestedNumbersComponent } from './components/suggested-numbers/sugges
 import { CrudPage } from './pages/extractions/crud/crud.page';
 import { ExtractionFrameComponent } from './components/extraction-frame/extraction-frame.component';
 import { WeelFrameComponent } from './components/weel-frame/weel-frame.component';
+import { FilterPopupPage } from './modules/item/pages/filter-popup/filter-popup.page';
 
 
 
@@ -66,6 +67,7 @@ import { WeelFrameComponent } from './components/weel-frame/weel-frame.component
     CrudPage,
     ExtractionFrameComponent,
     WeelFrameComponent,
+    FilterPopupPage
    ],
   entryComponents: [],
   imports: [
