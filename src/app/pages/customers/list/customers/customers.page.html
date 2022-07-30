@@ -4,6 +4,10 @@
     <ion-buttons slot="start">
       <ion-back-button class="button-clear ion-chevron-left" defaultHref="/home"></ion-back-button>
     </ion-buttons>
+    <div slot="end">
+      <app-items-filter [filterFields]="filterFields" 
+      (filterFunction)="setFilter($event)"></app-items-filter>
+    </div>
   </ion-toolbar>
 </ion-header>
 
