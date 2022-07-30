@@ -5,6 +5,7 @@
       <ion-back-button class="button-clear ion-chevron-left" defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <div slot="end">
+    <ion-icon name="calendar" (click)="expiringCustomers()"></ion-icon>
       <app-items-filter [filterFields]="filterFields" 
       (filterFunction)="setFilter($event)"></app-items-filter>
     </div>
