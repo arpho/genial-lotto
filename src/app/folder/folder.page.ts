@@ -259,12 +259,12 @@ this.initFormFields()
 
   }
 
-  async cookiesLaw(ev: any) {
+  async cookiesLaw() {
     console.log("popover")
     const siteInfo = { id: 1, name: 'edupala' };
     const popover = await this.popoverController.create({
       component: CookiesLawComponent,
-      event: ev,
+      //event: ev,
       cssClass: 'popover_setting',
       componentProps: {
         site: siteInfo
