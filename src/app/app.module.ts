@@ -36,6 +36,7 @@ import { CrudPage } from './pages/extractions/crud/crud.page';
 import { ExtractionFrameComponent } from './components/extraction-frame/extraction-frame.component';
 import { WeelFrameComponent } from './components/weel-frame/weel-frame.component';
 import { FilterPopupPage } from './modules/item/pages/filter-popup/filter-popup.page';
+import { CookiesLawComponent } from './components/cookies-law/cookies-law.component';
 
 
 
@@ -67,7 +68,8 @@ import { FilterPopupPage } from './modules/item/pages/filter-popup/filter-popup.
     CrudPage,
     ExtractionFrameComponent,
     WeelFrameComponent,
-    FilterPopupPage
+    FilterPopupPage,
+    CookiesLawComponent,
    ],
   entryComponents: [],
   imports: [
