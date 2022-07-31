@@ -4,7 +4,11 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ folder }}</ion-title>
-    <app-logout-user slot="end"></app-logout-user>
+
+    
+    <app-logout-user slot="end">
+
+    </app-logout-user>
   </ion-toolbar>
 </ion-header>
 
@@ -77,7 +81,11 @@
 
     </ion-row>
   </ion-grid>
-  <ion-button *ngIf="canAdd"  (click)="addExtraction()"><ion-icon name ="add-circle"></ion-icon></ion-button>
+  <ion-buttons >
+    <ion-button (click)="cookiesLaw()">
+      <ion-icon src="/assets/icon/icons/cookies.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
 
   
 

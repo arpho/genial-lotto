@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Figura } from '../business/figura';
@@ -9,6 +9,7 @@ import { makeData4D3 } from '../business/makeData4D3';
 import { Neutro } from '../business/neutro';
 import { Piu2meno90 } from '../business/piu2meno90';
 import { Vertibile } from '../business/vertibile';
+import { CookiesLawComponent } from '../components/cookies-law/cookies-law.component';
 import { configs } from '../configs/configs';
 import { Extraction } from '../models/extractionModel';
 import { Interval } from '../models/interval';
@@ -78,6 +79,7 @@ export class FolderPage implements OnInit {
   functionsTitle: string[] = this.functionsList.map(f=>f.title)
 
   constructor(
+    private popoverController: PopoverController,
     private authService:AuthService,
     private activatedRoute: ActivatedRoute,
     public estrazioni: ExtractionService,
@@ -223,7 +225,7 @@ export class FolderPage implements OnInit {
     this.messages.subscribeTo("selectedFunction", (transformation: TransformationInterface) => { // we get the selected transformation
       transformation = transformation
     })
-    this.folder = "GeniaLotto"// this.activatedRoute.snapshot.paramMap.get('id');
+    this.folder = "GENIAL LOTTO"// this.activatedRoute.snapshot.paramMap.get('id');
     this.estrazioni.items.subscribe((items) => {
   
       this.estrazioniItems = []
@@ -255,6 +257,21 @@ this.initFormFields()
     })
 
 
+  }
+
+  async cookiesLaw(ev: any) {
+    console.log("popover")
+    const siteInfo = { id: 1, name: 'edupala' };
+    const popover = await this.popoverController.create({
+      component: CookiesLawComponent,
+      event: ev,
+      cssClass: 'popover_setting',
+      componentProps: {
+        site: siteInfo
+      },
+      translucent: true
+    });
+    await popover.present()
   }
 
 }
